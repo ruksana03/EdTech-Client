@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+.section-container {
+  /* @apply max-w-screen-xl mx-auto px-4 md:px-8 lg:px-16 */
+  @apply lg:max-w-[1920px] h-auto mx-auto xl:px-40 w-full
+}
+.title{
+  @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-snug
+}
+.subtitle{
+  @apply text-first tracking-wide text-lg font-semibold uppercase
+}
+.heartStar{
+  border-radius: 0px 28px 0px 28px;
+}
+
+.active{
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  color: #39DB4A;
+}
+.btn-style{
+  @apply bg-first text-white hover:bg-white hover:text-first
+}

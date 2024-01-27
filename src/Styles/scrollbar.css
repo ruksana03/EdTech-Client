@@ -1,0 +1,31 @@
+.custom-scrollbar {
+    overflow-y: scroll;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #0B4534;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #1d201d;
+}
+
+.custom-scrollbar-no-color {
+    overflow-y: scroll;
+}
+
+.custom-scrollbar-no-color::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar-no-color::-webkit-scrollbar-thumb {
+    background-color: #d7e3d8;
+}
+
+.custom-scrollbar-no-color::-webkit-scrollbar-thumb:hover {
+    background-color: #1d201d;
+}
