@@ -18,7 +18,8 @@ const SubNav = () => {
   const dispatch = useDispatch();
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
-  const handleLogout = () => {
+  
+    const handleLogout = () => {
     logOut()
       .then(() => {
         dispatch(logoutUser());
