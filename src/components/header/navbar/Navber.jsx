@@ -19,7 +19,8 @@ const Navbar = ({ children }) => {
   const handleClick = () => {
     setActive(!active)
   }
-  const user = useSelector(state=>state.data.user.user);
+  const user = useSelector(state => state.data.user.user);
+  
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
   const dispatch = useDispatch();

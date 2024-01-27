@@ -37,7 +37,7 @@ const Sidebar = ({ handleClick }) => {
               <RiDeleteBack2Line  />
             </button>
           </div>
-          <li>
+          
             <li>
               <Link to={'/'}>
                 <h1><FaHome/></h1>
@@ -81,7 +81,7 @@ const Sidebar = ({ handleClick }) => {
                 </Link>
               </li>)
             }       
-          </li>
+           
         </ul>
       </div>
     </>
