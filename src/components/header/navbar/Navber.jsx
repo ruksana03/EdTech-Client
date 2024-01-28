@@ -22,7 +22,7 @@ const Navbar = ({ children }) => {
   const user = useSelector(state => state.data.user.user);
   
   const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+  // console.log(isAdmin);
   const dispatch = useDispatch();
   const handleLogout = () => {
     logOut()

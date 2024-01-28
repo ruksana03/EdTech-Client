@@ -40,14 +40,12 @@ const Popular = () => {
 
   // handle side effects
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("http://localhost:5000/popular")
       .then((res) => res.json())
       .then((data) => {
-        const specials = data.filter((item) => item.category === "popular");
-        setPopular(specials);
+        setPopular(data);
       });
   }, []);
-  
 
   // slider settings
   const settings = {
