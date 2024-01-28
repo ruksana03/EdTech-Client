@@ -27,6 +27,7 @@ import MyNotes from "../components/dashboard/notes/MyNotes";
 import CreateNotes from "../components/dashboard/notes/CreateNotes";
 import Liveclass from "../components/dashboard/my class/LiveClass/Liveclass";
 import Support from "../components/dashboard/my class/Support/Support";
+import CardDetails from "../page/detailsPage/CardDetails";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
                 path: '/all-courses',
                 element: <Courses/>
             },
+           
             {
                 path:'/blog',
                 element:<Blog/>,
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
                 path: 'contact',
                 element:<Contact />
             },
+            {
+                path: "/details/:id",
+                element:  <CardDetails/>,
+                loader: ({ params }) =>
+                  fetch(
+                    `http://localhost:5000/courses/${params.id}`
+                  ),
+              },
             {
                 path: '/login',
                 element: <Login></Login>
