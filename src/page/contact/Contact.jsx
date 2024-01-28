@@ -95,7 +95,7 @@ const Contact = () => {
                                 </div>
                             </div>
                             <div className="flex items-end justify-end">
-                                <button className="shadow bg-first hover:bg-[#256330] transition-all focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded text-[17px]" type="submit">
+                                <button className="shadow bg-first hover:bg-[#256330] transition-all focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded-2xl text-[17px]" type="submit">
                                     Send Message
                                 </button>
                             </div>

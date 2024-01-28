@@ -22,7 +22,7 @@ const Navbar = ({ children }) => {
   const user = useSelector(state => state.data.user.user);
   
   const [isAdmin] = useAdmin();
-  // console.log(isAdmin);
+  console.log(isAdmin);
   const dispatch = useDispatch();
   const handleLogout = () => {
     logOut()
@@ -36,13 +36,13 @@ const Navbar = ({ children }) => {
 
   return (
     <>
-      <div className="drawer">
+      <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <div className="w-full navbar flex items-center px-3 justify-between lg:flex-row lg:justify-between border-b dark:border-first dark:bg-zinc-800 bg-base-300 text-white sticky inset-0 z-10 lg:px-40">
+          <div className="w-full section-container navbar flex items-center   justify-between lg:flex-row lg:justify-between border-b dark:border-first dark:bg-zinc-800 bg-base-300 text-white sticky inset-0 z-10  ">
             <div className="flex-none lg:hidden dark:text-white text-black">
-              <div className={`w-72 md:w-96 z-10 h-[100vh] fixed bg-blue-50 dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 bg-white'}`}>
+              <div className={`w-72 md:w-96 z-10 h-[100vh] fixed bg-third dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 bg-white'}`}>
                 <Sidebar handleClick={handleClick} />
               </div>
               <button onClick={handleClick} className="block text-black lg:hidden text-3xl cursor-pointer  dark:text-gray-400" >

@@ -23,7 +23,7 @@ const Sidebar = ({ handleClick }) => {
   return (
     <>
       <div>
-        <ul className="menu dark:bg-zinc-800 bg-blue-50 flex gap-3 items-start pl-12 text-black dark:text-gray-400 relative">
+        <ul className="menu dark:bg-zinc-800 bg-third flex gap-3 items-start pl-12 text-black dark:text-gray-400 relative">
           <div className="absolute right-3 top-2 flex items-center justify-end w-full gap-3">
             <button onClick={changeTheme} className="swap swap-rotate">
               {
