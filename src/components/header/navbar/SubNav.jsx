@@ -17,7 +17,7 @@ const SubNav = () => {
 
   const dispatch = useDispatch();
   const [isAdmin] = useAdmin();
-  // console.log(isAdmin);
+  console.log(isAdmin);
   
     const handleLogout = () => {
     logOut()
@@ -29,7 +29,7 @@ const SubNav = () => {
       });
   };
   return (
-    <div className="bg-[#0B4534] text-white text-sm px-4 flex flex-col lg:flex-row justify-between md:px-10 lg:px-20 py-2">
+    <div className="bg-first text-white  text-sm px-4 flex flex-col lg:flex-row justify-between md:px-10 lg:px-20 py-2">
       <div className="flex flex-col lg:flex-row justify-center items-center gap-6 ">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex justify-center items-center gap-2">
