@@ -1,12 +1,8 @@
- 
-import Navbar from "./navbar/Navber";
 
 const Header = () => {
     return (
         <div>
-            <Navbar>
-               
-            </Navbar>
+            Header
         </div>
     );
 };
