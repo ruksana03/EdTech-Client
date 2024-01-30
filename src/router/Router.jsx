@@ -2,150 +2,182 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "../page/home/Home";
 import ErrorPage from "../page/errorPage/ErrorPage";
-import Blog from "../page/blog/Blog";
-import Contact from "../page/contact/Contact";
 import Courses from "../page/courses/Courses";
 import Login from "../Login and Register/Login";
 import Register from "../Login and Register/Register";
-import BlogHome from "../page/blog/BlogHome";
-import BlogSettings from "../page/blog/BlogSettings";
-import DashboardLayout from "../layout/DashboardLayout";
-import Dashboard from "../components/dashboard/Dashboard";
-import MyClass from "../components/dashboard/my class/MyClass";
 import JoiningTeacher from "../page/home/joining  teacher/JoiningTeacher";
-import MyLabLayout from "../components/dashboard/my lab/MyLabLayout";
-import Science from "../components/dashboard/my lab/lab pages/Science";
-import Math from "../components/dashboard/my lab/lab pages/Math";
-import Coding from "../components/dashboard/my lab/lab pages/Coding";
-import ResearchL from "../components/dashboard/my lab/lab pages/ResearchL";
-import Creative from "../components/dashboard/my lab/lab pages/Creative";
-import AssignmentSection from "../components/dashboard/assignment/AssignmentSection";
-import BookmarkLayout from "../components/dashboard/bookmark/BookmarkLayout";
-import ShowBookmarks from "../components/dashboard/bookmark/ShowBookmarks";
-import NotesLayout from "../components/dashboard/notes/NotesLayout";
-import MyNotes from "../components/dashboard/notes/MyNotes";
-import CreateNotes from "../components/dashboard/notes/CreateNotes";
-import Liveclass from "../components/dashboard/my class/LiveClass/Liveclass";
-import Support from "../components/dashboard/my class/Support/Support";
+import Blog from "../page/blog/Blog";
+import CardDetails from "../page/detailsPage/CardDetails";
+import Contact from "../page/contact/Contact";
+import Notices from "../page/Notices/Notices";
+import DashboardLayout from "../layout/DashboardLayout";
+import Dashboard from "../page/dashboard/Dashboard";
+import PrivateRouter from "./PrivateRouter";
+import UserProfile from "../page/dashboard/UserProfile";
+import AllUser from "../page/dashboard/Users/AllUser";
+import AdminRouter from "./AdminRouter";
+import NotesLayout from "../page/dashboard/DLayoutList/NotesLayout";
+import MyNotes from "../page/dashboard/notes/MyNotes";
+import CreateNotes from "../page/dashboard/notes/CreateNotes";
+import MyClass from "../page/dashboard/my class/MyClass";
+import Liveclass from "../page/dashboard/my class/LiveClass/Liveclass";
+import Support from "../page/dashboard/my class/Support/Support";
+import MyLabLayout from "../page/dashboard/DLayoutList/MyLabLayout";
+import Science from "../page/dashboard/my lab/lab pages/Science";
+import Math from "../page/dashboard/my lab/lab pages/Math";
+import Coding from "../page/dashboard/my lab/lab pages/Coding";
+import ResearchL from "../page/dashboard/my lab/lab pages/ResearchL";
+import Creative from "../page/dashboard/my lab/lab pages/Creative";
+import Resources from "../page/dashboard/Student/Resources";
+import Recommended from "../page/dashboard/Student/Recommended";
+
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
-        errorElement:<ErrorPage/>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
-                element:<Home/>
+                element: <Home />
             },
             {
                 path: '/all-courses',
-                element: <Courses/>
+                element: <Courses />
             },
             {
-                path:'/blog',
-                element:<Blog/>,
-                children:[
-                    {
-                        path:'/blog',
-                        element:<BlogHome/>
-                    },
-                    {
-                        path:'blog-settings',
-                        element:<BlogSettings/>
-                    }
-                ]
+                path: '/blog',
+                element: <Blog />,
+                // children: [
+                //     {
+                //         path: '/blog',
+                //         element: <BlogHome />
+                //     },
+                //     {
+                //         path: 'blog-settings',
+                //         element: <BlogSettings />
+                //     }
+                // ]
 
             },
             {
                 path: 'contact',
-                element:<Contact />
+                element: <Contact />
+            },
+            {
+                path: "/details/:id",
+                element: <PrivateRouter><CardDetails /></PrivateRouter>,
+                loader: ({ params }) =>
+                    fetch(
+                        `http://localhost:5000/courses/${params.id}`
+                    ),
             },
             {
                 path: '/login',
-                element: <Login></Login>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register></Register>
+                element: <Register />
             },
             {
                 path: 'join-teacher',
-                element:<JoiningTeacher />
+                element: <JoiningTeacher />
             },
+            {
+                path: 'notices',
+                element: <Notices />
+            }
         ]
     },
     {
-        path:'/dashboard',
+        path: '/dashboard',
         element: <DashboardLayout />,
         children: [
             {
-                path:'dashboard',
-                element: <Dashboard/>
+                path: 'dashboard',
+                element: <Dashboard />
             },
             {
-                path:'my-class',
+                path: 'profile',
+                element: <UserProfile />
+            },
+            {
+                path: 'my-class',
                 element: <MyClass />,
-                children:[{
-                    path:'liveclss',
-                    element:<Liveclass></Liveclass>
+                children: [{
+                    path: 'liveclss',
+                    element: <Liveclass></Liveclass>
                 },
-            
+
                 {
-                    path:'support',
-                    element:<Support></Support>
+                    path: 'support',
+                    element: <Support></Support>
                 },
-            
-            ]
+
+                ]
             },
             {
-                path:'my-lab',
+                path: 'my-lab',
                 element: <MyLabLayout />,
                 children: [
                     {
-                        path:'science-lab',
+                        path: 'science-lab',
                         element: <Science />
                     },
                     {
-                        path:'math-lab',
+                        path: 'math-lab',
                         element: <Math />
                     },
                     {
-                        path:'coding-lab',
+                        path: 'coding-lab',
                         element: <Coding />
                     },
                     {
-                        path:'research-lab',
+                        path: 'research-lab',
                         element: <ResearchL />
                     },
                     {
-                        path:'creative-lab',
+                        path: 'creative-lab',
                         element: <Creative />
                     },
                 ]
             },
             {
-                path:'research',
-                element: <ResearchL />,
+                path: 'resources',
+                element: <Resources />
             },
             {
-                path:'assignment',
-                element: <AssignmentSection />,
-            },
-           
-            {
-                path:'bookmarks',
-                element: <BookmarkLayout />,
-                children: [
-                    {
-                        path: 'show-bookmarks',
-                        element:<ShowBookmarks />
-                    }
-                ]
+                path: 'recommended',
+                element: <Recommended />
             },
             {
-                path:'notes',
+                path: 'allUsers',
+                element: <AdminRouter><AllUser /></AdminRouter>
+            },
+            //             {
+            //                 path: 'research',
+            //                 element: <ResearchL />,
+            //             },
+            //             {
+            //                 path: 'assignment',
+            //                 element: <AssignmentSection />,
+            //             },
+
+            //             {
+            //                 path: 'bookmarks',
+            //                 element: <BookmarkLayout />,
+            //                 children: [
+            //                     {
+            //                         path: 'show-bookmarks',
+            //                         element: <ShowBookmarks />
+            //                     }
+            //                 ]
+            //             },
+            {
+                path: 'notes',
                 element: <NotesLayout />,
                 children: [
                     {
@@ -158,6 +190,7 @@ const router = createBrowserRouter([
                     }
                 ]
             },
+
         ]
     }
 ])

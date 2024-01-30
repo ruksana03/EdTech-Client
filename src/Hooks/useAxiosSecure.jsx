@@ -1,10 +1,11 @@
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../Features/Utilities";
+import axiosSecure from "../api/axiosSecure";
 
-const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
-})
+// const axiosSecure = axios.create({
+//     baseURL: 'http://localhost:5000'
+// })
 const useAxiosSecure = () => {
     const navigate = useNavigate();
 

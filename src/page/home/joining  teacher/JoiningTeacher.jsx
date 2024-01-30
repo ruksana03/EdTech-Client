@@ -23,7 +23,7 @@ const JoiningTeacher = () => {
             });
     }
     return (
-        <div className=" dark:text-gray-400 w-full h-full mb-5">
+        <div className=" dark:text-white w-full h-full mb-5">
             <div className="relative w-full h-[55vh]">
                 <img src='https://i.ibb.co/vzrrRb5/teacher-application.jpg' alt="banner-image" className="w-full h-full" />
                 {/* <div className="absolute bg-black opacity-60 w-full h-full top-0"></div> */}

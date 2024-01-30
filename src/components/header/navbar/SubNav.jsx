@@ -54,13 +54,13 @@ const SubNav = () => {
                 {user ?
                     (<button
                         onClick={handleLogout}
-                        className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
+                        className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:font-extrabold rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                         <SlLogout />
                         Logout
                     </button>)
                     :
                     (<Link to={`/login`}>
-                        <button className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
+                        <button className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:font-extrabold rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                             <GrLogin />
                             Login
                         </button>

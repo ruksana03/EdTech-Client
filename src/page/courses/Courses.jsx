@@ -32,12 +32,12 @@ const Courses = () => {
     const filtered =
       selectCategory === "all"
         ? course.filter((item) =>
-            item.name.toLowerCase().includes(searchInput.toLowerCase())
+            item.title.toLowerCase().includes(searchInput.toLowerCase())
           )
         : course
             .filter((item) => item.category === selectCategory)
             .filter((item) =>
-              item.name.toLowerCase().includes(searchInput.toLowerCase())
+              item.title.toLowerCase().includes(searchInput.toLowerCase())
             );
     setFilteredItems(filtered);
     setCurrentPage(1);
@@ -70,10 +70,10 @@ const Courses = () => {
     // logic
     switch (option) {
       case "A-Z":
-        sortedItems.sort((a, b) => a.name.localeCompare(b.name));
+        sortedItems.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "Z-A":
-        sortedItems.sort((a, b) => b.name.localeCompare(a.name));
+        sortedItems.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case "low-to-high":
         sortedItems.sort((a, b) => a.price - b.price);
@@ -207,7 +207,7 @@ const Courses = () => {
           </div>
         </div>
 
-        {/* product card */}
+        {/* classes card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 mb-16">
           {currentItems?.map((item) => (
             <Cards key={item._id} item={item} />
