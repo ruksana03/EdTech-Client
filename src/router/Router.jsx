@@ -47,6 +47,7 @@ const router = createBrowserRouter([
                 path: '/all-courses',
                 element: <Courses />
             },
+           
             {
                 path: '/blog',
                 element: <Blog />,
@@ -74,6 +75,14 @@ const router = createBrowserRouter([
                         `http://localhost:5000/courses/${params.id}`
                     ),
             },
+            {
+                path: "/details/:id",
+                element:  <CardDetails/>,
+                loader: ({ params }) =>
+                  fetch(
+                    `http://localhost:5000/courses/${params.id}`
+                  ),
+              },
             {
                 path: '/login',
                 element: <Login />

@@ -51,9 +51,7 @@ const MainLayout = () => {
   return (
     <div>
       <SubNav />
-
       <Navber />
-
       <Outlet />
       <Footer />
     </div>
