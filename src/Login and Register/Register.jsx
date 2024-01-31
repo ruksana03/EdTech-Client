@@ -17,11 +17,12 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
+        const role = data.role;
         const email = data.email;
         const name = data.name;
         const password = data.password;
         const photo = data.photo;
-        console.log(email, name, password, photo);
+        console.log(role,email, name, password, photo);
 
         createUser(email, password)
             .then((userCredential) => {
@@ -32,7 +33,7 @@ const Register = () => {
                             name: name,
                             email: email,
                             photo: photo,
-                            role: 'normalUser'
+                            role: role,
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
@@ -46,17 +47,17 @@ const Register = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
-                                    
+
                                     navigate('/');
                                     window.location.reload();
                                 }
                             })
                         // console.log("updated successfully");
                         console.log(loggedUser);
-                        
+
                         navigate("/");
                         window.location.reload();
-                        
+
                     })
             })
             .catch((error) => {
@@ -87,6 +88,22 @@ const Register = () => {
                         className="card-body">
                         <h3 className="text-3xl text-green-900 font-bold text-center mb-4">Please Register</h3>
                         <progress className="progress "></progress>
+
+                        {/* Dropdown for selecting role */}
+                        <div className="form-control flex flex-col mt-2">
+                            <label className="label">
+                                <span className="label-text">Role</span>
+                            </label>
+                            <select
+                                {...register('role', { required: true })}
+                                className="input input-bordered mt-2"
+                            >
+                                <option value="">Select Role</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="student">Student</option>
+                            </select>
+                        </div>
+
                         <div className="form-control flex flex-col mt-2">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -106,19 +123,12 @@ const Register = () => {
                             <label className="label mt-2">
                                 <span className="label-text">User Name</span>
                             </label>
-                            
+
                             <input type="text" placeholder="Your Name"
                                 {...register('name', { required: true })}
                                 className="input input-bordered mt-2" />
                         </div>
-                        {/* <div className="form-control flex flex-col mt-2">
-                            <label className="label">
-                                <span className="label-text">Photo URL</span>
-                            </label>
-                            <input type="text" placeholder="Photo URL"
-                                {...register('photo', { required: true })}
-                                className="input input-bordered mt-2" />
-                        </div> */}
+
                         <div className="form-control flex flex-col mt-2">
                             <label className="label">
                                 <span className="label-text">Password</span>
@@ -137,7 +147,7 @@ const Register = () => {
                                 </div>
                             </div>
                         </div>
-                       
+
 
                         {/* <div>
                     {
@@ -145,7 +155,7 @@ const Register = () => {
                     }
 
                     </div> */}
-                        
+
                         <div className="form-control mt-6">
                             <input className="btn btn-style" type="submit" value="Submit" />
                         </div>

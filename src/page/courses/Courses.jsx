@@ -32,12 +32,12 @@ const Courses = () => {
     const filtered =
       selectCategory === "all"
         ? course.filter((item) =>
-            item.name.toLowerCase().includes(searchInput.toLowerCase())
+            item.title.toLowerCase().includes(searchInput.toLowerCase())
           )
         : course
             .filter((item) => item.category === selectCategory)
             .filter((item) =>
-              item.name.toLowerCase().includes(searchInput.toLowerCase())
+              item.title.toLowerCase().includes(searchInput.toLowerCase())
             );
     setFilteredItems(filtered);
     setCurrentPage(1);
@@ -70,10 +70,10 @@ const Courses = () => {
     // logic
     switch (option) {
       case "A-Z":
-        sortedItems.sort((a, b) => a.name.localeCompare(b.name));
+        sortedItems.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "Z-A":
-        sortedItems.sort((a, b) => b.name.localeCompare(a.name));
+        sortedItems.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case "low-to-high":
         sortedItems.sort((a, b) => a.price - b.price);

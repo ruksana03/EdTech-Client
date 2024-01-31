@@ -30,7 +30,7 @@ const PostedBlogs = () => {
                                 <p className="text-xs font-medium">{data?.host_user}</p>
                                 <p className="text-xs font-medium">Oct 27, 2023 # Member-only</p>
                             </div>
-                            <h1 className="text-xl font-bold my-2">"Lorem ipsum dolor, sit amet consectetur adipisicing."</h1>
+                            <h1 className="text-xl font-bold my-2">Lorem ipsum dolor, sit amet consectetur adipisicing.</h1>
                             <div className="flex">
                                 <p className="overflow-hidden overflow-ellipsis line-clamp-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tempora ipsum praesentium non autem at quibusdam distinctio quidem ipsam voluptatem officiis quae numquam nisi, temporibus enim ipsa labore magnam nihil alias? Beatae!</p>
                                 <img className="h-20 w-full" src={data?.post_image} alt="post-image" />

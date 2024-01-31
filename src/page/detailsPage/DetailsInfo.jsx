@@ -8,6 +8,7 @@ import Loader from "../../components/shared/Loader";
 
 const DetailsInfo = ({ detailInfo }) => {
   const { title, image, price, details, name, email } = detailInfo || {};
+ 
   console.log(detailInfo);
    
   
