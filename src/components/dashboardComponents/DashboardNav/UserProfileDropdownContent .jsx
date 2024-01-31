@@ -6,7 +6,7 @@ import { PiSignOutFill } from "react-icons/pi";
 const UserProfileDropdownContent = ({ user, handleLogout }) => {
     console.log(user)
     return (
-        <ul className="p-2 shadow menu dropdown-content z-1 bg-base-100 rounded-box w-56 h-auto relative mt-3 -right-1 md:-right-0 lg:-right-2">
+        <ul className="text-black p-2 shadow menu dropdown-content z-1 bg-base-100 rounded-box w-56 h-auto relative mt-3 -right-1 md:-right-0 lg:-right-2">
             <small className="text-[14px] my-1">welecome to Innavate Edu... </small>
             <div className="flex items-center gap-5">
                 <div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "../page/home/Home";
@@ -14,8 +15,6 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../page/dashboard/Dashboard";
 import PrivateRouter from "./PrivateRouter";
 import UserProfile from "../page/dashboard/UserProfile";
-import AllUser from "../page/dashboard/Users/AllUser";
-import AdminRouter from "./AdminRouter";
 import NotesLayout from "../page/dashboard/DLayoutList/NotesLayout";
 import MyNotes from "../page/dashboard/notes/MyNotes";
 import CreateNotes from "../page/dashboard/notes/CreateNotes";
@@ -30,6 +29,12 @@ import ResearchL from "../page/dashboard/my lab/lab pages/ResearchL";
 import Creative from "../page/dashboard/my lab/lab pages/Creative";
 import Resources from "../page/dashboard/Student/Resources";
 import Recommended from "../page/dashboard/Student/Recommended";
+import AllUser from "../page/dashboard/Admin/Users/AllUser";
+import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
+import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
+import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
+import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
+import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
 
 
 
@@ -47,7 +52,7 @@ const router = createBrowserRouter([
                 path: '/all-courses',
                 element: <Courses />
             },
-           
+
             {
                 path: '/blog',
                 element: <Blog />,
@@ -98,14 +103,30 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <DashboardLayout />,
         children: [
+
+            // admin routes 
+
             {
-                path: 'dashboard',
-                element: <Dashboard />
+                path: 'allUsers',
+                element: <AllUser />
             },
             {
-                path: 'profile',
-                element: <UserProfile />
+                path: 'allNotices',
+                element: <AllNotices />
             },
+            {
+                path: 'allBlogs',
+                element: <AllBlogs />
+            },
+            {
+                path: 'allCourses',
+                element: <AllCourses />
+            },
+            {
+                path: 'allPaymentInfo',
+                element: <AllPaymentInfo />
+            },
+            // Student route 
             {
                 path: 'my-class',
                 element: <MyClass />,
@@ -155,10 +176,12 @@ const router = createBrowserRouter([
                 path: 'recommended',
                 element: <Recommended />
             },
+            // teachers route 
             {
-                path: 'allUsers',
-                element: <AdminRouter><AllUser /></AdminRouter>
+                path: 'post-resources',
+                element: <PostResources />
             },
+
             //             {
             //                 path: 'research',
             //                 element: <ResearchL />,
@@ -178,6 +201,16 @@ const router = createBrowserRouter([
             //                     }
             //                 ]
             //             },
+
+            // common route 
+            {
+                path: 'dashboard',
+                element: <Dashboard />
+            },
+            {
+                path: 'profile',
+                element: <UserProfile />
+            },
             {
                 path: 'notes',
                 element: <NotesLayout />,
