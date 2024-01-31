@@ -11,42 +11,40 @@ import SubNav from "../components/header/navbar/SubNav";
 import { Outlet } from "react-router-dom";
 import Navber from "../components/header/navbar/Navber";
 import Footer from "../components/shared/Footer";
-
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const MainLayout = () => {
-
   const dispatch = useDispatch();
   const axiosPublic = useAxiosPublic();
+  
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
-
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        dispatch(loginUser({
-          name: currentUser.displayName,
-          email: currentUser.email,
-          photo: currentUser.photoURL
-        }));
-        const userInfo = { email: currentUser.email };
-        axiosPublic.post('/jwt', userInfo)
-          .then(res => {
-            if (res.data.token) {
-              localStorage.setItem('access-token', res.data.token);
-              dispatch(setLoading(false));
-            }
+        dispatch(
+          loginUser({
+            name: currentUser.displayName,
+            email: currentUser.email,
+            photo: currentUser.photoURL,
           })
-      }
-      else {
+        );
+        const userInfo = { email: currentUser.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+            dispatch(setLoading(false));
+          }
+        });
+      } else {
         // Remove token
-        localStorage.removeItem('access-token');
+        localStorage.removeItem("access-token");
         dispatch(setLoading(false));
       }
-
-    })
+    });
     return () => {
       return unsubscribe;
-    }
-  }, [dispatch, axiosPublic])
+    };
+  }, [dispatch, axiosPublic]);
 
   return (
     <div>
@@ -54,6 +52,7 @@ const MainLayout = () => {
       <Navber />
       <Outlet />
       <Footer />
+      <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" />
     </div>
   );
 };
