@@ -31,9 +31,9 @@ const Sidebar = ({ handleClick }) => {
     return (
      
             <div className="pt-16 menu dark:bg-zinc-800 dark:text-white bg-fourth flex gap-3 items-start pl-12 text-black  h-screen relative">
-                <div className="absolute right-3 top-2 flex items-center justify-end w-full gap-3 py-2 pr-4 dark:text-white bg-first text-white">
+                <div className="absolute right-1 top-0 flex items-center justify-end w-full gap-3 py-2 pr-4 dark:text-white bg-first text-white">
                     <button onClick={changeTheme} className="swap swap-rotate">
-                        {mode === "dark" ? <FiSun className="w-8 h-8 text-white" /> : <MdOutlineDarkMode className="w-8 h-8 text-black" />}
+                        {mode === "dark" ? <FiSun className="w-8 h-8 text-white" /> : <MdOutlineDarkMode className="w-8 h-8 text-white" />}
                     </button>
                     <button onClick={handleClick} className="text-2xl ">
                         <RiDeleteBack2Line />

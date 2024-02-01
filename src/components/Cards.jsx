@@ -7,7 +7,7 @@ const Cards = ({ item }) => {
   return (
     <div data-aos="flip-right"
     data-aos-easing="ease-out-cubic"
-    data-aos-duration="2000" className="card bg-base-100 shadow-xl relative mx-4 border border-emerald-950 h-96">
+    data-aos-duration="2000" className="card bg-base-100  dark:bg-zinc-800 dark:text-gray-400 dark:border-white shadow-xl relative mx-4 border border-emerald-950 h-96">
       <figure>
         <img
           src={image}
@@ -25,7 +25,7 @@ const Cards = ({ item }) => {
           <h5 className="font-semibold">$ {price}</h5>
           <Link to={`/details/${_id}`}>
             {" "}
-            <button className="px-4 py-2 btn-style rounded-2xl">Details</button>
+            <button className="px-4 py-2 btn-style rounded-2xl ">Details</button>
           </Link>
         </div>
       </div>

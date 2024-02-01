@@ -13,7 +13,7 @@ const Teacher = () => {
   };
 
   return (
-    <div className='w-full section-container mx-auto border rounded-lg flex flex-col items-center justify-center my-12'>
+    <div className='w-full section-container mx-auto rounded-lg flex flex-col items-center justify-center my-12'>
       {/* First Section */}
       <div className='w-full h-auto flex items-center justify-center flex-col md:flex-row lg:flex-row lg:justify-evenly bg-gradient-to-b from-third to-second dark:from-black dark:to-gray-800'>
         <div className='w-full h-full md:w-1/2 relative overflow-hidden'>

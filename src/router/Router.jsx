@@ -10,7 +10,6 @@ import JoiningTeacher from "../page/home/joining  teacher/JoiningTeacher";
 import Blog from "../page/blog/Blog";
 import CardDetails from "../page/detailsPage/CardDetails";
 import Contact from "../page/contact/Contact";
-import Notices from "../page/Notices/Notices";
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../page/dashboard/Dashboard";
 import PrivateRouter from "./PrivateRouter";
@@ -30,11 +29,14 @@ import Creative from "../page/dashboard/my lab/lab pages/Creative";
 import Resources from "../page/dashboard/Student/Resources";
 import Recommended from "../page/dashboard/Student/Recommended";
 import AllUser from "../page/dashboard/Admin/Users/AllUser";
-import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
 import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
 import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
+import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
+import NoticeDetails from './../page/dashboard/Admin/AllNotices/details/NoticeDetails';
+import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
+
 
 
 
@@ -93,10 +95,10 @@ const router = createBrowserRouter([
                 path: 'join-teacher',
                 element: <JoiningTeacher />
             },
-            {
-                path: 'notices',
-                element: <Notices />
-            }
+            // {
+            //     path: 'notices',
+            //     element: <Notices />
+            // }
         ]
     },
     {
@@ -112,7 +114,17 @@ const router = createBrowserRouter([
             },
             {
                 path: 'allNotices',
-                element: <AllNotices />
+                element:<AllNotices />
+            },
+            {
+                path: 'notice-details/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
+                element:<NoticeDetails />
+            },
+            {
+                path: 'notice-updated/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
+                element:<UpdateNotice />
             },
             {
                 path: 'allBlogs',

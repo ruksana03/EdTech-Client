@@ -23,5 +23,5 @@ body {
   color: #56A13C;
 }
 .btn-style{
-  @apply bg-first text-white hover:bg-white hover:text-first
+  @apply bg-first text-white hover:bg-white hover:text-first dark:bg-transparent dark:text-white dark:hover:text-green-500
 }

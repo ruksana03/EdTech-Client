@@ -39,9 +39,9 @@ const Navbar = ({ children }) => {
         <>
             <div className="drawer ">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col">
+                <div className="drawer-content flex flex-col dark:bg-zinc-800 bg-base-300 text-white">
                     {/* Navbar */}
-                    <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between border-b dark:border-first dark:bg-zinc-800 bg-base-300 text-white sticky inset-0 z-10  ">
+                    <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between border-b dark:border-first sticky inset-0 z-10 ">
                         <div className="flex-none lg:hidden dark:text-white text-black">
                             <div className={`w-72 md:w-96 z-10 h-[100vh] fixed bg-third dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 bg-white'}`}>
                                 <Sidebar handleClick={handleClick} />
@@ -115,7 +115,7 @@ const Navbar = ({ children }) => {
                                                         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-black rounded-box w-44 relative right-1">
                                                         <li>
                                                             <Link to='/dashboard/dashboard'
-                                                                className="text-[18px] font-medium px-4 py-2 duration-200 transform text-black hover:bg-transparent hover:text-red-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
+                                                                className="text-[18px] font-medium px-4 py-2 duration-200 transform text-black hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                                                                 Dashboard
                                                             </Link>
                                                         </li>
