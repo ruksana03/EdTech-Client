@@ -2,7 +2,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Elements } from "@stripe/react-stripe-js";
 import { Fragment } from "react";
- import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../form/CheckoutForm";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);

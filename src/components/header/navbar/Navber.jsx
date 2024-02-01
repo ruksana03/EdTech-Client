@@ -21,7 +21,7 @@ const Navbar = ({ children }) => {
         setActive(!active)
     }
     const user = useSelector(state => state.data.user.user);
-
+    console.log(user)
     const [isAdmin] = useAdmin();
     console.log(isAdmin);
     const dispatch = useDispatch();
