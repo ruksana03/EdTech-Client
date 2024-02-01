@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosSecure = axios.create({
-    baseURL:'http://localhost:5000',
+    baseURL:'https://ed-tech-server-six.vercel.app',
     withCredentials:true,
 })
 export default axiosSecure

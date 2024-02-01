@@ -72,7 +72,7 @@ const router = createBrowserRouter([
                 element: <PrivateRouter><CardDetails /></PrivateRouter>,
                 loader: ({ params }) =>
                     fetch(
-                        `http://localhost:5000/courses/${params.id}`
+                        `https://ed-tech-server-six.vercel.app/courses/${params.id}`
                     ),
             },
 
