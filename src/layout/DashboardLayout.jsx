@@ -51,7 +51,9 @@ const DashboardLayout = () => {
   return (
     <>
       <DNavbar />
-      <div className={`flex justify-between bg-white dark:bg-zinc-800 dark:text-gray-400  py-[10px] w-[calc(100%-250px)] ${isActive ? 'transition-all duration-200 w-[calc(100%-100px)]' : 'w-[calc(100%-250px)]'} float-right px-5 border-l`}>
+      <div className={`flex justify-between bg-white dark:bg-zinc-800 dark:text-gray-400  py-[10px] w-[calc(100%-250px)] ${isActive ? 'transition-all duration-200 w-[calc(100%-120px)] ' : 'w-[calc(100%-250px)]'} float-right px-5 border-l`}>
+      {/* <div className={`bg-[#f1f5f9] dark:bg-zinc-800 dark:text-gray-400 w-full h-screen ${isActive ? ' md:ml-[250px] md:w-[calc(100%-250px)] lg:ml-[48px] lg:w-[calc(100%-48px)] transition-all duration-200 ' : 'ml-[48px] w-[calc(100%-48px)] md:ml-[48px] md:w-[calc(100%-48px)] lg:ml-[250px] lg:w-[calc(100%-250px)]'}`}> */}
+
         <div className="border-1 border-black">
           <DSidebar handleReverse={handleReverse} isActive={isActive} setIsActive={setIsActive} />
         </div>
