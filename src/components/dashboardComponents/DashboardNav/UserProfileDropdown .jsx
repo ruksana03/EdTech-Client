@@ -2,11 +2,12 @@
 import UserProfileDropdownContent from "./UserProfileDropdownContent ";
 
 const UserProfileDropdown = ({ user, handleLogout }) => {
+    console.log(user)
     return (
         <details className="dropdown">
             <summary className="m-1">
                 {/* User Avatar */}
-                <div className="avatar">
+                <div className="avatar text-black">
                     <div className="w-8">
                         {user ? (
                             <img src={user?.photo} className="w-8 h-8 rounded-full cursor-pointer" alt="User" />

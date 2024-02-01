@@ -21,7 +21,7 @@ const Team = () => {
             className="w-16 h-16 rounded-full  mx-auto "
             alt="Atia roksana photo "
           />
-          <h3 className="text-center font-medium mt-1">Atia Roksana</h3>
+          <h3 className="text-center font-medium mt-1">Ruksana</h3>
           <p className="font-medium">FrontEnd Developer</p>
         </div>
         <div className="border card border-black p-6 shadow-md">
