@@ -49,7 +49,7 @@ console.log('by default data count---->',noticesData?.length);
                 </div>
             </div>
             <form className='flex items-center justify-start gap-8 w-full my-5 px-5'>
-                <select onChange={() => setSearch2(event.target.value)} className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name='select'>
+                <select onChange={() => setSearch2(event.target.value)} className=" w-44 border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name='select'>
                     <option disabled selected>Date filter</option>
                     {notices?.map(noti => <option key={noti?._id} defaultValue={noti?.date}>
                         {noti?.date?.slice(0, 10)}</option>)}

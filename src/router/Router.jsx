@@ -36,6 +36,8 @@ import PostResources from "../page/dashboard/Teacher/PostResources/PostResources
 import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import NoticeDetails from './../page/dashboard/Admin/AllNotices/details/NoticeDetails';
 import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
+import NoticeHome from "../page/Notices/NoticeHome";
+import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
 
 
 
@@ -95,10 +97,14 @@ const router = createBrowserRouter([
                 path: 'join-teacher',
                 element: <JoiningTeacher />
             },
-            // {
-            //     path: 'notices',
-            //     element: <Notices />
-            // }
+            {
+                path: 'notices',
+                element: <NoticeHome />
+            },
+            {
+                path: 'notice-details',
+                element: <NoticeHomeDetails />
+            },
         ]
     },
     {
