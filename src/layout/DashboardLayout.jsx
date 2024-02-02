@@ -19,6 +19,7 @@ import { logOut } from "../Features/Utilities";
 import { logoutUser } from "../Features/UserSlice";
 // import { BiLogOut } from "react-icons/bi";
 import { PiSignOutFill } from "react-icons/pi";
+import { GrResources } from "react-icons/gr";
 
 
 
@@ -68,6 +69,10 @@ const DashboardLayout = () => {
                             <DmanuList address={'my-lab'} linkTitle={'My Lab'} icon={ImLab} />
                             <DmanuList address={'bookmarks'} linkTitle={'Bookmark'} icon={MdBookmarks} />
                             <DmanuList address={'notes'} linkTitle={'Notes'} icon={GrNotes} />
+                            {/* <DmanuList address={'resource'} linkTitle={'Resource'} icon={GrResources} /> */}
+                            <DmanuList address={'practise'} linkTitle={'Resource'} icon={GrResources} />
+                            {/* <DmanuList address={'pdfviewer'} linkTitle={'pdfviewer'} icon={GrResources} /> */}
+                            
                         </div>
                     </div>
                 </div>

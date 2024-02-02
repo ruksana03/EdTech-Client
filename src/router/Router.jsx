@@ -28,6 +28,9 @@ import CreateNotes from "../components/dashboard/notes/CreateNotes";
 import Liveclass from "../components/dashboard/my class/LiveClass/Liveclass";
 import Support from "../components/dashboard/my class/Support/Support";
 import CardDetails from "../page/detailsPage/CardDetails";
+import Resource from "../components/dashboard/Resource/Resource";
+import Practise from "../components/dashboard/Resource/Practise";
+import PdfViewer from "../components/dashboard/Resource/PdfViewer";
 
 
 const router = createBrowserRouter([
@@ -143,6 +146,18 @@ const router = createBrowserRouter([
                 path:'assignment',
                 element: <AssignmentSection />,
             },
+            {
+                path: 'resource',
+                element: <Resource></Resource>
+            },
+            {
+                path: 'practise',
+                element: <Practise></Practise>
+            },
+            // {
+            //     path: 'pdfviewer',
+            //     element: <PdfViewer></PdfViewer>
+            // },
            
             {
                 path:'bookmarks',
@@ -165,7 +180,8 @@ const router = createBrowserRouter([
                     {
                         path: 'create-notes',
                         element: <CreateNotes />
-                    }
+                    },
+                   
                 ]
             },
         ]
