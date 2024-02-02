@@ -10,7 +10,6 @@ import JoiningTeacher from "../page/home/joining  teacher/JoiningTeacher";
 import Blog from "../page/blog/Blog";
 import CardDetails from "../page/detailsPage/CardDetails";
 import Contact from "../page/contact/Contact";
-import Notices from "../page/Notices/Notices";
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../page/dashboard/Dashboard";
 import PrivateRouter from "./PrivateRouter";
@@ -30,11 +29,21 @@ import Creative from "../page/dashboard/my lab/lab pages/Creative";
 import Resources from "../page/dashboard/Student/Resources";
 import Recommended from "../page/dashboard/Student/Recommended";
 import AllUser from "../page/dashboard/Admin/Users/AllUser";
-import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
 import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
 import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
+import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
+import NoticeDetails from './../page/dashboard/Admin/AllNotices/details/NoticeDetails';
+import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
+import BlogHome from "../page/blog/BlogHome";
+import WriteBlog from "../page/blog/WriteBlog";
+import BlogProfile from "../page/blog/BlogProfile";
+import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
+import NoticeHome from "../page/Notices/NoticeHome";
+import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
+import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
+
 
 
 
@@ -95,9 +104,36 @@ const router = createBrowserRouter([
             },
             {
                 path: 'notices',
-                element: <Notices />
+                element: <NoticeHome/>
+            },
+            {
+                path: 'notice-details',
+                element: <NoticeHomeDetails />
+            },
+        ]
+    },
+    {
+        path: '/blog',
+        element: <Blog />,
+        children: [
+            {
+                path: '/blog',
+                element: <BlogHome />
+            },
+            {
+                path:'new-blog',
+                element:<WriteBlog/>
+            },
+            {
+                path:'blog-profile',
+                element:<BlogProfile/>
+            },
+            {
+                // path: 'blog-settings',
+                // element: <BlogSettings />
             }
         ]
+
     },
     {
         path: '/dashboard',
@@ -112,7 +148,17 @@ const router = createBrowserRouter([
             },
             {
                 path: 'allNotices',
-                element: <AllNotices />
+                element:<AllNotices />
+            },
+            {
+                path: 'notice-details/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
+                element:<NoticeDetails />
+            },
+            {
+                path: 'notice-updated/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
+                element:<UpdateNotice />
             },
             {
                 path: 'allBlogs',
@@ -138,6 +184,17 @@ const router = createBrowserRouter([
                 {
                     path: 'support',
                     element: <Support></Support>
+                },
+                {
+                    path:'recordedclass',
+                    element:<RecordedClass></RecordedClass>
+                   
+                },
+                {
+                    path:'recordedclass/:courseName',
+                    element:<RecordVideo></RecordVideo>,
+                    
+                   
                 },
 
                 ]
