@@ -15,7 +15,7 @@ const Teacher = () => {
   return (
     <div className='w-full section-container mx-auto border rounded-lg flex flex-col items-center justify-center my-12'>
       {/* First Section */}
-      <div className='w-full h-auto flex items-center justify-center flex-col md:flex-row lg:flex-row lg:justify-evenly bg-gradient-to-b from-third to-second dark:from-black dark:to-gray-800'>
+      <div className='w-full h-auto flex items-center justify-center flex-col md:flex-row lg:flex-row lg:justify-evenly bg-gradient-to-b from-third to-first dark:from-black dark:to-gray-800'>
         <div className='w-full h-full md:w-1/2 relative overflow-hidden'>
           {/* Parallax Image 1 */}
           <img
@@ -40,7 +40,7 @@ const Teacher = () => {
       </div>
 
       {/* Second Section */}
-      <div className='w-full h-auto flex items-center justify-center flex-col md:flex-row-reverse lg:flex-row-reverse bg-gradient-to-b from-second to-third dark:from-black dark:to-gray-800 '>
+      <div className='w-full h-auto flex items-center justify-center flex-col md:flex-row-reverse lg:flex-row-reverse bg-gradient-to-b from-first to-third dark:from-black dark:to-gray-800 '>
         <div className='w-full h-full md:w-1/2 relative overflow-hidden'>
           {/* Parallax Image 2 */}
           <img
