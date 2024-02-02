@@ -1,9 +1,5 @@
-
-// import { AiFillDelete } from "react-icons/ai";
-// import { GrDocumentUpdate } from "react-icons/gr";
-// import { HiViewfinderCircle } from "react-icons/hi2";
-// import useUsers from "../../../../Hooks/useUsers";
-
+// import { MdDelete } from 'react-icons/md';
+// import useUsers from '../../../../Hooks/useUsers';
 
 // const AllUser = () => {
 //     const { AllUsers, loading } = useUsers();
