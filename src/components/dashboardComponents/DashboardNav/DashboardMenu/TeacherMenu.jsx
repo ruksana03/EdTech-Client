@@ -10,6 +10,8 @@ const TeacherMenu = ({ isActive }) => {
         <MdOutlineDashboardCustomize key={teacherLinks[0]} />];
 
     const location = useLocation();
+
+    console.log(isActive);
     return (
         <div className="">
         {teacherLinks.map((link, index) => (

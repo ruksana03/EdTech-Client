@@ -40,7 +40,7 @@ const Popular = () => {
 
   // handle side effects
   useEffect(() => {
-    fetch("https://ed-tech-server-six.vercel.app/popular")
+    fetch("http://localhost:5000/popular")
       .then((res) => res.json())
       .then((data) => {
         setPopular(data);
