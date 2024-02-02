@@ -35,6 +35,8 @@ import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
 import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
 import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
+import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
+import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
 
 
 
@@ -138,6 +140,17 @@ const router = createBrowserRouter([
                 {
                     path: 'support',
                     element: <Support></Support>
+                },
+                {
+                    path:'recordedclass',
+                    element:<RecordedClass></RecordedClass>
+                   
+                },
+                {
+                    path:'recordedclass/:courseName',
+                    element:<RecordVideo></RecordVideo>,
+                    
+                   
                 },
 
                 ]
