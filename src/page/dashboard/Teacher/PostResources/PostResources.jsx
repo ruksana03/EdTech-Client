@@ -9,7 +9,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
     import.meta.url,
   ).toString();
-  
+
 const PostResources = () => {
 
     const user = useSelector(state => state.data.user.user);
@@ -48,7 +48,7 @@ const PostResources = () => {
     }
 
     const showPdf = (pdf) => {
-        window.open(`http://localhost:5000/files/${pdf}`)
+        window.open(`https://ed-tech-server-six.vercel.app/files/${pdf}`)
     }
 
     
