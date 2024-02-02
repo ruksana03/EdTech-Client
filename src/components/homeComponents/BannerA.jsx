@@ -12,7 +12,7 @@ const BannerA = () => {
   return (
     <div className="relative bg-cover bg-center h-screen flex items-center">
       <div
-        className="absolute  inset-0"
+        className="absolute  inset-0 dark:opacity-10 "
         style={{
           backgroundImage: `url('https://i.ibb.co/HYyzSmr/chris-montgomery-smg-Tvepind4-unsplash.jpg')`,
           backgroundAttachment: "fixed",
@@ -29,7 +29,7 @@ const BannerA = () => {
           zIndex: "-1",
         }}
       ></div>
-      <div className=" mx-auto space-y-6  text-center text-black">
+      <div className=" mx-auto space-y-6  text-center text-black dark:text-gray-400">
         <h2 className="text-3xl md:text-5xl font-semibold">
           Begin Your
           <span className="font-bold dark:text-green-500 text-first ml-2">

@@ -9,7 +9,7 @@ const Faq = () => {
 
   return (
     <div className="section-container">
-      <div className="space-y-3 mt-16">
+      <div className="space-y-3 mt-16 dark:text-gray-400">
         <h2 className=" title text-center  ">Frequently Asked Questions</h2>
         <p className="text-center subtitle">
           Explore common questions about InnavatED and discover how our platform
@@ -28,7 +28,7 @@ const Faq = () => {
         {/* accordion */}
         <div className="flex-1">
           <div  data-aos="flip-up"
-            className="collapse collapse-plus bg-third"
+            className="collapse collapse-plus bg-third dark:bg-zinc-700 dark:text-gray-400"
             onClick={() => handleAccordionToggle(1)}
           >
             <input
@@ -52,7 +52,7 @@ const Faq = () => {
             </div>
           </div>
           <div  data-aos="flip-up"
-            className="collapse collapse-plus my-6 bg-third"
+            className="collapse collapse-plus my-6 bg-third dark:bg-zinc-700 dark:text-gray-400"
             onClick={() => handleAccordionToggle(2)}
           >
             <input
@@ -78,7 +78,7 @@ const Faq = () => {
             </div>
           </div>
           <div  data-aos="flip-up"
-            className="collapse collapse-plus bg-third"
+            className="collapse collapse-plus bg-third dark:bg-zinc-700 dark:text-gray-400"
             onClick={() => handleAccordionToggle(3)}
           >
             <input
@@ -102,7 +102,7 @@ const Faq = () => {
             </div>
           </div>
           <div  data-aos="flip-up"
-            className="collapse collapse-plus bg-third mt-6"
+            className="collapse collapse-plus bg-third mt-6 dark:bg-zinc-700 dark:text-gray-400"
             onClick={() => handleAccordionToggle(4)}
           >
             <input

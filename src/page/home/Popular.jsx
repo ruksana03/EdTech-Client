@@ -87,7 +87,7 @@ const Popular = () => {
 
   return (
     <div className="section-container my-20 relative p-5">
-      <div className="text-left">
+      <div className="text-left dark:text-gray-400">
         <h2 className="subtitle">Top Courses</h2>
         <h2 className="title">Explore our Popular Courses </h2>
       </div>
@@ -96,13 +96,13 @@ const Popular = () => {
       <div className="md:absolute right-3 top-8 mb-10 md:mr-16">
         <button
           onClick={() => slider?.current?.slickPrev()}
-          className="btn p-2 rounded-full shadow-md   bg-white text-first "
+          className="btn p-2 rounded-full shadow-md  dark:bg-zinc-800 dark:text-gray-400 dark:hover:text-first  bg-white text-first "
         >
           <FaAngleLeft className="w-8 h-8 p-1" />
         </button>
         <button
           onClick={() => slider?.current?.slickNext()}
-          className="btn shadow-md p-2 bg-white text-first rounded-full ml-3"
+          className="btn shadow-md p-2 bg-white dark:bg-zinc-800 dark:text-gray-400 dark:hover:text-first text-first rounded-full ml-3"
         >
           <FaAngleRight className="w-8 h-8 p-1" />
         </button>

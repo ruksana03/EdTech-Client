@@ -7,7 +7,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: #0B4534;
+    background-color: black;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
