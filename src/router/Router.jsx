@@ -86,7 +86,7 @@ const router = createBrowserRouter([
                 element: <PrivateRouter><CardDetails /></PrivateRouter>,
                 loader: ({ params }) =>
                     fetch(
-                        `https://ed-tech-server-six.vercel.app/courses/${params.id}`
+                        `http://localhost:5000/courses/${params.id}`
                     ),
             },
 
@@ -152,12 +152,12 @@ const router = createBrowserRouter([
             },
             {
                 path: 'notice-details/:id',
-                loader: ({params}) => fetch(`https://ed-tech-server-six.vercel.app/notice/${params.id}`),
+                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
                 element:<NoticeDetails />
             },
             {
                 path: 'notice-updated/:id',
-                loader: ({params}) => fetch(`https://ed-tech-server-six.vercel.app/notice/${params.id}`),
+                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
                 element:<UpdateNotice />
             },
             {

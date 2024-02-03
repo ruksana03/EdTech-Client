@@ -4,30 +4,34 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import PdfView from './PdfView/PdfView';
+import { FaEye, FaTrash } from "react-icons/fa";
+
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
     import.meta.url,
-  ).toString();
+).toString();
 
 const PostResources = () => {
 
     const user = useSelector(state => state.data.user.user);
     const [title, setTitle] = useState("");
     const [file, setFile] = useState("");
+    const [pdfFile, setPdfFile] = useState(null);
     const axiosPublic = useAxiosPublic();
 
     const teacherName = user?.name;
     const teacherEmail = user?.email;
 
-    const { data: allPdf=[], refetch } = useQuery({
+    const { data: allPdf = [], refetch } = useQuery({
         queryKey: ["allPdf"],
         queryFn: async () => {
             const res = await axiosPublic.get("/get-files");
             return res.data.data;
         }
     });
-    
+
 
     console.log(allPdf);
 
@@ -48,10 +52,11 @@ const PostResources = () => {
     }
 
     const showPdf = (pdf) => {
-        window.open(`https://ed-tech-server-six.vercel.app/files/${pdf}`)
+        // window.open(`http://localhost:5000/files/${pdf}`);
+        setPdfFile(`http://localhost:5000/files/${pdf}`);
     }
 
-    
+
     return (
         <div className="mt-12">
             <div className="w-[800px] mx-auto p-6 border border-black rounded-xl flex justify-center">
@@ -94,24 +99,51 @@ const PostResources = () => {
                             onChange={(e) => setFile(e.target.files[0])} />
                     </div>
 
-                    <button className="btn btn-success w-full mt-6" type="submit">Submit</button>
+                    <button className="bg-first text-white text-2xl py-1 rounded-xl w-full mt-6" type="submit">Submit</button>
                 </form>
 
             </div>
-            <div className="flex justify-center items-center gap-12 mt-12">
-                {
-                    allPdf && allPdf.map((pdf) => {
-                        return (
-                            <div key={pdf._id}>
-                                <p>Title: {pdf.title}</p>
-                                <button
-                                onClick={()=>showPdf(pdf.pdf)}
-                                className="btn btn-success">View</button>
-                            </div>
-                        )
-                    })
-                }
+                
+                    
+             
+            <div className="w-[800px] mx-auto p-6 border border-black rounded-xl my-8">
+                <div className="overflow-x-auto">
+                <h1 className='text-center text-4xl text-first font-bold mb-4'>Your Uploaded File</h1>
+                    <table className="table table-zebra border border-black">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th>Teacher Name</th>
+                                <th>File Name</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* row 1 */}
+                            {
+                                allPdf && allPdf.map((pdf) => {
+                                    return (
+                                        <tr key={pdf._id}>
+                                            <td>{pdf.teacherName}</td>
+                                            <td>{pdf.title}</td>
+                                            <td><button
+                                                onClick={() => showPdf(pdf.pdf)}
+                                                className="bg-first text-white p-2 rounded-full text-2xl"><FaEye></FaEye></button></td>
+                                            <td><button
+                                                onClick={() => showPdf(pdf.pdf)}
+                                                className="bg-first text-white p-2 rounded-full text-2xl"><FaTrash></FaTrash></button></td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
+           
+            <PdfView pdfFile={pdfFile}></PdfView>
         </div>
     );
 };
