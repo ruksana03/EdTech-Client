@@ -29,23 +29,22 @@ const DNavbar = () => {
             })
     }
     return (
-       
-         <div className=" flex justify-end items-center text-white gap-5 bg-first">
-         {/* Theme Toggle */}
-         <button onClick={changeTheme} className="swap swap-rotate ">
-             {mode === "dark" ? <FiSun className="w-8 h-8 text-white" /> : <MdOutlineDarkMode className="w-8 h-8 text-black" />}
-         </button>
-         {/* Other Buttons */}
-         <button className="relative">
-             {/* Cart Icon with Notification */}
-             {/* <article className="w-6 h-6 text-white bg-red-400 rounded-full text-base absolute -top-5 left-2">5</article> */}
-             <FaShoppingCart className="text-xl z-10" />
-         </button>
-         <button><IoMdSettings className="text-xl" /></button>
-         <button><HiMiniBellAlert className="text-xl" /></button>
-         {/* User Profile Dropdown */}
-         <UserProfileDropdown user={user} handleLogout={handleLogout} />
-     </div>
+        <div className=" flex justify-end items-center text-white gap-5 w-full ">
+            {/* Theme Toggle */}
+            <button onClick={changeTheme} className="swap swap-rotate ">
+                {mode === "dark" ? <FiSun className="w-8 h-8 text-white" /> : <MdOutlineDarkMode className="w-8 h-8 text-white" />}
+            </button>
+            {/* Other Buttons */}
+            <button className="relative">
+                {/* Cart Icon with Notification */}
+                {/* <article className="w-6 h-6 text-white bg-red-400 rounded-full text-base absolute -top-5 left-2">5</article> */}
+                <FaShoppingCart className="text-xl z-10" />
+            </button>
+            <button><IoMdSettings className="text-xl" /></button>
+            <button><HiMiniBellAlert className="text-xl" /></button>
+            {/* User Profile Dropdown */}
+            <UserProfileDropdown user={user} handleLogout={handleLogout} />
+        </div>
     );
 };
 

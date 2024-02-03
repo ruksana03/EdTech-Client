@@ -18,7 +18,7 @@ const PostedBlogs = () => {
             })
     }, []);
 
-    // console.log(blogData);
+    console.log(blogData);
     return (
         <div className="w-full md:w-10/12 lg:w-10/12 mx-auto pr-4 custom-scrollbar overflow-y-auto max-h-[80vh]">
             <div>
