@@ -11,8 +11,6 @@ const NoticeDetails = () => {
     return (
         <div className={`section-container py-12 bg-[url('https://i.ibb.co/qN8LxhB/notice.jpg')] bg-no-repeat object-fill bg-cover relative z-0`}>
             <div className="bg-black w-full h-full opacity-45 -z-10 absolute top-0 right-0"></div>
-
-            
             <div className="w-2/3 h-auto mx-auto z-10 opacity-100">
                 <figure className="w-full h-[450px] ">
                     <img src={image} alt="image" className="w-full h-full cursor-pointer border" />

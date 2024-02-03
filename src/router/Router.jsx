@@ -37,7 +37,12 @@ import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import NoticeDetails from './../page/dashboard/Admin/AllNotices/details/NoticeDetails';
 import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
 import NoticeHome from "../page/Notices/NoticeHome";
+import BlogHome from "../page/blog/BlogHome";
+import WriteBlog from "../page/blog/WriteBlog";
+import BlogProfile from "../page/blog/BlogProfile";
 import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
+import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
+import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
 
 
 
@@ -81,7 +86,7 @@ const router = createBrowserRouter([
                 element: <PrivateRouter><CardDetails /></PrivateRouter>,
                 loader: ({ params }) =>
                     fetch(
-                        `http://localhost:5000/courses/${params.id}`
+                        `https://ed-tech-server-six.vercel.app/courses/${params.id}`
                     ),
             },
 
@@ -106,6 +111,29 @@ const router = createBrowserRouter([
                 element: <NoticeHomeDetails />
             },
         ]
+    },
+    {
+        path: '/blog',
+        element: <Blog />,
+        children: [
+            {
+                path: '/blog',
+                element: <BlogHome />
+            },
+            {
+                path:'new-blog',
+                element:<WriteBlog/>
+            },
+            {
+                path:'blog-profile',
+                element:<BlogProfile/>
+            },
+            {
+                // path: 'blog-settings',
+                // element: <BlogSettings />
+            }
+        ]
+
     },
     {
         path: '/dashboard',
@@ -156,6 +184,17 @@ const router = createBrowserRouter([
                 {
                     path: 'support',
                     element: <Support></Support>
+                },
+                {
+                    path:'recordedclass',
+                    element:<RecordedClass></RecordedClass>
+                   
+                },
+                {
+                    path:'recordedclass/:courseName',
+                    element:<RecordVideo></RecordVideo>,
+                    
+                   
                 },
 
                 ]

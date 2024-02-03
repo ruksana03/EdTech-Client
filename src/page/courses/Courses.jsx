@@ -16,7 +16,7 @@ const Courses = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:5000/courses");
+        const res = await fetch("https://ed-tech-server-six.vercel.app/courses");
         const data = await res.json();
         //    console.log(data);
         setCourse(data);
