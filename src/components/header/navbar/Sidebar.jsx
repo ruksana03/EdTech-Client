@@ -44,7 +44,7 @@ const Sidebar = ({ handleClick }) => {
                 <ol key={link}>
                     <li style={{
                         padding:location.pathname.startsWith(`${link}`) ? "4px 2px " : "",
-                        border: location.pathname.startsWith(`${link}`) ? "1px solid black" : "", 
+                        border: location.pathname.startsWith(`${link}`) ? "1px solid black " : "dark:1px solid white", 
                         fontWeight: location.pathname.startsWith(`${link}`) ? "bold" : "normal",
                         color: location.pathname.startsWith(`${link}`) ? "black" : "black",
                     }} className="dark:text-white">
@@ -60,7 +60,7 @@ const Sidebar = ({ handleClick }) => {
                     {
                         user ? (
                             <li className={`menu-item ${location.pathname.startsWith('/profile') ? 'active' : ''}`}>
-                                <Link to={'/profile'}>
+                                <Link to={'/dashboard/profile'}>
                                     <h1><ImProfile /></h1>
                                     <p>Profile</p>
                                 </Link>

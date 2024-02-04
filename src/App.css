@@ -7,6 +7,9 @@ body {
   @apply max-w-screen-xl mx-auto px-4 md:px-8 lg:px-16
   
 }
+.linear-text {
+   @apply text-5xl p-4 text-center font-bold from-[#0b4534] via-[#e5e6e6] to-[#56A13C] bg-gradient-to-r bg-clip-text text-transparent
+}
 .title{
   @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-snug
 }
