@@ -43,6 +43,8 @@ import NoticeHome from "../page/Notices/NoticeHome";
 import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
 import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
 import DashboardLayout2 from "../layout/DashboardLayout2";
+import CreateNotice from "../page/dashboard/Teacher/noticeCreate/CreateNotice";
+import Notices from "../page/home/userNotice/Notices";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 
@@ -79,9 +81,18 @@ const router = createBrowserRouter([
 
             },
             {
+                path: 'user-notices',
+                element: <Notices />
+            },
+            {
+                path: 'create-notice',
+                element: <PrivateRouter><CreateNotice /></PrivateRouter>
+            },
+            {
                 path: 'contact',
                 element: <Contact />
             },
+     
             {
                 path: "/details/:id",
                 element: <PrivateRouter><CardDetails /></PrivateRouter>,
@@ -108,7 +119,8 @@ const router = createBrowserRouter([
                 element: <NoticeHome/>
             },
             {
-                path: 'notice-details',
+                path: 'notice-details/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/notice-user/${params.id}`),
                 element: <NoticeHomeDetails />
             },
         ]
@@ -265,6 +277,7 @@ const router = createBrowserRouter([
                 path: 'dashboard',
                 element: <Dashboard />
             },
+          
             {
                 path: 'profile',
                 element: <UserProfile />
@@ -285,7 +298,8 @@ const router = createBrowserRouter([
             },
 
         ]
-    }
+    },
+   
 ])
 
 export default router;

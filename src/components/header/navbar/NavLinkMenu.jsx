@@ -11,6 +11,7 @@ const NavLinkMenu = () => {
                     <ManuList address={'blog'} linkTitle={"Blog"}  />
                     <ManuList address={'contact'} linkTitle={"Contact"} />
                     <ManuList address={'notices'} linkTitle={"Notices"} />
+                    <ManuList address={'user-notices'} linkTitle={"User Notices"} />
                 </ul>
             </div>
         </>

@@ -16,8 +16,8 @@ const SubNav = () => {
   const user = useSelector((state) => state.data.user.user);
 
   const dispatch = useDispatch();
-  const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+  // const [isAdmin] = useAdmin();
+  // console.log(isAdmin);
   
     const handleLogout = () => {
     logOut()

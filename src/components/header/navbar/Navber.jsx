@@ -43,8 +43,8 @@ const Navbar = ({ children }) => {
     }
     const user = useSelector(state => state.data.user.user);
     console.log(user)
-    const [isAdmin] = useAdmin();
-    console.log(isAdmin);
+    // const [isAdmin] = useAdmin();
+    // console.log(isAdmin);
     const dispatch = useDispatch();
     const handleLogout = () => {
         logOut()
@@ -63,7 +63,7 @@ const Navbar = ({ children }) => {
                 <div className="drawer-content flex flex-col dark:bg-zinc-800 text-white">
                     {/* Navbar */}
                     {/* <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between border-b dark:border-first sticky inset-0 z-10 "> */}
-                    <div className={` navbar flex items-center lg:px-[370px] px-3 justify-between lg:flex-row lg:justify-between dark:border-first  z-10 ${isScrolled ? "bg-base-100 shadow fixed left-0 right-0 top-0 dark:bg-zinc-700 dark:shadow-md" : " bg-transparent top-12 "}`}>
+                    <div className={` navbar flex items-center lg:px-[370px] px-3 justify-between lg:flex-row lg:justify-between dark:border-first  z-[1] ${isScrolled ? "bg-base-200 shadow fixed left-0 right-0 top-0 dark:bg-zinc-700 dark:shadow-md" : " bg-transparent top-12 "}`}>
                         <div className="flex-none lg:hidden dark:text-white text-black">
                             <div className={`w-72 md:w-96 z-10 h-[100vh] fixed bg-third dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 bg-white'}`}>
                                 <Sidebar handleClick={handleClick} />

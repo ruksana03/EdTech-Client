@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import toast from "react-hot-toast";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
-import { imageUpload } from "../../../../api/getData";
 import Modal from "../../../../components/shared/Modal";
+import { imageUpload } from "../../../../api/getData";
+import { useSelector } from "react-redux";
 
 
 
 const NoticeModal = ({ isOpen, setIsOpen }) => {
     const axiosPublic = useAxiosPublic();
+    const user = useSelector(state => state.data.user.user);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -23,12 +25,15 @@ const NoticeModal = ({ isOpen, setIsOpen }) => {
                 date: new Date(),
                 title,
                 description,
+                role:'student',
                 email,
+                hostName: user?.name,
+                hostEmail: user?.email
             }
             console.log(noticeData);
             axiosPublic.post('/notices', noticeData)
             .then(res => {
-                if(res.data?.insertedId){
+                if(res.data){
                    return toast.success('created successfully')
                 }
             })

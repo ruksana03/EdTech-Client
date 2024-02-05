@@ -48,7 +48,7 @@ const NoticeTable = ({ notice, refetch }) => {
                 </th>
                 <th className='border text-xl md:text-2xl lg:text-2xl text-[#f79a01]'><CiBookmarkCheck /></th>
                 <td className='border'>Admin</td>
-                <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/dashboard/notice-details/${_id}`}>{notice?.title}</Link></td>
+                <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/dashboard/notice-details/${_id}`}>{title}</Link></td>
                 <td className='border'>{date?.slice(0, 10)}</td>
                 <td className='border'>{date?.slice(11, 16)} AM</td>
                 <td>
@@ -56,7 +56,7 @@ const NoticeTable = ({ notice, refetch }) => {
                         <div tabIndex={0} role="button" className="flex items-center justify-center">
                             <BsThreeDots className='text-2xl cursor-pointer' />
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm border dropdown-content mt-12 relative mr-[70px] z-10 p-2 shadow bg-base-100 rounded w-40 overflow-y-auto">
+                        <ul tabIndex={0} className="menu menu-sm border dropdown-content -mt-8 relative mr-[60px] z-0 p-2 shadow bg-base-100 rounded w-40">
                             <li className="flex items-center justify-center gap-2">
                                 <Link to={`/dashboard/notice-updated/${_id}`}>Update <FaEdit /></Link>
                             </li>

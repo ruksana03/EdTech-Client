@@ -5,6 +5,7 @@ import useNoticeSearch from './../../../../Hooks/useNoticeSearch';
 import useNotices from './../../../../Hooks/useNotices';
 import NoticeModal from './NoticeModal';
 import NoticeTable from './NoticeTable';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 
 
 
@@ -17,27 +18,21 @@ const AllNotices = () => {
     const [filterData, setFilterData] = useState([]);
     refetch();
 
-console.log('filter data count---->',filterData?.length);
-console.log('by default data count---->',noticesData?.length);
     useEffect(() => {
         // let noticeIData = [];
         if (noticesData?.length !== 0) {
-            console.log('data er length nai...');
             const findData = noticesData?.filter(item => item?.date?.slice(0, 10) === search2);
             return setFilterData(findData);
         }
         else if(!noticesData?.length > 0) {
             setFilterData(noticesData)
-            console.log('data paici happy hoici.....');
-
 
         }
     }, [search2, noticesData?.length, noticesData])
-    // console.log(noticesData);
 
 
     return (
-        <div className='section-container w-full min-h-[calc(100vh-40px)]' >
+        <div className='section-container w-full min-h-auto -z-10' >
             <NoticeModal isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className='flex items-center justify-between flex-col md:flex-row lg:flex-row shadow-md border my-8 p-5 gap-2'>
                 <div>
@@ -61,9 +56,9 @@ console.log('by default data count---->',noticesData?.length);
                 <hr className='w-[180px] md:w-[200px] lg:w-[260px] h-1 bg-first ' />
             </div>
 
-            <div className='my-10 w-auto h-auto z-0'>
-                <div className="w-auto overflow-x-auto overflow-y-hidden">
-                    <table className="table border w-auto overflow-x-scroll">
+            <div className='my-10 z-0 w-full h-[500px]'>
+                <div className="w-full overflow-x-auto overflow-y-hidden ">
+                    <table className="table border w-full h-full overflow-x-scroll">
                         {/* head */}
                         <thead className='text-base'>
                             <tr>
@@ -76,7 +71,7 @@ console.log('by default data count---->',noticesData?.length);
                                 <th className='p-0'></th>
                             </tr>
                         </thead>
-                        <tbody className=''>
+                        <tbody className=' z-0'>
                             {
                                 filterData?.length === 0 ? noticesData.map(notice => <NoticeTable key={notice?._id} notice={notice} refetch={refetch} />) : filterData.map(notice => <NoticeTable key={notice?._id} notice={notice} refetch={refetch} />)
                             }
