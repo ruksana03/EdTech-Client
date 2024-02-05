@@ -10,7 +10,6 @@ import JoiningTeacher from "../page/home/joining  teacher/JoiningTeacher";
 import Blog from "../page/blog/Blog";
 import CardDetails from "../page/detailsPage/CardDetails";
 import Contact from "../page/contact/Contact";
-import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../page/dashboard/Dashboard";
 import PrivateRouter from "./PrivateRouter";
 import UserProfile from "../page/dashboard/UserProfile";
@@ -43,6 +42,8 @@ import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
 import NoticeHome from "../page/Notices/NoticeHome";
 import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
 import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
+import DashboardLayout2 from "../layout/DashboardLayout2";
+// import DashboardLayout2 from "../layout/DashboardLayout2";
 
 
 
@@ -137,7 +138,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <DashboardLayout2 />,
         children: [
 
             // admin routes 
