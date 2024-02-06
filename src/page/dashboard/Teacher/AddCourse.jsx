@@ -26,6 +26,16 @@ const AddCourse = () => {
       });
 
       if (res.data.success) {
+        const instructors = [];
+        for (let i = 1; i <= 3; i++) {
+          if (data[`instructorName${i}`] && data[`instructorEmail${i}`]) {
+            instructors.push({
+              name: data[`instructorName${i}`],
+              email: data[`instructorEmail${i}`]
+            });
+          }
+        }
+
         const courseItem = {
           title: data.title,
           name: user?.name,
@@ -34,6 +44,9 @@ const AddCourse = () => {
           category: data.category,
           details: data.details,
           image: res.data.data.display_url,
+          instructors: instructors,
+          video: { title: data.videoTitle, link: data.videoLink },
+          requirements: data.requirements
         };
 
         console.log(courseItem);
@@ -49,7 +62,7 @@ const AddCourse = () => {
         }
       }
     } catch (error) {
-      // Handle error, show toast, etc.
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -117,6 +130,71 @@ const AddCourse = () => {
             {...register("details", { required: true })}
             className="textarea h-16 w-full"
             placeholder="Enter details..."
+          ></textarea>
+        </div>
+
+        {/* Instructor Name and Email */}
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Instructor Name and Email*
+          </label>
+          {[1, 2, 3].map((index) => (
+            <div key={index} className="flex items-center gap-6">
+              <div className="flex-1">
+                <input
+                  {...register(`instructorName${index}`)}
+                  type="text"
+                  placeholder={`Instructor ${index} Name`}
+                  className="input w-full"
+                />
+              </div>
+              <div className="flex-1">
+                <input
+                  {...register(`instructorEmail${index}`)}
+                  type="email"
+                  placeholder={`Instructor ${index} Email`}
+                  className="input w-full"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Video Title and Link */}
+        <div className="flex items-center gap-6">
+          <div className="flex-1">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Video Title
+            </label>
+            <input
+              {...register("videoTitle")}
+              type="text"
+              placeholder="Enter video title"
+              className="input w-full"
+            />
+          </div>
+          <div className="flex-1">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Video Link
+            </label>
+            <input
+              {...register("videoLink")}
+              type="url"
+              placeholder="Enter video link"
+              className="input w-full"
+            />
+          </div>
+        </div>
+
+        {/* Requirements */}
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Requirements
+          </label>
+          <textarea
+            {...register("requirements")}
+            className="textarea h-16 w-full"
+            placeholder="Enter requirements..."
           ></textarea>
         </div>
 
