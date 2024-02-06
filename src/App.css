@@ -25,6 +25,14 @@ body {
   text-underline-offset: 5px;
   color: #56A13C;
 }
-.btn-style{
+/* .btn-style{
   @apply bg-first text-white hover:bg-white hover:text-first
+} */
+.btn-style{
+    @apply text-white bg-gradient-to-r from-second to-first focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:text-second hover:bg-white ;
+}
+
+
+.green_gradient_text{
+  @apply bg-gradient-to-r from-second to-first bg-clip-text text-transparent;
 }
