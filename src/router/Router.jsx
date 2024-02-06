@@ -249,7 +249,8 @@ const router = createBrowserRouter([
             // teachers route 
             {
                 path: 'post-resources',
-                element: <PostResources />
+                element: <PostResources />,
+                // loader: (http://localhost:5000/notice/65c1ce499c0cbcf858b3a69e)
             },
 
             //             {

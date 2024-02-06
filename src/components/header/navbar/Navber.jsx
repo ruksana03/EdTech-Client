@@ -5,7 +5,6 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { useEffect, useState } from "react";
 import NavLinkMenu from "./NavLinkMenu";
 import { useDispatch, useSelector } from "react-redux";
-import useAdmin from "../../../Hooks/useAdmin";
 import { FaRegUserCircle, FaCartPlus } from "react-icons/fa";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
@@ -17,34 +16,9 @@ import Sidebar from "./Sidebar";
 const Navbar = ({ children }) => {
     const { changeTheme, mode } = useTheme()
     const [active, setActive] = useState(true);
-
-    const [isScrolled, setIsScrolled] = useState(false);
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-
-
-
-    const handleClick = () => {
-        setActive(!active)
-    }
     const user = useSelector(state => state.data.user.user);
-    console.log(user)
-    // const [isAdmin] = useAdmin();
-    // console.log(isAdmin);
+    const [isScrolled, setIsScrolled] = useState(false);
+
     const dispatch = useDispatch();
     const handleLogout = () => {
         logOut()
@@ -56,14 +30,33 @@ const Navbar = ({ children }) => {
             })
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+
+
+    const handleClick = () => {
+        setActive(!active)
+    }
+
     return (
-        <>
+        <div>
             <div className="drawer ">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col dark:bg-zinc-800 text-white">
                     {/* Navbar */}
-                    {/* <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between border-b dark:border-first sticky inset-0 z-10 "> */}
-                    <div className={` navbar flex items-center lg:px-[370px] px-3 justify-between lg:flex-row lg:justify-between dark:border-first  z-[1] ${isScrolled ? "bg-base-200 shadow fixed left-0 right-0 top-0 dark:bg-zinc-700 dark:shadow-md" : " bg-transparent top-12 "}`}>
+                    <div className={` navbar flex items-center px-3 justify-between lg:flex-row lg:justify-evenly gap-24 dark:border-first  z-[1] ${isScrolled ? "bg-base-200 shadow fixed left-0 right-0 top-0 dark:bg-zinc-700 dark:shadow-md" : " bg-transparent top-12  section-container"}`}>
                         <div className="flex-none lg:hidden dark:text-white text-black">
                             <div className={`w-72 md:w-96 z-10 h-[100vh] fixed bg-third dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 bg-white'}`}>
                                 <Sidebar handleClick={handleClick} />
@@ -160,10 +153,11 @@ const Navbar = ({ children }) => {
                             </div>
                         </div>
                     </div>
-                    {children}
                 </div>
-            </div>
-        </>
+                {children}
+
+            </div >
+        </div >
     );
 };
 

@@ -1,10 +1,8 @@
 import toast from "react-hot-toast";
 import { RiNotificationBadgeFill } from "react-icons/ri";
-
 import { imageUpload } from "../../../../api/getData";
 import {useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 const CreateNotice = () => {
@@ -56,7 +54,7 @@ const CreateNotice = () => {
             <form onSubmit={handleSubmit} className="p-5 w-full md:w-2/3 lg:w-1/2 mx-auto mt-5 mb-12">
                 <div className="space-y-3 mt-5">
                     <div className="flex flex-col gap-3">
-                        <label className="text-xl font-bold" htmlFor="description">Set  New Photo*</label>
+                        <label className="text-xl font-bold" htmlFor="description">Set New Photo*</label>
                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                             <input name='image' type="file" className="file-input file-input-bordered file-input-success border-first w-full" required />
                         </div>

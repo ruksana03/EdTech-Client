@@ -8,36 +8,36 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 
-const NoticeTable = ({ notice, refetch }) => {
-    const axiosSecure = useAxiosSecure();
+const NoticeTable = ({ notice, refetch,handleDelete }) => {
+    // const axiosSecure = useAxiosSecure();
     const { _id, date, title } = notice || {};
-    const handleDelete = (id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "Do You Want to delete this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosSecure.delete(`/notice/${id}`)
-                    .then(res => {
-                        if (res.data?.deletedCount > 0) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: `${title} has been deleted.`,
-                                icon: "success"
-                            });
-                            refetch();
-                        }
-                    })
+    // const handleDelete = (id) => {
+    //     Swal.fire({
+    //         title: "Are you sure?",
+    //         text: "Do You Want to delete this!",
+    //         icon: "warning",
+    //         showCancelButton: true,
+    //         confirmButtonColor: "#3085d6",
+    //         cancelButtonColor: "#d33",
+    //         confirmButtonText: "Yes, delete it!"
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             axiosSecure.delete(`/notice/${id}`)
+    //                 .then(res => {
+    //                     if (res.data?.deletedCount > 0) {
+    //                         Swal.fire({
+    //                             title: "Deleted!",
+    //                             text: `${title} has been deleted.`,
+    //                             icon: "success"
+    //                         });
+    //                         refetch();
+    //                     }
+    //                 })
 
-            }
-        });
-        console.log(id);
-    }
+    //         }
+    //     });
+    //     console.log(id);
+    // }
     return (
         <>
             <tr className='border overflow-x-scroll w-2/3 hover:bg-base-300 cursor-pointer'>

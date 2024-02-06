@@ -4,22 +4,26 @@ import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import Modal from "../../../../components/shared/Modal";
 import { imageUpload } from "../../../../api/getData";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import { LuLoader } from "react-icons/lu";
+import { FaSpinner } from "react-icons/fa";
 
 
-
-const NoticeModal = ({ isOpen, setIsOpen }) => {
+const NoticeModal = ({ isOpen, setIsOpen,refetch }) => {
+    const [loading,setLoading] = useState(false)
     const axiosPublic = useAxiosPublic();
     const user = useSelector(state => state.data.user.user);
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const form = e.target;
         const image = form.image.files[0];
         const title = form.title.value;
         const description = form.description.value;
         const email = form.email.value;
         try {
-            handleCancel();
             const loadImage = await imageUpload(image);
+               handleCancel();
             const noticeData = {
                 image: loadImage?.data?.url,
                 date: new Date(),
@@ -30,15 +34,20 @@ const NoticeModal = ({ isOpen, setIsOpen }) => {
                 hostName: user?.name,
                 hostEmail: user?.email
             }
-            console.log(noticeData);
+            // console.log(noticeData);
+           
             axiosPublic.post('/notices', noticeData)
             .then(res => {
                 if(res.data){
+                    setLoading(false);
+                    refetch();
+                    // console.log(res.data);
                    return toast.success('created successfully')
                 }
             })
         }
         catch (error) {
+            setLoading(false);
             toast.error(error.message)
         }
     };
@@ -75,7 +84,11 @@ const NoticeModal = ({ isOpen, setIsOpen }) => {
                         </div>
                         <div className="flex items-end justify-end mt-3 gap-3">
                             <button onClick={handleCancel} className="btn bg-red-600 text-white hover:text-red-600">Cancel</button>
-                            <button type="submit" className="btn bg-first text-white hover:text-first">Published</button>
+                            <button type="submit" className="btn bg-first text-white hover:text-first">
+                            {loading ? 
+                                <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span> :  'Published'
+                                }
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -85,3 +98,4 @@ const NoticeModal = ({ isOpen, setIsOpen }) => {
 };
 
 export default NoticeModal;
+//

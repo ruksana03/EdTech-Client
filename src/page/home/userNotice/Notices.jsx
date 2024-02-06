@@ -10,7 +10,6 @@ const Notices = () => {
     const [filteredNotices, setFilteredNotices] = useState([0]);
 
     useEffect(() => {
-        setFilteredNotices(filteredNotices);
         const searchItem = userNotices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
         console.log(searchItem);
@@ -23,8 +22,8 @@ const Notices = () => {
     return (
         <div>
             <figure className=" w-full h-[45vh] relative">
-                <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" />
-                {/* <img src='https://i.ibb.co/Fqw8LX4/NOTICE.png' alt="notice-image" className="w-full h-full" /> */}
+                {/* <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" /> */}
+                <img src='https://i.ibb.co/Fqw8LX4/NOTICE.png' alt="notice-image" className="w-full h-full" />
                 <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
             </figure>
              <div className="section-container">

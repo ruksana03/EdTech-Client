@@ -27,11 +27,10 @@ const NoticeHome = () => {
     }, [settingPage]);
     // console.log(searchNotices);
     useEffect(() => {
-        setFilteredNotices(filteredNotices);
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
         // console.log(searchItem);
-    }, [searchNotices])
+    }, [notices,searchNotices])
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -39,7 +38,7 @@ const NoticeHome = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // console.log(currentItems);
-    console.log(filteredNotices);
+    // console.log(filteredNotices);
     // console.log(notices);
 
     return (
@@ -47,8 +46,8 @@ const NoticeHome = () => {
         //
         <div>
             <figure className=" w-full h-[45vh] relative">
-                <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" />
-                {/* <img src='https://i.ibb.co/Fqw8LX4/NOTICE.png' alt="notice-image" className="w-full h-full" /> */}
+                {/* <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" /> */}
+                <img src='https://i.ibb.co/Fqw8LX4/NOTICE.png' alt="notice-image" className="w-full h-full" />
                 <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
             </figure>
             <div className="section-container">
@@ -78,7 +77,7 @@ const NoticeHome = () => {
                     {/* head */}
                     <thead className='text-base text-black dark:text-gray-400'>
                         <tr>
-                            <th className='border '>Notice Title {notices?.length}</th>
+                            <th className='border '>Notice Title ({notices?.length})</th>
                             <th className='border w-36 '>Notice Category</th>
                             <th className='border w-36'>Published On</th>
                         </tr>
@@ -87,7 +86,7 @@ const NoticeHome = () => {
                         {
                             currentItems?.length > 0 && currentItems?.map(notice =>
                                 <tr key={notice._id} className='border hover:bg-base-300 dark:hover:bg-third cursor-pointer'>
-                                    <td className='border text-base lg:text-[18px] font-medium hover:dark:text-black text-gray-800 dark:text-gray-400'><Link to={`/notice-details`}>{notice?.title}</Link></td>
+                                    <td className='border text-base lg:text-[18px] font-medium hover:dark:text-black text-gray-800 dark:text-gray-400'><Link to={`/notice-details/${notice?._id}`}>{notice?.title}</Link></td>
                                     <td className='border text-gray-800 dark:text-gray-400 font-medium '>All Teacher</td>
                                     <td className='border text-gray-800 dark:text-gray-400 font-medium '>10-03-2023</td>
                                 </tr>)
