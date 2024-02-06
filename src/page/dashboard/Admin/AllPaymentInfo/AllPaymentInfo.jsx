@@ -1,16 +1,33 @@
  
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
+import { MdDelete } from 'react-icons/md';
+import toast from 'react-hot-toast';
 
 const AllPaymentInfo = () => {
   const axiosPublic = useAxiosPublic();
-  const { data: payments = [] } = useQuery({
+  
+  const { data: payments = [], refetch } = useQuery({
     queryKey: ['payments'],
     queryFn: async () => {
       const res = await axiosPublic.get('/bookings');
       return res.data;
     },
   });
+
+  const deletePayment = async (id) => {
+    try {
+      const { data } = await axiosPublic.delete(`/bookings/delete/${id}`);
+
+      if (data.deletedCount === 1) {
+        await refetch();  
+        toast.success("payment deleted successfully");
+      }
+    } catch (error) {
+      console.error("Error deleting payment:", error);
+      toast.error("Failed to delete payment");
+    }
+  };
 
   return (
     <div>
@@ -37,7 +54,11 @@ const AllPaymentInfo = () => {
                 <td className="py-2">{payment.stEmail}</td>
                 <td className="py-2">${payment.price}</td>
                 <td className="py-2 ">{payment.transactionId}</td>
-                <td className="py-2 text-second font-semibold cursor-pointer">Approved</td>
+                <td className="py-2 text-red-500 font-semibold cursor-pointer">
+                  <button onClick={() => deletePayment(payment._id)} >
+                  <MdDelete  className='text-xl'/>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
