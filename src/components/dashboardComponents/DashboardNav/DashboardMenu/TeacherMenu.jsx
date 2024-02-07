@@ -16,6 +16,8 @@ const TeacherMenu = ({ isActive }) => {
     ];
 
     const location = useLocation();
+
+    console.log(isActive);
     return (
         <div className="">
         {teacherLinks.map((link, index) => (
