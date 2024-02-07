@@ -40,7 +40,7 @@ const NoticeTable = ({ notice, refetch }) => {
     }
     return (
         <>
-            <tr className='border hover:bg-base-300 cursor-pointer'>
+            <tr className='border overflow-x-scroll w-2/3 hover:bg-base-300 cursor-pointer'>
                 <th>
                     <label>
                         <input type="checkbox" className="checkbox" />

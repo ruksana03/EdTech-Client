@@ -26,12 +26,15 @@
     "match-sorter": "^6.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.49.3",
+    "react-hook-form": "^7.50.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
     "react-iframe": "^1.8.5",
+<<<<<<< HEAD
     "react-messenger-customer-chat": "^0.8.0",
     "react-pdf": "^7.7.0",
+=======
+>>>>>>> 72f7b8775a9ea5e8be44b511e5d36c611bf5917e
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3",
     "react-simple-typewriter": "^5.0.1",
