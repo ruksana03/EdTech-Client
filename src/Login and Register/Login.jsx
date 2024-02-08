@@ -7,6 +7,7 @@ import LoginWithGitHub from "./LoginWithGitHUb/LoginWithGitHub";
 import LoginWithFacebook from "./LoginWithFacebook/LoginWithFacebook";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Login = () => {
    
@@ -26,6 +27,7 @@ const Login = () => {
             })
             .catch((error) => {
                 const errorMessage = error.message;
+                toast.error(errorMessage.slice(10));
                 console.log(errorMessage);
             });
     }

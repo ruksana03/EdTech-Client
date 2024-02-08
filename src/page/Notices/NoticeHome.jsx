@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdNotificationsOff } from "react-icons/io";
+import useNoticeForTeacher from "../../Hooks/useNoticeForTeacher";
 
 const NoticeHome = () => {
     const [notices, setNotices] = useState([]);
+    const [teacherNotices, ,] = useNoticeForTeacher();
     const [searchNotices, setSearchNotices] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [settingPage, setSettingPage] = useState(12);
@@ -13,10 +15,10 @@ const NoticeHome = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("http://localhost:5000/notices");
-                const data = await res.json();
-                setNotices(data);
-                setFilteredNotices(data);
+                // const res = await fetch("http://localhost:5000/notices");
+                // const data = await res.json();
+                setNotices(teacherNotices);
+                setFilteredNotices(teacherNotices);
                 const parseSettingPage = parseInt(settingPage)
                 setItemPerPage(parseSettingPage)
             } catch (error) {
@@ -24,13 +26,13 @@ const NoticeHome = () => {
             }
         };
         fetchData();
-    }, [settingPage]);
+    }, [teacherNotices,settingPage]);
     // console.log(searchNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
         // console.log(searchItem);
-    }, [notices,searchNotices])
+    }, [notices, searchNotices])
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -45,11 +47,6 @@ const NoticeHome = () => {
         //https://i.ibb.co/G73nQT5/unnamed.jpg 
         //
         <div>
-            <figure className=" w-full h-[45vh] relative">
-                {/* <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" /> */}
-                <img src='https://i.ibb.co/Fqw8LX4/NOTICE.png' alt="notice-image" className="w-full h-full" />
-                <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
-            </figure>
             <div className="section-container">
                 <div className="flex items-center flex-col-reverse md:flex-row gap-5 lg:flex-row justify-between w-full my-5">
                     <div className="flex items-center gap-3 dark:text-gray-400">
@@ -63,14 +60,9 @@ const NoticeHome = () => {
                         </select>
                         <h1>entries</h1>
                     </div>
-                    <div className='relative w-[280px] flex items-center gap-1 dark:text-gray-400'>
+                    <div className='relative w-[350px] flex items-center gap-1 dark:text-gray-400'>
                         <p>Search</p>
-                        <input type="text" onChange={() => setSearchNotices(event.target.value)} className='text=[17px]dark:bg-zinc-600 dark:text-gray-400 dark:bg-zinc-800 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-first' name='search' placeholder='search date...' />
-                    </div>
-                    <div>
-                        <Link to='/create-notice'>
-                            <button className='px-3 py-2 rounded transition-all duration-200 bg-transparent border border-first text-first hover:bg-first hover:text-white font-medium'>Create Notice</button>
-                        </Link>
+                        <input type="text" onChange={() => setSearchNotices(event.target.value)} className='text-[17px]dark:bg-zinc-600 dark:text-gray-400 dark:bg-zinc-800 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-first' name='search' placeholder='search date...' />
                     </div>
                 </div>
                 <table className="table border  mb-8">
@@ -115,7 +107,7 @@ const NoticeHome = () => {
                     </button>
                 ))}
             </div>
-        </div>
+        </div >
     );
 };
 

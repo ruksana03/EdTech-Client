@@ -7,14 +7,14 @@ import { useSelector } from "react-redux";
 const useUserRole = () => {
     const axiosPublic = useAxiosPublic();
     const user = useSelector(state => state.data.user.user);
-  const {data:role=[],isLoading} = useQuery({
+  const {data:role=[],refetch,isLoading} = useQuery({
     queryKey:['role', user],
     queryFn: async() => {
         const res = await axiosPublic.get(`/user?email=${user?.email}`)
         return res.data
     },
   })
-  return [role,isLoading]
+  return [role,refetch,isLoading]
 };
 
 export default useUserRole;

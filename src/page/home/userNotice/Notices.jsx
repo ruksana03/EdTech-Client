@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 
 
 const Notices = () => {
-    const [userNotices, , ] = useUserSpecificNotices();
+    const [userNotices, ,] = useUserSpecificNotices();
     const [searchNotices, setSearchNotices] = useState("");
     const [filteredNotices, setFilteredNotices] = useState([0]);
 
     useEffect(() => {
         const searchItem = userNotices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
-        console.log(searchItem);
-    }, [searchNotices,userNotices])
+        // console.log(searchItem);
+    }, [searchNotices, userNotices])
 
 
     // console.log(filteredNotices);
@@ -21,12 +21,11 @@ const Notices = () => {
 
     return (
         <div>
-            <figure className=" w-full h-[45vh] relative">
-                {/* <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" /> */}
+            {/* <figure className=" w-full h-[45vh] relative">
                 <img src='https://i.ibb.co/Fqw8LX4/NOTICE.png' alt="notice-image" className="w-full h-full" />
                 <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
-            </figure>
-             <div className="section-container">
+            </figure> */}
+            <div className="section-container">
                 <div className="flex items-center justify-center w-full my-5">
                     <div className='relative w-full md:w-1/2 lg:w-1/2 flex items-center gap-1 dark:text-gray-400'>
                         <p>Search</p>
@@ -58,7 +57,7 @@ const Notices = () => {
                         <h1>Here, No Notice Available <IoMdNotificationsOff className='w-full text-5xl text-red-600' /></h1>
                     </div>
                 }
-            </div> 
+            </div>
         </div>
     );
 }

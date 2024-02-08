@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
-import Swal from 'sweetalert2';
 import { BiMessageAltDetail } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 import { CiBookmarkCheck } from "react-icons/ci";
 import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 
-const NoticeTable = ({ notice, refetch,handleDelete }) => {
+const NoticeTable = ({ notice,handleDelete }) => {
     // const axiosSecure = useAxiosSecure();
     const { _id, date, title } = notice || {};
     // const handleDelete = (id) => {

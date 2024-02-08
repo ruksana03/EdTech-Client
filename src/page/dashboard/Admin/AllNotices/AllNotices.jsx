@@ -29,17 +29,18 @@ const AllNotices = () => {
         const parseSettingPage = parseInt(settingPage)
         setItemPerPage(parseSettingPage)
     }, [refetch, settingPage, notices]);
-
+    
+    useEffect(() => {
+        const searchItem = notices2.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
+        setFilteredNotices(searchItem);
+    }, [notices2, searchNotices])
     useEffect(() => {
         if (dateFilter) {
             const filterDateItem = notices2.filter((item) => item.date.toLowerCase().includes(dateFilter.toLowerCase()));
             setFilteredNotices(filterDateItem);
             // console.log(filterDateItem);
         }
-        const searchItem = notices2.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
-        setFilteredNotices(searchItem);
-        // console.log(searchItem);
-    }, [notices2, searchNotices, dateFilter])
+    }, [notices2, dateFilter])
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -47,7 +48,7 @@ const AllNotices = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // console.log(currentItems);
-    // console.log(filteredNotices);
+    console.log(filteredNotices);
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",

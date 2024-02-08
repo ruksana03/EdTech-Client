@@ -9,15 +9,19 @@ import { FaRegUserCircle, FaCartPlus } from "react-icons/fa";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
 import Logo from "../../shared/Logo";
+import noticeIcon from "../../../assets/new.gif";
 import NavUserButton from "../NavUserButton";
 import useTheme from "../../../Hooks/useTheme";
 import Sidebar from "./Sidebar";
+import useUserSpecificNotices from "../../../Hooks/useUserSpecificNotices";
 
 const Navbar = ({ children }) => {
     const { changeTheme, mode } = useTheme()
+    const [userNotices, , ] = useUserSpecificNotices();
     const [active, setActive] = useState(true);
     const user = useSelector(state => state.data.user.user);
     const [isScrolled, setIsScrolled] = useState(false);
+    console.log(userNotices,user);
 
     const dispatch = useDispatch();
     const handleLogout = () => {
@@ -45,7 +49,6 @@ const Navbar = ({ children }) => {
     }, []);
 
 
-
     const handleClick = () => {
         setActive(!active)
     }
@@ -56,7 +59,7 @@ const Navbar = ({ children }) => {
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col dark:bg-zinc-800 text-white">
                     {/* Navbar */}
-                    <div className={` navbar flex items-center px-3 justify-between lg:flex-row lg:justify-evenly gap-24 dark:border-first  z-[1] ${isScrolled ? "bg-base-200 shadow fixed left-0 right-0 top-0 dark:bg-zinc-700 dark:shadow-md" : " bg-transparent top-12  section-container"}`}>
+                    <div className={` navbar flex items-center px-3 justify-between lg:flex-row lg:justify-evenly gap-24 dark:border-first z-[1] ${isScrolled ? "bg-base-200 shadow fixed left-0 right-0 top-0 dark:bg-zinc-700 dark:shadow-md" : " bg-transparent top-12  section-container"}`}>
                         <div className="flex-none lg:hidden dark:text-white text-black">
                             <div className={`w-72 md:w-96 z-10 h-[100vh] fixed bg-third dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 bg-white'}`}>
                                 <Sidebar handleClick={handleClick} />
@@ -81,16 +84,17 @@ const Navbar = ({ children }) => {
                         <Logo />
                         <NavLinkMenu />
                         <div>
-                            <NavUserButton
-                                user={user}
-                                handleLogout={handleLogout} />
-                            <div
-                                className="hidden lg:block">
-                                <div
-                                    className="flex items-center justify-center gap-4">
-                                    <button
-                                        onClick={changeTheme}
-                                        className="swap swap-rotate ">
+                            <NavUserButton user={user} handleLogout={handleLogout} />
+                            <div className="hidden lg:block">
+                                <div className="flex items-center justify-center gap-4">
+                                    <Link to='notices/new-notices'>
+                                        <button
+                                            className="text-[18px] font-medium w-8 h-8 mr-5 border-first border duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                                            {/* <IoNotificationsSharp /> */}
+                                            <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 " />
+                                            <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{userNotices?.length}</span>
+                                        </button></Link>
+                                    <button onClick={changeTheme} className="swap swap-rotate ">
                                         {
                                             mode === "dark"
                                                 ?
@@ -101,8 +105,7 @@ const Navbar = ({ children }) => {
                                                     className="w-8 h-8 text-black" />
                                         }
                                     </button>
-                                    <button
-                                        className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
+                                    <button className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                                         <FaCartPlus />
                                     </button>
                                     {
@@ -144,9 +147,7 @@ const Navbar = ({ children }) => {
                                                     </ul>
                                                 </div>
                                             ) : (
-                                                <button
-                                                    className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"
-                                                ><FaRegUserCircle />
+                                                <button className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"><FaRegUserCircle />
                                                 </button>
                                             )}
                                 </div>
