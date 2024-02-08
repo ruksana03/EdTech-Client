@@ -1,5 +1,4 @@
 
-
 const AllPaymentInfo = () => {
     return (
         <div>
