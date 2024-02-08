@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <div className=" dark:bg-zinc-800 bg-third">
+      <div className=" dark:bg-zinc-800 bg-third w-full h-auto lg:h-[30vh] flex flex-col items-center justify-center">
         <footer className="footer dark:text-gray-400 section-container py-10 text-base-content">
           <nav className="text-center md:text-start lg:text-start w-full flex items-center justify-center md:justify-start md:items-start flex-col lg:justify-start lg:items-start">
             <header className="footer-title">Services</header>
