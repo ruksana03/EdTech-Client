@@ -33,11 +33,11 @@ const CreateNotice = () => {
                 hostName: user?.name,
                 hostEmail: user?.email
             }
-            console.log(noticeData);
+            // console.log(noticeData);
             axiosPublic.post('/notices', noticeData)
                 .then(res => {
                     setLoading(false)
-                    console.log(res);
+                    // console.log(res);
                     if (res.data) {
                          toast.success('created successfully')
                        return navigate('/notices/teacher-notices')

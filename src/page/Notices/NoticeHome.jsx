@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdNotificationsOff } from "react-icons/io";
-import useNoticeForTeacher from "../../Hooks/useNoticeForTeacher";
+import useNoticeForTeacher from "../../Hooks/useTeacherSpecificNotices";
 
 const NoticeHome = () => {
-    const [notices, setNotices] = useState([]);
     const [teacherNotices, ,] = useNoticeForTeacher();
+    const [notices, setNotices] = useState([]);
+    // const user = useSelector(state => state.data.user.user);
     const [searchNotices, setSearchNotices] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [settingPage, setSettingPage] = useState(12);
     const [itemsPerPage, setItemPerPage] = useState(settingPage);
     const [filteredNotices, setFilteredNotices] = useState([]);
-
+    console.log(teacherNotices);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // const res = await fetch("http://localhost:5000/notices");
+                // const res = await fetch(`http://localhost:5000/notices}`);
                 // const data = await res.json();
                 setNotices(teacherNotices);
                 setFilteredNotices(teacherNotices);
@@ -26,7 +27,7 @@ const NoticeHome = () => {
             }
         };
         fetchData();
-    }, [teacherNotices,settingPage]);
+    }, [settingPage,teacherNotices]);
     // console.log(searchNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
@@ -87,7 +88,7 @@ const NoticeHome = () => {
                     </tbody>
                 </table>
                 {
-                    notices?.length && filteredNotices?.length <= 0 && <div className='text-4xl w-full h-[30vh] flex items-center justify-center gap-2'>
+                    filteredNotices?.length <= 0 && <div className='text-4xl w-full h-[30vh] flex items-center justify-center gap-2'>
                         <h1>Here, No Notice Available <IoMdNotificationsOff className='w-full text-5xl text-red-600' /></h1>
                     </div>
                 }

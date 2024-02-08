@@ -74,6 +74,7 @@ const DashboardLayout = () => {
             <div className={`flex items-center justify-between bg-first dark:bg-zinc-700 dark:text-gray-400 h-16  ${isActive ? 'w-full md:w-[calc(100%-150px)] md:pl-8 transition-all duration-200 lg:w-[calc(100%-160px)]' : ' w-full md:w-[calc(100%-186px)] lg:w-[calc(100%-250px)] transition duration-200 ease-in-out'} float-right lg:px-5 px-3 md:px-5 shadow sticky inset-0 top-0 z-10 mb-5 `}>
                 <div className=" hidden md:block lg:block relative">
                     <div className={` border-e-2 dark:text-gray-400 dark:bg-zinc-800  overflow-x-hidden z-10 fixed pt-3 bg-white overflow-y-auto h-screen px-2 inset-y-0 left-0 transform ${isActive ? ' transition-all duration-200 w-[calc(100%-160px)] md:w-[150px] lg:w-[160px]' : ' w-[160px] md:w-[186px] lg:w-[250px] lg:translate-x-0 dark:text-gray-400 dark:bg-zinc-800 transition duration-200 ease-in-out'} `}>
+                      {/* logo for our project */}
                         <Link to="/">
                             <article className="font-bold absolute left-14 top-4 dark:text-gray-400 text-black ">
                                 <FaGraduationCap className="  dark:text-green-500 text-first text-4xl " /> <br />
@@ -81,9 +82,11 @@ const DashboardLayout = () => {
                             </article>
                         </Link>
                         <div className="pt-10">
+                            {/* toggle button for close modal  */}
                             {
                                 isActive ? <RxCross1 onClick={handleReverse} className="absolute right-0 top-0 dark:text-gray-400 text-black text-2xl cursor-pointer block md:hidden lg:hidden" /> : ''
                             }
+                            {/* user specific manu bar here  */}
                             {isActive ? <DSidebarMenu handleReverse={handleReverse} isActive={isActive} /> : <DSidebar handleReverse={handleReverse} isActive={isActive} setIsActive={setIsActive} />}
                         </div>
                     </div>
@@ -94,13 +97,16 @@ const DashboardLayout = () => {
                     <div className={`z-10 fixed pt-3 bg-white overflow-y-auto w-2/3 h-screen px-2 inset-y-0 left-0 transform ${left && ' transition-all duration-200 -translate-x-full'} lg: dark:text-gray-400 dark:bg-zinc-800 transition-all duration-200 border-e-2`}>
                         {/* <FaDeleteLeft onClick={handleToggle} className="relative right-2 top-2 text-5xl cursor-pointer hover:text-red-600" /> */}
                         {/* <DSidebarMenu handleReverse={handleReverse} isActive={isActive} /> */}
+                           {/* user specific side bar manu bar here  */}
                         <DSidebar handleReverse={handleReverse} isActive={isActive} setIsActive={setIsActive} handleToggle={handleToggle} />
                     </div>
                 </div>
                 <div>
+                    {/* user right side show profile dark mode and other it  */}
                     <DashboardRightManu changeTheme={changeTheme} mode={mode} user={user} handleLogout={handleLogout} />
                 </div>
             </div>
+            {/* child components randered here  */}
             <div className={`bg-[#f1f5f9] py-5 -z-10 dark:bg-zinc-800 dark:text-gray-400 w-auto ${isActive ? ' md:ml-[150px] md:w-[calc(100%-150px)] lg:ml-[160px] lg:w-[calc(100%-160px)] transition-all duration-200 ' : 'w-auto md:ml-[186px] md:w-[calc(100%-186px)] lg:ml-[250px] lg:w-[calc(100%-250px)] transition-all duration-200'}`}>
                 <Outlet></Outlet>
             </div>

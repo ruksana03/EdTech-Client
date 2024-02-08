@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useUserSpecificNotices from "../../../Hooks/useUserSpecificNotices";
+import useUserSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import { IoMdNotificationsOff } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,7 @@ const Notices = () => {
         // console.log(searchItem);
     }, [searchNotices, userNotices])
 
+    const noticeData = filteredNotices.reverse();
 
     // console.log(filteredNotices);
     // console.log(searchNotices);

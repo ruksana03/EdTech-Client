@@ -3,10 +3,10 @@ import { FcCheckmark } from "react-icons/fc";
 import useUserRole from "../../Hooks/useUserRole";
 
 const NoticeBanner = () => {
-    const [role, ] = useUserRole();
-    const currentRole = role[0]?.role;
-    console.log(currentRole);
-
+    const [role, refetch, isLoading] = useUserRole();
+    console.log(role);
+    const currentRole = role[0]?.role
+    refetch();
     return (
         <div>
             <figure className=" w-full h-[45vh] relative">
@@ -15,6 +15,7 @@ const NoticeBanner = () => {
                 <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
             </figure>
             <div className="section-container flex items-center justify-between flex-wrap mt-7">
+                {/* validation here in user role  */}
                 <div className="flex items-center gap-4 my-5">
                     {
                         currentRole === 'teacher' && <div className="relative w-auto">
