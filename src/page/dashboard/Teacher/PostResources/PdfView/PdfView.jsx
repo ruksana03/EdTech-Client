@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import "./PdfView.css"
 
 const PdfView = ({pdfFile}) => {
   const [numPages, setNumPages] = useState();
+  // eslint-disable-next-line no-unused-vars
   const [pageNumber, setPageNumber] = useState(1);
 
   function onDocumentLoadSuccess({ numPages }) {

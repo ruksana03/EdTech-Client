@@ -38,6 +38,7 @@ const AddCourse = () => {
 
         const courseItem = {
           title: data.title,
+          duration: data.duration,
           name: user?.name,
           email: user?.email,
           price: parseFloat(data.price),
@@ -79,6 +80,17 @@ const AddCourse = () => {
           <input
             {...register("title", { required: true })}
             type="text"
+            placeholder="Enter the title..."
+            className="input w-full"
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Duration*
+          </label>
+          <input
+            {...register("duration", { required: true })}
+            type="number"
             placeholder="Enter the title..."
             className="input w-full"
           />
