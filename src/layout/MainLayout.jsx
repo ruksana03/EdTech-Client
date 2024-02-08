@@ -49,7 +49,10 @@ const MainLayout = () => {
   return (
     <div>
       <SubNav />
-      <Navber />
+      {/* <div className="lg:fixed top-0 left-0 w-full z-50"> */}
+        <Navber />
+      {/* </div> */}
+      
       <Outlet />
       <Footer />
       {/* <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" /> */}

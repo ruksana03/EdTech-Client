@@ -24,15 +24,15 @@
 import BlogNev from "../../components/blogComponents/BlogNev";
 import { Outlet } from "react-router-dom";
 import BlogFooter from "./BlogFooter";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const Blog = () => {
-    const user = useSelector((state) => state.data.user.user);
-    console.log(user)
+    // const user = useSelector((state) => state.data.user.user);
+    // console.log(user)
     return (
         <div>
         <div className="lg:fixed top-0 left-0 w-full z-50">
-        <BlogNev user={user}/>
+        <BlogNev/>
         </div>
         
         <Outlet></Outlet>

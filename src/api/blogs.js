@@ -1,9 +1,13 @@
 import axiosSecure from "./axiosSecure"
 
 export const postBlog = async blogData => {
-  const { data } = await axiosSecure.post(`/blogs`, blogData)
-  return data
-}
+  try {
+      const { data } = await axiosSecure.post(`/blogs`, blogData);
+      return data;
+  } catch (error) {
+      throw new Error('Failed to post blog: ' + error.message);
+  }
+};
 
 export const getAllBlogs = async () => {
   const { data } = await axiosSecure('/blogs')

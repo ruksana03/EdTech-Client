@@ -17,27 +17,7 @@ import Sidebar from "./Sidebar";
 const Navbar = ({ children }) => {
     const { changeTheme, mode } = useTheme()
     const [active, setActive] = useState(true);
-
     const [isScrolled, setIsScrolled] = useState(false);
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-
-
-
     const handleClick = () => {
         setActive(!active)
     }
@@ -56,16 +36,32 @@ const Navbar = ({ children }) => {
             })
     }
 
+  
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <>
+        <div>
             <div className="drawer ">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col dark:bg-zinc-800 text-white">
+                <div className={`drawer-content flex flex-col dark:bg-zinc-800   ${isScrolled ? " fixed top-0 left-0 w-full z-50 bg-first text-white" : " bg-base-300"}`}>
                     {/* Navbar */}
-                    {/* <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between border-b dark:border-first sticky inset-0 z-10 "> */}
-                    <div className={` navbar flex items-center lg:px-[370px] px-3 justify-between lg:flex-row lg:justify-between dark:border-first  z-10 ${isScrolled ? "bg-base-100 shadow fixed left-0 right-0 top-0 dark:bg-zinc-700 dark:shadow-md" : " bg-transparent top-12 "}`}>
+                    <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between border-b dark:border-first sticky inset-0 z-10 ">
                         <div className="flex-none lg:hidden dark:text-white text-black">
-                            <div className={`w-72 md:w-96 z-10 h-[100vh] fixed bg-third dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 bg-white'}`}>
+                            <div className={`w-72 md:w-96 z-10 h-[100vh] fixed  dark:bg-zinc-800 dark:text-gray-400 inset-0 lg:hidden transition-all duration-200 ${active && '-translate-x-full dark:bg-zinc-800 '}`}>
                                 <Sidebar handleClick={handleClick} />
                             </div>
                             <button
@@ -86,7 +82,7 @@ const Navbar = ({ children }) => {
 
                         </div>
                         <Logo />
-                        <NavLinkMenu />
+                        <NavLinkMenu isScrolled={isScrolled}/>
                         <div>
                             <NavUserButton
                                 user={user}
@@ -163,7 +159,7 @@ const Navbar = ({ children }) => {
                     {children}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
