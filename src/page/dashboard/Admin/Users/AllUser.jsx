@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 
 import { MdDelete } from 'react-icons/md';
 import useUsers from '../../../../Hooks/useUsers';

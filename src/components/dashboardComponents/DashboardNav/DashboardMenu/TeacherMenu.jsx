@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
-import { MdOutlineDashboardCustomize, MdAdd  } from "react-icons/md";
+import { MdOutlineDashboardCustomize, MdAdd, MdNotificationAdd   } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 
 
 const TeacherMenu = ({ isActive }) => {
-    const teacherLinks = ['/post-resources', '/add-course'];
-    const teacherMenu = ['Resources', 'AddCourse'];
+    const teacherLinks = ['/post-resources', '/add-course', '/create-notice'];
+    const teacherMenu = ['Resources', 'AddCourse', 'Add Notice'];
     const icons = [
         
         <MdOutlineDashboardCustomize className="text-xl" key={teacherLinks} />,
             <MdAdd className="text-xl" key={teacherLinks[1]} />, // Add the MdAdd icon for the "AddCourse" link
+            <MdNotificationAdd  className="text-xl" key={teacherLinks[1]} />, // Add the MdAdd icon for the "AddCourse" link
         
        
     

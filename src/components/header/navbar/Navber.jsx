@@ -5,26 +5,28 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { useEffect, useState } from "react";
 import NavLinkMenu from "./NavLinkMenu";
 import { useDispatch, useSelector } from "react-redux";
-import useAdmin from "../../../Hooks/useAdmin";
 import { FaRegUserCircle, FaCartPlus } from "react-icons/fa";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
 import Logo from "../../shared/Logo";
+import noticeIcon from "../../../assets/new.gif";
 import NavUserButton from "../NavUserButton";
 import useTheme from "../../../Hooks/useTheme";
 import Sidebar from "./Sidebar";
+import useUserSpecificNotices from "../../../Hooks/useUserSpecificNotices";
 
-const Navbar = ({ children }) => {
+// const Navbar = ({ children }) => {
+const Navbar = () => {
     const { changeTheme, mode } = useTheme()
+    const [userNotices, , ] = useUserSpecificNotices();
     const [active, setActive] = useState(true);
-    const [isScrolled, setIsScrolled] = useState(false);
     const handleClick = () => {
         setActive(!active)
     }
     const user = useSelector(state => state.data.user.user);
-    console.log(user)
-    const [isAdmin] = useAdmin();
-    console.log(isAdmin);
+    const [isScrolled, setIsScrolled] = useState(false);
+    console.log(userNotices,user);
+
     const dispatch = useDispatch();
     const handleLogout = () => {
         logOut()
@@ -84,16 +86,17 @@ const Navbar = ({ children }) => {
                         <Logo />
                         <NavLinkMenu isScrolled={isScrolled}/>
                         <div>
-                            <NavUserButton
-                                user={user}
-                                handleLogout={handleLogout} />
-                            <div
-                                className="hidden lg:block">
-                                <div
-                                    className="flex items-center justify-center gap-4">
-                                    <button
-                                        onClick={changeTheme}
-                                        className="swap swap-rotate ">
+                            <NavUserButton user={user} handleLogout={handleLogout} />
+                            <div className="hidden lg:block">
+                                <div className="flex items-center justify-center gap-4">
+                                    <Link to='notices/new-notices'>
+                                        <button
+                                            className="text-[18px] font-medium w-8 h-8 mr-5 border-first border duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                                            {/* <IoNotificationsSharp /> */}
+                                            <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 " />
+                                            <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{userNotices?.length}</span>
+                                        </button></Link>
+                                    <button onClick={changeTheme} className="swap swap-rotate ">
                                         {
                                             mode === "dark"
                                                 ?
@@ -104,8 +107,7 @@ const Navbar = ({ children }) => {
                                                     className="w-8 h-8 text-black" />
                                         }
                                     </button>
-                                    <button
-                                        className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
+                                    <button className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                                         <FaCartPlus />
                                     </button>
                                     {
@@ -147,16 +149,13 @@ const Navbar = ({ children }) => {
                                                     </ul>
                                                 </div>
                                             ) : (
-                                                <button
-                                                    className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"
-                                                ><FaRegUserCircle />
+                                                <button className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"><FaRegUserCircle />
                                                 </button>
                                             )}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {children}
                 </div>
             </div>
         </div>
@@ -166,12 +165,3 @@ const Navbar = ({ children }) => {
 export default Navbar;
 
 
-// const Navber = () => {
-//     return (
-//         <div>
-//             Navber
-//         </div>
-//     );
-// };
-
-// export default Navber;

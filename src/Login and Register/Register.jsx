@@ -8,6 +8,7 @@ import LoginWithGitHub from "./LoginWithGitHUb/LoginWithGitHub";
 import LoginWithFacebook from "./LoginWithFacebook/LoginWithFacebook";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
@@ -63,6 +64,7 @@ const Register = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                toast.error(errorMessage.slice(10))
                 console.log(errorCode, errorMessage);
             });
     }
