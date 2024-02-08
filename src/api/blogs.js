@@ -14,4 +14,11 @@ export const getAllBlogs = async () => {
   return data
 }
 
+// http://localhost:5000/blog/65bcf92c1ff140f79aa0b416
+
+export const getOneBlog = async id => {
+  const { data } = await axiosSecure(`/blog/${id}`)
+  return data
+}
+
 

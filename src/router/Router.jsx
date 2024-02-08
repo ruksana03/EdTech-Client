@@ -44,6 +44,8 @@ import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClas
 import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
 import DashboardLayout2 from "../layout/DashboardLayout2";
 import AddCourse from "../page/dashboard/Teacher/AddCourse";
+import BlogDetails from "../page/blog/BlogDetails";
+import { getOneBlog } from "../api/blogs";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -59,21 +61,6 @@ const router = createBrowserRouter([
       {
         path: "/all-courses",
         element: <Courses />,
-      },
-
-      {
-        path: "/blog",
-        element: <Blog />,
-        // children: [
-        //     {
-        //         path: '/blog',
-        //         element: <BlogHome />
-        //     },
-        //     {
-        //         path: 'blog-settings',
-        //         element: <BlogSettings />
-        //     }
-        // ]
       },
       {
         path: "contact",
@@ -127,6 +114,14 @@ const router = createBrowserRouter([
       {
         path: "blog-profile",
         element: <BlogProfile />,
+      },
+      {
+        // path:"blog-details",
+        path:"/blog-details/:id",
+        element: <BlogDetails/>,
+        loader: ({ params }) =>
+        fetch(`http://localhost:5000/blog/${params.id}`),
+        // loader: ({ params }) => getOneBlog(params.id),
       },
       {
         // path: 'blog-settings',
