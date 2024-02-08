@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { FaHome, FaBlog } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
@@ -6,7 +7,7 @@ import { TfiWrite } from "react-icons/tfi";
 import { IoIosNotifications } from "react-icons/io";
 import { ImProfile } from "react-icons/im";
 
-const BlogNev = () => {
+const BlogNev = ({ user }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
@@ -45,14 +46,22 @@ const BlogNev = () => {
             <div>
                 <ul className="flex  justify-start items-start  ">
                     <li className=" px-4 py-1">
-                    <Link to="/blog/new-blog" className="flex gap-2 justify-start items-center text-sm"><TfiWrite /> Write</Link>
+                        <Link
+                            to={{
+                                pathname: "/blog/new-blog",
+                                state: { user: user } 
+                            }}
+                            className="flex gap-2 justify-start items-center text-sm"
+                        >
+                            <TfiWrite /> Write
+                        </Link>
                     </li>
                     <li className=" px-4 py-1">
-                    <Link to="/" className="flex gap-2 justify-start items-center text-sm"><IoIosNotifications className="text-2xl"/></Link>
+                        <Link to="/" className="flex gap-2 justify-start items-center text-sm"><IoIosNotifications className="text-2xl" /></Link>
                     </li>
                 </ul>
             </div>
-        </div>
+        </div >
     );
 };
 
