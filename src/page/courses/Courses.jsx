@@ -182,6 +182,18 @@ const Courses = () => {
             >
               Law
             </button>
+            <button
+              onClick={() => filterItems("5-10")}
+              className={selectCategory === "5-10" ? "active" : ""}
+            >
+              5-10
+            </button>
+            <button
+              onClick={() => filterItems("hsc")}
+              className={selectCategory === "hsc" ? "active" : ""}
+            >
+              HSC
+            </button>
           </div>
 
           {/* sorting based on filtering */}
