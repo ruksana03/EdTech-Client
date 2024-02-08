@@ -1,32 +1,36 @@
 /* eslint-disable react/prop-types */
 import "../../Styles/scrollbar.css"
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { CiSaveDown2 } from "react-icons/ci";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosMore } from "react-icons/io";
 import { TbListDetails } from "react-icons/tb";
+import useBlogs from "../../Hooks/useBlogs";
 
 
 
 const PostedBlogs = () => {
-    const [blogData, setBlogData] = useState([]);
-    useEffect(() => {
-        fetch('../../../public/blogPost.json')
-            .then(res => res.json())
-            .then(data => {
-                setBlogData(data);
-            })
-    }, []);
+
+    // const { AllBlogs, loading, refetch } = useBlogs();
+    const { AllBlogs} = useBlogs();
+    // const [blogData, setBlogData] = useState([]);
+    // useEffect(() => {
+    //     fetch('../../../public/blogPost.json')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setBlogData(data);
+    //         })
+    // }, []);
 
     // console.log(blogData);
     return (
         <div className="w-full md:w-10/12 lg:w-10/12 mx-auto pr-4 custom-scrollbar overflow-y-auto max-h-[80vh]">
             <div className="">
                 {
-                    blogData?.length > 0 && blogData?.map(data =>
+                    AllBlogs?.length > 0 && AllBlogs?.map(data =>
                         <div key={data?.id} className=" dark:text-gray-300  border border-black mb-4 p-4 rounded-lg bg-[#333333] text-white">
                             <div className="flex gap-2 justify-start items-center">
-                                <img className="h-8 w-8 my-2 rounded-full" src={data?.host_image} alt="blog-image" />
+                                <img className="h-8 w-8 my-2 rounded-full" src={data?.post_image} alt="blog-image" />
                                 <p className="text-xs font-medium">{data?.host_user}</p>
                                 <p className="text-xs font-medium">Oct 27, 2023 # Member-only</p>
                             </div>
