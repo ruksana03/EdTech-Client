@@ -11,7 +11,7 @@ import SubNav from "../components/header/navbar/SubNav";
 import { Outlet } from "react-router-dom";
 import Navber from "../components/header/navbar/Navber";
 import Footer from "../components/shared/Footer";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
+// import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const MainLayout = () => {
   const dispatch = useDispatch();
@@ -49,10 +49,13 @@ const MainLayout = () => {
   return (
     <div>
       <SubNav />
-      <Navber />
+      {/* <div className="lg:fixed top-0 left-0 w-full z-50"> */}
+        <Navber />
+      {/* </div> */}
+      
       <Outlet />
       <Footer />
-      <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" />
+      {/* <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" /> */}
     </div>
   );
 };

@@ -3,4 +3,4 @@ import { rootReducer } from "./Reducers";
 
 export const store = configureStore({
     reducer: {data: rootReducer}
-})
+}) 

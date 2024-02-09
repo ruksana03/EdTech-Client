@@ -2,13 +2,17 @@ import { FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaInstagram ,FaFacebookF,FaFacebookMessenger,FaWhatsapp ,FaLinkedinIn,FaYoutube,FaTelegramPlane } from "react-icons/fa";
 import { BsBing } from "react-icons/bs";
-import image from '../../assets/NOTICE.png'
+// import image from '../../assets/NOTICE.png'
+import { useLoaderData } from "react-router-dom";
 const NoticeHomeDetails = () => {
+    const data = useLoaderData();
+    const {image,date,title,description,email} = data || {};
+    console.log(data);
     return (
         <div className="section-container my-12 dark:text-gray-400">
             <div className="">
-                <h1 className="text-xl font-semibold ">Job Title Hellow Sushil How Are You</h1>
-                <p>Published on 12-05-2023</p>
+                <h1 className="text-xl font-semibold ">{title}</h1>
+                <p>Published on {date?.slice(0,10)}</p>
                 <hr className="my-8" />
             </div>
             <div className="w-full mb-5">
@@ -16,10 +20,10 @@ const NoticeHomeDetails = () => {
                     <img src={image} alt="notice-image" className="w-full h-full" />
                 </figure>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, inventore fuga temporibus nemo explicabo error sit aspernatur magni harum dolorum qui voluptates, rem sint pariatur quia dicta dolor natus laboriosam tempora odio? Labore quisquam cum amet odit maiores, voluptate illo aspernatur vitae obcaecati minima eum natus corporis, recusandae totam sit quidem unde ut vero ipsum deserunt veniam autem error excepturi suscipit. Sint aperiam distinctio recusandae animi culpa corrupti. Quia praesentium, quisquam eligendi, beatae tenetur saepe rem ipsam officiis pariatur, alias delectus dolorem velit error maxime illo! Velit quae beatae est aliquam unde? Ipsum rerum architecto, esse qui quidem officiis facere tempore asperiores aspernatur deserunt magnam nulla possimus, quia cupiditate. Deserunt quae quas tenetur officia placeat nulla odio commodi cum consectetur est similique sit atque, id excepturi ullam. Quidem cupiditate praesentium nisi tenetur quo corporis. Soluta nobis ipsam magnam maxime, distinctio blanditiis qui mollitia voluptatibus dolore aut vitae, neque quae voluptatum sint, velit ab ullam dicta? Quibusdam facilis molestias iure similique culpa. Veniam nostrum nihil quos cum. Obcaecati porro, doloribus ut blanditiis quasi quibusdam quo animi odit aut harum vel tempore nisi at error commodi magni accusantium? Sequi tempora iure dignissimos cupiditate quaerat error blanditiis ab ratione. Voluptatum hic neque voluptatibus?</p>
+            <p>{description}</p>
             <div className="space-y-1 my-6">
                 <h1 className="font-bold">Jhon Deo</h1>
-                <h4>Director</h4>
+                <h4>Teacher</h4>
                 <p>Career Guidance & Counseling (CGC)</p>
             </div>
             <div className="space-y-3">

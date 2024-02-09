@@ -92,7 +92,7 @@ const Courses = () => {
   // pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredItems?.slice(indexOfFirstItem, indexOfLastItem);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // for search
@@ -181,6 +181,18 @@ const Courses = () => {
               className={selectCategory === "law" ? "active" : ""}
             >
               Law
+            </button>
+            <button
+              onClick={() => filterItems("5-10")}
+              className={selectCategory === "5-10" ? "active" : ""}
+            >
+              5-10
+            </button>
+            <button
+              onClick={() => filterItems("hsc")}
+              className={selectCategory === "hsc" ? "active" : ""}
+            >
+              HSC
             </button>
           </div>
 
