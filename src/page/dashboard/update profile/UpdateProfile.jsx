@@ -70,7 +70,7 @@ const UpdateProfile = () => {
     }
 
     return (
-        <div className="w-full h-screen bg-gradient-to-t from-first to-[#144417] text-gray-400">
+        <div className="w-full h-screen bg-third text-gray-700 dark:bg-zinc-800 dark:text-gray-400">
             <form onSubmit={handleUpdate} className="w-full md:w-2/3 lg:w-2/3 mx-auto shadow-lg px-5 py-8">
                 <h1 className="text-2xl font-bold text-center my-5">Updated Your Personal Information</h1>
                 <div className=" flex items-center justify-center flex-col gap-3">

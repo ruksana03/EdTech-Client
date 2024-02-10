@@ -21,9 +21,9 @@ const BannerA = () => {
   ];
 
   return (
-    <div className="relative bg-cover bg-center h-screen flex flex-row gap-6 items-center px-6 lg:px-12">
+    <div className="relative bg-black opacity-85 dark:opacity-65 bg-cover bg-center h-screen flex flex-row gap-6 items-center px-6 lg:px-12">
       <div
-        className="absolute inset-0 bg-fixed bg-cover bg-center dark:opacity-10 w-full h-96"
+        className="absolute inset-0 bg-fixed bg-cover bg-center w-full"
         style={{
           backgroundImage: `url('https://i.ibb.co/7SRBQ4Y/working-at-night.jpg')`,
           backgroundAttachment: "fixed",
@@ -36,7 +36,6 @@ const BannerA = () => {
           alignItems: "center",
           color: "white",
           fontSize: "24px",
-          opacity: "0.50",
           zIndex: "-1",
         }}
       ></div>
