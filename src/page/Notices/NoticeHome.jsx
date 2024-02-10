@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdNotificationsOff } from "react-icons/io";
-import useNoticeForTeacher from "../../Hooks/useNoticeForTeacher";
+import useTeacherSpecificNotices from "../../Hooks/useTeacherSpecificNotices";
 
 const NoticeHome = () => {
     const [notices, setNotices] = useState([]);
-    const [teacherNotices, ,] = useNoticeForTeacher();
+    const [teacherNotices, teacherRefetch,] = useTeacherSpecificNotices();
     const [searchNotices, setSearchNotices] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [settingPage, setSettingPage] = useState(12);
     const [itemsPerPage, setItemPerPage] = useState(settingPage);
     const [filteredNotices, setFilteredNotices] = useState([]);
-
+    teacherRefetch();
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -21,12 +21,12 @@ const NoticeHome = () => {
                 setFilteredNotices(teacherNotices);
                 const parseSettingPage = parseInt(settingPage)
                 setItemPerPage(parseSettingPage)
-            } catch (error) {
+            } catch (error) { 
                 console.log(error);
             }
         };
         fetchData();
-    }, [teacherNotices,settingPage]);
+    }, [teacherNotices, settingPage]);
     // console.log(searchNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
@@ -36,7 +36,7 @@ const NoticeHome = () => {
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem).reverse();
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // console.log(currentItems);
@@ -62,32 +62,34 @@ const NoticeHome = () => {
                     </div>
                     <div className='relative w-[350px] flex items-center gap-1 dark:text-gray-400'>
                         <p>Search</p>
-                        <input type="text" onChange={() => setSearchNotices(event.target.value)} className='text-[17px]dark:bg-zinc-600 dark:text-gray-400 dark:bg-zinc-800 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-first' name='search' placeholder='search date...' />
+                        <input type="text" onChange={() => setSearchNotices(event.target.value)} className='text-[17px]dark:bg-zinc-600 dark:text-gray-400 dark:bg-zinc-800 appearance-none input border-2 text-[17px] border-gray-200 rounded w-[80%] md:w-full lg:w-full py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-first' name='search' placeholder='search notice...' />
                     </div>
                 </div>
-                <table className="table border  mb-8">
-                    {/* head */}
-                    <thead className='text-base text-black dark:text-gray-400'>
-                        <tr>
-                            <th className='border '>Notice Title ({notices?.length})</th>
-                            <th className='border w-36 '>Notice Category</th>
-                            <th className='border w-36'>Published On</th>
-                        </tr>
-                    </thead>
-                    <tbody className=''>
-                        {
-                            currentItems?.length > 0 && currentItems?.map(notice =>
-                                <tr key={notice._id} className='border hover:bg-base-300 dark:hover:bg-third cursor-pointer'>
-                                    <td className='border text-base lg:text-[18px] font-medium hover:dark:text-black text-gray-800 dark:text-gray-400'><Link to={`/notice-details/${notice?._id}`}>{notice?.title}</Link></td>
-                                    <td className='border text-gray-800 dark:text-gray-400 font-medium '>All Teacher</td>
-                                    <td className='border text-gray-800 dark:text-gray-400 font-medium '>10-03-2023</td>
-                                </tr>)
-                        }
+                <div className="overflow-x-auto ">
+                    <table className="table border  mb-8">
+                        {/* head */}
+                        <thead className='text-base text-black dark:text-gray-400 '>
+                            <tr>
+                                <th className='border '>Notice Title ({notices?.length})</th>
+                                <th className='border w-36 '>Notice Category</th>
+                                <th className='border w-36'>Published On</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                currentItems?.length > 0 && currentItems?.map(notice =>
+                                    <tr key={notice._id} className='border hover:bg-base-300 dark:hover:bg-third cursor-pointer'>
+                                        <td className='border text-base lg:text-[18px] font-medium hover:dark:text-black text-gray-800 dark:text-gray-400'><Link to={`/notice-details/${notice?._id}`}>{notice?.title}</Link></td>
+                                        <td className='border text-gray-800 dark:text-gray-400 font-medium '>All Teacher</td>
+                                        <td className='border text-gray-800 dark:text-gray-400 font-medium '>10-03-2023</td>
+                                    </tr>)
+                            }
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
                 {
-                    notices?.length && filteredNotices?.length <= 0 && <div className='text-4xl w-full h-[30vh] flex items-center justify-center gap-2'>
+                    filteredNotices?.length <= 0 && <div className='text-4xl w-full h-[30vh] flex items-center justify-center gap-2'>
                         <h1>Here, No Notice Available <IoMdNotificationsOff className='w-full text-5xl text-red-600' /></h1>
                     </div>
                 }

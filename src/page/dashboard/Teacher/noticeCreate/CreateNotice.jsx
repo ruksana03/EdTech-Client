@@ -6,12 +6,17 @@ import { useSelector } from "react-redux";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
+import useUsers from "../../../../Hooks/useUsers";
 
 const CreateNotice = () => {
     const navigate = useNavigate();
     const user = useSelector(state => state.data.user.user);
     const axiosPublic = useAxiosPublic();
     const [loading, setLoading] = useState(false)
+    const { AllUsers, } = useUsers();
+    const findStudentUser = AllUsers.filter(find => find?.role === 'student');
+    // console.log(findStudentUser);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -33,14 +38,14 @@ const CreateNotice = () => {
                 hostName: user?.name,
                 hostEmail: user?.email
             }
-            console.log(noticeData);
+            // console.log(noticeData);
             axiosPublic.post('/notices', noticeData)
                 .then(res => {
                     setLoading(false)
                     console.log(res);
                     if (res.data) {
-                         toast.success('created successfully')
-                       return navigate('/notices/teacher-notices')
+                        toast.success('created successfully')
+                        return navigate('/notices/teacher-notices')
                     }
                 })
         }
@@ -78,10 +83,9 @@ const CreateNotice = () => {
                         <label className="text-xl font-bold" htmlFor="description">Set Email*</label>
                         {/* <textarea name="email" className="bg-gray-200 dark:text-gray-400 dark:bg-zinc-700 appearance-none focurs:outline-none border-2 border-gray-200 dark:border rounded w-full h-28 py-2 text-[17px] px-4 leading-tight dark:focus:border-first focus:bg-white focus:border-first input outline-none" placeholder='Write description....' required ></textarea> */}
                         <select className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name="email" required>
-                            <option disabled selected>Select Email</option>
-                            <option required>sushil530@gmail.com</option>
-                            <option>apurbo@gmail.com</option>
-                            <option>shakil123@gmail.com</option>
+                            <option disabled selected>Date filter</option>
+                            {findStudentUser?.map(noti => <option key={noti?._id} defaultValue={noti?.email}>
+                                {noti?.email}</option>)}
                         </select>
                     </div>
                     <div className="flex items-end justify-end mt-3 gap-3">

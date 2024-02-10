@@ -53,7 +53,7 @@ const UpdateNotice = () => {
             <form onSubmit={handleSubmit} className="w-2/3 mx-auto my-12">
                 <div className="space-y-3 mt-5 w-full">
                     <div className="flex flex-col gap-3 w-full">
-                        <label className="text-xl font-bold" htmlFor="description">Set  New Photo*</label>
+                        <label className="text-xl font-bold" htmlFor="description">Set New Photo*</label>
                         <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
                             <input name='image' type="file" defaultValue={Image} className="file-input file-input-bordered file-input-success border-first w-full" required />
                         </div>

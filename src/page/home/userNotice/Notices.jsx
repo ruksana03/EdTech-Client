@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
-import useUserSpecificNotices from "../../../Hooks/useUserSpecificNotices";
 import { IoMdNotificationsOff } from "react-icons/io";
 import { Link } from "react-router-dom";
+import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 
 
 const Notices = () => {
-    const [userNotices, ,] = useUserSpecificNotices();
+    const [userNotices,studentRefetch,] = useStudentSpecificNotices();
     const [searchNotices, setSearchNotices] = useState("");
     const [filteredNotices, setFilteredNotices] = useState([0]);
-
+    studentRefetch();
     useEffect(() => {
         const searchItem = userNotices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
         // console.log(searchItem);
     }, [searchNotices, userNotices])
+
+    const noticeData = [...filteredNotices].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+    });
 
 
     // console.log(filteredNotices);
@@ -42,11 +46,11 @@ const Notices = () => {
                     </thead>
                     <tbody className=''>
                         {
-                            filteredNotices?.length > 0 ? filteredNotices?.map(notice =>
+                            noticeData?.length > 0 ? noticeData?.map(notice =>
                                 <tr key={notice._id} className='border hover:bg-base-300 dark:hover:bg-third cursor-pointer'>
                                     <td className='border text-base lg:text-[18px] font-medium hover:dark:text-black text-gray-800 dark:text-gray-400'><Link to={`/notice-details/${notice?._id}`}>{notice?.title}</Link></td>
                                     <td className='border text-gray-800 dark:text-gray-400 font-medium '>All Teacher</td>
-                                    <td className='border text-gray-800 dark:text-gray-400 font-medium '>10-03-2023</td>
+                                    <td className='border text-gray-800 dark:text-gray-400 font-medium '>{notice?.date?.slice(0,10)}</td>
                                 </tr>) :
                                 <span className="loading-spinner text-3xl text-center my-5"></span>
                         }

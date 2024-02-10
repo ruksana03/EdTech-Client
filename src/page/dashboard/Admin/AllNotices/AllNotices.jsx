@@ -44,7 +44,7 @@ const AllNotices = () => {
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem).reverse();
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // console.log(currentItems);
