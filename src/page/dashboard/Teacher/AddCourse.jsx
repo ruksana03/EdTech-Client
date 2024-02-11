@@ -53,7 +53,7 @@ const AddCourse = () => {
         console.log(courseItem);
 
         const { data: datas = [] } = await axiosPublic.post(
-          "/courses ",
+          "/courses",
           courseItem
         );
 

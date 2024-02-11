@@ -23,17 +23,20 @@
 // export default Blog;
 import BlogNev from "../../components/blogComponents/BlogNev";
 import { Outlet } from "react-router-dom";
-import Footer from "../../components/shared/Footer";
+import BlogFooter from "./BlogFooter";
+// import { useSelector } from "react-redux";
 
 const Blog = () => {
+    // const user = useSelector((state) => state.data.user.user);
+    // console.log(user)
     return (
         <div>
         <div className="lg:fixed top-0 left-0 w-full z-50">
-        <BlogNev />
+        <BlogNev/>
         </div>
         
         <Outlet></Outlet>
-       <Footer/>
+       <BlogFooter/>
     </div>
     );
 };
