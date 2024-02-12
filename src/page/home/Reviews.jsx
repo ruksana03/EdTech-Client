@@ -21,7 +21,10 @@ const Reviews = () => {
     <section className="mt-20 section-container">
       <div className="text-center space-y-2 mt-8 dark:text-gray-400">
         <h2 className="headtext__cormorant">Testimonials</h2>
-        <h5 className=" p__cormorant">Discover What Learners Are Saying About Their Educational Journey with Us</h5>
+        <h5 className=" p__cormorant">
+          Discover What Learners Are Saying About Their Educational Journey with
+          Us
+        </h5>
       </div>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviews?.map((review) => (
