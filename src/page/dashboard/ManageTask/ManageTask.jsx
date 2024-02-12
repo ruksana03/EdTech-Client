@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
@@ -40,7 +41,7 @@ const ManageTask = () => {
             setProgress([...filteredProgress]);
             setCompleted([...filteredCompleted]);
         }
-    }, [data]);
+    }, [data,user]);
 
     function closeModal() {
         setIsOpen(false);
@@ -75,7 +76,7 @@ const ManageTask = () => {
 
     return (
         <div>
-            <button className="btn btn-secondary " onClick={() => setIsOpen(true)}><FaPlus />CreateTask</button>
+            <button className="btn-style flex items-center gap-2 " onClick={() => setIsOpen(true)}><FaPlus />CreateTask</button>
             <div className="flex flex-col min-h-screen w-full mx-auto text-white pb-5">
                 <DragDropContext onDragEnd={onDragEnd}>
                     <div className="flex flex-wrap mx-auto justify-center gap-10 px-8 mt-20">

@@ -33,6 +33,7 @@ const DetailsInfo = ({ detailInfo }) => {
         name: detailInfo?.name,
         price: detailInfo?.price,
         image: detailInfo?.image,
+        duration:detailInfo?.duration,
         details: detailInfo?.details,
         email: detailInfo?.email,
         classId: detailInfo?._id,
@@ -55,7 +56,7 @@ const DetailsInfo = ({ detailInfo }) => {
       <div className="container mx-auto px-4">
         <nav className="flex">
           <div className="-m-1">
-            <p className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
+            <p className="rounded-md p-1  focus:text-gray-900 focus:shadow hover:text-gray-800 p__cormorant">
               Course
               <span className="mx-2 text-gray-400">/</span>
               <span>Details</span>
@@ -116,7 +117,7 @@ const DetailsInfo = ({ detailInfo }) => {
           </div>
 
           <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-            <h1 className="sm: text-2xl font-bold text-gray-900 sm:text-3xl">
+            <h1 className="sm: text-2xl font-bold p__cormorant">
               {title}
             </h1>
 
@@ -130,26 +131,26 @@ const DetailsInfo = ({ detailInfo }) => {
                 {/* StarIcon */}
                 <FaStar className="block h-4 w-4 align-middle text-yellow-500" />{" "}
                 {/* StarIcon */}
-                <span className="ml-2 block text-sm font-medium text-gray-500">
+                <span className="ml-2 block text-sm font-medium p__opensans">
                   1,209 Reviews
                 </span>
               </div>
             </div>
 
-            <h2 className="mt-8 text-base text-gray-900 font-semibold">
+            <h2 className="mt-8 text-base p__opensans font-semibold">
               Instructor: {name}
             </h2>
-            <h2 className="text-base text-gray-900 mt-3 font-semibold">
+            <h2 className="p__opensans mt-3 font-semibold">
               Email: {email}
             </h2>
 
             <div className="mt-4 flex select-none flex-wrap items-center gap-1">
-              <p className="font-semibold text-base">Duration: {duration} months</p>
+              <p className="font-semibold p__opensans">Duration: {duration} months</p>
             </div>
 
             <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
               <div className="flex items-end">
-                <h1 className="text-3xl font-bold">${price}</h1>
+                <h1 className="text-3xl font-alt text-white font-bold">${price}</h1>
               </div>
 
               <button
@@ -168,13 +169,13 @@ const DetailsInfo = ({ detailInfo }) => {
             </div>
 
             <ul className="mt-8 space-y-2">
-              <li className="flex items-center text-left text-sm font-medium text-gray-600">
+              <li className="flex items-center text-left text-sm font-medium p__opensans">
                 <TbWorldCheck className="text-lg" />
 
                 <span className="ml-2"> Learn Anytime, Anywhere</span>
               </li>
 
-              <li className="flex items-center text-left text-sm font-medium text-gray-600">
+              <li className="flex items-center text-left text-sm font-medium p__opensans">
                 <MdFreeCancellation className="text-lg"/>
                 <span className="ml-2">Cancel Anytime</span>
               </li>
@@ -187,7 +188,7 @@ const DetailsInfo = ({ detailInfo }) => {
                 <a
                   href="#"
                   title=""
-                  className="border-b-2 border-gray-900 py-4 text-sm font-medium text-gray-900 hover:border-gray-400 hover:text-gray-800"
+                  className="border-b-2 border-gray-900 py-4 text-sm font-medium p__cormorant hover:border-gray-400 hover:text-gray-800"
                 >
                   Description
                 </a>
@@ -195,7 +196,7 @@ const DetailsInfo = ({ detailInfo }) => {
                 <a
                   href="#"
                   title=""
-                  className="inline-flex items-center border-b-2 border-transparent py-4 text-sm font-medium text-gray-600"
+                  className="inline-flex items-center border-b-2 border-transparent py-4 text-sm font-medium p__cormorant"
                 >
                   Reviews
                   <span className="ml-2 block rounded-full bg-second px-2 py-px text-xs font-bold text-gray-100">
@@ -206,10 +207,10 @@ const DetailsInfo = ({ detailInfo }) => {
             </div>
 
             <div className="mt-8 flow-root sm:mt-12">
-              <h1 className="text-3xl font-bold">Course Description</h1>
-              <p className="mt-4">{details}</p>
-              <h1 className="text-3xl font-semibold mt-5">Requirments</h1>
-              <p className="mt-4 font-medium">{requirements}</p>
+              <h1 className="text-3xl headtext__cormorant font-bold">Course Description</h1>
+              <p className="mt-4 p__opensans">{details}</p>
+              <h1 className="text-3xl font-semibold mt-5 headtext__cormorant">Requirments</h1>
+              <p className="mt-4 font-medium p__opensans">{requirements}</p>
 
             </div>
           </div>

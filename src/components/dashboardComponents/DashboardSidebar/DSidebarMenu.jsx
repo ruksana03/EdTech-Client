@@ -90,16 +90,16 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
                 {getMenuBasedOnRole()}
             </div>
 
-            <hr className="border border-first dark:border-white" />
+            <hr className="border border-first " />
             {links.map((link, index) => (
-                <ol key={link} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                <ol key={link} className={`flex gap-3   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
 
                     <li style={{
                         padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
-                        // border: location.pathname.startsWith(`/dashboard${link}`) ? "1px solid black" : "",
+                         
                         fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
-                        color: location.pathname.startsWith(`/dashboard${link}`) ? "black" : "black",
-                    }} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                        color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
+                    }} className={`flex gap-3 font-alt text-xl ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                         <Link to={`/dashboard${link}`} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                             {icons[index]}
                             <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{menuNames[index]}</p>

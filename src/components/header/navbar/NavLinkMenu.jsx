@@ -5,7 +5,7 @@ const NavLinkMenu = ({isScrolled}) => {
     return (
         <>
             <div className="flex-none hidden lg:block ">
-                <ul className={`menu menu-horizontal flex dark:text-gray-400 text-black ${isScrolled?"text-white":""}`}>
+                <ul className={`menu menu-horizontal flex  text-white p__cormorant   ${isScrolled?"text-white":""}`}>
                     {/* Navbar menu content here */}
                     <ManuList address={'/'} linkTitle={"Home"}  />
                     <ManuList address={'all-courses'} linkTitle={"All Courses"}  />
