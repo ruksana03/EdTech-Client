@@ -1,26 +1,27 @@
-import { useForm } from "react-hook-form";
+/* eslint-disable react/prop-types */
+// import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useSelector } from "react-redux";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
-import toast from "react-hot-toast";
+import { Fragment } from "react";
+// import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 
 const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
-    const { register, handleSubmit } = useForm();
+    // const { register, handleSubmit } = useForm();
     const axiosSecure = useAxiosSecure();
     const user = useSelector(state => state.data.user.user);
     
     console.log(isOpen);
 
-    const onSubmit = async data => {
-        const { data: res } = await axiosSecure.post('/update', report);
-        if (res.insertedId) {
-            toast.success('Report Submitted Successfully');
-            closeModal();
-        }
-    };
+    // const onSubmit = async data => {
+    //     const { data: res } = await axiosSecure.post('/update', report);
+    //     if (res.insertedId) {
+    //         toast.success('Report Submitted Successfully');
+    //         closeModal();
+    //     }
+    // };
     const handleUpdate = async e => {
         e.preventDefault();
         const title = e.target.title.value;

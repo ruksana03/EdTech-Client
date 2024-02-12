@@ -4,7 +4,7 @@ import { logOut } from "../Features/Utilities";
 import axiosSecure from "../api/axiosSecure";
 
 // const axiosSecure = axios.create({
-//     baseURL: 'http://localhost:5000'
+//     baseURL: 'https://ed-tech-server-six.vercel.app'
 // })
 const useAxiosSecure = () => {
     const navigate = useNavigate();
