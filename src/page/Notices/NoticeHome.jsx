@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdNotificationsOff } from "react-icons/io";
 import useTeacherSpecificNotices from "../../Hooks/useTeacherSpecificNotices";
+import Loader from "../../components/shared/Loader";
 
 const NoticeHome = () => {
     const [notices, setNotices] = useState([]);
-    const [teacherNotices, teacherRefetch,] = useTeacherSpecificNotices();
+    const [teacherNotices, teacherRefetch,isLoading] = useTeacherSpecificNotices();
     const [searchNotices, setSearchNotices] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [settingPage, setSettingPage] = useState(12);
@@ -88,6 +89,9 @@ const NoticeHome = () => {
                         </tbody>
                     </table>
                 </div>
+                {
+                    isLoading &&  <Loader />
+                }
                 {
                     filteredNotices?.length <= 0 && <div className='text-4xl w-full h-[30vh] flex items-center justify-center gap-2'>
                         <h1>Here, No Notice Available <IoMdNotificationsOff className='w-full text-5xl text-red-600' /></h1>

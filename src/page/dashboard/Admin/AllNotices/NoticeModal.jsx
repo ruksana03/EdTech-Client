@@ -6,16 +6,13 @@ import { imageUpload } from "../../../../api/getData";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
-import useUsers from "../../../../Hooks/useUsers";
 
 
 const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
     const [loading, setLoading] = useState(false)
     const axiosPublic = useAxiosPublic();
     const user = useSelector(state => state.data.user.user);
-    const { AllUsers, } = useUsers();
-    const findTeacherUser = AllUsers.filter(find => find?.role === 'teacher');
-    // console.log(findTeacherUser);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +21,7 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
         const image = form.image.files[0];
         const title = form.title.value;
         const description = form.description.value;
-        const email = form.email.value;
+        const sentNotices = form.sentFor.value;
         try {
             const loadImage = await imageUpload(image);
             handleCancel();
@@ -33,8 +30,7 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
                 date: new Date(),
                 title,
                 description,
-                role: 'student',
-                email,
+                sentNotices,
                 hostName: user?.name,
                 hostEmail: user?.email
             }
@@ -79,10 +75,13 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
                         </div>
                         <div className="flex flex-col gap-3">
                             <label className="text-xl font-bold" htmlFor="description">Set Email*</label>
-                            <select className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name="email" required>
-                            <option disabled selected>Date filter</option>
-                            {findTeacherUser?.map(noti => <option key={noti?._id} defaultValue={noti?.email}>
-                                {noti?.email}</option>)}
+                            <select className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name="sentFor" required>
+                            <option disabled selected>Select for sent Notice</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="student">Student</option>
+                            <option value="common">Common</option>
+                            <option value="course">Course</option>
+                           
                             </select>
                         </div>
                         <div className="flex items-end justify-end mt-3 gap-3">

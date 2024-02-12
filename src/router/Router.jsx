@@ -136,10 +136,10 @@ const router = createBrowserRouter([
                         path: 'new-notices',
                         element: <NewNotices />
                     },
-                    {
-                        path: 'for-teacher-notices',
-                        element: <Notices />
-                    },
+                    // {
+                    //     path: 'for-teacher-notices',
+                    //     element: <Notices />
+                    // },
                 ]
             },
             {

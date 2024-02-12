@@ -101,7 +101,7 @@ const DashboardLayout = () => {
                     <DashboardRightManu changeTheme={changeTheme} mode={mode} user={user} handleLogout={handleLogout} />
                 </div>
             </div>
-            <div className={`bg-[#f1f5f9] py-5 -z-10 dark:bg-zinc-800 dark:text-gray-400 w-auto ${isActive ? ' md:ml-[150px] md:w-[calc(100%-150px)] lg:ml-[160px] lg:w-[calc(100%-160px)] transition-all duration-200 ' : 'w-auto md:ml-[186px] md:w-[calc(100%-186px)] lg:ml-[250px] lg:w-[calc(100%-250px)] transition-all duration-200'}`}>
+            <div className={`bg-[#f1f5f9] py-5 -z-10 dark:bg-zinc-800 dark:text-gray-400 w-auto h-auto ${isActive ? ' h-auto md:ml-[150px] md:w-[calc(100%-150px)] lg:ml-[160px] lg:w-[calc(100%-160px)] transition-all duration-200 ' : 'w-auto  h-auto md:ml-[186px] md:w-[calc(100%-186px)] lg:ml-[250px] lg:w-[calc(100%-250px)] transition-all duration-200'}`}>
                 <Outlet></Outlet>
             </div>
         </div>

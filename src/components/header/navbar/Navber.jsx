@@ -17,12 +17,14 @@ import Sidebar from "./Sidebar";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
 import useUserRole from "../../../Hooks/useUserRole";
+import useCommonNotices from "../../../Hooks/useCommonNotices";
 
 // const Navbar = ({ children }) => {
 const Navbar = () => {
     const { changeTheme, mode } = useTheme()
     const [userNotices, studentRefetch,] = useStudentSpecificNotices();
     const [teacherNotices, teacherRefetch,] = useTeacherSpecificNotices();
+    const [commonNotices, commonRefetch, isLoading] = useCommonNotices();
     const [role,] = useUserRole();
     const currentRole = role[0]?.role;
     const [active, setActive] = useState(true);
@@ -31,6 +33,7 @@ const Navbar = () => {
     console.log(userNotices, user);
     studentRefetch();
     teacherRefetch();
+    commonRefetch();
     const dispatch = useDispatch();
     const handleClick = () => {
         setActive(!active)
@@ -95,33 +98,38 @@ const Navbar = () => {
                         <div>
                             <NavUserButton user={user} handleLogout={handleLogout} />
                             <div className="hidden lg:block">
+                                {/* notice show here  */}
                                 <div className="flex items-center justify-center gap-4">
-                                    <Link to='notices/new-notices'>
-                                        {
-                                            currentRole === 'student' && <button
+                                    {
+                                        currentRole === 'student' && <Link to='notices/user-notices'>
+                                            <button
                                                 className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
                                                 {/* <IoNotificationsSharp /> */}
                                                 <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
                                                 <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{userNotices?.length}</span>
-                                            </button>
-                                        }
-                                        {
-                                            currentRole === 'teacher' && <button
-                                                className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                                                {/* <IoNotificationsSharp /> */}
-                                                <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
-                                                <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{teacherNotices?.length}</span>
-                                            </button>
-                                        }
-                                        {
-                                            (currentRole !== 'student' && currentRole !== 'teacher') && currentRole !=='admin' && <button
-                                                className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                                                {/* <IoNotificationsSharp /> */}
-                                                <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
-                                                <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">1</span>
-                                            </button>
-                                        }
-                                    </Link>
+                                            </button> 
+                                            </Link>
+                                    }
+                                    {
+                                        currentRole === 'teacher' &&
+                                        <Link to='notices/teacher-notices'> <button
+                                            className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                                            {/* <IoNotificationsSharp /> */}
+                                            <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
+                                            <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{teacherNotices?.length}</span>
+                                        </button>
+                                        </Link>
+                                    }
+                                    {
+                                        (currentRole !== 'student' && currentRole !== 'teacher') && currentRole !== 'admin' && <Link to='notices/new-notices'> <button
+                                            className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                                            {/* <IoNotificationsSharp /> */}
+                                            <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
+                                            <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{commonNotices?.length}</span>
+                                        </button>
+                                        </Link>
+                                    }
+
                                     <button onClick={changeTheme} className="swap swap-rotate ">
                                         {
                                             mode === "dark"
@@ -153,7 +161,7 @@ const Navbar = () => {
                                                                         src={user?.photo}
                                                                         alt="" />
                                                                 ) : (
-                                                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" className="h-12 w-12 rounded-full"  />
                                                                 )}
                                                     </div>
                                                     <ul

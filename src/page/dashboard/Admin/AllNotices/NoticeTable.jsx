@@ -6,36 +6,10 @@ import { CiBookmarkCheck } from "react-icons/ci";
 import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const NoticeTable = ({ notice,handleDelete }) => {
+const NoticeTable = ({ notice, handleDelete }) => {
     // const axiosSecure = useAxiosSecure();
     const { _id, date, title } = notice || {};
-    // const handleDelete = (id) => {
-    //     Swal.fire({
-    //         title: "Are you sure?",
-    //         text: "Do You Want to delete this!",
-    //         icon: "warning",
-    //         showCancelButton: true,
-    //         confirmButtonColor: "#3085d6",
-    //         cancelButtonColor: "#d33",
-    //         confirmButtonText: "Yes, delete it!"
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             axiosSecure.delete(`/notice/${id}`)
-    //                 .then(res => {
-    //                     if (res.data?.deletedCount > 0) {
-    //                         Swal.fire({
-    //                             title: "Deleted!",
-    //                             text: `${title} has been deleted.`,
-    //                             icon: "success"
-    //                         });
-    //                         refetch();
-    //                     }
-    //                 })
 
-    //         }
-    //     });
-    //     console.log(id);
-    // }
     return (
         <>
             <tr className='border overflow-x-scroll w-2/3 hover:bg-base-300 cursor-pointer'>
@@ -62,7 +36,6 @@ const NoticeTable = ({ notice,handleDelete }) => {
                             <li className="flex items-center justify-center gap-2">
                                 <Link to={`/dashboard/notice-details/${_id}`}>Details <BiMessageAltDetail /></Link>
                             </li>
-                            {/* <li className="flex items-center justify-center gap-2"><a>Details <BiMessageAltDetail /></a></li> */}
                         </ul>
                     </div>
                 </td>

@@ -59,7 +59,6 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
 
             <div>
                 {user ? (
-
                     <div >
                         <hr className="mb-3" />
                         <div className={`flex gap-3 justify-between items-center ${isActive ? 'flex-col justify-center ' : ''}`}>
@@ -77,11 +76,9 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
                                 </div>
                             </Link>
                             <HiBellAlert />
-
                         </div>
                         <hr className="mt-2" />
                     </div>
-
                 ) : (
                     <hr />
                 )}

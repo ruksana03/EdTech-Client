@@ -1,7 +1,5 @@
 import { useDispatch } from "react-redux";
 import "../App.css";
-// import Header from "../components/header/Header";
-// import Footer from './../components/Footer';
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import auth from "../firebase/firebase.config";
@@ -16,7 +14,6 @@ import Footer from "../components/shared/Footer";
 const MainLayout = () => {
   const dispatch = useDispatch();
   const axiosPublic = useAxiosPublic();
-  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -48,15 +45,13 @@ const MainLayout = () => {
 
   return (
     <div>
-      <SubNav />
-      {/* <div className="lg:fixed top-0 left-0 w-full z-50"> */}
+      <>
+        <SubNav />
         <Navber />
-      {/* </div> */}
-      
-      <Outlet />
-      <Footer />
-      {/* <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" /> */}
-    </div>
+        <Outlet />
+        <Footer />
+      </>
+    </div >
   );
 };
 export default MainLayout;

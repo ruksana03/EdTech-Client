@@ -1,19 +1,19 @@
-// const Loader = () => {
-//     return (
-//         <div>
-//             <h1 className="text-2xl m-auto text-slate-400 font-serif animate-ping">InnavatED...</h1>
-//         </div>
-//     );
-// };
-
-// export default Loader;
+import Lottie from 'lottie-react';
+import image1 from '../../assets/image/loader/Animation - 1707561176476.json';
 
 const Loader = () => {
   return (
-    <div className="flex min-h-screen flex-col justify-center items-center">
-     <span className="loading loading-dots loading-lg"></span>
+    <div>
+      <div className='w-full h-[60vh] flex items-center justify-center flex-col'>
+        <Lottie animationData={image1} loop={true}></Lottie>
+      </div>
     </div>
-  );
-};
+  )
+}
+
+
+
+
+
 
 export default Loader;

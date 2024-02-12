@@ -21,7 +21,7 @@ const BannerA = () => {
   ];
 
   return (
-    <div className="relative bg-black opacity-85 dark:opacity-65 bg-cover bg-center h-screen flex flex-row gap-6 items-center px-6 lg:px-12">
+    <div className="relative bg-black opacity-90 dark:opacity-65 bg-cover bg-center h-screen flex flex-row gap-6 items-center px-6 lg:px-12">
       <div
         className="absolute inset-0 bg-fixed bg-cover bg-center w-full"
         style={{

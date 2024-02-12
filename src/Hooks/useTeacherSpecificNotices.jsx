@@ -1,15 +1,17 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from './useAxiosPublic';
+import useUserRole from './useUserRole';
 
 const useTeacherSpecificNotices = () => {
   const axiosPublic = useAxiosPublic();
-  const user = useSelector(state => state.data.user.user);
+  const [role] = useUserRole();
+  const currentRole = role[0]?.role;
+  console.log(currentRole);
   const { data: teacherNotices = [], refetch:teacherRefetch, isLoading } = useQuery({
-    queryKey: ['notices', user?.email],
+    queryKey: ['notices',],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/notices-query?email=${user?.email}`)
-      console.log(res.data);
+      const res = await axiosPublic.get(`/notices-query?sentNotices=${currentRole}`)
       return res.data
     },
   })
