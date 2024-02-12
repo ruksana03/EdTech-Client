@@ -48,9 +48,7 @@ const UserProfile = () => {
         console.log(error);
       })
   }
-  // console.log(user);
-  // https://i.ibb.co/tpKtPW2/joanna-kosinska-9gf-GDbxuqr-U-unsplash.jpg 
-  //https://i.ibb.co/4fj4851/200w.gif
+ 
 
   return (
     <div className=" w-full min-h-[calc(100vh-83px)] mt-10">
@@ -86,14 +84,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      {/* <div className="">
-        <div className="bg-white shadow-lg rounded-2xl w-3/5 relative">
-          <img alt="profile" src="https://i.ibb.co/tpKtPW2/joanna-kosinska-9gf-GDbxuqr-U-unsplash.jpg" className="w-full mb-4 rounded-t-lg h-36"
-          />
-        
-        </div>
        
-      </div> */}
     </div >
   );
 };

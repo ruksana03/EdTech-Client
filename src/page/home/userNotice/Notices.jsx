@@ -20,15 +20,9 @@ const Notices = () => {
     return new Date(b.date) - new Date(a.date);
   });
 
-  // console.log(filteredNotices);
-  // console.log(searchNotices);
-
   return (
     <div>
-      {/* <figure className=" w-full h-[45vh] relative">
-                <img src='https://i.ibb.co/Fqw8LX4/NOTICE.png' alt="notice-image" className="w-full h-full" />
-                <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
-            </figure> */}
+       
       <div className="section-container">
         <div className="flex items-center justify-center w-full my-5">
           <div className="relative w-full md:w-1/2 lg:w-1/2 flex items-center gap-1 dark:text-gray-400">
