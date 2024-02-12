@@ -1,28 +1,28 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useState } from "react";
 import { FaEdit, FaRegClock } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import EditeModal from "../Modal/EditeModal";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 
 const TaskCard = ({ item, refetch, provided }) => {
-   const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure();
   const handleStatus = async (e) => {
     e.preventDefault();
     const status = {
       status: e.target.value,
     };
-    const res = await axiosPublic.patch(`/status?id=${item._id}`, status);
+    const res = await axiosSecure.patch(`/status?id=${item._id}`, status);
     if (res.data.modifiedCount > 0) {
       toast.success("Updated successfully");
     }
     refetch();
   };
   const handleDelete = async () => {
-    const res = await axiosPublic.delete(`/delete?id=${item._id}`);
+    const res = await axiosSecure.delete(`/delete?id=${item._id}`);
     console.log(res.data);
     if (res.data.deletedCount > 0) {
       toast.success("Deleted successfully");
@@ -72,7 +72,21 @@ const TaskCard = ({ item, refetch, provided }) => {
               <FaRegClock />
               {item.deadline}
             </span>
- 
+           
+          {/* <select
+                    onChange={handleStatus}
+                    className="rounded-lg outline-[#00B5FF]"
+                    name="status"
+                    id=""
+                    defaultValue={item.status}
+                >
+                    <option disabled>Set Status</option>
+                    <option value="todo">Todo</option>
+                    <option value="progress">progress</option>
+                    <option value="completed">Completed</option>
+                </select> */}
+
+          
         </div>
       </div>
       <EditeModal

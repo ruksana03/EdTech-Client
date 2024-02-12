@@ -136,11 +136,15 @@ const router = createBrowserRouter([
                         path: 'new-notices',
                         element: <NewNotices />
                     },
+                    {
+                        path: 'for-teacher-notices',
+                        element: <Notices />
+                    },
                 ]
             },
             {
                 path: 'notice-details/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/notice-user/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/notice/${params.id}`),
                 element: <NoticeHomeDetails />
             },
         ],

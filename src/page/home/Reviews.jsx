@@ -20,8 +20,8 @@ const Reviews = () => {
   return (
     <section className="mt-20 section-container">
       <div className="text-center space-y-2 mt-8 dark:text-gray-400">
-        <h2 className="title">Testimonials</h2>
-        <h5 className="subtitle">Discover What Learners Are Saying About Their Educational Journey with Us</h5>
+        <h2 className="headtext__cormorant">Testimonials</h2>
+        <h5 className=" p__cormorant">Discover What Learners Are Saying About Their Educational Journey with Us</h5>
       </div>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviews?.map((review) => (
@@ -32,9 +32,9 @@ const Reviews = () => {
                 value={review.rating}
                 readOnly
               />
-              <BiSolidQuoteLeft className="text-4xl mt-4"></BiSolidQuoteLeft>
-              <p className="py-8">{review.details}</p>
-              <h3 className="text-2xl">{review.name}</h3>
+              <BiSolidQuoteLeft className="text-4xl mt-4 p__cormorant"></BiSolidQuoteLeft>
+              <p className="py-8 p__opensans">{review.details}</p>
+              <h3 className="text-2xl p__cormorant">{review.name}</h3>
             </div>
           </SwiperSlide>
         ))}

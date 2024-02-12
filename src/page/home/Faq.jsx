@@ -10,8 +10,8 @@ const Faq = () => {
   return (
     <div className="section-container">
       <div className="space-y-3 mt-16 dark:text-gray-400">
-        <h2 className=" title text-center  ">Frequently Asked Questions</h2>
-        <p className="text-center subtitle">
+        <h2 className=" headtext__cormorant text-center font-base ">Frequently Asked Questions</h2>
+        <p className="text-center p__cormorant">
           Explore common questions about InnavatED and discover how our platform
           is reshaping education.
         </p>
@@ -21,14 +21,14 @@ const Faq = () => {
           <img
             data-aos="fade-right"
             className="rounded-2xl p-3"
-            src="https://i.ibb.co/F7ZQsqN/faq.jpg"
+            src="https://i.ibb.co/s3Ym1LH/faq-removebg-preview.png"
             alt="faq"
           />
         </div>
         {/* accordion */}
         <div className="flex-1">
           <div  data-aos="flip-up"
-            className="collapse collapse-plus bg-third dark:bg-zinc-700 dark:text-gray-400"
+            className="collapse collapse-plus bg-black dark:bg-zinc-700 dark:text-gray-400"
             onClick={() => handleAccordionToggle(1)}
           >
             <input
@@ -37,7 +37,7 @@ const Faq = () => {
               checked={activeAccordion === 1}
               readOnly
             />
-            <div className="collapse-title text-xl font-medium">
+            <div className="collapse-title p__opensans text-xl">
               What is InnavatEDs main benefit for students?
             </div>
             <div
@@ -45,14 +45,14 @@ const Faq = () => {
                 activeAccordion === 1 ? "open" : ""
               }`}
             >
-              <p>
+              <p className="p__opensans">
                 InnavatED offers personalized learning to enhance the student
                 experience.
               </p>
             </div>
           </div>
           <div  data-aos="flip-up"
-            className="collapse collapse-plus my-6 bg-third dark:bg-zinc-700 dark:text-gray-400"
+            className="collapse collapse-plus my-6  bg-black"
             onClick={() => handleAccordionToggle(2)}
           >
             <input
@@ -61,7 +61,7 @@ const Faq = () => {
               checked={activeAccordion === 2}
               readOnly
             />
-            <div className="collapse-title text-xl font-medium">
+            <div className="collapse-title p__opensans text-xl font-medium">
               How can educators integrate InnavatED into their teaching methods?
             </div>
             <div
@@ -69,7 +69,7 @@ const Faq = () => {
                 activeAccordion === 2 ? "open" : ""
               }`}
             >
-              <p>
+              <p className="p__opensans">
                 InnavatED provides seamless integration with existing teaching
                 methods. Educators can utilize our platform to create engaging
                 online courses, track student progress, and leverage analytics
@@ -78,7 +78,7 @@ const Faq = () => {
             </div>
           </div>
           <div  data-aos="flip-up"
-            className="collapse collapse-plus bg-third dark:bg-zinc-700 dark:text-gray-400"
+            className="collapse collapse-plus bg-black  "
             onClick={() => handleAccordionToggle(3)}
           >
             <input
@@ -87,7 +87,7 @@ const Faq = () => {
               checked={activeAccordion === 3}
               readOnly
             />
-            <div className="collapse-title text-xl font-medium">
+            <div className="collapse-title p__opensans text-xl font-medium">
               How does InnavatED ensure data security?
             </div>
             <div
@@ -95,14 +95,14 @@ const Faq = () => {
                 activeAccordion === 3 ? "open" : ""
               }`}
             >
-              <p>
+              <p className="p__opensans">
                 InnavatED prioritizes robust encryption and strict data
                 protection for student privacy.
               </p>
             </div>
           </div>
           <div  data-aos="flip-up"
-            className="collapse collapse-plus bg-third mt-6 dark:bg-zinc-700 dark:text-gray-400"
+            className="collapse collapse-plus bg-black mt-6  "
             onClick={() => handleAccordionToggle(4)}
           >
             <input
@@ -111,7 +111,7 @@ const Faq = () => {
               checked={activeAccordion === 4}
               readOnly
             />
-            <div className="collapse-title text-xl font-medium">
+            <div className="collapse-title p__opensans text-xl font-medium">
               Is InnavatED suitable for all grade levels?
             </div>
             <div
@@ -119,7 +119,7 @@ const Faq = () => {
                 activeAccordion === 4 ? "open" : ""
               }`}
             >
-              <p>
+              <p className="p__opensans">
                 Yes, InnavatED caters to various grades with adaptive learning
                 and diverse content.
               </p>

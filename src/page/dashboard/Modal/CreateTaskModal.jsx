@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { register, handleSubmit } = useForm();
   const user = useSelector((state) => state.data.user.user);
 
@@ -21,7 +21,7 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
       status: "todo",
     };
 
-    const { data: res } = await axiosPublic.post("/task", updatedData);
+    const { data: res } = await axiosSecure.post("/task", updatedData);
     if (res.insertedId) {
       toast.success("Task Added Successfully");
       closeModal();

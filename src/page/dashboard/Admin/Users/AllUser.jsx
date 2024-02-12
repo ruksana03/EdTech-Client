@@ -62,7 +62,7 @@ const AllUser = () => {
       <div className="overflow-x-auto">
         <table className="table w-full border-collapse border border-gray-300">
           {/* head */}
-          <thead className="bg-gray-800 text-white">
+          <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl">
             <tr  >
               <th className="py-3">#</th>
               <th className="py-3">Name</th>
@@ -78,7 +78,8 @@ const AllUser = () => {
             {AllUsers?.map((user, index) => (
               <tr
                 key={user._id}
-                className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
+                className='p__opensans'
+              
               >
                 <td className="py-3 font-bold">{index + 1}</td>
                 <td className="py-3 font-bold">{user.name}</td>
@@ -87,7 +88,7 @@ const AllUser = () => {
                 <td className="py-3 text-red-500 font-bold cursor-pointer">
                 <button
                     onClick={() => setIsOpen(true)}
-                    className='relative bg-red-950 px-4 py-2 rounded-md text-white'
+                    className='relative btn-style rounded-md text-white'
                     disabled={user?.role == 'Admin'}
                 >
                     {user?.role !== 'Admin' && (

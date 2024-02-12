@@ -88,8 +88,8 @@ const Popular = () => {
   return (
     <div className="section-container my-20 relative p-5">
       <div className="text-left dark:text-gray-400">
-        <h2 className="subtitle">Top Courses</h2>
-        <h2 className="title">Explore our Popular Courses </h2>
+        <h2 className="headtext__cormorant">Top Courses</h2>
+        <h2 className="p__cormorant">Explore our Popular Courses </h2>
       </div>
 
       {/* next prev buttons */}
@@ -109,7 +109,7 @@ const Popular = () => {
       </div>
 
       {/* map recipies */}
-      <Slider {...settings} ref={slider} className="mt-16 overflow-hidden">
+      <Slider {...settings} ref={slider} className="mt-12 overflow-hidden">
         {popular?.map((item, idx) => (
           <Cards key={idx} item={item}></Cards>
         ))}

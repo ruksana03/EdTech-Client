@@ -6,8 +6,8 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
 import TaskColumn from "./TaskColumn";
 import CreateTaskModal from "../Modal/CreateTaskModal";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaPlus } from "react-icons/fa";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 
 const ManageTask = () => {
@@ -18,14 +18,13 @@ const ManageTask = () => {
     console.log(isOpen);
 
     const user = useSelector(state => state.data.user.user);
-    // const axiosSecure = useAxiosSecure();
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure();
     // const queryClient = new QueryClient(); 
     const { data, refetch } = useQuery({
         queryKey: ['all-task', user],
         queryFn: async () => {
             // const res = await axiosSecure(/addtask?email=${user?.email});
-            const res = await axiosPublic('/addtask');
+            const res = await axiosSecure('/addtask');
             return res.data;
         },
     });
@@ -66,7 +65,7 @@ const ManageTask = () => {
         const [movedTask] = updatedTasks.splice(source.index, 1);
         updatedTasks.splice(destination.index, 0, movedTask);
 
-        axiosPublic
+        axiosSecure
             .patch(`/status?id=${draggableId}`, {
                 status: destination.droppableId,
             })
@@ -77,7 +76,7 @@ const ManageTask = () => {
 
     return (
         <div>
-            <button className="btn btn-secondary " onClick={() => setIsOpen(true)}><FaPlus />CreateTask</button>
+            <button className="btn-style flex items-center gap-2 " onClick={() => setIsOpen(true)}><FaPlus />CreateTask</button>
             <div className="flex flex-col min-h-screen w-full mx-auto text-white pb-5">
                 <DragDropContext onDragEnd={onDragEnd}>
                     <div className="flex flex-wrap mx-auto justify-center gap-10 px-8 mt-20">

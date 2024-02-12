@@ -31,11 +31,11 @@ const AllPaymentInfo = () => {
 
   return (
     <div>
-      <h2 className="text-3xl mb-6 mt-3 text-center">Total Payments: {payments?.length}</h2>
+      <h2 className="text-3xl mb-6 mt-3 p__cormorant text-center">Total Payments: {payments?.length}</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border-collapse border border-gray-800">
           {/* head */}
-          <thead className="bg-gray-800 text-white">
+          <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl">
             <tr>
               <th className="py-2">#</th>
               <th className="py-2">Email</th>
@@ -48,7 +48,7 @@ const AllPaymentInfo = () => {
             {payments?.map((payment, index) => (
               <tr
                 key={payment._id}
-                className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'  }
+                className='p__opensans'
               >
                 <td className="py-2">{index + 1}</td>
                 <td className="py-2">{payment.stEmail}</td>
