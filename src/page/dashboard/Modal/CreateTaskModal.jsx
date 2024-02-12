@@ -75,29 +75,9 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
                         name="title"
                         required
                       />
-                      {/* <label className="text-orange-500">Description: </label>
-                                            <textarea
-                                                {...register("description")}
-                                                required
-                                                className="outline-orange-500  bg-orange-200 py-1 px-1 mt-2"
-                                                placeholder="Description"
-                                                name="description"
-                                                cols="25"
-                                                rows="4"
-                                            ></textarea> */}
+                     
                       <br />
-                      {/* <label className="text-orange-500 ">Priority: </label>
-                                            <select
-                                                {...register("priority")}
-                                                required
-                                                className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
-                                                name="priority"
-                                            >
-                                                <option disabled>Set Status</option>
-                                                <option value="low">Low</option>
-                                                <option value="moderate">Moderate</option>
-                                                <option value="high">High</option>
-                                            </select> */}
+                     
                       <label className="text-orange-500 pl-1 ">Deadline:</label>
                       <input
                         required

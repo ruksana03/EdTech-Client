@@ -101,3 +101,4 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
 };
 
 export default NoticeModal;
+//
