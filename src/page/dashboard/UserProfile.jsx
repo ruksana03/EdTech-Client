@@ -58,28 +58,28 @@ const UserProfile = () => {
         <div className="bg-black top-0 left-0 right-0 w-full h-full absolute opacity-10"></div>
         <figure className="absolute -bottom-16 w-32 h-32 left-[36%] md:left-[43%] lg:left-[45%]">
           <img alt="profile" src={user?.photo} className="mx-auto object-cover rounded-full w-full h-full border-4 border-first" />
-          <h1 className="px-8 py-2 bg-first text-white rounded-full capitalize">{currenUserRole}</h1>
+          <h1 className="px-8 py-2 p__cormorant rounded-full capitalize">{currenUserRole}</h1>
         </figure>
       </div>
       <div className="p-4 mt-20 ">
         <div className="w-[80%] mx-auto p-2 mt-4 rounded-lg">
           <div className="flex flex-wrap items-start pl-10 lg:pl-0 lg:items-center gap-3 flex-col md:flex-row lg:flex-row justify-around text-sm text-gray-600 dark:text-gray-400">
-            <p className="flex flex-col">
+            <p className="flex flex-col p__cormorant">
               Name
-              <span className="font-bold text-black dark:text-gray-300">{user?.name}</span>
+              <span className="font-bold p__cormorant">{user?.name}</span>
             </p>
-            <p className="flex flex-col">
+            <p className="flex flex-col p__cormorant">
               Email
-              <span className="font-bold text-black dark:text-gray-300">{user?.email}</span>
+              <span className="font-bold  ">{user?.email}</span>
             </p>
 
-            <div>
+            <div className="flex flex-col gap-3">
               <Link to='/updated-profile'>
-                <button className="bg-first px-6 py-1 rounded-lg text-white cursor-pointer hover:bg-second block mb-1">
+                <button className=" btn-style mb-1">
                   Update Profile
                 </button>
               </Link>
-              <button onClick={handleChangePassword} className="bg-first px-6 py-1 rounded-lg text-white cursor-pointer hover:bg-second">
+              <button onClick={handleChangePassword} className="  px-6 py-1  btn-style">
                 Change Password
               </button>
             </div>

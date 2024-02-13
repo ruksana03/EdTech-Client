@@ -6,13 +6,13 @@ import { CiBookmarkCheck } from "react-icons/ci";
 import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const NoticeTable = ({ notice, handleDelete }) => {
+const NoticeTable = ({ notice,handleDelete }) => {
     // const axiosSecure = useAxiosSecure();
     const { _id, date, title } = notice || {};
-
+    
     return (
         <>
-            <tr className='border overflow-x-scroll w-2/3 hover:bg-base-300 cursor-pointer'>
+            <tr className='border overflow-x-scroll w-2/3  p__opensans cursor-pointer'>
                 <th>
                     <label>
                         <input type="checkbox" className="checkbox" />

@@ -4,10 +4,16 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const JoiningTeacher = () => {
   const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const user = useSelector((state) => state.data.user.user);
+  const userPhoto = user?.photo;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -36,17 +42,19 @@ const JoiningTeacher = () => {
       instituteName,
       position,
       message,
-      cvLink
+      cvLink,
+      profile_photo: userPhoto
 
     }
     // console.log(applicationData);
     try {
-      await axiosPublic.post('/application', applicationData)
+      await axiosPublic.post('/applications', applicationData)
         .then(res => {
           setLoading(false)
           console.log(res);
           if (res.data) {
-            toast.success('created successfully')
+            navigate('/')
+            return toast.success('created successfully')
           }
         })
     }
@@ -59,26 +67,25 @@ const JoiningTeacher = () => {
 
   }
   return (
-    <div className=" dark:text-white w-full h-full mb-5">
+    <div className="w-full h-full mb-5">
+      {/* banner image  */}
       <div className="relative w-full h-[55vh]">
-        <img
-          src="https://i.ibb.co/vzrrRb5/teacher-application.jpg"
-          alt="banner-image"
-          className="w-full h-full"
+        <img src="https://i.ibb.co/Khc2wmt/clark-tibbs-oq-Stl2-L5ox-I-unsplash.jpg" alt="banner-image" className="w-full h-full"
         />
         {/* <div className="absolute bg-black opacity-60 w-full h-full top-0"></div> */}
       </div>
       <div className="mt-10">
-        <h1 className="text-2xl font-bold text-center my-5 flex items-center justify-center gap-2 flex-wrap px-10">
+        <h1 className="headtext__cormorant text-center my-5 flex items-center justify-center gap-2 flex-wrap px-10">
           Please Fill the Form to be a{" "}
-          <span className="text-first dark:text-green-600">Teacher</span>{" "}
-          <PiChalkboardTeacherBold className="text-first text-3xl dark:text-green-600" />
+          <span className="text-first  ">Teacher</span>{" "}
+          <PiChalkboardTeacherBold className="text-first text-3xl  " />
         </h1>
+        {/* form section here  */}
         <div className="lg:my-5 p-5 lg:p-8 w-full md:w-2/3 lg:w-1/3 mx-auto md:border lg:border">
           <form onSubmit={handleSubmit} className="w-full">
             <div className="mb-6">
               <div>
-                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                <label className="block font-bold text-start mb-1 md:mb-0 pr-4  p__cormorant">
                   Full Name *
                 </label>
               </div>
@@ -95,7 +102,7 @@ const JoiningTeacher = () => {
             </div>
             <div className="mb-6">
               <div>
-                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 p__cormorant">
                   Email *
                 </label>
               </div>
@@ -236,7 +243,7 @@ const JoiningTeacher = () => {
 
             <div className="mb-6">
               <div className="">
-                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 p__cormorant">
                   Which course are you interested in teaching?
                 </label>
               </div>
@@ -253,7 +260,7 @@ const JoiningTeacher = () => {
             </div>
             <div className="mb-6">
               <div>
-                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 p__cormorant">
                   Tell us something about this course *
                 </label>
               </div>
@@ -287,10 +294,10 @@ const JoiningTeacher = () => {
             </div>
             <div className="flex items-end justify-end">
               <button
-                className="shadow bg-first hover:bg-[#256330] transition-all focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded text-[17px]"
+                className="shadow bg-first hover:bg-[#256330] transition-all focus:shadow-outline focus:outline-none text-black hover:text-white py-2 px-4 rounded text-[17px]"
                 type="submit">
                 {loading ?
-                  <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span> : 'Published'
+                  <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span> : 'Appy'
                 }
               </button>
             </div>

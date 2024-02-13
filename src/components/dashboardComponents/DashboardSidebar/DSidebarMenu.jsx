@@ -11,7 +11,7 @@ import StudentMenu from "../DashboardNav/DashboardMenu/StudentMenu";
 import TeacherMenu from "../DashboardNav/DashboardMenu/TeacherMenu";
 import AdminMenu from "../DashboardNav/DashboardMenu/AdminMenu";
 import { CgProfile } from "react-icons/cg";
-import { FaAnglesRight } from "react-icons/fa6";
+import { FaAnglesRight, FaGraduationCap } from "react-icons/fa6";
 
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
@@ -47,13 +47,17 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
     return (
         <div className={`fixed pl-4 flex flex-col lg:gap-4  ${isActive ? 'pl-0 ' : ' space-y-2'}`}>
             <div className="flex items-center justify-center fixed right-0 top-4 z-[1]  ">
-                <span onClick={handleReverse} className={` hidden md:block lg:block w-auto cursor-pointer border rounded-full text-[26px] px-2 py-[2px] ${isActive ? ' rotate-180 w-12 h-8' : 'bg-first text-white  w-16 h-8 '}`}>
+                <span onClick={handleReverse} className={` hidden md:block lg:block w-auto cursor-pointer text-white border rounded-full text-[26px] px-2 py-[2px] ${isActive ? ' rotate-180 w-12 h-8' : 'bg-first text-white  w-16 h-8 '}`}>
                     <FaAnglesRight className="hover:scale-100" />
                 </span>
             </div>
             <div className="pt-8 md:pt-10 lg:pt-3">
-                {console.log("isActive:", isActive)}
-                {isActive ? '' : <Logo isActive={isActive} />}
+                {isActive ? <Link to="/">
+                    <article className="font-bold absolute left-10 -top-10 dark:text-gray-400 text-black ">
+                        <FaGraduationCap className="  dark:text-green-500 text-first text-4xl " /> <br />
+                        <span className="dark:text-green-500 text-first absolute left-0 top-8">ED</span>
+                    </article>
+                </Link> : <Logo isActive={isActive} />}
 
             </div>
 
@@ -87,16 +91,16 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
                 {getMenuBasedOnRole()}
             </div>
 
-            <hr className="border border-first dark:border-white" />
+            <hr className="border border-first " />
             {links.map((link, index) => (
-                <ol key={link} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                <ol key={link} className={`flex gap-3   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
 
                     <li style={{
                         padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
-                        // border: location.pathname.startsWith(`/dashboard${link}`) ? "1px solid black" : "",
+
                         fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
-                        color: location.pathname.startsWith(`/dashboard${link}`) ? "black" : "black",
-                    }} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                        color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
+                    }} className={`flex gap-3 font-alt text-xl ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                         <Link to={`/dashboard${link}`} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                             {icons[index]}
                             <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{menuNames[index]}</p>

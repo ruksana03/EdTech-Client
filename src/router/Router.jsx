@@ -50,6 +50,7 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import Applications from "../page/dashboard/Admin/application/Applications";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -106,7 +107,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "join-teacher",
-                element: <JoiningTeacher />,
+                element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
             },
             {
                 path: "common-notice-details",
@@ -136,10 +137,10 @@ const router = createBrowserRouter([
                         path: 'new-notices',
                         element: <NewNotices />
                     },
-                    // {
-                    //     path: 'for-teacher-notices',
-                    //     element: <Notices />
-                    // },
+                    {
+                        path: 'for-teacher-notices',
+                        element: <Notices />
+                    },
                 ]
             },
             {
@@ -180,6 +181,10 @@ const router = createBrowserRouter([
             {
                 path: "allUsers",
                 element: <AllUser />,
+            },
+            {
+                path: "applications",
+                element: <Applications />,
             },
             {
                 path: "allNotices",

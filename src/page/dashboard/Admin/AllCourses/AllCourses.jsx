@@ -51,7 +51,7 @@ const AllCourses = () => {
       <div className="overflow-x-auto">
         <table className="table w-full border-collapse border border-gray-300">
           {/* head */}
-          <thead className="bg-gradient-to-r from-second to-first text-white text-sm">
+          <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl ">
             <tr>
               <th className="py-2">#</th>
               <th className="py-2">Title</th>
@@ -65,7 +65,8 @@ const AllCourses = () => {
             {reversedCourseData.map((courseItem, index) => (
               <tr
                 key={index}
-                className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+                className="p__opensans"
+                // className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
               >
                 <td className="py-3 font-medium">{index + 1}</td>
                 <td className="py-3 font-medium">{courseItem.title}</td>
@@ -74,7 +75,7 @@ const AllCourses = () => {
                 <td className="py-3">
                   <button
                     onClick={() => approveClass(courseItem._id)}
-                    className="btn btn-xs bg-gradient-to-r from-second to-first text-white rounded-2xl hover:text-first hover:bg-white font-medium"
+                    className="btn-style  rounded-2xl hover:text-first hover:bg-white font-medium"
                   >
                     {courseItem.status}
                   </button>
