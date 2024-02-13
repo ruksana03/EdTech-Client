@@ -81,7 +81,7 @@ const DashboardLayout = () => {
                 {/* hidden for responsive in mobile device */}
                 <div className=" block md:hidden lg:hidden">
                     <FiMenu onClick={handleToggle} className="text-3xl cursor-pointer hover:text-green-600 text-white transit duration-200" />
-                    <div className={`z-10 fixed pt-3 bg-black text-white overflow-y-auto w-2/3 h-screen px-2 inset-y-0 left-0 transform ${left && ' transition-all duration-200 -translate-x-full'} lg: dark:text-gray-400 dark:bg-zinc-800 transition-all duration-200 border-e-2`}>
+                    <div className={`z-10 fixed pt-3 bg-white overflow-y-auto w-2/3 h-screen px-2 inset-y-0 left-0 transform ${left && ' transition-all duration-200 -translate-x-full'} lg: dark:text-gray-400 dark:bg-zinc-800 transition-all duration-200 border-e-2`}>
                         <DSidebar handleReverse={handleReverse} isActive={isActive} setIsActive={setIsActive} handleToggle={handleToggle} />
                     </div>
                 </div>
