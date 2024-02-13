@@ -17,7 +17,7 @@ const Applications = () => {
     const approveClass = async (id) => {
         try {
             const { data } = await axiosPublic.put(`/application/approve/${id}`);
-            console.log(data);
+            // console.log(data);
             if (data.status === "selected") {
                 await refetch();
                 toast.success("application has been approved successfully");

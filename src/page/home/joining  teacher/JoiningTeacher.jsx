@@ -51,7 +51,7 @@ const JoiningTeacher = () => {
       await axiosPublic.post('/applications', applicationData)
         .then(res => {
           setLoading(false)
-          console.log(res);
+          // console.log(res);
           if (res.data) {
             navigate('/')
             return toast.success('created successfully')
