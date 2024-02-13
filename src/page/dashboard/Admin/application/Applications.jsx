@@ -87,11 +87,7 @@ const Applications = () => {
                         </thead>
                         <tbody className="text-gray-700 text-sm">
                             {applicationData.map((courseItem, index) => (
-                                <tr
-                                    key={index}
-                                    className="p__opensans"
-                                // className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
-                                >
+                                <tr key={index} className="p__opensans">
                                     <td className="py-3 font-medium">{index + 1}</td>
                                     <td className="py-3 font-medium">{courseItem.position}</td>
                                     <td className="py-3 font-medium">{courseItem.fullName}</td>
