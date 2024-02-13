@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 // import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -6,6 +7,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 // import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
@@ -15,13 +17,13 @@ const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
     
     console.log(isOpen);
 
-    // const onSubmit = async data => {
-    //     const { data: res } = await axiosSecure.post('/update', report);
-    //     if (res.insertedId) {
-    //         toast.success('Report Submitted Successfully');
-    //         closeModal();
-    //     }
-    // };
+    const onSubmit = async data => {
+        const { data: res } = await axiosSecure.post('/update', data);
+        if (res.insertedId) {
+            toast.success('Report Submitted Successfully');
+            closeModal();
+        }
+    };
     const handleUpdate = async e => {
         e.preventDefault();
         const title = e.target.title.value;

@@ -52,7 +52,7 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
                 </span>
             </div>
             <div className="pt-8 md:pt-10 lg:pt-3">
-                {console.log("isActive:", isActive)}
+                {/* {console.log("isActive:", isActive)} */}
                 {isActive ? '' : <Logo isActive={isActive} />}
 
             </div>

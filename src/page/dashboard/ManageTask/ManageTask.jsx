@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
@@ -5,8 +6,9 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
 import TaskColumn from "./TaskColumn";
 import CreateTaskModal from "../Modal/CreateTaskModal";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaPlus } from "react-icons/fa";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 
 const ManageTask = () => {
@@ -17,13 +19,13 @@ const ManageTask = () => {
     console.log(isOpen);
 
     const user = useSelector(state => state.data.user.user);
-    const axiosSecure = useAxiosSecure();
+    const axiosSecure = useAxiosPublic();
     // const queryClient = new QueryClient(); 
     const { data, refetch } = useQuery({
         queryKey: ['all-task', user],
         queryFn: async () => {
             // const res = await axiosSecure(/addtask?email=${user?.email});
-            const res = await axiosSecure('/addtask');
+            const res = await axiosSecure.post('/addtask');
             return res.data;
         },
     });

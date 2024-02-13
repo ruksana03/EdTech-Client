@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useState } from "react";
 import Cards from "../../components/Cards";
 import { FaFilter } from "react-icons/fa";
+import CoursesBanner from "./CoursesBanner";
 
 const Courses = () => {
   const [course, setCourse] = useState([]);
@@ -103,36 +105,7 @@ const Courses = () => {
   return (
     <div>
       {/* banner text */}
-      <div
-        className="hero min-h-[80vh] mb-12"
-        style={{
-          backgroundImage:
-            "url(https://i.ibb.co/z6Fz8Z2/jess-bailey-Bg14l3h-SAs-A-unsplash.jpg)",
-        }}
-      >
-        <div className="hero-overlay bg-white bg-opacity-20"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="space-y-7 ">
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold leading-snug text-black">
-              Explore the Wonders Of
-              <span className="text-first"> Enlightening Courses!</span>
-            </h2>
-            <p className="text-black">
-              Where Every Lesson Unfolds a Tale of Academic Excellence and
-              Dedicated Learning
-            </p>
-            <div className="my-4">
-              <input
-                type="text"
-                placeholder="Search courses..."
-                value={searchInput}
-                onChange={handleSearchChange}
-                className="border text-black p-2 rounded-md"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+     <CoursesBanner searchInput={searchInput} handleSearchChange={handleSearchChange}/>
 
       {/* courses */}
       <div className="section-container mt-16">

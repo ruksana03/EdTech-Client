@@ -50,6 +50,10 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import BlogDetails from "../page/blog/BlogDetails";
+import BlogSettings from "../page/blog/BlogSettings";
+import { getOneBlog } from "../api/blogs";
+import UpdatedBlog from "../page/blog/UpdatedBlog";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -65,21 +69,6 @@ const router = createBrowserRouter([
             {
                 path: "/all-courses",
                 element: <Courses />,
-            },
-
-            {
-                path: "/blog",
-                element: <Blog />,
-                // children: [
-                //     {
-                //         path: '/blog',
-                //         element: <BlogHome />
-                //     },
-                //     {
-                //         path: 'blog-settings',
-                //         element: <BlogSettings />
-                //     }
-                // ]
             },
             {
                 path: "contact",
@@ -112,14 +101,6 @@ const router = createBrowserRouter([
                 path: "common-notice-details",
                 element: <CommonNoticeDetails />,
             },
-            // {
-            //     path: "notices",
-            //     element: <NoticeHome />,
-            // },
-
-
-            // for  teacher notices only
-
             {
                 path: "/notices",
                 element: <NoticeBanner />,
@@ -140,11 +121,13 @@ const router = createBrowserRouter([
             },
             {
                 path: 'notice-details/:id',
+                element: <NoticeHomeDetails />,
                 loader: ({ params }) => fetch(`http://localhost:5000/notice-user/${params.id}`),
-                element: <NoticeHomeDetails />
             },
         ],
     },
+
+
     {
         path: "/blog",
         element: <Blog />,
@@ -162,11 +145,25 @@ const router = createBrowserRouter([
                 element: <BlogProfile />,
             },
             {
-                // path: 'blog-settings',
-                // element: <BlogSettings />
+                path: 'blog-details/:id',
+
+                element: <BlogDetails />,
+                loader: ({ params }) => getOneBlog(params.id),
             },
-        ],
+            {
+                path: 'blog-updated/:id',
+
+                element: <UpdatedBlog />,
+                loader: ({ params }) => getOneBlog(params.id),
+            },
+            {
+                path: 'blog-settings',
+                element: <BlogSettings />
+            },
+        ]
     },
+
+
     {
         path: "/dashboard",
         element: <DashboardLayout />,
@@ -272,27 +269,6 @@ const router = createBrowserRouter([
                 path: "add-course",
                 element: <AddCourse />,
             },
-
-            //             {
-            //                 path: 'research',
-            //                 element: <ResearchL />,
-            //             },
-            //             {
-            //                 path: 'assignment',
-            //                 element: <AssignmentSection />,
-            //             },
-
-            //             {
-            //                 path: 'bookmarks',
-            //                 element: <BookmarkLayout />,
-            //                 children: [
-            //                     {
-            //                         path: 'show-bookmarks',
-            //                         element: <ShowBookmarks />
-            //                     }
-            //                 ]
-            //             },
-
             // common route
 
             {

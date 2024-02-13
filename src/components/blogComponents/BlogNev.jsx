@@ -26,7 +26,8 @@ const BlogNev = ({ user }) => {
     }, []);
 
     return (
-        <div className={`flex justify-between items-center p-4 text-white ${isScrolled ? "bg-black lg:bg-[#333333]" : "bg-black lg:bg-transparent"}`}>
+        <div className={`flex justify-between items-center p-4  ${isScrolled ?  "text-black" : "text-white"}`}
+        style={{ backdropFilter: isScrolled ? "blur(10px)" : "none" ,boxShadow: isScrolled ? "0 2px 4px rgba(0,0,0,0.1)" : "none"  }}>
             <nav className={`   `}>
                 <ul className="flex  justify-start items-start  ">
                     <li className=" px-4 py-1">
