@@ -36,7 +36,6 @@ const NoticeTable = ({ notice,handleDelete }) => {
                             <li className="flex items-center justify-center gap-2">
                                 <Link to={`/dashboard/notice-details/${_id}`}>Details <BiMessageAltDetail /></Link>
                             </li>
-                            {/* <li className="flex items-center justify-center gap-2"><a>Details <BiMessageAltDetail /></a></li> */}
                         </ul>
                     </div>
                 </td>

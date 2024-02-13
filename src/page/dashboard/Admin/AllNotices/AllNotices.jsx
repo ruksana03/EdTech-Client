@@ -52,7 +52,7 @@ const AllNotices = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // console.log(currentItems);
-  console.log(filteredNotices);
+  // console.log(filteredNotices);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -146,7 +146,7 @@ const AllNotices = () => {
                 <th className="border w-auto md:w-8 lg:w-8"></th>
                 <th className="border w-auto md:w-32 lg:w-32">Person</th>
                 <th className="border text-center">Title</th>
-                <th className="border">Date</th>
+                <th className="border w-32">Date</th>
                 <th className="border">Time</th>
                 <th className="p-0"></th>
               </tr>

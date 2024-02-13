@@ -24,7 +24,7 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
         const image = form.image.files[0];
         const title = form.title.value;
         const description = form.description.value;
-        const email = form.email.value;
+        const sentNotices = form.sentFor.value;
         try {
             const loadImage = await imageUpload(image);
             handleCancel();
@@ -34,7 +34,7 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
                 title,
                 description,
                 role: 'student',
-                email,
+                sentNotices,
                 hostName: user?.name,
                 hostEmail: user?.email
             }
@@ -101,3 +101,4 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
 };
 
 export default NoticeModal;
+//

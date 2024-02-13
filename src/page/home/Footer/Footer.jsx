@@ -1,8 +1,7 @@
 import { FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
-
 import './Footer.css';
 import FooterOverlay from '../../../components/Footer/FooterOverlay';
-import NewsLetter from '../../../components/Footer/Newsletter';
+import NewsLetter from './../../../components/Footer/NewsLetter';
  
 
 const Footer = () => (
