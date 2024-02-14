@@ -51,6 +51,7 @@ import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import Applications from "../page/dashboard/Admin/application/Applications";
+import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -271,6 +272,10 @@ const router = createBrowserRouter([
             {
                 path: "recommended",
                 element: <Recommended />,
+            },
+            {
+                path: "studentdashboard",
+                element: <StudentDashboard></StudentDashboard>
             },
             // teachers route
             {
