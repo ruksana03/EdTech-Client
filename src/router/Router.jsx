@@ -50,6 +50,8 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import MyCart from "../page/dashboard/Common/MyCart";
+import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -267,6 +269,10 @@ const router = createBrowserRouter([
                 path: "recommended",
                 element: <Recommended />,
             },
+            {
+                path: "my-enroll",
+                element:  <Myenroll/>,
+            },
             // teachers route
             {
                 path: "post-resources",
@@ -310,6 +316,10 @@ const router = createBrowserRouter([
             {
                 path: "profile",
                 element: <UserProfile />,
+            },
+            {
+                path: "my-cart",
+                element: <MyCart/>,
             },
 
             {
