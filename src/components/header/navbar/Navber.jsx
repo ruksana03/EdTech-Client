@@ -145,10 +145,12 @@ const Navbar = () => {
                         </button>
                       )}
                   </Link>
-                  <button className="flex items-center">
+
+                  <Link to='/dashboard/my-cart'><button className="flex items-center">
                     <FaShoppingCart className="mr-2"></FaShoppingCart>
                     <div className="badge badge-warning">+{cart.length}</div>
-                  </button>
+                  </button></Link>
+                  
                   {user ? (
                     <div className="dropdown dropdown-hover">
                       <div className="w-12" tabIndex={0} role="button">
