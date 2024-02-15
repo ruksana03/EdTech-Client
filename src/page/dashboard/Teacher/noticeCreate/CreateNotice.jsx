@@ -56,10 +56,10 @@ const CreateNotice = () => {
             axiosPublic.post('/notices', noticeData)
                 .then(res => {
                     setLoading(false)
-                    console.log(res);
+                    // console.log(res);
                     if (res.data) {
                         toast.success('created successfully')
-                        return navigate('dashboard/show-notices')
+                        return navigate('/dashboard/show-notices')
                     }
                 })
         }

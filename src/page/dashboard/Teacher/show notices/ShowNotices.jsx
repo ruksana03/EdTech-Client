@@ -21,7 +21,7 @@ const ShowNotices = () => {
     const [itemsPerPage, setItemPerPage] = useState(settingPage);
     const [filteredNotices, setFilteredNotices] = useState([]);
     // console.log(teacher);
-    refetch();
+    // refetch();
     useEffect(() => {
         setNotices2(teacher);
         setFilteredNotices(teacher);
@@ -35,11 +35,6 @@ const ShowNotices = () => {
         );
         setFilteredNotices(searchItem);
     }, [notices2, searchNotices]);
-
-    const handleAllNotices = () => {
-        setFilteredNotices(teacher)
-      }
-
     useEffect(() => {
         if (dateFilter) {
             const filterDateItem = notices2.filter((item) =>
@@ -108,11 +103,8 @@ const ShowNotices = () => {
                             Create Notice
                         </button>
                     </div>
-                   
                 </div>
-
-                <div className="flex items-center flex-col md:flex-row lg:flex-row justify-start gap-8 w-full my-5 px-5">
-               <button onClick={handleAllNotices} className="btn-style">All</button>
+                <form className="flex items-center flex-col md:flex-row lg:flex-row justify-start gap-8 w-full my-5 px-5">
                     <select
                         onChange={() => setDateFilter(event.target.value)}
                         className=" w-44 border bg-black text-white border-gray-300 focus:outline-none focus:border-first leading-tight input"
@@ -127,7 +119,6 @@ const ShowNotices = () => {
                             </option>
                         ))}
                     </select>
-                    
                     <div className="relative w-full">
                         <input
                             type="text"
@@ -138,8 +129,7 @@ const ShowNotices = () => {
                         />{" "}
                         <MdOutlineSearch className="absolute top-2 left-1 text-3xl" />{" "}
                     </div>
-                </div>
-                
+                </form>
                 <div className="px-5 my-3">
                     <h1 className="my-0 text-xl md:text-2xl lg:text-3xl  font-alt text-first ">
                         Show Previous Notice : <span>{filteredNotices?.length} </span>

@@ -9,7 +9,7 @@ const NavUserButton = ({user,handleLogout}) => {
                   <div className="w-12" tabIndex={0} role="button">
                    
                         {
-                          user?(<img className="h-12 w-12 rounded-full border border-green-950 p-1" src={user?.photo} alt="" />):(<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />)
+                          user?(<img className="h-12 w-12 rounded-full border border-green-950 p-1" src={user?.photo} alt="" />):(<img src="https://i.ibb.co/Ryq7SXV/profile.png" className="h-12 w-12 rounded-full" />)
                         }
                   </div>
                   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-black rounded-box w-44 relative right-1">

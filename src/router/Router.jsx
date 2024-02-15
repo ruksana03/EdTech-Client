@@ -101,7 +101,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "join-teacher",
-                element: <JoiningTeacher />,
+                element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
             },
             {
                 path: "common-notice-details",
@@ -123,10 +123,10 @@ const router = createBrowserRouter([
                         path: 'new-notices',
                         element: <NewNotices />
                     },
-                    {
-                        path: 'for-teacher-notices',
-                        element: <Notices />
-                    },
+                    // {
+                    //     path: 'for-teacher-notices',
+                    //     element: <Notices />
+                    // },
                 ]
             },
             {
@@ -179,6 +179,10 @@ const router = createBrowserRouter([
             {
                 path: "allUsers",
                 element: <AllUser />,
+            },
+            {
+                path: "applications",
+                element: <Applications />,
             },
             {
                 path: "allNotices",
@@ -296,12 +300,24 @@ const router = createBrowserRouter([
             element: <TeacherUpdateNotices />,
         },
 
-            // common route
+        
 
             {
                 path: 'create-notice',
-                element: <PrivateRouter><CreateNotice /></PrivateRouter>
+                element: <CreateNotice />
             },
+            {
+                path: 'show-notices',
+                element: <ShowNotices />
+            },
+            {
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
+
+                // common route
             {
                 path: "dashboard",
                 element: <Dashboard />,

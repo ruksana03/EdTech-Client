@@ -80,6 +80,113 @@ const JoiningTeacher = () => {
         <div className="lg:my-5 p-5 lg:p-8  md:w-11/12 lg:w-10/12 mx-auto md:border lg:border p__cormorant">
           <form onSubmit={handleSubmit} className="w-full">
             <div className="mb-6">
+              <div>
+                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                  Street Address *
+                </label>
+              </div>
+              <div className=" md:w-full mt-2">
+                <input
+                  className="bg-gray-200 dark:bg-zinc-600 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:bg-white focus:border-first"
+                  id="inline-password"
+                  name="streetaddress"
+                  type="text"
+                  placeholder="street address..."
+                  required
+                />
+              </div>
+            </div>
+            {/* new addition  */}
+            <div className="mb-6 grid grid-cols-2 gap-5">
+              <div>
+                <div>
+                  <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                    Education *
+                  </label>
+                </div>
+                <div className=" md:w-full mt-2">
+                  <input
+                    className="bg-gray-200 dark:bg-zinc-600 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:bg-white focus:border-first"
+                    id="inline-password"
+                    name="educat"
+                    type="text"
+                    placeholder="example hsc/bsc/msc etc..."
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                    Grade Point *
+                  </label>
+                </div>
+                <div className=" md:w-full mt-2">
+                  <input
+                    className="bg-gray-200 dark:bg-zinc-600 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:bg-white focus:border-first"
+                    id="inline-password"
+                    name="gradepoint"
+                    type="text"
+                    placeholder="grade point..."
+                    required
+                  />
+                </div>
+
+              </div>
+            </div>
+            <div className="mb-6 grid grid-cols-2 gap-5">
+              <div>
+                <div>
+                  <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                    Passed Year *
+                  </label>
+                </div>
+                <div className=" md:w-full mt-2">
+                  <input
+                    className="bg-gray-200 dark:bg-zinc-600 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:bg-white focus:border-first"
+                    id="inline-password"
+                    name="passedyear"
+                    type="text"
+                    placeholder="passed year..."
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                    Gender *
+                  </label>
+                </div>
+                <div className=" md:w-full mt-2">
+                  <select name="form_gender" className="bg-gray-200 dark:bg-zinc-600 text-[17px] appearance-none input border-2 border-gray-200 rounded w-full leading-tight focus:outline-none focus:bg-white focus:border-first">
+                    <option selected disabled>Select Here...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="mb-6">
+              <div>
+                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
+                  Varsity/Institute Name *
+                </label>
+              </div>
+              <div className="md:w-full mt-2">
+                <input
+                  className="bg-gray-200 dark:bg-zinc-600 text-[17px] appearance-none input border-2 border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:bg-white focus:border-first"
+                  id="inline-full-name"
+                  name="institutename"
+                  type="text"
+                  placeholder="varsity or institute name..."
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="mb-6">
               <div className="">
                 <label className="block font-bold text-start mb-1 md:mb-0 pr-4 p__cormorant">
                   Which course are you interested in teaching?

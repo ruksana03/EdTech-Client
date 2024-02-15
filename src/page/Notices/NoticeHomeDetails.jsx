@@ -6,10 +6,10 @@ import { BsBing } from "react-icons/bs";
 import { useLoaderData } from "react-router-dom";
 const NoticeHomeDetails = () => {
     const data = useLoaderData();
-    const {image,date,title,description,email} = data || {};
-    console.log(data);
+    const {image,date,title,description,} = data || {};
+    // console.log(data);
     return (
-        <div className="section-container my-12 dark:text-gray-400">
+        <div className="section-container pt-24 pb-12 text-white">
             <div className="">
                 <h1 className="text-xl font-semibold ">{title}</h1>
                 <p>Published on {date?.slice(0,10)}</p>
