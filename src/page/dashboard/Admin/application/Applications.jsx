@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Applications = () => {
     const axiosPublic = useAxiosPublic();
-    const [applications, refetch,] = useApplication();
+    const [applications, refetch] = useApplication();
     let [isOpen, setIsOpen] = useState(false)
     let [id, setId] = useState('');
     const applicationData = [...applications].reverse();
@@ -42,7 +42,6 @@ const Applications = () => {
                     const res = axiosPublic.delete(`/application/reject/${id}`);
                     console.log(res);
                     if (res) {
-
                         Swal.fire({
                             title: "Deleted!",
                             text: "Application has been deleted successfully.",
@@ -58,12 +57,10 @@ const Applications = () => {
 
     };
 
-
     const handleToggle = (id) => {
         setId(id);
         setIsOpen(!isOpen)
     }
-
 
     return (
         <div className="mt-14 w-full h-screen">

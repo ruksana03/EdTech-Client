@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "question": "What is the capital of Canada?",
+        "options": [
+            "Toronto",
+            "Ottawa",
+            "Vancouver"
+        ],
+        "correct_answer": "Ottawa"
+    },
+    {
+        "id": 2,
+        "question": "Who is the author of 'Harry Potter' series?",
+        "options": [
+            "J.K. Rowling",
+            "Stephen King",
+            "George R.R. Martin"
+        ],
+        "correct_answer": "J.K. Rowling"
+    },
+    {
+        "id": 3,
+        "question": "What is the chemical symbol for iron?",
+        "options": [
+            "Ir",
+            "Fe",
+            "In"
+        ],
+        "correct_answer": "Fe"
+    },
+    {
+        "id": 4,
+        "question": "Which planet is known as the 'Morning Star'?",
+        "options": [
+            "Venus",
+            "Mars",
+            "Mercury"
+        ],
+        "correct_answer": "Venus"
+    },
+    {
+        "id": 5,
+        "question": "Who painted the 'Starry Night'?",
+        "options": [
+            "Vincent van Gogh",
+            "Pablo Picasso",
+            "Leonardo da Vinci"
+        ],
+        "correct_answer": "Vincent van Gogh"
+    },
+    {
+        "id": 6,
+        "question": "What is the largest continent by land area?",
+        "options": [
+            "Asia",
+            "Africa",
+            "North America"
+        ],
+        "correct_answer": "Asia"
+    },
+    {
+        "id": 7,
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "options": [
+            "William Shakespeare",
+            "Jane Austen",
+            "Charles Dickens"
+        ],
+        "correct_answer": "William Shakespeare"
+    },
+    {
+        "id": 8,
+        "question": "What is the chemical symbol for water?",
+        "options": [
+            "H2O",
+            "CO2",
+            "O2"
+        ],
+        "correct_answer": "H2O"
+    },
+    {
+        "id": 9,
+        "question": "Which animal is known as the 'Ship of the Desert'?",
+        "options": [
+            "Camel",
+            "Horse",
+            "Elephant"
+        ],
+        "correct_answer": "Camel"
+    },
+    {
+        "id": 10,
+        "question": "Who is known as the 'Father of Modern Physics'?",
+        "options": [
+            "Albert Einstein",
+            "Isaac Newton",
+            "Galileo Galilei"
+        ],
+        "correct_answer": "Albert Einstein"
+    }
+]

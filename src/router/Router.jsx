@@ -31,7 +31,6 @@ import AllUser from "../page/dashboard/Admin/Users/AllUser";
 import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
 import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
-import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
 import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import NoticeDetails from "./../page/dashboard/Admin/AllNotices/details/NoticeDetails";
 import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
@@ -55,6 +54,16 @@ import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
 import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
+import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
+import Man from "../page/QuizeComponent/man";
+import Questions from "../page/QuizeComponent/Questions";
+import BlogDetails from "../page/blog/BlogDetails";
+import BlogSettings from "../page/blog/BlogSettings";
+import { getOneBlog } from "../api/blogs";
+import UpdatedBlog from "../page/blog/UpdatedBlog";
+import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
+import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+
 
 const router = createBrowserRouter([
     {
@@ -66,29 +75,28 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
+           
             {
                 path: "/all-courses",
                 element: <Courses />,
             },
-
             {
-                path: "/blog",
-                element: <Blog />,
-                // children: [
-                //     {
-                //         path: '/blog',
-                //         element: <BlogHome />
-                //     },
-                //     {
-                //         path: 'blog-settings',
-                //         element: <BlogSettings />
-                //     }
-                // ]
+                path: '/quest',
+                element: <Man/>
             },
+            {
+                path: '/man',
+                element: <Questions/>
+            },
+            
+
+           
             {
                 path: "contact",
                 element: <Contact />,
             },
+            
+           
             {
                 path: "/details/:id",
                 element: (
@@ -116,14 +124,6 @@ const router = createBrowserRouter([
                 path: "common-notice-details",
                 element: <CommonNoticeDetails />,
             },
-            // {
-            //     path: "notices",
-            //     element: <NoticeHome />,
-            // },
-
-
-            // for  teacher notices only
-
             {
                 path: "/notices",
                 element: <NoticeBanner />,
@@ -139,10 +139,6 @@ const router = createBrowserRouter([
                     {
                         path: 'new-notices',
                         element: <NewNotices />
-                    },
-                    {
-                        path: 'for-teacher-notices',
-                        element: <Notices />
                     },
                 ]
             },
@@ -170,10 +166,22 @@ const router = createBrowserRouter([
                 element: <BlogProfile />,
             },
             {
-                // path: 'blog-settings',
-                // element: <BlogSettings />
+                path: 'blog-details/:id',
+
+                element: <BlogDetails />,
+                loader: ({ params }) => getOneBlog(params.id),
             },
-        ],
+            {
+                path: 'blog-updated/:id',
+
+                element: <UpdatedBlog />,
+                loader: ({ params }) => getOneBlog(params.id),
+            },
+            {
+                path: 'blog-settings',
+                element: <BlogSettings />
+            },
+        ]
     },
     {
         path: "/dashboard",
@@ -216,6 +224,10 @@ const router = createBrowserRouter([
             {
                 path: "allCourses",
                 element: <AllCourses />,
+            },
+            {
+                path: "applications",
+                element: <Applications />,
             },
             {
                 path: "allPaymentInfo",
@@ -286,39 +298,44 @@ const router = createBrowserRouter([
             // teachers route
             {
                 path: "post-resources",
-                element: <PostResources />,
+
+                element:<NewPostResources/>
             },
             {
                 path: "add-course",
                 element: <AddCourse />,
             },
 
-            //             {
-            //                 path: 'research',
-            //                 element: <ResearchL />,
-            //             },
-            //             {
-            //                 path: 'assignment',
-            //                 element: <AssignmentSection />,
-            //             },
+           {
+            path:"show-notices",
+            element:<ShowNotices/>
+           },
 
-            //             {
-            //                 path: 'bookmarks',
-            //                 element: <BookmarkLayout />,
-            //                 children: [
-            //                     {
-            //                         path: 'show-bookmarks',
-            //                         element: <ShowBookmarks />
-            //                     }
-            //                 ]
-            //             },
+           {
+            path: "notice-update/:id",
+            loader: ({ params }) =>
+                fetch(`http://localhost:5000/notice/${params.id}`),
+            element: <TeacherUpdateNotices />,
+        },
 
-            // common route
+        
 
             {
                 path: 'create-notice',
-                element: <PrivateRouter><CreateNotice /></PrivateRouter>
+                element: <CreateNotice />
             },
+            {
+                path: 'show-notices',
+                element: <ShowNotices />
+            },
+            {
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
+
+                // common route
             {
                 path: "dashboard",
                 element: <Dashboard />,

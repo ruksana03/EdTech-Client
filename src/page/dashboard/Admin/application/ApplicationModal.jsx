@@ -8,11 +8,11 @@ const ApplicationModal = ({ isOpen, setIsOpen, applications, id }) => {
         setIsOpen(false);
     }
     return (
-        <div>
+        <div className="p__cormorant bg-[#0B0807]">
             <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={''}>
-                <div>
-                    <div className="flex items-center justify-center flex-col gap-1 m-0">
-                        <figure className="w-32 h-32 rounded-full bg-white">
+                <div className=" bg-[#0B0807] gap-1 m-0 p__cormorant p-4 rounded-lg">
+                    <div className="flex items-center justify-center flex-col  ">
+                        <figure className="w-32 h-32 rounded-full bg-[#0B0807]">
                             <img src={applicationData?.profile_photo} alt="applied-person" className="w-full h-full rounded-full" />
                         </figure>
                         <h1 className="text-xl font-medium">{applicationData?.fullName} ({applicationData?.gender})</h1>
@@ -23,10 +23,10 @@ const ApplicationModal = ({ isOpen, setIsOpen, applications, id }) => {
                         <p className="text-xl font-medium">Address: {applicationData?.streetAddress}</p>
                         <p className="text-xl font-medium mb-3">CV Link: <a href={applicationData?.cvLink} target="_blank" className="link link-hover text-blue-500">Click here</a></p>
                     </div>
-                    <p>{applicationData?.message}</p>
+                    <p className="text-base">{applicationData?.message}</p>
                 </div>
                 <div className="flex items-center justify-end">
-                    <button onClick={handleCancel} className="btn hover:text-red-600 my-3">Close</button>
+                    <button onClick={handleCancel} className="btn-style w-full my-3">Close</button>
                 </div>
             </Modal>
 

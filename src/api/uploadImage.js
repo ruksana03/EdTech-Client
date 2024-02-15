@@ -6,7 +6,7 @@ export const uploadImage = async (photo) => {
         formData.append('image', photo);
 
         const response = await axios.post(
-            `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, // Use import.meta.env to access environment variables in Vite
+            `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, 
             formData
         );
 

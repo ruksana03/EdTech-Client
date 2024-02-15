@@ -11,8 +11,10 @@ import StudentMenu from "../DashboardNav/DashboardMenu/StudentMenu";
 import TeacherMenu from "../DashboardNav/DashboardMenu/TeacherMenu";
 import AdminMenu from "../DashboardNav/DashboardMenu/AdminMenu";
 import { CgProfile } from "react-icons/cg";
-import { FaAnglesRight } from "react-icons/fa6";
-import { FaGraduationCap, FaShoppingCart } from "react-icons/fa";
+import { FaAnglesRight, FaGraduationCap } from "react-icons/fa6";
+import { FaShoppingCart } from "react-icons/fa";
+// import { FaAnglesRight } from "react-icons/fa6";
+// import { FaShoppingCart } from "react-icons/fa";
 
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
@@ -66,7 +68,7 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
 
             <div>
                 {user ? (
-                    <div >
+                    <div className="text-white" >
                         <hr className="mb-3" />
                         <div className={`flex gap-3 justify-between items-center ${isActive ? 'flex-col justify-center ' : ''}`}>
                             <Link to={'/dashboard/profile'}>
