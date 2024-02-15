@@ -50,6 +50,7 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
 
 import Man from "../page/QuizeComponent/man";
 import Questions from "../page/QuizeComponent/Questions";
@@ -300,7 +301,8 @@ const router = createBrowserRouter([
             // teachers route
             {
                 path: "post-resources",
-                element: <PostResources />,
+                // element: <PostResources />,
+                element:<NewPostResources/>
             },
             {
                 path: "add-course",
