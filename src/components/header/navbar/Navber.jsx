@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -8,14 +9,16 @@ import { GrLogin } from "react-icons/gr";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
 import Logo from "../../shared/Logo";
-import noticeIcon from "../../../assets/new-n.gif";
+// import noticeIcon from "../../../assets/new-n.gif";
 import NavUserButton from "../NavUserButton";
 import Sidebar from "./Sidebar";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
 import useUserRole from "../../../Hooks/useUserRole";
+import { MdOutlineNotifications } from "react-icons/md";
+// import { MdOutlineNotificationsActive } from "react-icons/md";
 
-// const Navbar = ({ children }) => {
+
 const Navbar = () => {
   const [userNotices, studentRefetch] = useStudentSpecificNotices();
   const [teacherNotices, teacherRefetch] = useTeacherSpecificNotices();
@@ -58,22 +61,22 @@ const Navbar = () => {
     };
   }, []);
 
+
   return (
-    <div>
+    <div className="lg:fixed top-0 left-0 w-full z-50">
       <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div
-          className={`drawer-content flex flex-col text-white   ${
-            isScrolled
-              ? " fixed blur(10px) top-0 left-0 w-full z-50  "
-              : " bg-black text-white"
-          }`}
-        >
+      className={`drawer-content flex flex-col text-white ${
+        isScrolled ? "" : "bg-transparent"
+      }`}
+      style={{ backdropFilter: isScrolled ? "blur(5px)" : "none" }} >
+   
           {/* Navbar */}
           <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between dark:border-first sticky inset-0 z-10 ">
             <div className="flex-none lg:hidden   text-white">
               <div
-                className={`w-72 md:w-96 z-10 h-[100vh] fixed      inset-0 lg:hidden transition-all duration-200 ${
+                className={`w-72 md:w-96 z-10 h-[100vh] fixed inset-0 lg:hidden transition-all duration-200 ${
                   active && "-translate-x-full  "
                 }`}
               >
@@ -104,49 +107,9 @@ const Navbar = () => {
               <NavUserButton user={user} handleLogout={handleLogout} />
               <div className="hidden lg:block">
                 <div className="flex items-center justify-center gap-4">
-                  <Link to="notices/new-notices">
-                    {currentRole === "student" && (
-                      <button className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                        {/* <IoNotificationsSharp /> */}
-                        <img
-                          src={noticeIcon}
-                          alt="notice"
-                          className="w-full h-full scale-110 rounded-full"
-                        />
-                        <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">
-                          {userNotices?.length}
-                        </span>
-                      </button>
-                    )}
-                    {currentRole === "teacher" && (
-                      <button className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                        {/* <IoNotificationsSharp /> */}
-                        <img
-                          src={noticeIcon}
-                          alt="notice"
-                          className="w-full h-full scale-110 rounded-full"
-                        />
-                        <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">
-                          {teacherNotices?.length}
-                        </span>
-                      </button>
-                    )}
-                    {currentRole !== "student" &&
-                      currentRole !== "teacher" &&
-                      currentRole !== "admin" && (
-                        <button className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                          {/* <IoNotificationsSharp /> */}
-                          <img
-                            src={noticeIcon}
-                            alt="notice"
-                            className="w-full h-full scale-110 rounded-full bg-black"
-                          />
-                          <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">
-                            1
-                          </span>
-                        </button>
-                      )}
-                  </Link>
+                 <Link to="notices/new-notices">
+                 <MdOutlineNotifications className="text-2xl text-first"/>
+                 </Link>
                   <button className="text-[18px] font-medium px-4 py-2 duration-200 transform   text-first hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                     <FaCartPlus />
                   </button>
@@ -170,8 +133,7 @@ const Navbar = () => {
                         <li>
                           <Link
                             to="/dashboard/dashboard"
-                            className="text-[18px] font-medium px-4 py-2 duration-200 transform text-black hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"
-                          >
+                            className="text-[18px] font-medium px-4 py-2 duration-200 transform text-black hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"> 
                             Dashboard
                           </Link>
                         </li>
