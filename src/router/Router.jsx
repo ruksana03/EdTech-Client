@@ -50,6 +50,12 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
+
+import Man from "../page/QuizeComponent/man";
+import Questions from "../page/QuizeComponent/Questions";
+
+
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
 import { getOneBlog } from "../api/blogs";
@@ -72,14 +78,28 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
+           
             {
                 path: "/all-courses",
                 element: <Courses />,
             },
             {
+                path: '/quest',
+                element: <Man/>
+            },
+            {
+                path: '/man',
+                element: <Questions/>
+            },
+            
+
+           
+            {
                 path: "contact",
                 element: <Contact />,
             },
+            
+           
             {
                 path: "/details/:id",
                 element: (
@@ -281,7 +301,8 @@ const router = createBrowserRouter([
             // teachers route
             {
                 path: "post-resources",
-                element: <PostResources />,
+                // element: <PostResources />,
+                element:<NewPostResources/>
             },
             {
                 path: "add-course",
