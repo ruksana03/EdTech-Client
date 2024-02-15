@@ -55,7 +55,7 @@ import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
 import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
-import Man from "../page/QuizeComponent/man";
+
 import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
@@ -63,6 +63,9 @@ import { getOneBlog } from "../api/blogs";
 import UpdatedBlog from "../page/blog/UpdatedBlog";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+// import Man from "../page/QuizeComponent/man";
+
+
 
 
 const router = createBrowserRouter([
@@ -80,10 +83,10 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
-            {
-                path: '/quest',
-                element: <Man/>
-            },
+            // {
+            //     path: '/quest',
+            //     element: <Man />
+            // },
             {
                 path: '/man',
                 element: <Questions/>

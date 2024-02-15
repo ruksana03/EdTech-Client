@@ -45,44 +45,50 @@ const AddQuiz = () => {
 
     return (
         <div className="min-h-screen">
-            <h1 className="text-slate-400 font-bold text-3xl text-center">Add a Quiz</h1>
+            <h1 className="headtext__cormorant text-center">Add a Quiz</h1>
 
             <form
                 onSubmit={handleSubmit}
             >
-                <div className="text-slate-400 w-96 mx-auto">
+                <div className="p__cormorant w-96 mx-auto">
                     <div className="mb-8">
                         <label className="text-xl">Question</label><br />
-                        <input type="text" name="question" className="w-full text-white bg-slate-400 rounded-md" required />
+                        <input type="text" name="question" className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0" required placeholder="Question" />
+                        <hr className="border-t border-first" />
                     </div>
                     <div className="flex gap-6">
                         <div>
                             <label className="text-xl">Option1</label><br />
-                            <input type="text" name="option1" className="w-full text-white bg-slate-400 rounded-md" required />
+                            <input type="text" name="option1" className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0" required placeholder="Option1" />
+                            <hr className="border-t border-first" />
                         </div>
                         <div>
                             <label className="text-xl">Option2</label><br />
-                            <input type="text" name="option2" className="w-full text-white bg-slate-400 rounded-md" required />
+                            <input type="text" name="option2" className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0" required />
+                            <hr className="border-t border-first" placeholder="Option2" />
                         </div>
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex gap-6 mt-8">
                         <div>
                             <label className="text-xl">Option3</label><br />
-                            <input type="text" name="option3" className="w-full text-white bg-slate-400 rounded-md" required />
+                            <input type="text" name="option3" className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0" required placeholder="Option3" />
+                            <hr className="border-t border-first" />
                         </div>
                         <div>
                             <label className="text-xl">Option4</label><br />
-                            <input type="text" name="option4" className="w-full text-white bg-slate-400 rounded-md" required />
+                            <input type="text" name="option4" className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0" required placeholder="Option4" />
+                            <hr className="border-t border-first" />
                         </div>
                     </div>
                     <div className="mt-8">
                         <label className="text-xl">Correct Answer</label><br />
-                        <input type="text" name="correctAnswer" className="w-full text-white bg-slate-400 rounded-md" required />
+                        <input type="text" name="correctAnswer" className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0" required placeholder="Correct Answer" />
+                        <hr className="border-t border-first" />
                     </div>
                 </div>
 
 
-                <div className="flex justify-center"><button className="bg-first text-black text-2xl py-1 rounded-xl w-1/2  mt-6" type="submit">Submit</button></div>
+                <div className="flex justify-center mt-8"><button className="btn-style w-8/12 mx-auto" type="submit">Submit</button></div>
 
             </form>
         </div>
