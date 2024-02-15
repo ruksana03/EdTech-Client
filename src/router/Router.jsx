@@ -31,7 +31,6 @@ import AllUser from "../page/dashboard/Admin/Users/AllUser";
 import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
 import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
-import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
 import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import NoticeDetails from "./../page/dashboard/Admin/AllNotices/details/NoticeDetails";
 import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
@@ -51,11 +50,8 @@ import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
-
 import Man from "../page/QuizeComponent/man";
 import Questions from "../page/QuizeComponent/Questions";
-
-
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
 import { getOneBlog } from "../api/blogs";
@@ -63,10 +59,9 @@ import UpdatedBlog from "../page/blog/UpdatedBlog";
 import Applications from "../page/dashboard/Admin/application/Applications";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
-// import UpdatedBlog from "../page/blog/UpdatedBlog";
 import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
-// import DashboardLayout2 from "../layout/DashboardLayout2";
+
 
 const router = createBrowserRouter([
     {
@@ -143,10 +138,6 @@ const router = createBrowserRouter([
                         path: 'new-notices',
                         element: <NewNotices />
                     },
-                    // {
-                    //     path: 'for-teacher-notices',
-                    //     element: <Notices />
-                    // },
                 ]
             },
             {
@@ -301,7 +292,7 @@ const router = createBrowserRouter([
             // teachers route
             {
                 path: "post-resources",
-                // element: <PostResources />,
+
                 element:<NewPostResources/>
             },
             {

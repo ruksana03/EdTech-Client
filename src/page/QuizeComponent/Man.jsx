@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import  { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-// import { setUserId } from '../redux/result_reducer'
 import '../Style/Main.css'
 import '../../components/Footer/NewsLetter.css'
 import { useSelector } from 'react-redux';
@@ -23,10 +24,10 @@ export default function Man() {
         }
     }
   return (
-    <div className='container justify-center mx-auto mt-10'>
-        <h1 className='title text-light font-bold text-white text-2xl'>Quiz Application</h1>
+    <div className='w-8/12 mx-auto pt-28 p__cormorant'>
+        <h1 className='title text-light font-bold text-white text-2xl headtext__cormorant'>Quiz Application</h1>
 
-        <ol className='mt-4'>
+        <ol className='mt-4 text-sm'>
             <li>1. You will be asked 10 questions one after another.</li>
             <li>2. 10 points is awarded for the correct answer.</li>
             <li>3. Each question has three options. You can choose only one options.</li>
