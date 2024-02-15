@@ -1,36 +1,42 @@
 import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../../../Hooks/useAxiosPublic";
-import { imageUpload } from "../../../../../api/getData";
 import useNotices from "../../../../../Hooks/useNotices";
+import { useSelector } from "react-redux";
 
 const UpdateNotice = () => {
   const [, refetch] = useNotices();
   const data = useLoaderData();
+  const user = useSelector(state => state.data.user.user);
   const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars
-  const { _id, image, date, title, description, email } = data || {};
-  // console.log(data);
-  // console.log(Object.keys(data).join(', '));
+  const { _id, image, date, title, description, sentNotices, email } = data || {};
+
+
+  //   console.log(courses);
   const axiosPublic = useAxiosPublic();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const image = form.image.files[0];
+    // const image = form.image;
     const title = form.title.value;
     const description = form.description.value;
-    const email = form.email.value;
+    const sentNotices = form.sentFor.value;
     try {
       handleCancel();
-      const loadImage = await imageUpload(image);
+
       const noticeData = {
-        image: loadImage?.data?.url,
+        image: image,
         date: new Date(),
         title,
         description,
-        email,
+        role: 'student',
+        sentNotices,
+        hostName: user?.name,
+        hostEmail: user?.email
       };
-      // console.log(noticeData);
+
+      console.log(noticeData);
       axiosPublic.put(`/notice-updated/${_id}`, noticeData).then((res) => {
         if (res.data?.modifiedCount > 0) {
           refetch();
@@ -47,21 +53,22 @@ const UpdateNotice = () => {
     return navigate(-1);
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="w-2/3 mx-auto my-12">
-        <div className="space-y-3 mt-5 w-full">
+    <div className="w-full min-h-screen">
+      <form onSubmit={handleSubmit} className="w-2/3 mx-auto my-12 text-white">
+        <div className="space-y-3 mt-5 w-full p__cormorant">
           <div className="flex flex-col gap-3 w-full">
             <label className="text-xl font-bold" htmlFor="description">
-              Set New Photo*
+              Photo*
             </label>
-            <div className="file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden">
+            <div className="file_upload px-5 py-3 relative  border-gray-300 rounded-lg overflow-hidden">
               <input
                 name="image"
-                type="file"
-                defaultValue={Image}
-                className="file-input file-input-bordered file-input-success border-first w-full"
-                required
+                type="text"
+                defaultValue={image}
+                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
               />
+              <hr className="border-t border-first" />
+
             </div>
           </div>
           <div className="flex flex-col gap-3">
@@ -69,13 +76,14 @@ const UpdateNotice = () => {
               Title*
             </label>
             <input
-              className="bg-gray-200 dark:text-gray-400 dark:bg-zinc-700 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-first"
+              className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
               defaultValue={title}
               name="title"
               type="text"
               placeholder="Enter Your Title...."
               required
             />
+             <hr className="border-t border-first" />
           </div>
           <div className="flex flex-col gap-3">
             <label className="text-xl font-bold" htmlFor="description">
@@ -84,40 +92,39 @@ const UpdateNotice = () => {
             </label>
             <textarea
               name="description"
-              className="bg-gray-200 dark:text-gray-400 dark:bg-zinc-700 appearance-none border-2 border-gray-200 dark:border rounded w-full h-28 py-2 text-[17px] px-4 leading-tight dark:focus:border-first focus:bg-white focus:border-first input outline-none"
+              className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
               placeholder="Write description...."
               defaultValue={description}
               required
             ></textarea>
+             <hr className="border-t border-first" />
           </div>
           <div className="flex flex-col gap-3">
             <label className="text-xl font-bold" htmlFor="description">
-              Set Email*
+              Sent Role *
             </label>
             <select
-              className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input"
-              defaultChecked={email}
-              name="email"
-              required
-            >
-              <option disabled selected>
-                Select Email
-              </option>
-              <option required>sushil@gmail.com</option>
-              <option>apurbo@gmail.com</option>
-              <option>sunil@gmail.com</option>
+              className=" border border-gray-300 bg-black text-white focus:outline-none focus:border-first leading-tight input"
+              name="sentFor"
+              defaultValue={sentNotices}
+              required>
+              <option disabled selected>Select for sent Notice</option>
+              <option value="teacher">Teacher</option>
+              <option value="student">Student</option>
+              <option value="common">Common</option>
+              <option value="course">Course</option>
             </select>
           </div>
           <div className="flex items-end justify-end mt-3 gap-3">
             <button
               onClick={handleCancel}
-              className="btn bg-red-600 text-white hover:text-red-600"
+              className="px-4 py-2 bg-red-600 text-white hover:text-red-600"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="btn bg-first text-white hover:text-first"
+              className="btn-style bg-first text-white hover:text-first"
             >
               Updated
             </button>
