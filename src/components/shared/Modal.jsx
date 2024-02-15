@@ -9,7 +9,7 @@ const Modal = ({ isOpen, setIsOpen, title, children }) => {
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10 dark:bg-zinc-800" onClose={closeModal}>
+                <Dialog as="div" className="relative z-10 " onClose={closeModal}>
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -33,14 +33,14 @@ const Modal = ({ isOpen, setIsOpen, title, children }) => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-zinc-800 p-6  text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-[#0B0807] p-6  text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-2xl leading-6 text-gray-900 dark:text-gray-400 text-center font-bold"
+                                        className=" leading-6 text-white headtext__cormorant text-center font-bold"
                                     >
                                         {title}
                                     </Dialog.Title>
-                                    <div className="mt-2">
+                                    <div className="mt-2 ">
                                         {children}
                                     </div>
                                 </Dialog.Panel>

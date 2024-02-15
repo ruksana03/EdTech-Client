@@ -1,5 +1,4 @@
 import { PieChart, Pie,  Cell } from 'recharts';
-import Revenue from '../Revenue/Revenue';
 import AssignmentAnalytic from './StudeentAnalytic/AssignmentAnalytics';
 import QuizAnalytics from './StudeentAnalytic/QuizAnalytics';
 
