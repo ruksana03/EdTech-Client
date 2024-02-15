@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavLinkMenu from "./NavLinkMenu";
 import { useDispatch, useSelector } from "react-redux";
-import { FaShoppingCart } from "react-icons/fa";
+import {  FaShoppingCart } from "react-icons/fa";
 import { GrLogin } from "react-icons/gr";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";

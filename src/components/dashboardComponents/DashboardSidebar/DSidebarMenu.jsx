@@ -13,6 +13,8 @@ import AdminMenu from "../DashboardNav/DashboardMenu/AdminMenu";
 import { CgProfile } from "react-icons/cg";
 import { FaAnglesRight, FaGraduationCap } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
+// import { FaAnglesRight } from "react-icons/fa6";
+// import { FaShoppingCart } from "react-icons/fa";
 
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
