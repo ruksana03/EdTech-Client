@@ -14,11 +14,8 @@ import Sidebar from "./Sidebar";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
 import useUserRole from "../../../Hooks/useUserRole";
-<<<<<<< HEAD
-import useCommonNotices from './../../../Hooks/useCommonNotices';
-=======
 import useCart from "../../../Hooks/useCart";
->>>>>>> 9be7557645e98a9522358ea6bea9cdcd46c08b30
+import useCommonNotices from "../../../Hooks/useCommonNotices";
 
 // const Navbar = ({ children }) => {
 const Navbar = () => {
@@ -97,44 +94,18 @@ const Navbar = () => {
               <div className="hidden lg:block">
                 {/* notice show here  */}
                 <div className="flex items-center justify-center gap-4">
-                  {
+                  {/* {
                     currentRole === 'student' && <Link to='notices/user-notices'>
                       <button
                         className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                        {/* <IoNotificationsSharp /> */}
+                     
                         <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
                         <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{userNotices?.length}</span>
                       </button>
-<<<<<<< HEAD
-                    </Link>
-                  }
-                  {
-                    currentRole === 'teacher' &&
-                    <Link to='notices/teacher-notices'> <button
-                      className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                      {/* <IoNotificationsSharp /> */}
-                      <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
-                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{teacherNotices?.length}</span>
-                    </button>
-                    </Link>
-                  }
-                  {
-                    (currentRole !== 'student' && currentRole !== 'teacher') && currentRole !== 'admin' && <Link to='notices/new-notices'> <button
-                      className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                      {/* <IoNotificationsSharp /> */}
-                      <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
-                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{commonNotices?.length}</span>
-                    </button>
-                    </Link>
-                  }
-
-                  <button className="text-[18px] font-medium px-4 py-2 duration-200 transform   text-first hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
-                    <FaCartPlus />
-=======
-                    )}
-                    {currentRole === "teacher" && (
+                    )} */}
+                    {/* {currentRole === "teacher" && (
                       <button className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                        {/* <IoNotificationsSharp /> */}
+                     
                         <img
                           src={noticeIcon}
                           alt="notice"
@@ -149,7 +120,7 @@ const Navbar = () => {
                       currentRole !== "teacher" &&
                       currentRole !== "admin" && (
                         <button className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                          {/* <IoNotificationsSharp /> */}
+                       
                           <img
                             src={noticeIcon}
                             alt="notice"
@@ -159,12 +130,11 @@ const Navbar = () => {
                             1
                           </span>
                         </button>
-                      )}
-                  </Link>
+                      )} 
+                  </Link>*/}
                   <button className="flex items-center">
                     <FaShoppingCart className="mr-2"></FaShoppingCart>
                     <div className="badge badge-warning">+{cart.length}</div>
->>>>>>> 9be7557645e98a9522358ea6bea9cdcd46c08b30
                   </button>
                   {user ? (
                     <div className="dropdown dropdown-hover">

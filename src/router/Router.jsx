@@ -50,15 +50,12 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
-<<<<<<< HEAD
-import Applications from "../page/dashboard/Admin/application/Applications";
-import ShowNotices from "../page/dashboard/Teacher/show notices/ShowNotices";
-import TeacherUpdateNotices from "../page/dashboard/Teacher/update notice/TeacherUpdateNotices";
-=======
 import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
->>>>>>> 9be7557645e98a9522358ea6bea9cdcd46c08b30
+import Applications from "../page/dashboard/Admin/application/Applications";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
+import ShowNotices from './../page/dashboard/Teacher/show notices/ShowNotices';
+import TeacherUpdateNotices from './../page/dashboard/Teacher/update notice/TeacherUpdateNotices';
 
 const router = createBrowserRouter([
     {

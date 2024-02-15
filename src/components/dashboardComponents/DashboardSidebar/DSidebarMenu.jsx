@@ -11,12 +11,8 @@ import StudentMenu from "../DashboardNav/DashboardMenu/StudentMenu";
 import TeacherMenu from "../DashboardNav/DashboardMenu/TeacherMenu";
 import AdminMenu from "../DashboardNav/DashboardMenu/AdminMenu";
 import { CgProfile } from "react-icons/cg";
-<<<<<<< HEAD
-import { FaAnglesRight, FaGraduationCap } from "react-icons/fa6";
-=======
 import { FaAnglesRight } from "react-icons/fa6";
-import { FaShoppingCart } from "react-icons/fa";
->>>>>>> 9be7557645e98a9522358ea6bea9cdcd46c08b30
+import { FaGraduationCap, FaShoppingCart } from "react-icons/fa";
 
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
