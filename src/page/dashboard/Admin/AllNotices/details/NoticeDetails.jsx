@@ -17,13 +17,13 @@ const NoticeDetails = () => {
                         <img src={image} alt="image" className="w-full h-full cursor-pointer rounded" />
                     </figure>
                     <div>
-                        <div className="flex justify-between gap-5 text-gray-300">
+                        <div className="flex justify-between gap-5 text-white">
                             <h1 className="text-[23px] flex-1 font-bold  ">{title}</h1>
                             <h1 className="text-xl font-medium">Date : {date?.slice(0, 10)}</h1>
                         </div>
-                        <p className="text-gray-300">{description}</p>
+                        <p className="text-white">{description}</p>
                     </div>
-                    <p className="text-gray-300">{description}</p>
+                    <p className="text-white">{description}</p>
                     <button onClick={handleCancel} className="btn bg-first text-white hover:text-first border-0 mt-7">Go Back</button>
                 </div>
             </div>

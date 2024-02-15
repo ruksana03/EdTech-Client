@@ -51,6 +51,9 @@ const AllNotices = () => {
     .reverse();
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const handleAllNotices = () => {
+    setFilteredNotices(notices)
+  }
   // console.log(currentItems);
   // console.log(filteredNotices);
   const handleDelete = (id) => {
@@ -102,10 +105,11 @@ const AllNotices = () => {
           </button>
         </div>
       </div>
-      <form className="flex items-center flex-col md:flex-row lg:flex-row justify-start gap-8 w-full my-5 px-5">
+      <div className="flex items-center flex-col md:flex-row lg:flex-row justify-start gap-8 w-full my-5 px-5">
+        <button onClick={handleAllNotices} className="btn-style">All</button>
         <select
           onChange={() => setDateFilter(event.target.value)}
-          className=" w-44 border border-gray-300 dark:text-gray-300 dark:bg-zinc-700 dark:border text-black focus:outline-none focus:bg-white focus:border-first leading-tight input"
+          className=" w-44 border bg-black text-white border-gray-300 focus:outline-none focus:border-first leading-tight input"
           name="select"
         >
           <option disabled selected>
@@ -121,17 +125,17 @@ const AllNotices = () => {
           <input
             type="text"
             onChange={() => setSearchNotices(event.target.value)}
-            className="pl-10 text-[17px]dark:bg-zinc-600 appearance-none input border-2 text-[17px] border-gray-200 dark:bg-zinc-700 dark:border rounded w-full md:w-2/3 lg:w-1/3 py-4 px-4 leading-tight focus:outline-none focus:bg-white focus:border-first"
+            className="pl-10  bg-black text-white text-[17px] input border-2 border-gray-200 rounded w-full md:w-2/3 lg:w-1/3 py-4 px-4 leading-tight focus:outline-none focus:border-first"
             name="search"
             placeholder=" type here..."
           />{" "}
           <MdOutlineSearch className="absolute top-2 left-1 text-3xl" />{" "}
         </div>
-      </form>
+      </div>
       <div className="px-5 my-3">
         <h1 className="my-3 text-xl md:text-2xl lg:text-3xl  font-alt text-first ">
           Show Previous Notice : <span> {filteredNotices?.length}</span>
-          
+
         </h1>
         <hr className="w-[180px] md:w-[200px] lg:w-[260px] h-1 bg-first " />
       </div>
@@ -179,9 +183,8 @@ const AllNotices = () => {
           length: Math.ceil(filteredNotices.length / itemsPerPage),
         }).map((_, index) => (
           <button
-            className={`px-3 py-1 mx-1 rounded-full ${
-              currentPage === index + 1 ? "bg-first text-white" : "bg-gray-200"
-            }`}
+            className={`px-3 py-1 mx-1 rounded-full ${currentPage === index + 1 ? "bg-first text-white" : "bg-gray-200"
+              }`}
             key={index + 1}
             onClick={() => paginate(index + 1)}
           >

@@ -51,6 +51,8 @@ import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import Applications from "../page/dashboard/Admin/application/Applications";
+import ShowNotices from "../page/dashboard/Teacher/show notices/ShowNotices";
+import TeacherUpdateNotices from "../page/dashboard/Teacher/update notice/TeacherUpdateNotices";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -137,10 +139,10 @@ const router = createBrowserRouter([
                         path: 'new-notices',
                         element: <NewNotices />
                     },
-                    {
-                        path: 'for-teacher-notices',
-                        element: <Notices />
-                    },
+                    // {
+                    //     path: 'for-teacher-notices',
+                    //     element: <Notices />
+                    // },
                 ]
             },
             {
@@ -302,12 +304,24 @@ const router = createBrowserRouter([
             //                 ]
             //             },
 
-            // common route
+        
 
             {
                 path: 'create-notice',
-                element: <PrivateRouter><CreateNotice /></PrivateRouter>
+                element: <CreateNotice />
             },
+            {
+                path: 'show-notices',
+                element: <ShowNotices />
+            },
+            {
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
+
+                // common route
             {
                 path: "dashboard",
                 element: <Dashboard />,

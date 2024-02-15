@@ -63,7 +63,7 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
 
             <div>
                 {user ? (
-                    <div >
+                    <div className="text-white" >
                         <hr className="mb-3" />
                         <div className={`flex gap-3 justify-between items-center ${isActive ? 'flex-col justify-center ' : ''}`}>
                             <Link to={'/dashboard/profile'}>

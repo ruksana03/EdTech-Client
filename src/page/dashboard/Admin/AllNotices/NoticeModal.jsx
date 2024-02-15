@@ -6,16 +6,12 @@ import { imageUpload } from "../../../../api/getData";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
-import useUsers from "../../../../Hooks/useUsers";
 
 
 const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
     const [loading, setLoading] = useState(false)
     const axiosPublic = useAxiosPublic();
     const user = useSelector(state => state.data.user.user);
-    const { AllUsers, } = useUsers();
-    const findTeacherUser = AllUsers.filter(find => find?.role === 'teacher');
-    // console.log(findTeacherUser);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -78,11 +74,13 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
                             <textarea name="description" className="bg-gray-200 dark:text-gray-400 dark:bg-zinc-700 appearance-none border-2 border-gray-200 dark:border rounded w-full h-28 py-2 text-[17px] px-4 leading-tight dark:focus:border-first focus:bg-white focus:border-first input outline-none" placeholder='Write description....' required ></textarea>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <label className="text-xl font-bold" htmlFor="description">Set Email*</label>
-                            <select className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name="email" required>
-                            <option disabled selected>Date filter</option>
-                            {findTeacherUser?.map(noti => <option key={noti?._id} defaultValue={noti?.email}>
-                                {noti?.email}</option>)}
+                            <label className="text-xl font-bold" htmlFor="description">Sent Role *</label>
+                            <select className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name="sentFor" required>
+                                <option disabled selected>Select for sent Notice</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="student">Student</option>
+                                <option value="common">Common</option>
+                                <option value="course">Course</option>
                             </select>
                         </div>
                         <div className="flex items-end justify-end mt-3 gap-3">
