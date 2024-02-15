@@ -6,11 +6,11 @@ import useStudentSpecificNotices from "../../Hooks/useStudentSpecificNotices";
 const NoticeBanner = () => {
     const [role, refetch,] = useUserRole();
     const [, studentRefetch,] = useStudentSpecificNotices();
-    console.log(role);
+    // console.log(role);
     const currentRole = role[0]?.role
     refetch();
     studentRefetch();
-    console.log(currentRole);
+    // console.log(currentRole);
 
     return (
         <div>

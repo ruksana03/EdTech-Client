@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavLinkMenu from "./NavLinkMenu";
 import { useDispatch, useSelector } from "react-redux";
-import { FaCartPlus } from "react-icons/fa";
+import {  FaShoppingCart } from "react-icons/fa";
 import { GrLogin } from "react-icons/gr";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
@@ -14,7 +14,11 @@ import Sidebar from "./Sidebar";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
 import useUserRole from "../../../Hooks/useUserRole";
+<<<<<<< HEAD
 import useCommonNotices from './../../../Hooks/useCommonNotices';
+=======
+import useCart from "../../../Hooks/useCart";
+>>>>>>> 9be7557645e98a9522358ea6bea9cdcd46c08b30
 
 // const Navbar = ({ children }) => {
 const Navbar = () => {
@@ -25,6 +29,7 @@ const Navbar = () => {
   const currentRole = role[0]?.role;
   const [active, setActive] = useState(true);
   const user = useSelector((state) => state.data.user.user);
+  const [cart] = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   // console.log(userNotices, user);
   studentRefetch();
@@ -100,6 +105,7 @@ const Navbar = () => {
                         <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
                         <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{userNotices?.length}</span>
                       </button>
+<<<<<<< HEAD
                     </Link>
                   }
                   {
@@ -124,6 +130,41 @@ const Navbar = () => {
 
                   <button className="text-[18px] font-medium px-4 py-2 duration-200 transform   text-first hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                     <FaCartPlus />
+=======
+                    )}
+                    {currentRole === "teacher" && (
+                      <button className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                        {/* <IoNotificationsSharp /> */}
+                        <img
+                          src={noticeIcon}
+                          alt="notice"
+                          className="w-full h-full scale-110 rounded-full"
+                        />
+                        <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">
+                          {teacherNotices?.length}
+                        </span>
+                      </button>
+                    )}
+                    {currentRole !== "student" &&
+                      currentRole !== "teacher" &&
+                      currentRole !== "admin" && (
+                        <button className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                          {/* <IoNotificationsSharp /> */}
+                          <img
+                            src={noticeIcon}
+                            alt="notice"
+                            className="w-full h-full scale-110 rounded-full bg-black"
+                          />
+                          <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">
+                            1
+                          </span>
+                        </button>
+                      )}
+                  </Link>
+                  <button className="flex items-center">
+                    <FaShoppingCart className="mr-2"></FaShoppingCart>
+                    <div className="badge badge-warning">+{cart.length}</div>
+>>>>>>> 9be7557645e98a9522358ea6bea9cdcd46c08b30
                   </button>
                   {user ? (
                     <div className="dropdown dropdown-hover">
