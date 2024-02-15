@@ -58,6 +58,8 @@ import Applications from "../page/dashboard/Admin/application/Applications";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 // import UpdatedBlog from "../page/blog/UpdatedBlog";
+import MyCart from "../page/dashboard/Common/MyCart";
+import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -268,6 +270,10 @@ const router = createBrowserRouter([
                 path: "recommended",
                 element: <Recommended />,
             },
+            {
+                path: "my-enroll",
+                element:  <Myenroll/>,
+            },
             // teachers route
             {
                 path: "post-resources",
@@ -303,6 +309,10 @@ const router = createBrowserRouter([
             {
                 path: "profile",
                 element: <UserProfile />,
+            },
+            {
+                path: "my-cart",
+                element: <MyCart/>,
             },
 
             {
