@@ -82,23 +82,6 @@ const JoiningTeacher = () => {
             <div className="mb-6">
               <div>
                 <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
-                  Phone Number *
-                </label>
-              </div>
-              <div className=" md:w-full mt-2">
-                <input
-                  className="bg-gray-200 dark:bg-zinc-600 appearance-none input border-2 text-[17px] border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:bg-white focus:border-first"
-                  id="inline-password"
-                  name="phonenumber"
-                  type="number"
-                  placeholder="phone number..."
-                  required
-                />
-              </div>
-            </div>
-            <div className="mb-6">
-              <div>
-                <label className="block font-bold text-start mb-1 md:mb-0 pr-4 text-[17px]">
                   Street Address *
                 </label>
               </div>
