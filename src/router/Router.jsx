@@ -53,6 +53,7 @@ import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import Applications from "../page/dashboard/Admin/application/Applications";
 import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
+import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 
 const router = createBrowserRouter([
@@ -187,6 +188,10 @@ const router = createBrowserRouter([
             {
                 path: "applications",
                 element: <Applications />,
+            },
+            {
+                path: "quiz",
+                element: <AddQuiz />
             },
             {
                 path: "allNotices",

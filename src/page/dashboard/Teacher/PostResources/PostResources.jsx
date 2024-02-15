@@ -52,8 +52,8 @@ const PostResources = () => {
     }
 
     const showPdf = (pdf) => {
-        // window.open(`http://localhost:5000/files/${pdf}`);
-        setPdfFile(`http://localhost:5000/files/${pdf}`);
+        // window.open(`https://ed-tech-server-six.vercel.app/files/${pdf}`);
+        setPdfFile(`https://ed-tech-server-six.vercel.app/files/${pdf}`);
     }
 
 
