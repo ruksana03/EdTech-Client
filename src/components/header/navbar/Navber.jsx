@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavLinkMenu from "./NavLinkMenu";
 import { useDispatch, useSelector } from "react-redux";
-import {  FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { GrLogin } from "react-icons/gr";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
@@ -21,7 +21,7 @@ import useCommonNotices from "../../../Hooks/useCommonNotices";
 const Navbar = () => {
   const [userNotices, studentRefetch] = useStudentSpecificNotices();
   const [teacherNotices, teacherRefetch] = useTeacherSpecificNotices();
-  const [commonNotices, commonRefetch, ] = useCommonNotices();
+  const [commonNotices, commonRefetch,] = useCommonNotices();
   const [role] = useUserRole();
   const currentRole = role[0]?.role;
   const [active, setActive] = useState(true);
@@ -64,17 +64,20 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div className="lg:fixed top-0 left-0 w-full z-50">
       <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div
-          className={`drawer-content flex flex-col text-white ${isScrolled ? " fixed blur(10px) top-0 left-0 w-full z-50  " : " bg-black text-white"}`} >
+          className={`drawer-content flex flex-col text-white ${isScrolled ? "" : "bg-transparent"
+            }`}
+          style={{ backdropFilter: isScrolled ? "blur(5px)" : "none" }} >
           {/* Navbar */}
           <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between dark:border-first sticky inset-0 z-10 ">
             <div className="flex-none lg:hidden  text-white">
               <div
-                className={`w-72 md:w-96 z-10 h-[100vh] fixed  inset-0 lg:hidden transition-all duration-200 ${active && "-translate-x-full  "}`} >
-                {/* side bar here  */}
+                className={`w-72 md:w-96 z-10 h-[100vh] fixed      inset-0 lg:hidden transition-all duration-200 ${active && "-translate-x-full  "
+                  }`}
+              >
                 <Sidebar handleClick={handleClick} />
               </div>
               {/* icon for small device  */}
@@ -94,44 +97,36 @@ const Navbar = () => {
               <div className="hidden lg:block">
                 {/* notice show here  */}
                 <div className="flex items-center justify-center gap-4">
-                  {/* {
+                  {
                     currentRole === 'student' && <Link to='notices/user-notices'>
                       <button
                         className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                     
+                        {/* <IoNotificationsSharp /> */}
                         <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
                         <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{userNotices?.length}</span>
                       </button>
-                    )} */}
-                    {/* {currentRole === "teacher" && (
-                      <button className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                     
-                        <img
-                          src={noticeIcon}
-                          alt="notice"
-                          className="w-full h-full scale-110 rounded-full"
-                        />
-                        <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">
-                          {teacherNotices?.length}
-                        </span>
-                      </button>
-                    )}
-                    {currentRole !== "student" &&
-                      currentRole !== "teacher" &&
-                      currentRole !== "admin" && (
-                        <button className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                       
-                          <img
-                            src={noticeIcon}
-                            alt="notice"
-                            className="w-full h-full scale-110 rounded-full bg-black"
-                          />
-                          <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">
-                            1
-                          </span>
-                        </button>
-                      )} 
-                  </Link>*/}
+                    </Link>
+                  }
+                  {
+                    currentRole === 'teacher' &&
+                    <Link to='notices/teacher-notices'> <button
+                      className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                      {/* <IoNotificationsSharp /> */}
+                      <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
+                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{teacherNotices?.length}</span>
+                    </button>
+                    </Link>
+                  }
+                  {
+                    (currentRole !== 'student' && currentRole !== 'teacher') && currentRole !== 'admin' && <Link to='notices/new-notices'> <button
+                      className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
+                      {/* <IoNotificationsSharp /> */}
+                      <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" />
+                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-white rounded-full flex items-center justify-center">{commonNotices?.length}</span>
+                    </button>
+                    </Link>
+                  }
+
                   <button className="flex items-center">
                     <FaShoppingCart className="mr-2"></FaShoppingCart>
                     <div className="badge badge-warning">+{cart.length}</div>

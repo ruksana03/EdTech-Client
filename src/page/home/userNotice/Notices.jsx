@@ -20,14 +20,6 @@ const Notices = () => {
         // console.log(searchItem);
     }, [userNotices, teacherNotices, searchNotices]);
 
-    // useEffect(() => {
-    //     const searchItem2 = teacherNotices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
-    //     setFilteredNotices(searchItem2);
-    //     // console.log(searchItem);
-    // }, [searchNotices, teacherNotices])
-
-    // console.log('add kora jay kina........',addData);
-
     const noticeData = [...filteredNotices].sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
     });

@@ -27,7 +27,7 @@ const NoticeHome = () => {
         };
         fetchData();
     }, [teacherNotices, settingPage]);
-    console.log(teacherNotices);
+    // console.log(teacherNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
@@ -89,7 +89,7 @@ const NoticeHome = () => {
                     </table>
                 </div>
                 {
-                    filteredNotices?.length <= 0 && <div className='text-4xl w-full h-[30vh] flex items-center justify-center gap-2'>
+                    filteredNotices?.length <= 0 && <div className='text-4xl text-white w-full h-[30vh] flex items-center justify-center gap-2'>
                         <h1>Here, No Notice Available <IoMdNotificationsOff className='w-full text-5xl text-red-600' /></h1>
                     </div>
                 }

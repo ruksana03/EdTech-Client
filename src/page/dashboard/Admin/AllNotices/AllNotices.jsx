@@ -34,6 +34,11 @@ const AllNotices = () => {
     );
     setFilteredNotices(searchItem);
   }, [notices2, searchNotices]);
+
+  const handleAllNotices = () => {
+    setFilteredNotices(notices)
+  }
+
   useEffect(() => {
     if (dateFilter) {
       const filterDateItem = notices2.filter((item) =>
@@ -50,12 +55,6 @@ const AllNotices = () => {
     .slice(indexOfFirstItem, indexOfLastItem)
     .reverse();
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const handleAllNotices = () => {
-    setFilteredNotices(notices)
-  }
-  // console.log(currentItems);
-  // console.log(filteredNotices);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -151,7 +150,7 @@ const AllNotices = () => {
                 <th className="border w-auto md:w-32 lg:w-32">Person</th>
                 <th className="border text-center">Title</th>
                 <th className="border w-32">Date</th>
-                <th className="border">Time</th>
+                <th className="border  w-28">Time</th>
                 <th className="p-0"></th>
               </tr>
             </thead>

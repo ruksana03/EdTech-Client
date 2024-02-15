@@ -8,7 +8,6 @@ const useCommonNotices = () => {
         queryKey: ['commonNotices'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/notices-query?sentNotices=common`)
-            console.log(res);
             return res.data
         }
     });

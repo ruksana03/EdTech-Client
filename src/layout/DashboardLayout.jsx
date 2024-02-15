@@ -66,7 +66,7 @@ const DashboardLayout = () => {
     }, [dispatch, axiosPublic]);
 
     return (
-        <div>
+        <div className="min-h-screen">
             <div className={`flex items-center justify-between bg-first dark:bg-zinc-700 dark:text-gray-400 h-16  ${isActive ? 'w-full md:w-[calc(100%-150px)] md:pl-8 transition-all duration-200 lg:w-[calc(100%-160px)]' : ' w-full md:w-[calc(100%-186px)] lg:w-[calc(100%-250px)] transition duration-200 ease-in-out'} float-right lg:px-5 px-3 md:px-5 shadow sticky inset-0 top-0 z-10 mb-5 `}>
                 <div className=" hidden md:block lg:block relative">
                     <div className={` border-e-2 dark:text-gray-400 dark:bg-zinc-800  overflow-x-hidden z-10 fixed pt-3   overflow-y-auto h-screen px-2 inset-y-0 left-0 transform ${isActive ? ' transition-all duration-200 w-[calc(100%-160px)] md:w-[150px] lg:w-[160px]' : ' w-[160px] md:w-[186px] lg:w-[250px] lg:translate-x-0  transition duration-200 ease-in-out'} `}>

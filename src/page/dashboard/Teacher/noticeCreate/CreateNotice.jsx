@@ -11,7 +11,7 @@ const CreateNotice = () => {
     const navigate = useNavigate();
     const user = useSelector(state => state.data.user.user);
     const axiosPublic = useAxiosPublic();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
     const [courses,setCourses] = useState([]);
     // console.log(findStudentUser);
   // load data
@@ -56,10 +56,10 @@ const CreateNotice = () => {
             axiosPublic.post('/notices', noticeData)
                 .then(res => {
                     setLoading(false)
-                    console.log(res);
+                    // console.log(res);
                     if (res.data) {
                         toast.success('created successfully')
-                        return navigate('/notices/teacher-notices')
+                        return navigate('/dashboard/show-notices')
                     }
                 })
         }
@@ -74,14 +74,14 @@ const CreateNotice = () => {
     }
 
     return (
-        <div className=" w-full mt-20 min-h-screen pb-12">
-            <h1 className="w-full text-2xl text-center flex items-center text-white justify-center gap-2 font-bold">Create Your Notice <RiNotificationBadgeFill className="text-3xl text-first" /></h1>
+        <div className=" w-full mt-20 min-h-auto pb-12 ">
+            <h1 className="w-full text-center headtext__cormorant flex items-center text-white justify-center gap-2 font-bold">Create Your Notice <RiNotificationBadgeFill className="text-3xl text-first" /></h1>
             <hr className="w-96 h-1 mt-3 bg-first mx-auto" />
-            <form onSubmit={handleSubmit} className="p-5 w-full h-auto md:w-2/3 lg:w-1/2 mx-auto mt-5">
-                <div className="space-y-3 mt-5">
+            <form onSubmit={handleSubmit} className="p-5 w-full h-auto md:w-2/3 lg:w-1/2 mx-auto mt-5 ">
+                <div className="space-y-3 mt-5 p__cormorant">
                     <div className="flex flex-col gap-3 text-white">
                         <label className="text-xl font-bold" htmlFor="description">Set New Photo*</label>
-                        <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                        <div className='file_upload px-5 py-3 relative  border-gray-300 rounded-lg overflow-hidden'>
                             <input name='image' type="file" className="file-input file-input-bordered file-input-success border-first bg-black w-full" required />
                         </div>
                     </div>
@@ -102,8 +102,8 @@ const CreateNotice = () => {
                         </select>
                     </div>
                     <div className="flex items-end justify-end mt-3 gap-3">
-                        <button onClick={handleCancel} className="btn bg-red-600 text-white hover:text-red-600">Cancel</button>
-                        <button type="submit" className="btn bg-first text-white hover:text-first">
+                        <button onClick={handleCancel} className="px-4 py-2 bg-red-600 text-white ">Cancel</button>
+                        <button type="submit" className="btn-style bg-first text-white hover:text-first">
                             {loading ?
                                 <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span> : 'Published'
                             }

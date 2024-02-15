@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Applications = () => {
     const axiosPublic = useAxiosPublic();
-    const [applications, refetch,] = useApplication();
+    const [applications, refetch] = useApplication();
     let [isOpen, setIsOpen] = useState(false)
     let [id, setId] = useState('');
     const applicationData = [...applications].reverse();
