@@ -21,4 +21,9 @@ export const getOneBlog = async id => {
   return data
 }
 
+export const updateBlogInfo = async (id, blog) => {
+  const { data } = await axiosSecure.put(`/blog/updated/${id}`, blog);
+  return data;
+}
+
 

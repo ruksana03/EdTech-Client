@@ -61,23 +61,19 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div className="lg:fixed top-0 left-0 w-full z-50">
       <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div
-          className={`drawer-content flex flex-col text-white   ${
-            isScrolled
-              ? " fixed blur(10px) top-0 left-0 w-full z-50  "
-              : " bg-black text-white"
-          }`}
-        >
+          className={`drawer-content flex flex-col text-white ${isScrolled ? "" : "bg-transparent"
+            }`}
+          style={{ backdropFilter: isScrolled ? "blur(5px)" : "none" }} >
           {/* Navbar */}
           <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between dark:border-first sticky inset-0 z-10 ">
             <div className="flex-none lg:hidden   text-white">
               <div
-                className={`w-72 md:w-96 z-10 h-[100vh] fixed      inset-0 lg:hidden transition-all duration-200 ${
-                  active && "-translate-x-full  "
-                }`}
+                className={`w-72 md:w-96 z-10 h-[100vh] fixed      inset-0 lg:hidden transition-all duration-200 ${active && "-translate-x-full  "
+                  }`}
               >
                 <Sidebar handleClick={handleClick} />
               </div>

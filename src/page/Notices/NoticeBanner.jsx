@@ -15,10 +15,9 @@ const NoticeBanner = () => {
 
   return (
     <div>
-      <figure className=" w-full h-[45vh] relative">
-        {/* <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" /> */}
+      <figure className=" w-full h-96 relative">
         <img
-          src="https://i.ibb.co/Fqw8LX4/NOTICE.png"
+          src="https://i.ibb.co/LzXmwF2/learning-3245793-1280.jpg"
           alt="notice-image"
           className="w-full h-full"
         />
