@@ -57,6 +57,8 @@ import BlogSettings from "../page/blog/BlogSettings";
 import { getOneBlog } from "../api/blogs";
 import UpdatedBlog from "../page/blog/UpdatedBlog";
 import Applications from "../page/dashboard/Admin/application/Applications";
+import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
+// import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import MyCart from "../page/dashboard/Common/MyCart";
@@ -286,8 +288,13 @@ const router = createBrowserRouter([
                 element: <Recommended />,
             },
             {
+                path: "studentdashboard",
+                element: <StudentDashboard></StudentDashboard>
+               
+            },
+            {
                 path: "my-enroll",
-                element:  <Myenroll/>,
+                element:  <Myenroll/>
             },
             // teachers route
             {
