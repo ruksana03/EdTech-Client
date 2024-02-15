@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavLinkMenu from "./NavLinkMenu";
 import { useDispatch, useSelector } from "react-redux";
-import { FaCartPlus } from "react-icons/fa";
+import {  FaShoppingCart } from "react-icons/fa";
 import { GrLogin } from "react-icons/gr";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
@@ -14,6 +14,7 @@ import Sidebar from "./Sidebar";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
 import useUserRole from "../../../Hooks/useUserRole";
+import useCart from "../../../Hooks/useCart";
 
 // const Navbar = ({ children }) => {
 const Navbar = () => {
@@ -23,6 +24,7 @@ const Navbar = () => {
   const currentRole = role[0]?.role;
   const [active, setActive] = useState(true);
   const user = useSelector((state) => state.data.user.user);
+  const [cart] = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   console.log(userNotices, user);
   studentRefetch();
@@ -147,8 +149,9 @@ const Navbar = () => {
                         </button>
                       )}
                   </Link>
-                  <button className="text-[18px] font-medium px-4 py-2 duration-200 transform   text-first hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
-                    <FaCartPlus />
+                  <button className="flex items-center">
+                    <FaShoppingCart className="mr-2"></FaShoppingCart>
+                    <div className="badge badge-warning">+{cart.length}</div>
                   </button>
                   {user ? (
                     <div className="dropdown dropdown-hover">
