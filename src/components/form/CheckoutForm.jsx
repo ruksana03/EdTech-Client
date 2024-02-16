@@ -130,7 +130,7 @@ const CheckoutForm = ({  itemInfo, closeModal }) => {
           <button
             type='submit'
             disabled={!stripe || !clientSecret || processing}
-            className='inline-flex justify-center rounded-md border border-transparent bg-first px-4 py-2 text-sm font-medium text-white hover:bg-white hover:text-first focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
+            className='inline-flex justify-center rounded-md border border-transparent bg-first px-4 py-2 text-sm font-medium text-white hover:bg-second hover:text-first focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 btn-style'
           >
             {processing ? (
               <ImSpinner9 className='m-auto animate-spin' size={24} />

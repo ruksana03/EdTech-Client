@@ -51,7 +51,7 @@ const AllBlogs = () => {
       <div className="overflow-x-auto">
         <table className="table w-full border-collapse border border-gray-300">
           {/* head */}
-          <thead className="bg-gray-800 text-white">
+          <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl">
             <tr  >
               <th className="py-3">#</th>
               <th className="py-3">Image</th>
@@ -67,7 +67,7 @@ const AllBlogs = () => {
             {AllBlogs?.map((blog, index) => (
               <tr
                 key={blog._id}
-                className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
+                className="p__opensans"
               >
                 <td className="py-3 font-bold">{index + 1}</td>
                 <td className="py-3 font-bold"><img className="rounded-full w-8 h-8" src={blog?.imageUrl} alt="" /></td>

@@ -9,11 +9,11 @@ const About = () => {
   return (
     <div>
       <div className="section-container mt-16">
-        <p className="subtitle pb-2">About us</p>
+        <p className="headtext__cormorant pb-2">About us</p>
         <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
           <div className="w-full lg:w-6/12 dark:text-gray-400">
-            <h2 className="w-full title">Meet the Team Behind InnavatED</h2>
-            <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-400   ">
+            <h2 className="w-full p__cormorant">Meet the Team Behind InnavatED</h2>
+            <p className="font-normal text-base leading-6 p__opensans ">
               Discover the story, vision, and people driving our mission to
               revolutionize on education through technology. Learn about the
               journey and the community shaping the future of learning
@@ -41,14 +41,14 @@ const About = () => {
         <div className="relative mt-12">
           <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
             <div className=" w-12 h-12 bg-first rounded-full flex justify-center items-center">
-              <FaFlagCheckered className="text-white" />
+              <FaFlagCheckered   />
             </div>
 
             <span className="w-12 h-12 rounded-full bg-first flex justify-center items-center">
-              <FaNotesMedical className="text-white" />
+              <FaNotesMedical   />
             </span>
             <span className="w-12 h-12 rounded-full bg-first justify-center items-center  sm:flex hidden ">
-              <FaUsers className="text-white " />
+              <FaUsers   />
             </span>
           </div>
           <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
@@ -60,8 +60,8 @@ const About = () => {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
-            <p className="subtitle dark:text-gray-400 mt-6">Empowering Education</p>
-            <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-400  mt-6">
+            <p className="p__cormorant mt-6">Empowering Education</p>
+            <p className="font-normal text-base leading-6 p__opensans mt-6">
               InnavatED started with a vision to empower education through
               technology, making learning accessible, interactive, and engaging.
               Founded in 2023.
@@ -72,8 +72,8 @@ const About = () => {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
-            <p className="subtitle dark:text-gray-400 mt-6">Millions of Learning Opportunities</p>
-            <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-400 mt-6">
+            <p className="p__cormorant mt-6">Millions of Learning Opportunities</p>
+            <p className="font-normal text-base leading-6 p__opensans mt-6">
               Every month, we strive to provide millions of learning
               opportunities through our diverse courses and interactive
               educational experiences.
@@ -85,8 +85,8 @@ const About = () => {
             data-aos-duration="2000"
             className="sm:block hidden"
           >
-            <p className="subtitle dark:text-gray-400 mt-6">Growing Community</p>
-            <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-400 mt-6">
+            <p className="p__cormorant mt-6">Growing Community</p>
+            <p className="font-normal text-base leading-6 p__opensans mt-6">
               Our community of learners continues to inspire us to enhance our
               platform, fostering a collaborative and supportive learning
               environment.
@@ -98,15 +98,15 @@ const About = () => {
         <div className="sm:hidden block relative mt-8">
           <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
             <span className="w-12 h-12 rounded-full bg-first dark:bg-white flex justify-center items-center  sm:hidden  ">
-              <FaUsers className="text-white" />
+              <FaUsers   />
             </span>
           </div>
           <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
         </div>
         <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
           <div>
-            <p className="subtitle mt-6 dark:text-gray-400">Dedicated Team</p>
-            <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-400 mt-6">
+            <p className="p__cormorant mt-6 ">Dedicated Team</p>
+            <p className="font-normal text-base leading-6 p__opensans mt-6">
               Our team of educators, developers, and experts is committed to
               providing a seamless and enriching learning experience for all
               users.
@@ -122,8 +122,8 @@ const About = () => {
             data-aos-duration="2000"
             className="w-full lg:w-6/12"
           >
-            <h2 className="subtitle dark:text-gray-400">Our Mission</h2>
-            <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-400 mt-6 w-full lg:w-10/12 xl:w-9/12">
+            <h2 className="p__cormorant">Our Mission</h2>
+            <p className="font-normal text-base leading-6 p__opensans mt-6 w-full lg:w-10/12 xl:w-9/12">
               At InnavateED, our mission is to revolutionize education by
               providing accessible, innovative, and personalized learning
               experiences. We believe in the power of technology to transform
@@ -141,8 +141,8 @@ const About = () => {
                   data-aos-easing="ease-out-cubic"
                   data-aos-duration="2000"
                 >
-                  <p className="subtitle dark:text-gray-400">Our Team</p>
-                  <p className="mt-2 font-normal text-base leading-6 text-gray-600 dark:text-gray-400 ">
+                  <p className="p__cormorant">Our Team</p>
+                  <p className="mt-2 font-normal text-base leading-6 p__opensans ">
                     Comprising dedicated educators, developers, and industry
                     experts, our team is focused on shaping the future of
                     education and fostering a dynamic learning community.

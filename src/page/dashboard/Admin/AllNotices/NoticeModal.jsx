@@ -6,12 +6,17 @@ import { imageUpload } from "../../../../api/getData";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
+import useUsers from "../../../../Hooks/useUsers";
 
 
 const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
     const [loading, setLoading] = useState(false)
     const axiosPublic = useAxiosPublic();
     const user = useSelector(state => state.data.user.user);
+    const { AllUsers, } = useUsers();
+    const findTeacherUser = AllUsers.filter(find => find?.role === 'teacher');
+    // console.log(findTeacherUser);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -75,10 +80,9 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
                         <div className="flex flex-col gap-3">
                             <label className="text-xl font-bold" htmlFor="description">Set Email*</label>
                             <select className=" border border-gray-300 text-black focus:outline-none focus:bg-white focus:border-first leading-tight input" name="email" required>
-                                <option disabled selected>select</option>
-                                <option required>sushil530@gmail.com</option>
-                                <option>apurbo@gmail.com</option>
-                                <option>shakil123@gmail.com</option>
+                            <option disabled selected>Date filter</option>
+                            {findTeacherUser?.map(noti => <option key={noti?._id} defaultValue={noti?.email}>
+                                {noti?.email}</option>)}
                             </select>
                         </div>
                         <div className="flex items-end justify-end mt-3 gap-3">

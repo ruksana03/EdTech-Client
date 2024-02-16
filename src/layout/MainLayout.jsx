@@ -7,10 +7,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { loginUser, setLoading } from "../Features/UserSlice";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
-import SubNav from "../components/header/navbar/SubNav";
+// import SubNav from "../components/header/navbar/SubNav";
 import { Outlet } from "react-router-dom";
 import Navber from "../components/header/navbar/Navber";
-import Footer from "../components/shared/Footer";
+import Footer from "../page/home/Footer/Footer";
+ 
 // import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const MainLayout = () => {
@@ -48,7 +49,7 @@ const MainLayout = () => {
 
   return (
     <div>
-      <SubNav />
+      {/* <SubNav /> */}
       {/* <div className="lg:fixed top-0 left-0 w-full z-50"> */}
         <Navber />
       {/* </div> */}

@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Cards from "../../components/Cards";
 import { FaFilter } from "react-icons/fa";
-import CoursesBanner from "./CoursesBanner";
+// import CoursesBanner from "./CoursesBanner";
+import { useTypewriter } from "react-simple-typewriter";
 
 const Courses = () => {
   const [course, setCourse] = useState([]);
@@ -102,20 +103,61 @@ const Courses = () => {
     setSearchInput(e.target.value);
   };
 
+  // typewriter effect
+  const [typeEffect] = useTypewriter({
+    words: ["Enlightening", " Courses", "With","Us!"],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 50,
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
+
   return (
     <div>
       {/* banner text */}
-     <CoursesBanner searchInput={searchInput} handleSearchChange={handleSearchChange}/>
+      <div
+        className="hero min-h-[80vh] mb-12"
+        style={{
+          backgroundImage:
+            "url(https://i.ibb.co/z6Fz8Z2/jess-bailey-Bg14l3h-SAs-A-unsplash.jpg)",
+        }}
+      >
+        <div className="hero-overlay bg-white bg-opacity-20"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="space-y-7 ">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold leading-snug text-black">
+              Explore the Wonders Of
+              <span className="text-first"> Enlightening Courses!</span>
+            </h2>
+            <p className="text-black">
+              Where Every Lesson Unfolds a Tale of Academic Excellence and
+              Dedicated Learning
+            </p>
+            <div className="my-4">
+              <input
+                type="text"
+                placeholder="Search courses..."
+                value={searchInput}
+                onChange={handleSearchChange}
+                className="border text-black p-2 rounded-md"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* courses */}
       <div className="section-container mt-16">
         {/* btns and sorts */}
         <div className="flex flex-col md:flex-row space-y-3 md:justify-between items-center">
           {/* all category data */}
-          <div className="flex justify-start items-center gap-8 flex-wrap font-medium my-3">
+          <div className="flex justify-start items-center gap-8 flex-wrap font-medium  p__cormorant my-3">
             <button
               onClick={showAll}
-              className={selectCategory === "all" ? "active" : ""}
+              className={selectCategory === "all" ? "" : "text-white"}
             >
               All
             </button>
