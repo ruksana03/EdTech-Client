@@ -43,7 +43,7 @@ const Questions = () => {
     const isQuizCompleted = selectedOptions.every(option => option !== null);
 
     return (
-        <div className="mt-16 ">
+        <div className="pt-28 p__cormorant">
             <div className="mx-auto flex justify-center">
                 {isQuizCompleted && !isReviewMode ? (
                     <Result selectedOptions={selectedOptions} quiz={quiz} />

@@ -71,69 +71,69 @@ const NewPostResources = () => {
             }
 
         } catch (error) {
-            // Handle errors gracefully (e.g., display error message)
             console.error('Upload error:', error);
         }
     };
-    // fetch the all pdf data to backend 
-
-    // const showPdf = (pdf) => {
-    //     // window.open(`http://localhost:5000/files/${pdf}`);
-    //     setPdfFile(`http://localhost:5000/files/${pdf}`);
-    // }
     return (
-        <div className="mt-12">
-            <div className="w-[800px] mx-auto p-6 border border-black rounded-xl flex justify-center">
-
-
+        <div className="mt-12 p__cormorant w-10/12 mx-auto">
+            <div className="w-[800px] mx-auto p-6 border border-white rounded-xl flex justify-center">
                 <form
-                    onSubmit={handleSubmit}
-                >
-                    <div className="flex gap-6 justify-between items-center">
+                    onSubmit={handleSubmit} >
+                    {/* name and email field  */}
+                    <div className="flex justify-between gap-4">
                         <div>
                             <label className="text-xl">Your Name</label><br />
                             <input type="text"
                                 placeholder={user?.name}
                                 readOnly
-                                className="w-[350px]"
+                                className="w-full py-2 bg-transparent transition-colors peer pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
                                 onChange={handleChange}
                             />
+                            <hr className="border-t border-first" />
                         </div>
                         <div>
                             <label className="text-xl">Your Email</label><br />
                             <input type="text"
                                 placeholder={user?.email}
                                 readOnly
-                                className="w-[350px]"
+                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
                                 onChange={handleChange}
                             />
+                            <hr className="border-t border-first" />
                         </div>
                     </div>
-                    <div className="flex justify-center mt-6">
-                        <div>
-                            <label className="text-xl">Resource Title</label><br />
-                            <input type="text"
-                                placeholder="Title"
-                                required
-                                name='title'
-                                className="w-[750px]"
-                                onChange={handleChange}
-                            />
-                        </div>
+                    {/* resources title  */}
+                    <div className=" mt-6">
+                        <label className="text-xl">Resource Title</label><br />
+                        <input type="text"
+                            placeholder="Title"
+                            required
+                            name='title'
+                            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                            onChange={handleChange}
+                        />
+                        <hr className="border-t border-first" />
                     </div>
-                    <div className="border border-black border-dashed p-12 mt-6 flex justify-center">
-                        <input type="file"
+                    {/* pdf field  */}
+                    <div
+                        className="border border-white border-dashed  mt-6 flex justify-center">
+                        <input
+                            type="file"
                             accept="application/pdf"
                             name='file'
                             required
-                            className="w-[600px]"
+                            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
                         />
+                        <hr className="border-t border-first" />
                     </div>
-
-                    <button className="bg-first text-white text-2xl py-1 rounded-xl w-full mt-6" type="submit">Submit</button>
+                    <button
+                        className="btn-style w-full mt-6"
+                        type="submit">
+                        Submit
+                    </button>
                 </form>
-
             </div>
+            
             {/* show here teacher given pdf file  */}
             <div className="w-[800px] mx-auto p-6 border border-black rounded-xl my-8">
                 <div className="overflow-x-auto">
