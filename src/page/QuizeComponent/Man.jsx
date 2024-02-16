@@ -1,26 +1,26 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import  { useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../Style/Main.css'
 import '../../components/Footer/NewsLetter.css'
 import { useSelector } from 'react-redux';
 
 
-export default function Man() {
+const Man = () => {
     const [username, setUsername] = useState('');
     const user = useSelector((state) => state.data.user.user);
     
 
-    const inputRef = useRef(null)
-    const dispatch = useDispatch()
+    const inputRef = useRef(null);
+    // const dispatch = useDispatch();
 
 
     const  startQuiz = () => {
         if (inputRef.current?.value) {
             setUsername(inputRef.current?.value);
-            dispatch(setUserId(inputRef.current?.value));
+            // dispatch(setUserId(inputRef.current?.value));
         }
     }
   return (
@@ -48,3 +48,4 @@ export default function Man() {
   )
 }
 
+export default Man;

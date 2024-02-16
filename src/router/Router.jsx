@@ -49,20 +49,25 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import Applications from "../page/dashboard/Admin/application/Applications";
+import MyCart from "../page/dashboard/Common/MyCart";
+import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
+import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
+// import DashboardLayout2 from "../layout/DashboardLayout2";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
-import Man from "../page/QuizeComponent/man";
+
 import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
 import { getOneBlog } from "../api/blogs";
 import UpdatedBlog from "../page/blog/UpdatedBlog";
-import Applications from "../page/dashboard/Admin/application/Applications";
 import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
-import MyCart from "../page/dashboard/Common/MyCart";
-import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
+// import Man from "../page/QuizeComponent/man";
+
+
 
 
 const router = createBrowserRouter([
@@ -80,10 +85,10 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
-            {
-                path: '/quest',
-                element: <Man/>
-            },
+            // {
+            //     path: '/quest',
+            //     element: <Man />
+            // },
             {
                 path: '/man',
                 element: <Questions/>
@@ -196,6 +201,10 @@ const router = createBrowserRouter([
             {
                 path: "applications",
                 element: <Applications />,
+            },
+            {
+                path: "quiz",
+                element: <AddQuiz />
             },
             {
                 path: "allNotices",

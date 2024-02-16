@@ -38,7 +38,7 @@ const MyCart = () => {
   };
 
   return (
-    <div>
+  <div>
       <h2 className="text-3xl mb-3 mt-3 p__cormorant text-center">
         Total Saved Courses: {cart?.length}
       </h2>

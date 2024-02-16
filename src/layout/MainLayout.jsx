@@ -49,6 +49,7 @@ const MainLayout = () => {
       <Navber />
       <Outlet />
       <Footer />
+      {/* <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" /> */}
     </div>
   );
 };
