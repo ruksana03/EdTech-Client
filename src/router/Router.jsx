@@ -65,6 +65,7 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+import DateInfo from "../page/dashboard/Teacher/Date of/DateInfo";
 // import Man from "../page/QuizeComponent/man";
 
 
@@ -80,7 +81,7 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
-           
+
             {
                 path: "/all-courses",
                 element: <Courses />,
@@ -91,17 +92,17 @@ const router = createBrowserRouter([
             // },
             {
                 path: '/man',
-                element: <Questions/>
+                element: <Questions />
             },
-            
 
-           
+
+
             {
                 path: "contact",
                 element: <Contact />,
             },
-            
-           
+
+
             {
                 path: "/details/:id",
                 element: (
@@ -299,36 +300,40 @@ const router = createBrowserRouter([
             {
                 path: "studentdashboard",
                 element: <StudentDashboard></StudentDashboard>
-               
+
             },
             {
                 path: "my-enroll",
-                element:  <Myenroll/>
+                element: <Myenroll />
             },
             // teachers route
             {
                 path: "post-resources",
 
-                element:<NewPostResources/>
+                element: <NewPostResources />
             },
             {
                 path: "add-course",
                 element: <AddCourse />,
             },
+            {
+                path: "date",
+                element: <DateInfo />,
+            },
 
-           {
-            path:"show-notices",
-            element:<ShowNotices/>
-           },
+            {
+                path: "show-notices",
+                element: <ShowNotices />
+            },
 
-           {
-            path: "notice-update/:id",
-            loader: ({ params }) =>
-                fetch(`http://localhost:5000/notice/${params.id}`),
-            element: <TeacherUpdateNotices />,
-        },
+            {
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
 
-        
+
 
             {
                 path: 'create-notice',
@@ -345,7 +350,7 @@ const router = createBrowserRouter([
                 element: <TeacherUpdateNotices />,
             },
 
-                // common route
+            // common route
             {
                 path: "dashboard",
                 element: <Dashboard />,
@@ -356,7 +361,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-cart",
-                element: <MyCart/>,
+                element: <MyCart />,
             },
 
             {

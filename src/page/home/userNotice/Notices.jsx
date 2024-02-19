@@ -50,7 +50,7 @@ const Notices = () => {
                             {
                                 noticeData?.length > 0 && noticeData?.map(notice =>
                                     <tr key={notice._id} className='border hover:bg-base-300 hover:text-black cursor-pointer'>
-                                        <td className='border text-base lg:text-[18px] font-medium '><Link to={`/notice-details/${notice?._id}`}>{notice?.title}</Link></td>
+                                       <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/notice-details/${notice?._id}`}>{notice?.title?.length > 50 ? <>{notice?.title?.slice(0, 75)}.....</> : notice?.title}</Link></td>
                                         <td className='border font-medium '>All Teacher</td>
                                         <td className='border font-medium '>{notice?.date?.slice(0, 10)}</td>
                                     </tr>)
