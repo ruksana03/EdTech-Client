@@ -9,6 +9,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { Outlet } from "react-router-dom";
 import Navber from "../components/header/navbar/Navber";
 import Footer from "../page/home/Footer/Footer";
+import 'regenerator-runtime/runtime'
 
 // import MessengerCustomerChat from 'react-messenger-customer-chat';
 

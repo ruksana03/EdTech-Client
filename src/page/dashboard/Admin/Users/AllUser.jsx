@@ -71,7 +71,7 @@ const AllUser = () => {
               >
                 <td className="py-3 font-bold">{index + 1}</td>
                 <td className="py-3 font-bold">{user.name}</td>
-                <td className="py-3 font-bold">{user.email}</td>
+                <td className="py-3 font-bold lowercase">{user.email}</td>
                 <td className="py-3 font-bold cursor-pointer">{user.role}</td>
                 <td>
                 <button onClick={()=>handleUserRole(user)}><FaEdit className="text-xl"></FaEdit></button>
