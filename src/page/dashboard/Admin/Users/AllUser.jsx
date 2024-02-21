@@ -1,32 +1,20 @@
 
 import { MdDelete } from 'react-icons/md';
 import useUsers from '../../../../Hooks/useUsers';
-import { deleteSingleUser, updateUserRole } from '../../../../api/users';
+import { deleteSingleUser } from '../../../../api/users';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
+import { FaEdit } from "react-icons/fa";
+import RoleModal from './RoleModal';
 
 const AllUser = () => {
   // const { AllUsers, loading, refetch } = useUsers();
   const { AllUsers, refetch } = useUsers();
+  const [userToChangeRole, setUserToChangeRole] = useState(null);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const modalHandler = async (user, role) => {
-    try {
-      // Assuming user is defined and contains user information
-      if (!user || !user.email) {
-        throw new Error("User information is missing.");
-      }
-  
-      const data = await updateUserRole({ email: user.email, role });
-      console.log(data);
-      toast.success("Role updated");
-      refetch();
-    } catch (err) {
-      console.error(err);
-      toast.error(err.message || "Error updating role");
-    } finally {
-      setIsOpen(false);
-    }
+  const handleUserRole = (user) => {
+    setUserToChangeRole(user);
+    document.getElementById('user_role_modal').showModal();
   };
 
   const handleDelete = async (userToDelete) => {
@@ -85,16 +73,8 @@ const AllUser = () => {
                 <td className="py-3 font-bold">{user.name}</td>
                 <td className="py-3 font-bold">{user.email}</td>
                 <td className="py-3 font-bold cursor-pointer">{user.role}</td>
-                <td className="py-3 text-red-500 font-bold cursor-pointer">
-                <button
-                    onClick={() => setIsOpen(true)}
-                    className='relative btn-style rounded-md text-white'
-                    disabled={user?.role == 'Admin'}
-                >
-                    {user?.role !== 'Admin' && (
-                        <button>Update Role</button>
-                    )}
-                </button>
+                <td>
+                <button onClick={()=>handleUserRole(user)}><FaEdit className="text-xl"></FaEdit></button>
                 </td>
                 <td>Status</td>
                 <td>
@@ -107,6 +87,7 @@ const AllUser = () => {
           </tbody>
         </table>
       </div>
+      <RoleModal userToChangeRole={userToChangeRole} refetch={refetch}></RoleModal>
     </div>
   );
 };

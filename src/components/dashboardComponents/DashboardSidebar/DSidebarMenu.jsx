@@ -12,6 +12,9 @@ import TeacherMenu from "../DashboardNav/DashboardMenu/TeacherMenu";
 import AdminMenu from "../DashboardNav/DashboardMenu/AdminMenu";
 import { CgProfile } from "react-icons/cg";
 import { FaAnglesRight, FaGraduationCap } from "react-icons/fa6";
+import { FaShoppingCart } from "react-icons/fa";
+// import { FaAnglesRight } from "react-icons/fa6";
+// import { FaShoppingCart } from "react-icons/fa";
 
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
@@ -35,12 +38,14 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
         return null;
     };
 
-    const links = ['/dashboard', '/notes', '/profile'];
-    const menuNames = ['Dashboard', 'Notes', 'Profile'];
+    const links = ['/dashboard', '/notes','/my-cart', '/profile'];
+    const menuNames = ['Dashboard', 'Notes','My Cart', 'Profile'];
     const icons = [
         <MdOutlineDashboardCustomize key={links[0]} className="text-2xl" />,
         <SiBookstack key={links[1]} className="text-2xl" />,
-        <CgProfile key={links[2]} className="text-2xl" />];
+        <FaShoppingCart key={links[2]} className="text-2xl" />,
+        <CgProfile key={links[3]} className="text-2xl" />
+    ];
 
     const location = useLocation();
 
@@ -63,7 +68,7 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
 
             <div>
                 {user ? (
-                    <div >
+                    <div className="text-white" >
                         <hr className="mb-3" />
                         <div className={`flex gap-3 justify-between items-center ${isActive ? 'flex-col justify-center ' : ''}`}>
                             <Link to={'/dashboard/profile'}>

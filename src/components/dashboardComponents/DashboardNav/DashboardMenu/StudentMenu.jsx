@@ -6,13 +6,16 @@ import { GrResources } from "react-icons/gr";
 
 
 const StudentMenu = ({ isActive }) => {
-    const studentLinks = ['/my-class','/my-lab','/resources','/recommended'];
-    const studentMenu = ['My Class','My Lab','Resources','Recommended'];
+    const studentLinks = ['/my-class','/my-lab','/resources','/recommended','/studentdashboard','/my-enroll'];
+    const studentMenu = ['My Class','My Lab','Resources','Recommended','student dashboard','My Enroll'];
+    
     const icons = [
         <MdOutlineDashboardCustomize key={studentLinks[0]} />,
         <SiBookstack key={studentLinks[1]} />,
         <GrResources key={studentLinks[2]}/>,
         <GrResources key={studentLinks[3]}/>,
+        <GrResources key={studentLinks[4]}/>,
+        
 
     ];
 
