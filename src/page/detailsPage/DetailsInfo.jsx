@@ -21,6 +21,7 @@ const DetailsInfo = ({ detailInfo }) => {
   const user = useSelector((state) => state.data.user.user);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate()
+  
   const location = useLocation()
   const [,refetch] = useCart()
 
@@ -211,16 +212,16 @@ const DetailsInfo = ({ detailInfo }) => {
                type="button"
                className="inline-flex items-center justify-center btn-style"
              >
-               <BiPurchaseTag className="text-lg" />
-               <span className="ml-2">Add to Cart</span>
+               <BiPurchaseTag className="text-lg mr-2" />
+               Add to Cart 
              </button>
            <button
                 onClick={() => setIsOpen(true)}
                 type="button"
                 className="inline-flex items-center justify-center btn-style"
               >
-                <BiPurchaseTag className="text-lg" />
-                <span className="ml-2">Purchase Now</span>
+                <BiPurchaseTag className="text-lg mr-2" />
+               Purchase Now 
               </button>
              
            </div>

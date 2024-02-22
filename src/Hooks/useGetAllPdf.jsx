@@ -9,7 +9,7 @@ const useGetAllPdf = () => {
             return res.data; // Corrected this line
         }
     });
-    console.log("this get pdf", allPdf);
+    console.log("this get all  pdf in axios", allPdf);
     return [allPdf, loading, refetch]; // Changed return format to an array
 };
 

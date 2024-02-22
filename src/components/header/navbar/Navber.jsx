@@ -11,6 +11,7 @@ import Logo from "../../shared/Logo";
 import noticeIcon from "../../../assets/new-n.gif";
 import NavUserButton from "../NavUserButton";
 import Sidebar from "./Sidebar";
+import { MdMenu } from "react-icons/md";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
 import useUserRole from "../../../Hooks/useUserRole";
@@ -64,7 +65,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="lg:fixed top-0 left-0 w-full z-50">
+    <div className="lg:fixed top-0 left-0 right-0 w-full z-50">
       <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div
@@ -73,19 +74,20 @@ const Navbar = () => {
           style={{ backdropFilter: isScrolled ? "blur(5px)" : "none" }} >
           {/* Navbar */}
           <div className="w-full section-container navbar flex items-center justify-between lg:flex-row lg:justify-between dark:border-first sticky inset-0 z-10 ">
-            <div className="flex-none lg:hidden  text-white">
+            <div className="flex-none lg:hidden text-white">
               <div
-                className={`w-72 md:w-96 z-10 h-[100vh] fixed      inset-0 lg:hidden transition-all duration-200 ${active && "-translate-x-full  "
+                className={`w-72 md:w-96 z-10 h-[100vh] fixed inset-0 lg:hidden transition-all duration-200 ${active && "-translate-x-full  "
                   }`}
               >
                 <Sidebar handleClick={handleClick} />
               </div>
               {/* icon for small device  */}
-              <button onClick={handleClick} className="block text-first lg:hidden text-3xl cursor-pointer  dark:text-gray-400" >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current" >
+              <button onClick={handleClick} className="block !text-black lg:hidden text-3xl cursor-pointer" >
+              <MdMenu className="text-3xl font-bold text-white" />
+                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current !text-black !bg-white" >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
                   </path>
-                </svg>
+                </svg> */}
               </button>
             </div>
             {/* logo  */}
@@ -168,7 +170,7 @@ const Navbar = () => {
                     </div>
                   ) : (
                     <Link to={`/login`}>
-                      <button className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform   text-first hover:bg-transparent hover:text-gray-400 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
+                      <button className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform text-first hover:bg-transparent hover:text-gray-400 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                         <GrLogin />
                         Login
                       </button>

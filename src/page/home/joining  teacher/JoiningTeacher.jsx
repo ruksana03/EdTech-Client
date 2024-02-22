@@ -1,6 +1,6 @@
 import { PiChalkboardTeacherBold } from "react-icons/pi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
 import { useSelector } from "react-redux";
@@ -66,6 +66,12 @@ const JoiningTeacher = () => {
       toast.error(error.message)
     }
   }
+ 
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
+
+
   return (
     <div className="w-full h-full mb-5">
       {/* banner image  */}

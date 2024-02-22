@@ -27,12 +27,11 @@ const NewNotices = () => {
                         {
                             sortedData?.length > 0 && sortedData?.map(notice =>
                                 <tr key={notice._id} className='border hover:bg-base-300 hover:text-black text-white cursor-pointer font-medium '>
-                                    <td className='border'><Link to={`/notice-details/${notice?._id}`}>{notice?.title}</Link></td>
+                                    <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/notice-details/${notice?._id}`}>{notice?.title?.length > 40 ? <>{notice?.title?.slice(0, 50)}.....</> : notice?.title}</Link></td>
                                     <td className='border'>All Teacher</td>
                                     <td className='border'>{notice?.date?.slice(0, 10)}</td>
                                 </tr>)
                         }
-
                     </tbody>
                 </table>
             </div>

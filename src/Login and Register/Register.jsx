@@ -74,7 +74,7 @@ const Register = () => {
   console.log(errors);
 
   return (
-    <div className="mt-12 mb-8 w-11/12 mx-auto">
+    <div className="pt-12 mb-8 w-11/12 mx-auto">
       <div className="lg:flex flex-row-reverse justify-center ">
         <div className="lg:block hidden ml-4">
          <div className="w-1/2 mx-auto" >

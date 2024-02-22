@@ -108,7 +108,6 @@ const ShowNotices = () => {
                             Create Notice
                         </button>
                     </div>
-                   
                 </div>
 
                 <div className="flex items-center flex-col md:flex-row lg:flex-row justify-start gap-8 w-full my-5 px-5">

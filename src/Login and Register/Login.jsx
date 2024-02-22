@@ -38,64 +38,66 @@ const Login = () => {
   };
 
   return (
-    <div className="mt-12 w-11/12 mx-auto">
-      <div className="lg:flex justify-center">
-        <div className="lg:block hidden">
-           <div className="w-1/2 flex justify-center items-center mx-auto  ">
-           <Lottie animationData={LoginImg} ></Lottie>
-           </div>
-          <div className="flex border border-first rounded-md mx-auto justify-center space-x-4">
-            <p className="flex p__cormorant font-bold items-center">
-              Login With:
-            </p>
-            <LoginWithFacebook></LoginWithFacebook>
-            <LoginWithGoogle></LoginWithGoogle>
-            <LoginWithGitHub></LoginWithGitHub>
-          </div>
-        </div>
-
-        <div className="lg:ml-20 border mb-32 pb-6">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-            <h3 className="headtext__cormorant text-center mb-4 mt-2">Login</h3>
-
-            <div className="form-control flex flex-col mt-2">
-              <input
-                type="email"
-                placeholder="email"
-                {...register("email", { required: true })}
-                className="input  input-bordered mt-2"
-              />
+    <div>
+      <div className="pt-32 w-11/12 mx-auto">
+        <div className="lg:flex justify-center">
+          <div className="lg:block hidden">
+            <div className="w-1/2 flex justify-center items-center mx-auto  ">
+              <Lottie animationData={LoginImg} ></Lottie>
             </div>
-
-            <div className="flex items-center relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                {...register("password", { required: true })}
-                className="input   input-bordered mt-2"
-              />
-              <div className="absolute items-center mt-2 ml-48">
-                <span onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <FaEye /> : <FaEyeSlash />}
-                </span>
-              </div>
-            </div>
-
-            <div className="form-control mt-6">
-              <input className=" btn-style" type="submit" value="Submit" />
-            </div>
-            <div className="lg:hidden mt-4  flex justify-center space-x-4">
+            <div className="flex border border-first rounded-md mx-auto justify-center space-x-4">
+              <p className="flex p__cormorant font-bold items-center">
+                Login With:
+              </p>
               <LoginWithFacebook></LoginWithFacebook>
               <LoginWithGoogle></LoginWithGoogle>
               <LoginWithGitHub></LoginWithGitHub>
             </div>
-          </form>
-          <p className="text-center p__cormorant mt-8">
-            New Here?{" "}
-            <span className="font-bold text-first">
-              <Link to={`/register`}>Register</Link>
-            </span>
-          </p>
+          </div>
+
+          <div className="lg:ml-20 border mb-32 pb-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+              <h3 className="headtext__cormorant text-center mb-4 mt-2">Login</h3>
+
+              <div className="form-control flex flex-col mt-2">
+                <input
+                  type="email"
+                  placeholder="email"
+                  {...register("email", { required: true })}
+                  className="input  input-bordered mt-2"
+                />
+              </div>
+
+              <div className="flex items-center relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  {...register("password", { required: true })}
+                  className="input   input-bordered mt-2"
+                />
+                <div className="absolute items-center mt-2 ml-48">
+                  <span onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <FaEye /> : <FaEyeSlash />}
+                  </span>
+                </div>
+              </div>
+
+              <div className="form-control mt-6">
+                <input className=" btn-style" type="submit" value="Submit" />
+              </div>
+              <div className="lg:hidden mt-4  flex justify-center space-x-4">
+                <LoginWithFacebook></LoginWithFacebook>
+                <LoginWithGoogle></LoginWithGoogle>
+                <LoginWithGitHub></LoginWithGitHub>
+              </div>
+            </form>
+            <p className="text-center p__cormorant mt-8">
+              New Here?{" "}
+              <span className="font-bold text-first">
+                <Link to={`/register`}>Register</Link>
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
