@@ -31,7 +31,6 @@ import AllUser from "../page/dashboard/Admin/Users/AllUser";
 import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
 import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
-import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
 import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import NoticeDetails from "./../page/dashboard/Admin/AllNotices/details/NoticeDetails";
 import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
@@ -50,11 +49,25 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
+// import Man from "../page/QuizeComponent/man";
+import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
 import { getOneBlog } from "../api/blogs";
 import UpdatedBlog from "../page/blog/UpdatedBlog";
+import Applications from "../page/dashboard/Admin/application/Applications";
+import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
+import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
+import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+import MyCart from "../page/dashboard/Common/MyCart";
+import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
+// import Man from "../page/QuizeComponent/Man";
+import Man from "../page/QuizeComponent/Man";
+import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
+
+
 
 const router = createBrowserRouter([
     {
@@ -66,14 +79,28 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
+           
             {
                 path: "/all-courses",
                 element: <Courses />,
             },
             {
+                path: '/quest',
+                element: <Man/>
+            },
+            {
+                path: '/man',
+                element: <Questions/>
+            },
+            
+
+           
+            {
                 path: "contact",
                 element: <Contact />,
             },
+            
+           
             {
                 path: "/details/:id",
                 element: (
@@ -95,7 +122,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "join-teacher",
-                element: <JoiningTeacher />,
+                element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
             },
             {
                 path: "common-notice-details",
@@ -116,10 +143,6 @@ const router = createBrowserRouter([
                     {
                         path: 'new-notices',
                         element: <NewNotices />
-                    },
-                    {
-                        path: 'for-teacher-notices',
-                        element: <Notices />
                     },
                 ]
             },
@@ -179,6 +202,10 @@ const router = createBrowserRouter([
                 element: <AllUser />,
             },
             {
+                path: "applications",
+                element: <Applications />,
+            },
+            {
                 path: "allNotices",
                 element: <AllNotices />,
             },
@@ -199,8 +226,16 @@ const router = createBrowserRouter([
                 element: <AllBlogs />,
             },
             {
+                path: "quiz",
+                element: <AddQuiz />
+            },
+            {
                 path: "allCourses",
                 element: <AllCourses />,
+            },
+            {
+                path: "applications",
+                element: <Applications />,
             },
             {
                 path: "allPaymentInfo",
@@ -264,21 +299,56 @@ const router = createBrowserRouter([
                 path: "recommended",
                 element: <Recommended />,
             },
+            {
+                path: "studentdashboard",
+                element: <StudentDashboard></StudentDashboard>
+               
+            },
+            {
+                path: "my-enroll",
+                element:  <Myenroll/>
+            },
             // teachers route
             {
                 path: "post-resources",
-                element: <PostResources />,
+
+                element:<NewPostResources/>
             },
             {
                 path: "add-course",
                 element: <AddCourse />,
             },
-            // common route
+
+           {
+            path:"show-notices",
+            element:<ShowNotices/>
+           },
+
+           {
+            path: "notice-update/:id",
+            loader: ({ params }) =>
+                fetch(`http://localhost:5000/notice/${params.id}`),
+            element: <TeacherUpdateNotices />,
+        },
+
+        
 
             {
                 path: 'create-notice',
-                element: <PrivateRouter><CreateNotice /></PrivateRouter>
+                element: <CreateNotice />
             },
+            {
+                path: 'show-notices',
+                element: <ShowNotices />
+            },
+            {
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
+
+                // common route
             {
                 path: "dashboard",
                 element: <Dashboard />,
@@ -286,6 +356,10 @@ const router = createBrowserRouter([
             {
                 path: "profile",
                 element: <UserProfile />,
+            },
+            {
+                path: "my-cart",
+                element: <MyCart/>,
             },
 
             {

@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "question": "What is the capital of Canada?",
+        "options": [
+            "Toronto",
+            "Ottawa",
+            "Vancouver"
+        ],
+        "correct_answer": "Ottawa"
+    },
+    {
+        "id": 2,
+        "question": "Who is the author of 'Harry Potter' series?",
+        "options": [
+            "J.K. Rowling",
+            "Stephen King",
+            "George R.R. Martin"
+        ],
+        "correct_answer": "J.K. Rowling"
+    },
+    {
+        "id": 3,
+        "question": "What is the chemical symbol for iron?",
+        "options": [
+            "Ir",
+            "Fe",
+            "In"
+        ],
+        "correct_answer": "Fe"
+    },
+    {
+        "id": 4,
+        "question": "Which planet is known as the 'Morning Star'?",
+        "options": [
+            "Venus",
+            "Mars",
+            "Mercury"
+        ],
+        "correct_answer": "Venus"
+    },
+    {
+        "id": 5,
+        "question": "Who painted the 'Starry Night'?",
+        "options": [
+            "Vincent van Gogh",
+            "Pablo Picasso",
+            "Leonardo da Vinci"
+        ],
+        "correct_answer": "Vincent van Gogh"
+    }
+]

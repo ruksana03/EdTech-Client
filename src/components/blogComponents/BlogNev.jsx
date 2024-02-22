@@ -6,9 +6,14 @@ import { useEffect, useState } from "react";
 import { TfiWrite } from "react-icons/tfi";
 import { IoIosNotifications } from "react-icons/io";
 import { ImProfile } from "react-icons/im";
+import { useSelector } from "react-redux";
 
-const BlogNev = ({ user }) => {
+
+
+const BlogNev = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const user = useSelector((state) => state.data.user.user);
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -26,12 +31,14 @@ const BlogNev = ({ user }) => {
     }, []);
 
     return (
-        <div className={`flex justify-between items-center p-4  ${isScrolled ?  "text-black" : "text-white"}`}
-        style={{ backdropFilter: isScrolled ? "blur(10px)" : "none" ,boxShadow: isScrolled ? "0 2px 4px rgba(0,0,0,0.1)" : "none"  }}>
-            <nav className={`   `}>
+        <div className={`flex justify-between items-center p-4 text-white 
+        ${isScrolled ? "" : "bg-transparent"}`}
+        style={{ backdropFilter: isScrolled ? "blur(5px)" : "none" }}>
+
+            <nav className={`  p__cormorant `}>
                 <ul className="flex  justify-start items-start  ">
                     <li className=" px-4 py-1">
-                        <Link to="/" className="flex gap-2 justify-start items-center text-sm"><FaHome /> Home</Link>
+                        <Link to="/" className=" flex gap-2 justify-start items-center text-sm"><FaHome /> Home</Link>
                     </li>
                     <li className=" px-4 py-1">
                         <Link to="/blog" className="flex gap-2 justify-start items-center text-sm"><FaBlog /> Blogs</Link>
@@ -39,18 +46,28 @@ const BlogNev = ({ user }) => {
                     <li className=" px-4 py-1">
                         <Link to="/blog/blog-settings" className="flex gap-2 justify-start items-center text-sm"><IoSettings /> Settings</Link>
                     </li>
-                    <li className=" px-4 py-1">
-                        <Link to="/blog/blog-profile" className="flex gap-2 justify-start items-center text-sm"><ImProfile /> Profile</Link>
+                    <li className="px-4 py-1">
+                        {
+                            user ? (
+                                <Link to="/blog/blog-profile" className="flex gap-2 justify-start items-center text-sm">
+                                    <ImProfile />
+                                    Profile
+                                </Link>
+                            ) : (
+                                null 
+                            )
+                        }
                     </li>
+
                 </ul>
             </nav>
             <div>
-                <ul className="flex  justify-start items-start  ">
+                <ul className="flex  justify-start items-start p__cormorant ">
                     <li className=" px-4 py-1">
                         <Link
                             to={{
                                 pathname: "/blog/new-blog",
-                                state: { user: user } 
+                                state: { user: user }
                             }}
                             className="flex gap-2 justify-start items-center text-sm"
                         >

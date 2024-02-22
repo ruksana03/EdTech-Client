@@ -2,23 +2,25 @@
 import "../../Styles/scrollbar.css";
 import useBlogs from "../../Hooks/useBlogs";
 import PostBlogCard from "./PostBlogCard";
-// import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const PostedBlogs = ({user}) => {
+
+const PostedBlogs = () => {
     const { AllBlogs } = useBlogs();
-    console.log(AllBlogs);
-
-    const reversedAllBlogs = [...AllBlogs].reverse();
-  
+    console.log(AllBlogs)
+    const user = useSelector((state) => state.data.user.user);
+    const sortedAllBlogs = [...AllBlogs].reverse();
+    console.log(sortedAllBlogs)
     return (
         <div className="w-full md:w-10/12 lg:w-10/12 mx-auto pr-4 custom-scrollbar overflow-y-auto max-h-[80vh]">
-         {/* <Link to='/blog-details'>   <button>hi</button></Link> */}
             <div className="">
                 {
-                    reversedAllBlogs?.length > 0 && reversedAllBlogs.map(blog => <PostBlogCard key={blog._id} blog={blog} user={user}/>
-                    )
+                    sortedAllBlogs && sortedAllBlogs.length > 0 && sortedAllBlogs.map(blog => (
+                        <PostBlogCard key={blog._id} blog={blog} user={user} />
+                    ))
                 }
             </div>
+
         </div>
     );
 };
