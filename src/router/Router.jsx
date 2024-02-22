@@ -67,6 +67,7 @@ import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
+import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
 
 
@@ -247,6 +248,10 @@ const router = createBrowserRouter([
             {
                 path: "subscriber",
                 element: <Subscriber />,
+            },
+            {
+                path: "allpartners",
+                element: <Partners />,
             },
             // Student route
             {
