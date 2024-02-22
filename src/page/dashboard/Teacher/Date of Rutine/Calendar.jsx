@@ -41,8 +41,6 @@ export default function Calendar() {
         await axiosPublic.post('/create-rutine', data.event)
     }
 
-
-
     // delete method here 
 
     function handleDeleteClick(data) {

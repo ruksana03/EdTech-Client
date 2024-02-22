@@ -66,6 +66,7 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRutine";
+import SRutine from "../page/dashboard/Student/rutine/SRutine";
 // import Man from "../page/QuizeComponent/man";
 
 
@@ -319,6 +320,10 @@ const router = createBrowserRouter([
             {
                 path: "provide-rutine",
                 element: <TRutine />,
+            },
+            {
+                path: "rutine",
+                element: <SRutine />,
             },
 
             {
