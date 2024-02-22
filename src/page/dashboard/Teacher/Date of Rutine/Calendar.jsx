@@ -1,8 +1,8 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin, { Draggable } from '@fullcalendar/interaction'
+import interactionPlugin from '@fullcalendar/interaction'
 import moment from 'moment';
 import './calendar.css'
 import { Dialog, Transition } from '@headlessui/react'
@@ -12,13 +12,13 @@ import useAxiosPublic from '../../../../Hooks/useAxiosPublic'
 
 
 export default function Calendar() {
-    // const [modalOpen, setModalOpen] = useState(false);
     const axiosPublic = useAxiosPublic();
     const calendarRef = useRef(null);
     let [isOpen, setIsOpen] = useState(false);
     const [events, setEvents] = useState([]);
     const [idToDelete, setIdToDelete] = useState(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [currentEvent, setCurrentEvent] = useState(null)
 
     function openModal() {
         setIsOpen(true)
@@ -27,26 +27,34 @@ export default function Calendar() {
     function closeModal() {
         setIsOpen(false)
     }
-    const onEventAdded = (event) => {
+    const onEventAdded = async (event) => {
+        await axiosPublic.post('/create-rutine', event)
+        toast.success(`${event.title} created successfully`);
         let calendarApi = calendarRef.current.getApi()
-        // console.log(calendarApi);
         calendarApi.addEvent({
             start: moment(event.start).toDate(),
             end: moment(event.end).toDate(),
-            title: event.title
+            title: event.title,
+            forCourses: event.forCourses
         })
     }
 
     async function handleEventAdd(data) {
-        await axiosPublic.post('/create-rutine', data.event)
+        console.log('which data going on database===>', data.envent?._def);
+
     }
 
     // delete method here 
 
     function handleDeleteClick(data) {
+        const id = data?.event?.extendedProps?._id;
+        if(id === undefined){
+            return toast.error('something is wrong! please try another')
+        }
         setShowDeleteModal(true)
-        const id = data.event._def.extendedProps;
         setIdToDelete(id)
+        const findData = events.find(event => event._id === id)
+        setCurrentEvent(findData)
     }
 
 
@@ -55,19 +63,20 @@ export default function Calendar() {
     }
 
     const handleDelete = async () => {
-       if(idToDelete._id ===undefined){
-       return toast.error('something is wrong! please try later')
-       }
-       const remaining = events.filter(event => event._id !== idToDelete._id);
-       setEvents(remaining);
-       await axiosPublic.delete(`/rutine-delete/${idToDelete._id}`)
-           .then(res => {
-               if (res.data.deletedCount > 0) {
-                   toast.success('deleted successfully')
-               }
-           })
+        if (idToDelete === undefined) {
+            return toast.error('something is wrong! please try later')
+        }
+        const remaining = events.filter(event => event._id !== idToDelete);
+        setEvents(remaining);
+        await axiosPublic.delete(`/rutine-delete/${idToDelete}`)
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    toast.success('deleted successfully')
+                }
+            })
         setShowDeleteModal(false)
     }
+    // console.log(currentEvent);
 
     async function handleDateSet(data) {
         const response = await axiosPublic.get('/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
@@ -136,12 +145,24 @@ export default function Calendar() {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all ">
-                                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900" >
-                                        Delete Event!
-                                    </Dialog.Title>
-                                    <p className="text-sm">
-                                        Do You Want to Delete This Event?
-                                    </p>
+                                    <div className="space-y-5">
+                                        <div>
+                                            <Dialog.Title as="h3" className="text-lg capitalize font-medium leading-6 text-gray-900">
+                                                Title:  {currentEvent?.title}
+                                            </Dialog.Title>
+                                            <h1>Start Date : {currentEvent?.start?.slice(0, 10)}</h1>
+                                            <h1>End Date : {currentEvent?.end?.slice(0, 10)}</h1>
+                                        </div>
+                                        <hr />
+                                        <div>
+                                            <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900" >
+                                                Delete Event!
+                                            </Dialog.Title>
+                                            <p className="text-sm">
+                                                Do You Want to Delete This Event?
+                                            </p>
+                                        </div>
+                                    </div>
 
                                     <div className='flex items-center justify-end gap-5 px-5 mt-5'>
                                         <button onClick={() => setShowDeleteModal(false)} className='px-5 py-2 bg-green-700 text-white hover:text-black rounded'>Cencel</button>

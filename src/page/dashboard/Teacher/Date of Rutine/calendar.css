@@ -1,11 +1,9 @@
-/* .fc-daygrid-day-events, .fc-daygrid-day-top{
-   
-} */
+
 .form-control{
     width: 100%;
 }
 .fc-event{
-    text-align: center;
+   gap: 5px;
     color: white;
      font-size: 18px;
 }
@@ -13,9 +11,7 @@
     font-size: 22px;
     color: blueviolet;
 }
-/* .fc-daygrid-day-frame{
-    background-color: azure;
-} */
+
 .fc-event{
     background-color: #3788d8;
     border: 1px solid #3788d8;
@@ -27,10 +23,7 @@
 .fc-daygrid-event-harness-abs:hover{
     background-color:transparent;
 }
-/* .fc-daygrid-day-frame, .fc-scrollgrid-sync-inner{
-    background-color: blueviolet;
-    color: white;   fc-daygrid-event-harness 
-} */
+
 .fc-daygrid-day-number{
     font-size: 18px;
     color: white;

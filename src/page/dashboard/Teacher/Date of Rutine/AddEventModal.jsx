@@ -5,15 +5,29 @@ import Datetime from 'react-datetime';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import toast from 'react-hot-toast';
+import { useEffect } from 'react';
 
 
 export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
-    // export default function AddEventModal({ isOpne, onClose, onEventAdded }) {
     const [title, setTitle] = useState('');
+    const [forCourses, setForCourses] = useState('');
     const [start, setStart] = useState(new Date());
     const [end, setEnd] = useState(new Date());
+    const [courses, setCourses] = useState([]);
 
-
+    useEffect(() => {
+        const item = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/courses");
+                const data = await res.json();
+                //    console.log(data);
+                setCourses(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        item();
+    }, []);
     const onSubmit = (e) => {
         e.preventDefault();
         if (title === '') {
@@ -22,10 +36,10 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
         onEventAdded({
             title,
             start,
-            end
+            end,
+            forCourses
         })
         closeModal();
-
     }
     return (
         <>
@@ -54,13 +68,23 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all ">
+                                <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all text-base ">
 
                                     <form onSubmit={onSubmit} className='space-y-5'>
                                         <div>
                                             <label className='font-bold'>Write Rutine Title</label>
                                             <div>
                                                 <input type='text' placeholder='Title....' onChange={() => setTitle(event.target.value)} className='w-full mt-2' />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="font-bold" htmlFor="description">Selected Your Courses*</label>
+                                            <div>
+                                                <select className="w-full mt-2" name="forCourses" onChange={() => setForCourses(event.target.value)} required>
+                                                    <option disabled selected>set course</option>
+                                                    {courses?.map(noti => <option key={noti?._id} defaultValue="Selected for Courses">
+                                                        {noti?.category}</option>)}
+                                                </select>
                                             </div>
                                         </div>
                                         <div>
