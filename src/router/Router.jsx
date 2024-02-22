@@ -304,6 +304,10 @@ const router = createBrowserRouter([
 
             },
             {
+                path: "rutine",
+                element: <SRutine />,
+            },
+            {
                 path: "my-enroll",
                 element: <Myenroll />
             },
@@ -321,10 +325,7 @@ const router = createBrowserRouter([
                 path: "provide-rutine",
                 element: <TRutine />,
             },
-            {
-                path: "rutine",
-                element: <SRutine />,
-            },
+          
 
             {
                 path: "show-notices",

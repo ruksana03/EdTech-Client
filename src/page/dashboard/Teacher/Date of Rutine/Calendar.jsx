@@ -28,6 +28,7 @@ export default function Calendar() {
         setIsOpen(false)
     }
     const onEventAdded = async (event) => {
+        // console.log(event);
         await axiosPublic.post('/create-rutine', event)
         toast.success(`${event.title} created successfully`);
         let calendarApi = calendarRef.current.getApi()
@@ -35,10 +36,11 @@ export default function Calendar() {
             start: moment(event.start).toDate(),
             end: moment(event.end).toDate(),
             title: event.title,
-            forCourses: event.forCourses
+            forCourses: event.forCourses,
+            teacherName: event.teacherName,
+            teacherEmail: event.teacherEmail
         })
     }
-
     async function handleEventAdd(data) {
         console.log('which data going on database===>', data.envent?._def);
 

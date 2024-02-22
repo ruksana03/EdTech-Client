@@ -6,9 +6,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import toast from 'react-hot-toast';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 
 export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
+    const user = useSelector((state) => state.data.user.user);
+    // console.log(user.name);
     const [title, setTitle] = useState('');
     const [forCourses, setForCourses] = useState('');
     const [start, setStart] = useState(new Date());
@@ -34,6 +37,8 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
             return toast.error('Please enter a title!')
         }
         onEventAdded({
+            teacherName: user?.name,
+            teacherEmail: user?.email,
             title,
             start,
             end,
