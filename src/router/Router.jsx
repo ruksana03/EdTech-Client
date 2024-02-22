@@ -65,7 +65,7 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
-import DateInfo from "../page/dashboard/Teacher/Date of/DateInfo";
+import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRutine";
 // import Man from "../page/QuizeComponent/man";
 
 
@@ -317,8 +317,8 @@ const router = createBrowserRouter([
                 element: <AddCourse />,
             },
             {
-                path: "date",
-                element: <DateInfo />,
+                path: "provide-rutine",
+                element: <TRutine />,
             },
 
             {
