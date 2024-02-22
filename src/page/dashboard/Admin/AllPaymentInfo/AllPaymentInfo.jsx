@@ -10,7 +10,7 @@ const AllPaymentInfo = () => {
   const { data: payments = [], refetch } = useQuery({
     queryKey: ['payments'],
     queryFn: async () => {
-      const res = await axiosPublic.get('/bookings');
+      const res = await axiosPublic.get('/bookings-all');
       return res.data;
     },
   });
