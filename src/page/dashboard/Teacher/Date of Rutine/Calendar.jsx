@@ -117,7 +117,7 @@ export default function Calendar() {
                         />
                     </div>
                 </div>
-                {/* <AddEventModal isOpen={isOpen} closeModal={closeModal} onEventAdded={(event) => onEventAdded(event)} /> */}
+                <AddEventModal isOpen={isOpen} closeModal={closeModal} onEventAdded={(event) => onEventAdded(event)} />
             </div>
 
             <Transition appear show={showDeleteModal} as={Fragment}>

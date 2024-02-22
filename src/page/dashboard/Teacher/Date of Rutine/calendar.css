@@ -8,20 +8,29 @@
     color: white;
      font-size: 18px;
 }
-.fc-timeGridWeek-button{
-   background-color: antiquewhite;
-   color: black;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 28px;
-    font-size: 16px;
-    padding: 0.5rem 1rem;
-    border-radius: 1px;
-    border: none;
-    outline: none;
-    cursor: pointer;
+.fc-daygrid-day-top{
+    font-size: 22px;
+    color: blueviolet;
+}
+/* .fc-daygrid-day-frame{
+    background-color: azure;
+} */
+.fc-event{
+    background-color: #3788d8;
+    border: 1px solid #3788d8;
+}
+.fc-event:hover{
+    border: 1px solid #3788d8;
+    background-color: #3788d8;
+}
+.fc-daygrid-event-harness-abs:hover{
+    background-color:transparent;
 }
 /* .fc-daygrid-day-frame, .fc-scrollgrid-sync-inner{
     background-color: blueviolet;
-    color: white;
+    color: white;   fc-daygrid-event-harness 
 } */
+.fc-daygrid-day-number{
+    font-size: 18px;
+    color: white;
+}
