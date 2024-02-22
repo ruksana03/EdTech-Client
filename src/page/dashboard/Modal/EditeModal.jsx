@@ -1,21 +1,20 @@
-import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { useSelector } from "react-redux";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
-import toast from "react-hot-toast";
-import Swal from "sweetalert2";
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment} from 'react';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+// import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
+import { useSelector } from 'react-redux';
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 
-const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
+const EditModal = ({ isOpen, closeModal, item, refetch }) => {
     const { register, handleSubmit } = useForm();
-    const axiosSecure = useAxiosSecure();
+    // const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
     const user = useSelector(state => state.data.user.user);
-    
-    console.log(isOpen);
 
     const onSubmit = async data => {
-        const { data: res } = await axiosSecure.post('/update', report);
+        const { data: res } = await axiosPublic.post('/update', report);
         if (res.insertedId) {
             toast.success('Report Submitted Successfully');
             closeModal();
@@ -33,22 +32,20 @@ const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
             priority,
             deadline,
             email: user.email,
+            status: "todo",
         };
-        const res = await axiosSecure.put(`/update?id=${item._id}`, data);
-        if (res.data.modifiedCount > 0) {
-            // toast.success('Updated successfully');
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500,
-            });
-            closeModal();
-        }
+        console.log(data);
+        const res = await axiosPublic.put(`/update/${item._id}`, data);
+        toast.success('Updated successfully');
         refetch();
     };
+
+    const handleCloseModal = () => {
+        closeModal();
+    };
+
     return (
+        <>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child
@@ -77,23 +74,23 @@ const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-lg font-semibold text-center leading-6 "
+                                        className="text-lg font-semibold text-center leading-6 text-orange-500 "
                                     >
                                         Edit Task
                                     </Dialog.Title>
                                     <div className="mt-2">
                                         <form onSubmit={handleUpdate}>
-                                            <label className="">Title: </label>
+                                            <label className="text-orange-500">Title: </label>
                                             <input
-                                                className=" overflow-hidden bg-[#E2E8F0] py-1 px-1"
+                                                className="outline-orange-500 overflow-hidden bg-orange-200 py-1 px-1"
                                                 defaultValue={item.title}
                                                 type="text"
                                                 placeholder="Title"
                                                 name="title"
                                             />
-                                            <label className="">Description: </label>
+                                            <label className="text-orange-500">Description: </label>
                                             <textarea
-                                                className=" bg-[#E2E8F0] py-1 px-1 mt-2"
+                                                className="outline-orange-500  bg-orange-200 py-1 px-1 mt-2"
                                                 defaultValue={item.description}
                                                 placeholder="Description"
                                                 name="description"
@@ -101,20 +98,20 @@ const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
                                                 rows="4"
                                             ></textarea>
                                             <br />
-                                            <label className=" ">Priority: </label>
+                                            <label className="text-orange-500 ">Priority: </label>
                                             <select
-                                                className="rounded-lg mt-2 bg-[#E2E8F0]"
+                                                className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
                                                 name="priority"
                                                 defaultValue={item.priority}
                                             >
-                                                {/* <option disabled>Set Status</option>
+                                                <option disabled>Set Status</option>
                                                 <option value="low">Low</option>
                                                 <option value="moderate">Moderate</option>
-                                                <option value="high">High</option> */}
+                                                <option value="high">High</option>
                                             </select>
                                             <label className="text-orange-500 pl-1 ">Deadline:</label>
                                             <input
-                                                className="rounded-lg mt-2 bg-[#E2E8F0]"
+                                                className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
                                                 type="date"
                                                 name="deadline"
                                                 defaultValue={item.deadline}
@@ -122,10 +119,17 @@ const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
                                             <br />
                                             <button
                                                 type="submit"
-                                                className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-[#E2E8F0] px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+                                                className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
                                             // onClick={handleTerSend}
                                             >
                                                 Update
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={handleCloseModal}
+                                                className="mt-4 ml-2 inline-flex justify-center rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
+                                            >
+                                                Close
                                             </button>
                                         </form>
                                     </div>
@@ -135,8 +139,8 @@ const EditeModal = ({ isOpen, closeModal, item, refetch }) => {
                     </div>
                 </Dialog>
             </Transition>
-
+        </>
     );
 };
 
-export default EditeModal;
+export default EditModal;

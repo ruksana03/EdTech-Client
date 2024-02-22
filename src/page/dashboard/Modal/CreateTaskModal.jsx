@@ -1,35 +1,44 @@
-import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { useSelector } from "react-redux";
-import toast from "react-hot-toast";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import toast from "react-hot-toast";
+// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { Link, useNavigate } from "react-router-dom";
 
-const CreateTaskModal = ({ isOpen,  closeModal, refetch }) => {
-    const axiosSecure = useAxiosSecure();
+const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
+    // const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const user = useSelector(state => state.data.user.user);
 
     const onSubmit = async (data) => {
         const updatedData = {
             title: data.title,
-            // description: data.description,
-            // priority: data.priority,
+            description: data.description,
+            priority: data.priority,
             deadline: data.deadline,
             email: user?.email,
             status: "todo",
         };
+        console.log(typeof (data.deadline));
 
-        const { data: res } = await axiosSecure.post("/task", updatedData);
-        if (res.insertedId) {
-            toast.success("Task Added Successfully");
-            closeModal();
-        }
-        refetch();
+        const { data: res } = await axiosPublic.post("/task", updatedData);
+        toast.success("Task Added Successfully");
+        // if (res.insertedId) {
+        //     toast.success("Task Added Successfully");
+        //     closeModal();
+        // }
+        navigate('/dashboard/notes');
     };
-console.log(isOpen);
-console.log(closeModal);
+
+    const handleCloseModal = () => {
+        closeModal();
+    };
+
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -75,7 +84,7 @@ console.log(closeModal);
                                                 name="title"
                                                 required
                                             />
-                                            {/* <label className="text-orange-500">Description: </label>
+                                            <label className="text-orange-500">Description: </label>
                                             <textarea
                                                 {...register("description")}
                                                 required
@@ -84,9 +93,9 @@ console.log(closeModal);
                                                 name="description"
                                                 cols="25"
                                                 rows="4"
-                                            ></textarea> */}
+                                            ></textarea>
                                             <br />
-                                            {/* <label className="text-orange-500 ">Priority: </label>
+                                            <label className="text-orange-500 ">Priority: </label>
                                             <select
                                                 {...register("priority")}
                                                 required
@@ -97,7 +106,7 @@ console.log(closeModal);
                                                 <option value="low">Low</option>
                                                 <option value="moderate">Moderate</option>
                                                 <option value="high">High</option>
-                                            </select> */}
+                                            </select>
                                             <label className="text-orange-500 pl-1 ">Deadline:</label>
                                             <input
                                                 required
@@ -111,7 +120,14 @@ console.log(closeModal);
                                                 type="submit"
                                                 className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
                                             >
-                                                Add Class
+                                                Add Task
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={handleCloseModal}
+                                                className="mt-4 ml-2 inline-flex justify-center rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
+                                            >
+                                                Close
                                             </button>
                                         </form>
                                     </div>
