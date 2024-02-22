@@ -50,7 +50,7 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
     const location = useLocation();
 
     return (
-        <div className={`fixed pl-4 flex flex-col lg:gap-4  ${isActive ? 'pl-0 ' : ' space-y-2'}`}>
+        <div className={`fixed pl-4 flex flex-col lg:gap-4 bg-black text-white ${isActive ? 'pl-0 ' : ' space-y-2'}`}>
             <div className="flex items-center justify-center fixed right-0 top-4 z-[1]  ">
                 <span onClick={handleReverse} className={` hidden md:block lg:block w-auto cursor-pointer text-white border rounded-full text-[26px] px-2 py-[2px] ${isActive ? ' rotate-180 w-12 h-8' : 'bg-first text-white  w-16 h-8 '}`}>
                     <FaAnglesRight className="hover:scale-100" />
