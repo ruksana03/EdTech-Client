@@ -55,11 +55,6 @@ import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
 import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
-<<<<<<< HEAD
-// import Man from "../page/QuizeComponent/man";
-=======
-
->>>>>>> 7193c958ae282583e39b1e4f1cbfa731f676c256
 import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
@@ -94,17 +89,10 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
-<<<<<<< HEAD
-            {
-                path: '/quest',
-                // element: <Man/>
-            },
-=======
             // {
             //     path: '/quest',
             //     element: <Man />
             // },
->>>>>>> 7193c958ae282583e39b1e4f1cbfa731f676c256
             {
                 path: '/man',
                 element: <Questions />
