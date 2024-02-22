@@ -3,18 +3,20 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { SiBookstack } from "react-icons/si";
 import { Link, useLocation } from "react-router-dom";
 import { GrResources } from "react-icons/gr";
+import { FaCalendarDay } from "react-icons/fa";
 
 
 const StudentMenu = ({ isActive }) => {
-    const studentLinks = ['/my-class','/my-lab','/resources','/recommended','/studentdashboard','/my-enroll'];
-    const studentMenu = ['My Class','My Lab','Resources','Recommended','student dashboard','My Enroll'];
+    const studentLinks = ['/my-class','/my-lab','/resources','/recommended','/studentdashboard','/rutine','/my-enroll'];
+    const studentMenu = ['My Class','My Lab','Resources','Recommended','student dashboard', 'Rutine','My Enroll'];
     
     const icons = [
         <MdOutlineDashboardCustomize key={studentLinks[0]} />,
         <SiBookstack key={studentLinks[1]} />,
         <GrResources key={studentLinks[2]}/>,
         <GrResources key={studentLinks[3]}/>,
-        <GrResources key={studentLinks[4]}/>,
+        <FaCalendarDay key={studentLinks[4]} />,
+        <GrResources key={studentLinks[5]}/>,
         
 
     ];

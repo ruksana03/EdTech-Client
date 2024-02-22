@@ -21,13 +21,13 @@ const NoticeHome = () => {
                 setFilteredNotices(teacherNotices);
                 const parseSettingPage = parseInt(settingPage)
                 setItemPerPage(parseSettingPage)
-            } catch (error) { 
+            } catch (error) {
                 console.log(error);
             }
         };
         fetchData();
     }, [teacherNotices, settingPage]);
-    // console.log(teacherNotices);
+    console.log(teacherNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
@@ -114,3 +114,6 @@ const NoticeHome = () => {
 };
 
 export default NoticeHome;
+
+
+

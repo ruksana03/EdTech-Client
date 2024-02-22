@@ -18,7 +18,7 @@ const TeacherNoticeTable = ({ notice,handleDelete }) => {
             </th>
             <th className='border text-xl md:text-2xl lg:text-2xl text-[#f79a01]'><CiBookmarkCheck /></th>
             <td className='border'>Admin</td>
-            <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/dashboard/notice-details/${_id}`}>{title}</Link></td>
+            <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/dashboard/notice-details/${_id}`}>{title?.length > 50 ? <>{title?.slice(0, 55)}.....</> : title}</Link></td>
             <td className='border'>{date?.slice(0, 10)}</td>
             <td className='border'>{date?.slice(11, 16)} AM</td>
             <td>

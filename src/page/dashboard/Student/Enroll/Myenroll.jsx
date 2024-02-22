@@ -32,9 +32,9 @@ const Myenroll = () => {
         </p>
       ) : (
         <div>
-                    <Link to={"record"}><button className="btn btn-primary">bal</button></Link>
+                    <Link to={"/dashboard/my-class/recordedclass"}><button className="btn btn-primary">Go TO Enroll courses</button></Link>
 
-                    <div className="grid grid-cols-1 gap-6 mt-12">
+          <div className="gird grid-cols-1 gap-10 mt-12">
           {enrolls?.map((enroll) => (
             <MyenrollCard key={enroll._id} enroll={enroll}></MyenrollCard>
           ))}
