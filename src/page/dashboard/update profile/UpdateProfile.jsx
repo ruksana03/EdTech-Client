@@ -27,10 +27,10 @@ const UpdateProfile = () => {
                     console.log(res);
                     setLoading(false);
                     toast.success('Profile updated successfully')
-                     return navigate('/dashboard/profile')
+                    return navigate('/dashboard/profile')
                 })
 
-           
+
                 // console.log(userInfo);
                 // updateUserEmail(email)
                 //     .then((res) => {
@@ -64,23 +64,31 @@ const UpdateProfile = () => {
             toast.error(error.message)
         }
     };
- 
+
     const handleCancel = () => {
         return navigate(-1)
     }
 
     return (
-        <div className="w-full h-screen bg-third text-gray-700 dark:bg-zinc-800 dark:text-gray-400">
-            <form onSubmit={handleUpdate} className="w-full md:w-2/3 lg:w-2/3 mx-auto shadow-lg px-5 py-8">
+        <div className="w-full h-screen bg-black text-white pt-10">
+            <form onSubmit={handleUpdate} className="w-full md:w-2/3 lg:w-2/3 mx-auto shadow-lg px-5 py-8 border">
                 <h1 className="text-2xl font-bold text-center my-5">Updated Your Personal Information</h1>
-                <div className=" flex items-center justify-center flex-col gap-3">
-                    <div className="avatar">
-                        <div className="w-24  rounded-full ring ring-white ring-offset-1">
-                            <img src={user?.photo} alt="user-photo" />
+                <div>
+                    <div className=" flex items-center justify-center flex-col gap-3">
+                        <div className="avatar">
+                            <div className="w-24  rounded-full ring ring-white ring-offset-1">
+                                <img src={user?.photo} alt="user-photo" />
+                            </div>
                         </div>
                     </div>
-                    <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden "w-full md:w-2/3 lg:w-2/3 mx-auto'>
-                        <input name='image' type="file" className="file-input file-input-bordered bg-gray-400 text-black file-input-success border-first w-full" required />
+
+                    <div className="w-full md:w-2/3 lg:w-2/3 mx-auto mt-5">
+                        <label className="block font-bold text-start md:mb-0 pr-4 text-[17px]">
+                            Set New Image *
+                        </label>
+                        <div className='file_upload px-5 py-3 relative border-4 mt-3 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                            <input name='image' type="file" className="file-input file-input-bordered bg-black text-black file-input-success border-first w-full" required />
+                        </div>
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 lg:w-2/3 mx-auto mt-5">
@@ -91,7 +99,7 @@ const UpdateProfile = () => {
                             </label>
                         </div>
                         <div className="md:w-full mt-2">
-                            <input className="bg-gray-400 dark:bg-zinc-600 text-[18px] text-black appearance-none input border-2 border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:bg-white focus:border-first" id="inline-full-name" name='name' type="text" placeholder="Name" required />
+                            <input className="bg-black dark:bg-zinc-600 text-[18px] text-white appearance-none input border-2 border-gray-200 rounded w-full py-4 px-4  leading-tight focus:outline-none focus:border-first" id="inline-full-name" name='name' type="text" placeholder="Name" required />
                         </div>
                     </div>
                     <div className="flex items-end justify-end gap-3">

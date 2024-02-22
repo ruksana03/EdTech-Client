@@ -69,6 +69,8 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRutine";
+import SRutine from "../page/dashboard/Student/rutine/SRutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
@@ -87,7 +89,7 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
-           
+
             {
                 path: "/all-courses",
                 element: <Courses />,
@@ -105,17 +107,17 @@ const router = createBrowserRouter([
 >>>>>>> 7193c958ae282583e39b1e4f1cbfa731f676c256
             {
                 path: '/man',
-                element: <Questions/>
+                element: <Questions />
             },
-            
 
-           
+
+
             {
                 path: "contact",
                 element: <Contact />,
             },
-            
-           
+
+
             {
                 path: "/details/:id",
                 element: (
@@ -325,36 +327,45 @@ const router = createBrowserRouter([
             {
                 path: "studentdashboard",
                 element: <StudentDashboard></StudentDashboard>
-               
+
+            },
+            {
+                path: "rutine",
+                element: <SRutine />,
             },
             {
                 path: "my-enroll",
-                element:  <Myenroll/>
+                element: <Myenroll />
             },
             // teachers route
             {
                 path: "post-resources",
 
-                element:<NewPostResources/>
+                element: <NewPostResources />
             },
             {
                 path: "add-course",
                 element: <AddCourse />,
             },
+            {
+                path: "provide-rutine",
+                element: <TRutine />,
+            },
+          
 
-           {
-            path:"show-notices",
-            element:<ShowNotices/>
-           },
+            {
+                path: "show-notices",
+                element: <ShowNotices />
+            },
 
-           {
-            path: "notice-update/:id",
-            loader: ({ params }) =>
-                fetch(`http://localhost:5000/notice/${params.id}`),
-            element: <TeacherUpdateNotices />,
-        },
+            {
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
 
-        
+
 
             {
                 path: 'create-notice',
@@ -371,7 +382,7 @@ const router = createBrowserRouter([
                 element: <TeacherUpdateNotices />,
             },
 
-                // common route
+            // common route
             {
                 path: "dashboard",
                 element: <Dashboard />,
@@ -382,7 +393,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-cart",
-                element: <MyCart/>,
+                element: <MyCart />,
             },
 
             {
