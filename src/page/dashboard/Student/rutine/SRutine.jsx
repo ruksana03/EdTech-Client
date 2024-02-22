@@ -30,7 +30,9 @@ const SRutine = () => {
     // console.log(currentEvent);
     async function handleDateSet(data) {
         const response = await axiosPublic.get('/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
-        setEvents(response.data)
+        const forShowRutine = response?.data.filter(item => item?.forCourses==='programming');
+        // setEvents(response.data)
+        setEvents(forShowRutine)
     }
     return (
         <section className='w-full h-screen mx-auto p-5'>
