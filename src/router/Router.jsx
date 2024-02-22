@@ -49,20 +49,32 @@ import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import Applications from "../page/dashboard/Admin/application/Applications";
+import MyCart from "../page/dashboard/Common/MyCart";
+import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
+import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
+// import DashboardLayout2 from "../layout/DashboardLayout2";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
+<<<<<<< HEAD
 // import Man from "../page/QuizeComponent/man";
+=======
+
+>>>>>>> 7193c958ae282583e39b1e4f1cbfa731f676c256
 import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
 import { getOneBlog } from "../api/blogs";
 import UpdatedBlog from "../page/blog/UpdatedBlog";
-import Applications from "../page/dashboard/Admin/application/Applications";
 import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
-import MyCart from "../page/dashboard/Common/MyCart";
-import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
+import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
+import Partner from "../page/home/joining  teacher/Partner";
+import Partners from "../page/dashboard/Admin/Partners/Partners";
+// import Man from "../page/QuizeComponent/man";
+
+
 
 
 const router = createBrowserRouter([
@@ -80,10 +92,17 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
+<<<<<<< HEAD
             {
                 path: '/quest',
                 // element: <Man/>
             },
+=======
+            // {
+            //     path: '/quest',
+            //     element: <Man />
+            // },
+>>>>>>> 7193c958ae282583e39b1e4f1cbfa731f676c256
             {
                 path: '/man',
                 element: <Questions/>
@@ -115,6 +134,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />,
+            },
+            {
+                path: "/partner",
+                element: <Partner />,
             },
             {
                 path: "join-teacher",
@@ -198,6 +221,10 @@ const router = createBrowserRouter([
                 element: <Applications />,
             },
             {
+                path: "quiz",
+                element: <AddQuiz />
+            },
+            {
                 path: "allNotices",
                 element: <AllNotices />,
             },
@@ -228,6 +255,14 @@ const router = createBrowserRouter([
             {
                 path: "allPaymentInfo",
                 element: <AllPaymentInfo />,
+            },
+            {
+                path: "subscriber",
+                element: <Subscriber />,
+            },
+            {
+                path: "allpartners",
+                element: <Partners />,
             },
             // Student route
             {
