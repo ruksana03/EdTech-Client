@@ -65,6 +65,7 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+import Demo from "../page/dashboard/Student/Enroll/Demo";
 // import Man from "../page/QuizeComponent/man";
 
 
@@ -303,7 +304,17 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-enroll",
-                element:  <Myenroll/>
+                element:  <Myenroll/>,
+                children:[
+                    {
+                        path:"record",
+                        element:<RecordedClass></RecordedClass>
+                    },
+                    {
+                        path:"demo",
+                        element:<Demo></Demo>
+                    },
+                ]
             },
             // teachers route
             {
