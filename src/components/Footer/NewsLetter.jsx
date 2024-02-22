@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SubHeading from '../SubHeading/SubHeading';
-import './Newsletter.css';
+import './NewsLetter.css';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import toast from 'react-hot-toast';
 import { TbFidgetSpinner } from 'react-icons/tb';
