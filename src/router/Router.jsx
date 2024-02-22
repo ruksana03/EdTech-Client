@@ -55,7 +55,6 @@ import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
 import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
-
 import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
