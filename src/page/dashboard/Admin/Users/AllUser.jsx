@@ -57,7 +57,6 @@ const AllUser = () => {
               <th className="py-3">Email</th>
               <th className="py-3">Current Role</th>
               <th className="py-3">Change Role</th>
-              <th className="py-3">Status</th>
               <th className="py-3">Delete</th>
 
             </tr>
@@ -71,12 +70,11 @@ const AllUser = () => {
               >
                 <td className="py-3 font-bold">{index + 1}</td>
                 <td className="py-3 font-bold">{user.name}</td>
-                <td className="py-3 font-bold">{user.email}</td>
+                <td className="py-3 font-bold lowercase">{user.email}</td>
                 <td className="py-3 font-bold cursor-pointer">{user.role}</td>
                 <td>
                 <button onClick={()=>handleUserRole(user)}><FaEdit className="text-xl"></FaEdit></button>
                 </td>
-                <td>Status</td>
                 <td>
                   <button onClick={() => handleDelete(user)}>
                     <MdDelete className="text-xl" />

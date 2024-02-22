@@ -12,6 +12,7 @@ const NavLinkMenu = ({isScrolled}) => {
                     <ManuList address={'blog'} linkTitle={"Blog"}  />
                     <ManuList address={'contact'} linkTitle={"Contact"} />
                     <ManuList address={'quest'} linkTitle={"Quiz"} />
+                    <ManuList address={'voiceTyping'} linkTitle={"VoiceTyping"} />
                 </ul>
             </div>
         </>

@@ -64,6 +64,7 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+import SpeechToText from "../components/SpeechToText/SpeechToText";
 import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRutine";
 import SRutine from "../page/dashboard/Student/rutine/SRutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
@@ -98,9 +99,12 @@ const router = createBrowserRouter([
                 path: '/man',
                 element: <Questions />
             },
-
-
-
+            
+            {
+                path: '/voiceTyping',
+                element: <SpeechToText />
+            },
+           
             {
                 path: "contact",
                 element: <Contact />,
