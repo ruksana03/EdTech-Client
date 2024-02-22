@@ -91,6 +91,7 @@ const NewPostResources = () => {
                             />
                             <hr className="border-t border-first" />
                         </div>
+                        {/*  email field  */}
                         <div>
                             <label className="text-xl">Your Email</label><br />
                             <input type="text"

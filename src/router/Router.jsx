@@ -50,7 +50,7 @@ import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
-import Man from "../page/QuizeComponent/man";
+// import Man from "../page/QuizeComponent/man";
 import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
 import BlogSettings from "../page/blog/BlogSettings";
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/quest',
-                element: <Man/>
+                // element: <Man/>
             },
             {
                 path: '/man',
