@@ -1,16 +1,8 @@
-import Swal from 'sweetalert2';
-import { IoEnter } from "react-icons/io5";
-
+ import { IoEnter } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 
 const Teacher = () => {
-  const handlePartApply = () => {
-    Swal.fire({
-      title: 'Partner Available Now!',
-      text: 'Please Try again from next week!',
-      icon: 'error',
-    });
-  };
+   
 
   return (
     <div className='w-full section-container mx-auto rounded-lg flex flex-col items-center justify-center my-12'>
@@ -29,13 +21,15 @@ const Teacher = () => {
           <p className='p__opensans'>
             Do you want to join our organization as an associate? Confirm your request by clicking the button below.
           </p>
+          <Link to='/partner' >
           <button data-aos="fade-left"
-            onClick={handlePartApply}
+            
             className='  font-medium px-4 py-2 duration-200 transform  rounded-2xl hover:-translate-y-[2px] transition-all ease-in  btn-style  hover:scale-100   flex items-center gap-2'
           >
             <IoEnter className='text-2xl hidden md:block lg:block' />
             Apply Now
           </button>
+          </Link>
         </div>
       </div>
 
