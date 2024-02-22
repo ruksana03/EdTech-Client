@@ -65,6 +65,7 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 // import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 // import Man from "../page/QuizeComponent/man";
 
 
@@ -237,6 +238,10 @@ const router = createBrowserRouter([
             {
                 path: "allPaymentInfo",
                 element: <AllPaymentInfo />,
+            },
+            {
+                path: "subscriber",
+                element: <Subscriber />,
             },
             // Student route
             {
