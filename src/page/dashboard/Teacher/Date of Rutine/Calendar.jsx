@@ -9,10 +9,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import toast from 'react-hot-toast'
 import AddEventModal from './AddEventModal'
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic'
+import { useSelector } from 'react-redux'
 
 
 export default function Calendar() {
     const axiosPublic = useAxiosPublic();
+    const user = useSelector((state) => state.data.user.user);
     const calendarRef = useRef(null);
     let [isOpen, setIsOpen] = useState(false);
     const [events, setEvents] = useState([]);
@@ -82,7 +84,9 @@ export default function Calendar() {
 
     async function handleDateSet(data) {
         const response = await axiosPublic.get('/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
-        setEvents(response.data)
+       const findRutine = response?.data?.filter(event=> event?.teacherEmail === user?.email )
+    //    console.log(findRutine);
+        setEvents(findRutine)
     }
     return (
         <section className='w-full h-screen mx-auto p-5'>
