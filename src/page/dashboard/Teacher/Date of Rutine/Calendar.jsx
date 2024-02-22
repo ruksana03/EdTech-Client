@@ -3,22 +3,20 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction'
-import axios from 'axios';
 import moment from 'moment';
 import './calendar.css'
 import { Dialog, Transition } from '@headlessui/react'
 import toast from 'react-hot-toast'
 import AddEventModal from './AddEventModal'
+import useAxiosPublic from '../../../../Hooks/useAxiosPublic'
 
 
 export default function Calendar() {
     // const [modalOpen, setModalOpen] = useState(false);
+    const axiosPublic = useAxiosPublic();
     const calendarRef = useRef(null);
     let [isOpen, setIsOpen] = useState(false);
     const [events, setEvents] = useState([]);
-    const [allEvents, setAllEvents] = useState([]);
-    const [newEvent, setNewEvent] = useState([]);
-    const [showModal, setShowModal] = useState(false);
     const [idToDelete, setIdToDelete] = useState(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
 
@@ -31,7 +29,7 @@ export default function Calendar() {
     }
     const onEventAdded = (event) => {
         let calendarApi = calendarRef.current.getApi()
-        console.log(calendarApi);
+        // console.log(calendarApi);
         calendarApi.addEvent({
             start: moment(event.start).toDate(),
             end: moment(event.end).toDate(),
@@ -40,7 +38,7 @@ export default function Calendar() {
     }
 
     async function handleEventAdd(data) {
-        await axios.post('http://localhost:5000/create-rutine', data.event)
+        await axiosPublic.post('/create-rutine', data.event)
     }
 
 
@@ -48,44 +46,40 @@ export default function Calendar() {
     // delete method here 
 
     function handleDeleteClick(data) {
-
         setShowDeleteModal(true)
-
         const id = data.event._def.extendedProps;
         setIdToDelete(id)
-        console.log(data.event._def.extendedProps);
-        // handleDelete(id)
-        //    console.log(id);
     }
 
-    //  function handleDeleteModal() {
-
-    //        // setIdToDelete(Number(data.event._id))
-    //     }
 
     function handleDrop(data) {
         console.log(data.oldEvent._def);
     }
 
-    const handleDelete = () => {
-        toast.success('deleted successfully')
-        console.log('id ki pabo', idToDelete);
+    const handleDelete = async () => {
+       if(idToDelete._id ===undefined){
+       return toast.error('something is wrong! please try later')
+       }
+       const remaining = events.filter(event => event._id !== idToDelete._id);
+       setEvents(remaining);
+       await axiosPublic.delete(`/rutine-delete/${idToDelete._id}`)
+           .then(res => {
+               if (res.data.deletedCount > 0) {
+                   toast.success('deleted successfully')
+               }
+           })
         setShowDeleteModal(false)
-        // setEvents(events.filter(event => Number(event._id) !== idToDelete))
-        // setShowDeleteModal(false)
-        // setIdToDelete(null)
     }
-    // console.log(events);
+
     async function handleDateSet(data) {
-        const response = await axios.get('http://localhost:5000/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
+        const response = await axiosPublic.get('/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
         setEvents(response.data)
-        setAllEvents(response.data)
     }
     return (
         <section className='w-full h-screen mx-auto p-5'>
             <div className='flex items-center justify-center w-full'>
                 <button type="button" onClick={openModal} className="px-5 py-2 bg-green-700 text-white hover:text-black rounded">
-                  Create Rutine
+                    Create Rutine
                 </button>
             </div>
             <div className='w-[90%] mx-auto flex items-center justify-between p-5 flex-col '>
@@ -106,8 +100,6 @@ export default function Calendar() {
                             eventClick={(data) => handleDeleteClick(data)}
                             // dateClick={handleDeleteModal}
                             // dateClick={handleDeleteModal}
-
-
 
                             headerToolbar={{
                                 start: "today prev, next",

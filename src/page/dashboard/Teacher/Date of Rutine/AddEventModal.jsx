@@ -71,7 +71,7 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
                                             <label className='font-bold'>End Date</label>
                                             <Datetime value={end} onChange={date => setEnd(date)} className='w-full mt-2' />
                                         </div>
-                                        <button className='px-5 py-2 bg-green-700 text-white hover:text-black w-full rounded'>Add Event</button>
+                                        <button className='px-5 py-2 bg-green-700 text-white hover:text-black w-full rounded'>Published</button>
                                     </form>
                                 </Dialog.Panel>
                             </Transition.Child>
