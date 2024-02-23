@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const Applications = () => {
+
     const axiosPublic = useAxiosPublic();
     const [applications, refetch] = useApplication();
     let [isOpen, setIsOpen] = useState(false)
@@ -14,13 +15,17 @@ const Applications = () => {
     const applicationData = [...applications].reverse();
     refetch();
 
-    const approveClass = async (id) => {
+    const approveClass = async (courseItem) => {
         try {
-            const { data } = await axiosPublic.put(`/application/approve/${id}`);
+            const { data } = await axiosPublic.put(`/application/approve/${courseItem._id}`);
             // console.log(data);
             if (data.status === "selected") {
                 await refetch();
+                const res = await axiosPublic.put(`/users/${courseItem.id}`);
+                console.log(res.data);
                 toast.success("application has been approved successfully");
+                
+                
             }
         } catch (error) {
             console.error("Error approving class:", error);
@@ -35,7 +40,7 @@ const Applications = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, Reject it!"
         }).then((result) => {
             if (result.isConfirmed) {
                 try {
@@ -44,7 +49,7 @@ const Applications = () => {
                     if (res) {
                         Swal.fire({
                             title: "Deleted!",
-                            text: "Application has been deleted successfully.",
+                            text: "Application has been rejected successfully.",
                             icon: "success"
                         });
                         refetch();
@@ -92,7 +97,7 @@ const Applications = () => {
                                     <td onClick={() => handleToggle(courseItem?._id)} className="py-3 font-medium"><FaEye className="text-2xl text-white cursor-pointer" /></td>
                                     <td className="py-3">
                                         {/* <button>Approve</button> */}
-                                        <button onClick={() => approveClass(courseItem._id)} className="btn-style  rounded-2xl hover:text-first hover:bg-white font-medium">
+                                        <button onClick={() => approveClass(courseItem)} className="btn-style  rounded-2xl hover:text-first hover:bg-white font-medium">
                                             {courseItem.status === 'pending' ? 'select Now' : courseItem.status}
                                         </button>
                                     </td>
