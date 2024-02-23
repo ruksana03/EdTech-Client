@@ -1,18 +1,25 @@
 
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // user import by useselector
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { FaEye, FaTrash } from 'react-icons/fa';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
-import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
+// import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
 const cloudinary_cloud_name = "dffbo5cwe";
 const cloudinary_upload_preset = "testing_uplod";
 const cloudinary_upload_url = `https://api.cloudinary.com/v1_1/${cloudinary_cloud_name}/upload`;
 
 const NewPostResources = () => {
-    const [allPdf] = useGetAllPdf()
+    // const [allPdf] = useGetAllPdf()
+    const [allPdf,setAlPdf]=useState([])
+    useEffect(()=>{
+        fetch("http://localhost:5000/get-pdf")
+        .then(res=>res.json())
+        .then(data=>setAlPdf(data))
+    },[])
+    
     console.log("newPost line 18", allPdf);
     const user = useSelector(state => state.data.user.user);
     // const [pdfFile, setPdfFile] = useState(null);
