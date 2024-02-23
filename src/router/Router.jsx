@@ -339,12 +339,18 @@ const router = createBrowserRouter([
                         path:"record",
                         element:<RecordedClass></RecordedClass>
                     },
+                    
                     {
                         path:"demo",
                         element:<Demo></Demo>
                     },
                 ]
             },
+            {
+                path:"record",
+                element:<RecordedClass></RecordedClass>
+            },
+           
             // teachers route
             {
                 path: "post-resources",

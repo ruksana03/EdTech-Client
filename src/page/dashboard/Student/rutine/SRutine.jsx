@@ -75,6 +75,7 @@ const SRutine = () => {
                                         </Dialog.Title>
                                        <h1>Start Date : {currentEvent?.start?.slice(0,10)}</h1>
                                        <h1>End Date : {currentEvent?.end?.slice(0,10)}</h1>
+                                       <h1>Meet Link : <a href={`${currentEvent?.liveLink}`} className='font-bold underline' target='_blank'>Click Here</a></h1>
 
                                         <div className="mt-4">
                                             <button type="button" className="px-5 py-2 bg-green-700 text-white hover:text-black rounded" onClick={closeModal}>

@@ -15,7 +15,7 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
     const [title, setTitle] = useState('');
     const [forCourses, setForCourses] = useState('');
     const [start, setStart] = useState(new Date());
-    //   link state 
+    const [liveLink, setLiveLink] = useState('');
     const [end, setEnd] = useState(new Date());
     const [courses, setCourses] = useState([]);
 
@@ -44,7 +44,7 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
             start,
             end,
             forCourses,
-            // liveLink
+            liveLink
         })
 
         closeModal();
@@ -95,7 +95,12 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
                                                 </select>
                                             </div>
                                         </div>
-                                       {/* input link field  */}
+                                       <div>
+                                            <label className="font-bold" htmlFor="description">Provide Your Link(if any) *</label>
+                                            <div>
+                                                <input type='url' placeholder='provide link....' onChange={() => setLiveLink(event.target.value)} className='w-full mt-2' />
+                                            </div>
+                                        </div>
                                         <div>
                                             <label className='font-bold'>Start Date</label>
                                             <Datetime value={start} onChange={date => setStart(date)} className='w-full mt-2' />

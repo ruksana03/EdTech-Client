@@ -41,7 +41,7 @@ export default function Calendar() {
             forCourses: event.forCourses,
             teacherName: event.teacherName,
             teacherEmail: event.teacherEmail,
-        //    input link 
+        liveLink: event.liveLink,
         })
     }
     async function handleEventAdd(data) {
@@ -157,7 +157,7 @@ export default function Calendar() {
                                             </Dialog.Title>
                                             <h1>Start Date : {currentEvent?.start?.slice(0, 10)}</h1>
                                             <h1>End Date : {currentEvent?.end?.slice(0, 10)}</h1>
-                                           {/* link  */}
+                                          <h1>Meet Link : <a href={`${currentEvent?.liveLink}`} className='font-bold underline' target='_blank'>Click Here</a></h1>
                                         </div>
                                         <hr />
                                         <div>

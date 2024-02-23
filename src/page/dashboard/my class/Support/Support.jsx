@@ -4,7 +4,7 @@ import { MdErrorOutline } from 'react-icons/md';
 
 const Support = () => {
     return (
-        <div className='flex justify-center items-center mt-10 '>
+        <div className='flex justify-center items-center ml-10 mt-10 '>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
 <button className="btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" onClick={()=>document.getElementById('my_modal_5').showModal()}>Request for Support</button>
 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
