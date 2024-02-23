@@ -6,7 +6,9 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment } from 'react';
+import './SRutine.css'
+
 
 const SRutine = () => {
     const axiosPublic = useAxiosPublic();
@@ -46,7 +48,6 @@ const SRutine = () => {
                             initialView="dayGridMonth"
                             datesSet={(date) => handleDateSet(date)}
                             height={'80vh'}
-                            editable={true}
                             nowIndicator={true}
                             droppable={true}
                             eventClick={(data) => handleDeleteClick(data)}

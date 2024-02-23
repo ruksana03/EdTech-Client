@@ -52,7 +52,7 @@ const MainLayout = () => {
     const loadingData = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 2000)
+      }, 1000)
     }
     loadingData();
   }, [])

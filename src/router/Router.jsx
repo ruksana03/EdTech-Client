@@ -71,6 +71,7 @@ import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
+import Demo from './../page/dashboard/Student/Enroll/Demo';
 
 
 
@@ -200,6 +201,7 @@ const router = createBrowserRouter([
             },
         ]
     },
+   
     {
         path: "/dashboard",
         element: <DashboardLayout />,
@@ -283,6 +285,10 @@ const router = createBrowserRouter([
                 ],
             },
             {
+                path:'my-class/recordedclass/English%20Mastery',
+                element: <RecordVideo></RecordVideo>
+            },
+            {
                 path: "my-lab",
                 element: <MyLabLayout />,
                 children: [
@@ -327,7 +333,17 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-enroll",
-                element: <Myenroll />
+                element:  <Myenroll/>,
+                children:[
+                    {
+                        path:"record",
+                        element:<RecordedClass></RecordedClass>
+                    },
+                    {
+                        path:"demo",
+                        element:<Demo></Demo>
+                    },
+                ]
             },
             // teachers route
             {
