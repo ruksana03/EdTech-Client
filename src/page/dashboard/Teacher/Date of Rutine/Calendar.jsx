@@ -30,7 +30,7 @@ export default function Calendar() {
         setIsOpen(false)
     }
     const onEventAdded = async (event) => {
-        // console.log(event);
+        console.log(event);
         await axiosPublic.post('/create-rutine', event)
         toast.success(`${event.title} created successfully`);
         let calendarApi = calendarRef.current.getApi()
@@ -40,7 +40,8 @@ export default function Calendar() {
             title: event.title,
             forCourses: event.forCourses,
             teacherName: event.teacherName,
-            teacherEmail: event.teacherEmail
+            teacherEmail: event.teacherEmail,
+        //    input link 
         })
     }
     async function handleEventAdd(data) {
@@ -111,8 +112,6 @@ export default function Calendar() {
                             droppable={true}
                             eventDrop={(data) => handleDrop(data)}
                             eventClick={(data) => handleDeleteClick(data)}
-                            // dateClick={handleDeleteModal}
-                            // dateClick={handleDeleteModal}
 
                             headerToolbar={{
                                 start: "today prev, next",
@@ -158,6 +157,7 @@ export default function Calendar() {
                                             </Dialog.Title>
                                             <h1>Start Date : {currentEvent?.start?.slice(0, 10)}</h1>
                                             <h1>End Date : {currentEvent?.end?.slice(0, 10)}</h1>
+                                           {/* link  */}
                                         </div>
                                         <hr />
                                         <div>
