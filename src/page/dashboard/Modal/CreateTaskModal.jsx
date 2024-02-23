@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import toast from "react-hot-toast";
@@ -28,11 +29,7 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
 
         const { data: res } = await axiosPublic.post("/task", updatedData);
         toast.success("Task Added Successfully");
-        // if (res.insertedId) {
-        //     toast.success("Task Added Successfully");
-        //     closeModal();
-        // }
-        navigate('/dashboard/notes');
+        refetch()
     };
 
     const handleCloseModal = () => {

@@ -1,25 +1,37 @@
 /* eslint-disable react/prop-types */
-import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { MdOutlineDashboardCustomize, MdAdd, MdNotificationAdd   } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
-
+import { BiSolidNotification } from "react-icons/bi";
+import { FaCalendarDay } from "react-icons/fa";
 
 const TeacherMenu = ({ isActive }) => {
-    const teacherLinks = ['/post-resources'];
-    const teacherMenu = ['Resources'];
+    const teacherLinks = ['/post-resources', '/add-course','/provide-rutine' ,'/create-notice','/show-notices'];
+    const teacherMenu = ['Resources', 'AddCourse', 'Provide Rutine', 'Add Notice','Show Notices'];
     const icons = [
-        <MdOutlineDashboardCustomize key={teacherLinks[0]} />];
+        
+        <MdOutlineDashboardCustomize className="text-xl" key={teacherLinks} />,
+            <MdAdd className="text-xl" key={teacherLinks[1]} />,
+            <FaCalendarDay className="text-xl" key={teacherLinks[2]} />,
+            <MdNotificationAdd  className="text-xl" key={teacherLinks[3]} />,
+            <BiSolidNotification  className="text-xl" key={teacherLinks[4]} />,
+           
+       
+    
+    ];
 
     const location = useLocation();
+
+    // console.log(isActive);
     return (
         <div className="">
         {teacherLinks.map((link, index) => (
            <ol key={link} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                <li style={{
                    padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
-                   // border: location.pathname.startsWith(`/dashboard${link}`) ? "1px solid black" : "",
+                    
                    fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
-                   color: location.pathname.startsWith(`/dashboard${link}`) ? "black" : "black",
-               }} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                   color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
+               }} className={`flex gap-3 p__cormorant dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                    <Link to={`/dashboard${link}`} className={`flex gap-3 my-2 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                        {icons[index]}
                        <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{teacherMenu[index]}</p>

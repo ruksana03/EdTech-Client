@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment} from 'react';
 import { useForm } from 'react-hook-form';

@@ -7,7 +7,7 @@ import CheckoutForm from "../form/CheckoutForm";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const DetailModal = ({ closeModal, isOpen, itemInfo }) => {
-  
+  console.log(itemInfo);
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -56,7 +56,7 @@ const DetailModal = ({ closeModal, isOpen, itemInfo }) => {
                 </div>
                 <div className="mt-2  rounded-lg border-2  border-third">
                   <p className="text-sm p-2 text-gray-500">
-                    Details: {itemInfo.details}
+                    Duration: {itemInfo?.duration} months
                   </p>
                 </div>
 

@@ -14,4 +14,3 @@ const useNotices = () => {
 };
 
 export default useNotices;
-

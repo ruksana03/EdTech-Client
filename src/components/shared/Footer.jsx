@@ -1,23 +1,23 @@
 const Footer = () => {
   return (
     <div>
-      <div className=" dark:bg-zinc-800 bg-third">
-        <footer className="footer dark:text-gray-400 section-container py-10 text-base-content">
-          <nav>
+      <div className=" dark:bg-zinc-800 bg-third w-full h-auto lg:h-[40vh] flex flex-col items-center justify-center py-10">
+        <footer className="footer dark:text-gray-400 section-container  text-base-content">
+          <nav className="text-center md:text-start lg:text-start w-full flex items-center justify-center md:justify-start md:items-start flex-col lg:justify-start lg:items-start">
             <header className="footer-title">Services</header>
             <a className="link link-hover">Branding</a>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
             <a className="link link-hover">Advertisement</a>
           </nav>
-          <nav>
+          <nav className="text-center md:text-start lg:text-start w-full flex items-center justify-center md:justify-start md:items-start flex-col lg:justify-start lg:items-start">
             <header className="footer-title">Company</header>
             <a className="link link-hover">About us</a>
             <a className="link link-hover">Contact</a>
             <a className="link link-hover">Jobs</a>
             <a className="link link-hover">Press kit</a>
           </nav>
-          <nav>
+          <nav className="text-center md:text-start lg:text-start w-full flex items-center justify-center md:justify-start md:items-start flex-col lg:justify-start lg:items-start">
             <header className="footer-title">Social</header>
             <div className="grid grid-flow-col gap-4">
               <a>

@@ -1,16 +1,18 @@
-// import { getUserRole } from "../API/verify";
-// import useAuth from "./useAuth";
-// import {useQuery} from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
+import useAxiosPublic from './useAxiosPublic';
+import { useSelector } from "react-redux";
 
+const useUserRole = () => {
+    const axiosPublic = useAxiosPublic();
+    const user = useSelector(state => state.data.user.user);
+  const {data:role=[],refetch,isLoading} = useQuery({
+    queryKey:['role', user?.email],
+    queryFn: async() => {
+        const res = await axiosPublic.get(`/user?email=${user?.email}`)
+        return res.data
+    },
+  })
+  return [role,refetch,isLoading]
+};
 
-// const useUserRole = () => {
-//   const {user,loading} = useAuth();
-//   const {data:role,isLoading} = useQuery({
-//     enabled:!loading && !!user?.email,
-//     queryFn: async() => await getUserRole(user?.email),
-//     queryKey:['role'],
-//   })
-//   return [role,isLoading]
-// };
-
-// export default useUserRole;
+export default useUserRole;

@@ -10,7 +10,6 @@ import JoiningTeacher from "../page/home/joining  teacher/JoiningTeacher";
 import Blog from "../page/blog/Blog";
 import CardDetails from "../page/detailsPage/CardDetails";
 import Contact from "../page/contact/Contact";
-import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../page/dashboard/Dashboard";
 import PrivateRouter from "./PrivateRouter";
 import UserProfile from "../page/dashboard/UserProfile";
@@ -32,10 +31,45 @@ import AllUser from "../page/dashboard/Admin/Users/AllUser";
 import AllBlogs from "../page/dashboard/Admin/AllBlogs/AllBlogs";
 import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
-import PostResources from "../page/dashboard/Teacher/PostResources/PostResources";
 import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
-import NoticeDetails from './../page/dashboard/Admin/AllNotices/details/NoticeDetails';
+import NoticeDetails from "./../page/dashboard/Admin/AllNotices/details/NoticeDetails";
 import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
+import BlogHome from "../page/blog/BlogHome";
+import WriteBlog from "../page/blog/WriteBlog";
+import BlogProfile from "../page/blog/BlogProfile";
+import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
+import NoticeHome from "../page/Notices/NoticeHome";
+import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
+import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
+import DashboardLayout from "../layout/DashboardLayout";
+import AddCourse from "../page/dashboard/Teacher/AddCourse";
+import Notices from "../page/home/userNotice/Notices";
+import CreateNotice from "../page/dashboard/Teacher/noticeCreate/CreateNotice";
+import NoticeBanner from "../page/Notices/NoticeBanner";
+import NewNotices from "../page/Notices/NewNotices";
+import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
+import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
+import Applications from "../page/dashboard/Admin/application/Applications";
+import MyCart from "../page/dashboard/Common/MyCart";
+import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
+import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
+// import DashboardLayout2 from "../layout/DashboardLayout2";
+import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
+import Questions from "../page/QuizeComponent/Questions";
+import BlogDetails from "../page/blog/BlogDetails";
+import BlogSettings from "../page/blog/BlogSettings";
+import { getOneBlog } from "../api/blogs";
+import UpdatedBlog from "../page/blog/UpdatedBlog";
+import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
+// import DashboardLayout2 from "../layout/DashboardLayout2";
+import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
+import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
+import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRutine";
+import SRutine from "../page/dashboard/Student/rutine/SRutine";
+import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
+import Partner from "../page/home/joining  teacher/Partner";
+import Partners from "../page/dashboard/Admin/Partners/Partners";
+// import Man from "../page/QuizeComponent/man";
 
 
 
@@ -47,199 +81,330 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: '/',
-                element: <Home />
-            },
-            {
-                path: '/all-courses',
-                element: <Courses />
+                path: "/",
+                element: <Home />,
             },
 
             {
-                path: '/blog',
-                element: <Blog />,
-                // children: [
-                //     {
-                //         path: '/blog',
-                //         element: <BlogHome />
-                //     },
-                //     {
-                //         path: 'blog-settings',
-                //         element: <BlogSettings />
-                //     }
-                // ]
-
-            },
-            {
-                path: 'contact',
-                element: <Contact />
-            },
-            {
-                path: "/details/:id",
-                element: <PrivateRouter><CardDetails /></PrivateRouter>,
-                loader: ({ params }) =>
-                    fetch(
-                        `http://localhost:5000/courses/${params.id}`
-                    ),
-            },
-
-            {
-                path: '/login',
-                element: <Login />
-            },
-            {
-                path: '/register',
-                element: <Register />
-            },
-            {
-                path: 'join-teacher',
-                element: <JoiningTeacher />
+                path: "/all-courses",
+                element: <Courses />,
             },
             // {
-            //     path: 'notices',
-            //     element: <Notices />
-            // }
-        ]
-    },
-    {
-        path: '/dashboard',
-        element: <DashboardLayout />,
-        children: [
+            //     path: '/quest',
+            //     element: <Man />
+            // },
+            {
+                path: '/man',
+                element: <Questions />
+            },
 
-            // admin routes 
+
 
             {
-                path: 'allUsers',
-                element: <AllUser />
+                path: "contact",
+                element: <Contact />,
+            },
+
+
+            {
+                path: "/details/:id",
+                element: (
+                    <PrivateRouter>
+                        <CardDetails />
+                    </PrivateRouter>
+                ),
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/courses/${params.id}`),
+            },
+
+            {
+                path: "/login",
+                element: <Login />,
             },
             {
-                path: 'allNotices',
-                element:<AllNotices />
+                path: "/register",
+                element: <Register />,
+            },
+            {
+                path: "/partner",
+                element: <Partner />,
+            },
+            {
+                path: "join-teacher",
+                element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
+            },
+            {
+                path: "common-notice-details",
+                element: <CommonNoticeDetails />,
+            },
+            {
+                path: "/notices",
+                element: <NoticeBanner />,
+                children: [
+                    {
+                        path: 'teacher-notices',
+                        element: <NoticeHome />
+                    },
+                    {
+                        path: 'user-notices',
+                        element: <Notices />
+                    },
+                    {
+                        path: 'new-notices',
+                        element: <NewNotices />
+                    },
+                ]
             },
             {
                 path: 'notice-details/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
-                element:<NoticeDetails />
+                loader: ({ params }) => fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <NoticeHomeDetails />
+            },
+        ],
+    },
+    {
+        path: "/blog",
+        element: <Blog />,
+        children: [
+            {
+                path: "/blog",
+                element: <BlogHome />,
             },
             {
-                path: 'notice-updated/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/notice/${params.id}`),
-                element:<UpdateNotice />
+                path: "new-blog",
+                element: <WriteBlog />,
             },
             {
-                path: 'allBlogs',
-                element: <AllBlogs />
+                path: "blog-profile",
+                element: <BlogProfile />,
             },
             {
-                path: 'allCourses',
-                element: <AllCourses />
+                path: 'blog-details/:id',
+
+                element: <BlogDetails />,
+                loader: ({ params }) => getOneBlog(params.id),
             },
             {
-                path: 'allPaymentInfo',
-                element: <AllPaymentInfo />
+                path: 'blog-updated/:id',
+
+                element: <UpdatedBlog />,
+                loader: ({ params }) => getOneBlog(params.id),
             },
-            // Student route 
             {
-                path: 'my-class',
+                path: 'blog-settings',
+                element: <BlogSettings />
+            },
+        ]
+    },
+    {
+        path: "/dashboard",
+        element: <DashboardLayout />,
+        children: [
+            // admin routes
+
+            {
+                path: "allUsers",
+                element: <AllUser />,
+            },
+            {
+                path: "applications",
+                element: <Applications />,
+            },
+            {
+                path: "quiz",
+                element: <AddQuiz />
+            },
+            {
+                path: "allNotices",
+                element: <AllNotices />,
+            },
+            {
+                path: "notice-details/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <NoticeDetails />,
+            },
+            {
+                path: "notice-updated/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <UpdateNotice />,
+            },
+            {
+                path: "allBlogs",
+                element: <AllBlogs />,
+            },
+            {
+                path: "allCourses",
+                element: <AllCourses />,
+            },
+            {
+                path: "applications",
+                element: <Applications />,
+            },
+            {
+                path: "allPaymentInfo",
+                element: <AllPaymentInfo />,
+            },
+            {
+                path: "subscriber",
+                element: <Subscriber />,
+            },
+            {
+                path: "allpartners",
+                element: <Partners />,
+            },
+            // Student route
+            {
+                path: "my-class",
                 element: <MyClass />,
-                children: [{
-                    path: 'liveclss',
-                    element: <Liveclass></Liveclass>
-                },
+                children: [
+                    {
+                        path: "liveclss",
+                        element: <Liveclass></Liveclass>,
+                    },
 
-                {
-                    path: 'support',
-                    element: <Support></Support>
-                },
-
-                ]
+                    {
+                        path: "support",
+                        element: <Support></Support>,
+                    },
+                    {
+                        path: "recordedclass",
+                        element: <RecordedClass></RecordedClass>,
+                    },
+                    {
+                        path: "recordedclass/:courseName",
+                        element: <RecordVideo></RecordVideo>,
+                    },
+                ],
             },
             {
-                path: 'my-lab',
+                path: "my-lab",
                 element: <MyLabLayout />,
                 children: [
                     {
-                        path: 'science-lab',
-                        element: <Science />
+                        path: "science-lab",
+                        element: <Science />,
                     },
                     {
-                        path: 'math-lab',
-                        element: <Math />
+                        path: "math-lab",
+                        element: <Math />,
                     },
                     {
-                        path: 'coding-lab',
-                        element: <Coding />
+                        path: "coding-lab",
+                        element: <Coding />,
                     },
                     {
-                        path: 'research-lab',
-                        element: <ResearchL />
+                        path: "research-lab",
+                        element: <ResearchL />,
                     },
                     {
-                        path: 'creative-lab',
-                        element: <Creative />
+                        path: "creative-lab",
+                        element: <Creative />,
                     },
-                ]
+                ],
             },
             {
-                path: 'resources',
-                element: <Resources />
+                path: "resources",
+                element: <Resources />,
             },
             {
-                path: 'recommended',
-                element: <Recommended />
+                path: "recommended",
+                element: <Recommended />,
             },
-            // teachers route 
             {
-                path: 'post-resources',
-                element: <PostResources />
+                path: "studentdashboard",
+                element: <StudentDashboard></StudentDashboard>
+
+            },
+            {
+                path: "rutine",
+                element: <SRutine />,
+            },
+            {
+                path: "my-enroll",
+                element: <Myenroll />
+            },
+            // teachers route
+            {
+                path: "post-resources",
+
+                element: <NewPostResources />
+            },
+            {
+                path: "add-course",
+                element: <AddCourse />,
+            },
+            {
+                path: "provide-rutine",
+                element: <TRutine />,
+            },
+          
+
+            {
+                path: "show-notices",
+                element: <ShowNotices />
             },
 
-            //             {
-            //                 path: 'research',
-            //                 element: <ResearchL />,
-            //             },
-            //             {
-            //                 path: 'assignment',
-            //                 element: <AssignmentSection />,
-            //             },
-
-            //             {
-            //                 path: 'bookmarks',
-            //                 element: <BookmarkLayout />,
-            //                 children: [
-            //                     {
-            //                         path: 'show-bookmarks',
-            //                         element: <ShowBookmarks />
-            //                     }
-            //                 ]
-            //             },
-
-            // common route 
             {
-                path: 'dashboard',
-                element: <Dashboard />
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
+
+
+
+            {
+                path: 'create-notice',
+                element: <CreateNotice />
             },
             {
-                path: 'profile',
-                element: <UserProfile />
+                path: 'show-notices',
+                element: <ShowNotices />
             },
             {
-                path: 'notes',
+                path: "notice-update/:id",
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/notice/${params.id}`),
+                element: <TeacherUpdateNotices />,
+            },
+
+            // common route
+            {
+                path: "dashboard",
+                element: <Dashboard />,
+            },
+            {
+                path: "profile",
+                element: <UserProfile />,
+            },
+            {
+                path: "my-cart",
+                element: <MyCart />,
+            },
+
+            {
+                path: "notes",
                 element: <NotesLayout />,
                 children: [
                     {
-                        path: 'my-notes',
-                        element: <MyNotes />
+                        path: "my-notes",
+                        element: <MyNotes />,
                     },
                     {
-                        path: 'create-notes',
-                        element: <CreateNotes />
-                    }
-                ]
+                        path: "create-notes",
+                        element: <CreateNotes />,
+                    },
+                ],
             },
+        ],
 
-        ]
-    }
-])
+    },
+    {
+        path: "/updated-profile",
+        element: <UpdateProfile />,
+    },
+]);
 
 export default router;

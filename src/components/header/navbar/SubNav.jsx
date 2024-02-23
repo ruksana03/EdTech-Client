@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 import { GrLogin } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import useAdmin from "../../../Hooks/useAdmin";
+// import useAdmin from "../../../Hooks/useAdmin";
 import { logOut } from "../../../Features/Utilities";
 import { logoutUser } from "../../../Features/UserSlice";
 import { SlLogout } from "react-icons/sl";
@@ -16,8 +16,8 @@ const SubNav = () => {
   const user = useSelector((state) => state.data.user.user);
 
   const dispatch = useDispatch();
-  const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+  // const [isAdmin] = useAdmin();
+  // console.log(isAdmin);
   
     const handleLogout = () => {
     logOut()

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Cards from "../../components/Cards";
 import { FaFilter } from "react-icons/fa";
+import { useTypewriter } from "react-simple-typewriter";
 
 const Courses = () => {
   const [course, setCourse] = useState([]);
@@ -92,7 +93,7 @@ const Courses = () => {
   // pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredItems?.slice(indexOfFirstItem, indexOfLastItem);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // for search
@@ -100,24 +101,36 @@ const Courses = () => {
     setSearchInput(e.target.value);
   };
 
+  // typewriter effect
+  const [typeEffect] = useTypewriter({
+    words: ["Enlightening", " Courses", "With","Us!"],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 50,
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
+
   return (
     <div>
       {/* banner text */}
       <div
         className="hero min-h-[80vh] mb-12"
-        style={{
-          backgroundImage:
-            "url(https://i.ibb.co/z6Fz8Z2/jess-bailey-Bg14l3h-SAs-A-unsplash.jpg)",
-        }}
+        // style={{
+        //   backgroundImage:
+        //     "url(https://i.ibb.co/z6Fz8Z2/jess-bailey-Bg14l3h-SAs-A-unsplash.jpg)",
+        // }}
       >
-        <div className="hero-overlay bg-white bg-opacity-20"></div>
+        <div className=" bg-opacity-20"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="space-y-7 ">
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold leading-snug text-black">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold leading-snug font-alt ">
               Explore the Wonders Of
-              <span className="text-first"> Enlightening Courses!</span>
+              <span className=" font-base text-first"> {typeEffect}</span>
             </h2>
-            <p className="text-black">
+            <p className="p__opensans">
               Where Every Lesson Unfolds a Tale of Academic Excellence and
               Dedicated Learning
             </p>
@@ -127,7 +140,7 @@ const Courses = () => {
                 placeholder="Search courses..."
                 value={searchInput}
                 onChange={handleSearchChange}
-                className="border text-black p-2 rounded-md"
+                className="border text-black  p-2 rounded-md"
               />
             </div>
           </div>
@@ -139,10 +152,10 @@ const Courses = () => {
         {/* btns and sorts */}
         <div className="flex flex-col md:flex-row space-y-3 md:justify-between items-center">
           {/* all category data */}
-          <div className="flex justify-start items-center gap-8 flex-wrap font-medium my-3">
+          <div className="flex justify-start items-center gap-8 flex-wrap font-medium  p__cormorant my-3">
             <button
               onClick={showAll}
-              className={selectCategory === "all" ? "active" : ""}
+              className={selectCategory === "all" ? "" : "text-white"}
             >
               All
             </button>
@@ -181,6 +194,18 @@ const Courses = () => {
               className={selectCategory === "law" ? "active" : ""}
             >
               Law
+            </button>
+            <button
+              onClick={() => filterItems("5-10")}
+              className={selectCategory === "5-10" ? "active" : ""}
+            >
+              5-10
+            </button>
+            <button
+              onClick={() => filterItems("hsc")}
+              className={selectCategory === "hsc" ? "active" : ""}
+            >
+              HSC
             </button>
           </div>
 
