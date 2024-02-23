@@ -71,7 +71,7 @@ import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
-import Demo from './../page/dashboard/Student/Enroll/Demo';
+// import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 
 
@@ -168,6 +168,8 @@ const router = createBrowserRouter([
             },
         ],
     },
+
+
     {
         path: "/blog",
         element: <Blog />,
@@ -241,6 +243,10 @@ const router = createBrowserRouter([
                 path: "allBlogs",
                 element: <AllBlogs />,
             },
+            // {
+            //     path: "quiz",
+            //     element: <AddQuiz />
+            // },
             {
                 path: "allCourses",
                 element: <AllCourses />,

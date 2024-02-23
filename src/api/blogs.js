@@ -26,4 +26,3 @@ export const updateBlogInfo = async (id, blog) => {
   return data;
 }
 
-

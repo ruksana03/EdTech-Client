@@ -18,8 +18,6 @@ import { FaShoppingCart } from "react-icons/fa";
 
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
-    // const DSidebarMenu = () => {
-
     const user = useSelector(state => state.data.user.user);
     const { AllUsers } = useUsers();
     const getMenuBasedOnRole = () => {
@@ -96,16 +94,16 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
                 {getMenuBasedOnRole()}
             </div>
 
-            <hr className="border border-first " />
+            <hr className="border border-first  " />
             {links.map((link, index) => (
-                <ol key={link} className={`flex gap-3   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                <ol key={link} className={`flex gap-3 text-sm   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
 
                     <li style={{
                         padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
 
                         fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
                         color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
-                    }} className={`flex gap-3 font-alt text-xl ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                    }} className={`flex gap-3 font-alt text-base ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                         <Link to={`/dashboard${link}`} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                             {icons[index]}
                             <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{menuNames[index]}</p>

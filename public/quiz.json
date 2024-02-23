@@ -48,55 +48,5 @@
             "Leonardo da Vinci"
         ],
         "correct_answer": "Vincent van Gogh"
-    },
-    {
-        "id": 6,
-        "question": "What is the largest continent by land area?",
-        "options": [
-            "Asia",
-            "Africa",
-            "North America"
-        ],
-        "correct_answer": "Asia"
-    },
-    {
-        "id": 7,
-        "question": "Who wrote 'Romeo and Juliet'?",
-        "options": [
-            "William Shakespeare",
-            "Jane Austen",
-            "Charles Dickens"
-        ],
-        "correct_answer": "William Shakespeare"
-    },
-    {
-        "id": 8,
-        "question": "What is the chemical symbol for water?",
-        "options": [
-            "H2O",
-            "CO2",
-            "O2"
-        ],
-        "correct_answer": "H2O"
-    },
-    {
-        "id": 9,
-        "question": "Which animal is known as the 'Ship of the Desert'?",
-        "options": [
-            "Camel",
-            "Horse",
-            "Elephant"
-        ],
-        "correct_answer": "Camel"
-    },
-    {
-        "id": 10,
-        "question": "Who is known as the 'Father of Modern Physics'?",
-        "options": [
-            "Albert Einstein",
-            "Isaac Newton",
-            "Galileo Galilei"
-        ],
-        "correct_answer": "Albert Einstein"
     }
 ]

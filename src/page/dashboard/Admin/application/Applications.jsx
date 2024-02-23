@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const Applications = () => {
-
     const axiosPublic = useAxiosPublic();
     const [applications, refetch] = useApplication();
     let [isOpen, setIsOpen] = useState(false)
