@@ -11,7 +11,7 @@ import Navber from "../components/header/navbar/Navber";
 import Footer from "../page/home/Footer/Footer";
 import 'regenerator-runtime/runtime'
 
-import MessengerCustomerChat from 'react-messenger-customer-chat';
+// import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Preloader from "../components/shared/Preloader";
 
 const MainLayout = () => {
@@ -52,7 +52,7 @@ const MainLayout = () => {
     const loadingData = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 2000)
+      }, 1000)
     }
     loadingData();
   }, [])
@@ -65,7 +65,7 @@ const MainLayout = () => {
             <Navber />
             <Outlet />
             <Footer />
-            <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" />
+            {/* <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" /> */}
           </>
       }
     </ >

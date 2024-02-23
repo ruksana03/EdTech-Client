@@ -71,6 +71,8 @@ import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
+// import Demo from './../page/dashboard/Student/Enroll/Demo';
+import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 
 
 
@@ -85,6 +87,7 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
+
             {
                 path: "/all-courses",
                 element: <Courses />,
@@ -102,13 +105,6 @@ const router = createBrowserRouter([
                 path: '/voiceTyping',
                 element: <SpeechToText />
             },
-           
-            {
-                path: '/man',
-                element: <Questions/>
-            },
-            
-
            
             {
                 path: "contact",
@@ -208,8 +204,7 @@ const router = createBrowserRouter([
             },
         ]
     },
-
-
+   
     {
         path: "/dashboard",
         element: <DashboardLayout />,
@@ -277,10 +272,7 @@ const router = createBrowserRouter([
                 path: "my-class",
                 element: <MyClass />,
                 children: [
-                    {
-                        path: "liveclss",
-                        element: <Liveclass></Liveclass>,
-                    },
+                  
 
                     {
                         path: "support",
@@ -295,6 +287,10 @@ const router = createBrowserRouter([
                         element: <RecordVideo></RecordVideo>,
                     },
                 ],
+            },
+            {
+                path:'my-class/recordedclass/English%20Mastery',
+                element: <RecordVideo></RecordVideo>
             },
             {
                 path: "my-lab",
@@ -341,8 +337,21 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-enroll",
-                element: <Myenroll />
+                element:  <Myenroll/>,
+                children:[
+                    {
+                        path:"record",
+                        element:<RecordedClass></RecordedClass>
+                    },
+                    
+                  
+                ]
             },
+            {
+                path:"record",
+                element:<RecordedClass></RecordedClass>
+            },
+           
             // teachers route
             {
                 path: "post-resources",
@@ -352,6 +361,16 @@ const router = createBrowserRouter([
             {
                 path: "add-course",
                 element: <AddCourse />,
+            },
+            {
+                path: "live-class",
+                element: <LiveClass></LiveClass>,
+                children:[
+                    {
+                        path: "liveclss",
+                        element: <Liveclass></Liveclass>,
+                    },
+                ]
             },
             {
                 path: "provide-rutine",
