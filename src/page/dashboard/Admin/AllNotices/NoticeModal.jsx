@@ -29,8 +29,8 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
                 date: new Date(),
                 title,
                 description,
-                // role: 'student',
                 sentNotices,
+                sentForCourse:'',
                 hostName: user?.name,
                 hostEmail: user?.email
             }

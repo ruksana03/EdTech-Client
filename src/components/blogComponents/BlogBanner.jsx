@@ -26,10 +26,6 @@ const BlogBanner = () => {
                     delay: 3500,
                     disableOnInteraction: false,
                 }}
-                pagination={{
-                    clickable: true,
-                }}
-                // navigation={true}
                 modules={[Autoplay]}
                 className="mySwiper"
             >

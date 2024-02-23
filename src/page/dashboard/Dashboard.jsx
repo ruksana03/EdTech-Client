@@ -89,7 +89,7 @@ const Dashboard = () => {
           </section>
         </div>
         {/* chats  */}
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row gap-10 items-center justify-between">
           <div className="flex-1">
             <div style={{ width: "100%", height: 300 }}>
               <ResponsiveContainer>

@@ -1,7 +1,3 @@
-
-
-
-
 import { useEffect, useState } from "react";
 import quiz from '../../../public/quiz.json';
 import Quiz from "./Quiz";
@@ -16,7 +12,7 @@ const Questions = () => {
 
     useEffect(() => {
         console.log(question);
-    }, [currentQuestionIndex]);
+    }, [currentQuestionIndex, question]);
 
     const onSelect = (option) => {
         const updatedSelectedOptions = [...selectedOptions];

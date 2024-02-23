@@ -13,7 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
 
 const DetailsInfo = ({ detailInfo }) => {
-  const { _id, title, image, price, details, name, email, requirements, duration } = detailInfo || {};
+  const {_id, title, image, price, details, name, email, requirements, duration } = detailInfo || {};
 
 
   const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +21,9 @@ const DetailsInfo = ({ detailInfo }) => {
   const user = useSelector((state) => state.data.user.user);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate()
-
+  
   const location = useLocation()
-  const [, refetch] = useCart()
+  const [,refetch] = useCart()
 
   const closeModal = () => {
     setIsOpen(false);
@@ -59,8 +59,8 @@ const DetailsInfo = ({ detailInfo }) => {
     );
   }
 
-  const handleAddToCart = () => {
-
+  const handleAddToCart =()=> {
+   
     if (user && user.email) {
       // send to database
       const cartItem = {
@@ -73,7 +73,7 @@ const DetailsInfo = ({ detailInfo }) => {
       axiosPublic.post('/carts', cartItem)
         .then(res => {
           console.log(res.data);
-          if (res.data) {
+          if (res.data  ) {
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -84,7 +84,7 @@ const DetailsInfo = ({ detailInfo }) => {
             // refetch cart to update the cart items count 
             refetch()
           }
-        })
+      })
     }
     else {
       Swal.fire({
@@ -98,7 +98,7 @@ const DetailsInfo = ({ detailInfo }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           // send the user to login page
-          navigate('/login', { state: { from: location } })
+          navigate('/login',{state:{from:location}})
         }
       });
     }
@@ -206,27 +206,25 @@ const DetailsInfo = ({ detailInfo }) => {
                 <h1 className="text-3xl font-alt text-white font-bold">${price}</h1>
               </div>
 
-              <div className="flex flex-col items-center gap-4">
-                <button
-                  onClick={handleAddToCart}
-                  type="button"
-                  className="inline-flex items-center justify-center btn-style">
-
-                  <BiPurchaseTag className="text-lg mr-2" />
-                  Add to Cart
-                  {/* <span className="ml-2 text-black">Add to Cart</span> */}
-                </button>
-                <button
-                  onClick={() => setIsOpen(true)}
-                  type="button"
-                  className="inline-flex items-center justify-center btn-style"
-                >
-                  <BiPurchaseTag className="text-lg mr-2" />
-                  Purchase Now
-                  {/* <span className="ml-2 text-black">Purchase Now</span> */}
-                </button>
-
-              </div>
+           <div className="flex flex-col items-center gap-4">
+           <button
+               onClick={handleAddToCart}
+               type="button"
+               className="inline-flex items-center justify-center btn-style"
+             >
+               <BiPurchaseTag className="text-lg mr-2" />
+               Add to Cart 
+             </button>
+           <button
+                onClick={() => setIsOpen(true)}
+                type="button"
+                className="inline-flex items-center justify-center btn-style"
+              >
+                <BiPurchaseTag className="text-lg mr-2" />
+               Purchase Now 
+              </button>
+             
+           </div>
               <DetailModal
                 isOpen={isOpen}
                 itemInfo={itemInfo}

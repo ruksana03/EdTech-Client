@@ -1,10 +1,11 @@
 import { PiChalkboardTeacherBold } from "react-icons/pi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import useUserRole from "../../../Hooks/useUserRole";
 
 const JoiningTeacher = () => {
   const axiosPublic = useAxiosPublic();
@@ -12,6 +13,10 @@ const JoiningTeacher = () => {
   const [loading, setLoading] = useState(false);
   const user = useSelector((state) => state.data.user.user);
   const userPhoto = user?.photo;
+  const [role] = useUserRole();
+  console.log(role);
+  const id = role[0]?._id;
+  console.log(id);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,6 +35,7 @@ const JoiningTeacher = () => {
     const message = form.form_message.value;
     const cvLink = form.cvlink.value;
     const applicationData = {
+      id,
       fullName,
       email,
       phoneNumber,
@@ -60,6 +66,12 @@ const JoiningTeacher = () => {
       toast.error(error.message)
     }
   }
+ 
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
+
+
   return (
     <div className="w-full h-full mb-5">
       {/* banner image  */}

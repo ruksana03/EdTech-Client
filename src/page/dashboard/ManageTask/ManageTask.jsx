@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
@@ -7,28 +6,29 @@ import { useSelector } from "react-redux";
 import TaskColumn from "./TaskColumn";
 import CreateTaskModal from "../Modal/CreateTaskModal";
 // import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaPlus } from "react-icons/fa";
+
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+
+import { FaPlus } from "react-icons/fa";
 
 
 const ManageTask = () => {
     const [todo, setTodo] = useState([]);
     const [progress, setProgress] = useState([]);
     const [completed, setCompleted] = useState([]);
-    let [isOpen, setIsOpen] = useState(false);
-    console.log(isOpen);
-
     const user = useSelector(state => state.data.user.user);
-    const axiosSecure = useAxiosPublic();
+    // const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
     // const queryClient = new QueryClient(); 
     const { data, refetch } = useQuery({
         queryKey: ['all-task', user],
         queryFn: async () => {
             // const res = await axiosSecure(/addtask?email=${user?.email});
-            const res = await axiosSecure.post('/addtask');
+            const res = await axiosPublic('/addtask');
             return res.data;
         },
     });
+
     useEffect(() => {
         console.log('User:', user);
         if (data) {
@@ -42,8 +42,9 @@ const ManageTask = () => {
             setProgress([...filteredProgress]);
             setCompleted([...filteredCompleted]);
         }
-    }, [data,user]);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data]);
+    let [isOpen, setIsOpen] = useState(false);
     function closeModal() {
         setIsOpen(false);
     }
@@ -66,7 +67,7 @@ const ManageTask = () => {
         const [movedTask] = updatedTasks.splice(source.index, 1);
         updatedTasks.splice(destination.index, 0, movedTask);
 
-        axiosSecure
+        axiosPublic
             .patch(`/status?id=${draggableId}`, {
                 status: destination.droppableId,
             })
@@ -77,11 +78,10 @@ const ManageTask = () => {
 
     return (
         <div>
-            <button className="btn-style flex items-center gap-2 " onClick={() => setIsOpen(true)}><FaPlus />CreateTask</button>
+            <button className="btn  btn-secondary " onClick={() => setIsOpen(true)}><FaPlus />CreateTask</button>
             <div className="flex flex-col min-h-screen w-full mx-auto text-white pb-5">
                 <DragDropContext onDragEnd={onDragEnd}>
                     <div className="flex flex-wrap mx-auto justify-center gap-10 px-8 mt-20">
-                        
                         <Droppable droppableId="todo">
                             {provided => (
                                 <TaskColumn
@@ -91,9 +91,7 @@ const ManageTask = () => {
                                     refetch={refetch}
                                 />
                             )}
-                            
                         </Droppable>
-                       
                         <Droppable droppableId="progress">
                             {provided => (
                                 <TaskColumn
@@ -115,7 +113,6 @@ const ManageTask = () => {
                             )}
                         </Droppable>
                     </div>
-                   
                 </DragDropContext>
 
                 <CreateTaskModal
@@ -123,7 +120,6 @@ const ManageTask = () => {
                     closeModal={closeModal}
                     refetch={refetch}
                 />
-                
             </div>
 
         </div>

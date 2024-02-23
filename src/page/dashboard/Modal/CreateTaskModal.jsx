@@ -1,45 +1,35 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment} from 'react';
-import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
-// import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import toast from "react-hot-toast";
+// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
-import { useSelector } from 'react-redux';
-import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import {  useNavigate } from "react-router-dom";
 
-const EditModal = ({ isOpen, closeModal, item, refetch }) => {
-    const { register, handleSubmit } = useForm();
+const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
     // const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
+    const { register, handleSubmit } = useForm();
     const user = useSelector(state => state.data.user.user);
 
-    const onSubmit = async data => {
-        const { data: res } = await axiosPublic.post('/update', report);
-        if (res.insertedId) {
-            toast.success('Report Submitted Successfully');
-            closeModal();
-        }
-    };
-    const handleUpdate = async e => {
-        e.preventDefault();
-        const title = e.target.title.value;
-        const description = e.target.description.value;
-        const priority = e.target.priority.value;
-        const deadline = e.target.deadline.value;
-        const data = {
-            title,
-            description,
-            priority,
-            deadline,
-            email: user.email,
+    const onSubmit = async (data) => {
+        const updatedData = {
+            title: data.title,
+            description: data.description,
+            priority: data.priority,
+            deadline: data.deadline,
+            email: user?.email,
             status: "todo",
         };
-        console.log(data);
-        const res = await axiosPublic.put(`/update/${item._id}`, data);
-        toast.success('Updated successfully');
+        console.log(typeof (data.deadline));
+
+        const { data: res } = await axiosPublic.post("/task", updatedData);
+        toast.success("Task Added Successfully");
         refetch();
     };
 
@@ -79,22 +69,24 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
                                         as="h3"
                                         className="text-lg font-semibold text-center leading-6 text-orange-500 "
                                     >
-                                        Edit Task
+                                        Add Task
                                     </Dialog.Title>
                                     <div className="mt-2">
-                                        <form onSubmit={handleUpdate}>
+                                        <form onSubmit={handleSubmit(onSubmit)}>
                                             <label className="text-orange-500">Title: </label>
                                             <input
+                                                {...register("title")}
                                                 className="outline-orange-500 overflow-hidden bg-orange-200 py-1 px-1"
-                                                defaultValue={item.title}
                                                 type="text"
                                                 placeholder="Title"
                                                 name="title"
+                                                required
                                             />
                                             <label className="text-orange-500">Description: </label>
                                             <textarea
+                                                {...register("description")}
+                                                required
                                                 className="outline-orange-500  bg-orange-200 py-1 px-1 mt-2"
-                                                defaultValue={item.description}
                                                 placeholder="Description"
                                                 name="description"
                                                 cols="25"
@@ -103,9 +95,10 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
                                             <br />
                                             <label className="text-orange-500 ">Priority: </label>
                                             <select
+                                                {...register("priority")}
+                                                required
                                                 className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
                                                 name="priority"
-                                                defaultValue={item.priority}
                                             >
                                                 <option disabled>Set Status</option>
                                                 <option value="low">Low</option>
@@ -114,18 +107,18 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
                                             </select>
                                             <label className="text-orange-500 pl-1 ">Deadline:</label>
                                             <input
+                                                required
+                                                {...register("deadline")}
                                                 className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
                                                 type="date"
                                                 name="deadline"
-                                                defaultValue={item.deadline}
                                             />
                                             <br />
                                             <button
                                                 type="submit"
                                                 className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
-                                            // onClick={handleTerSend}
                                             >
-                                                Update
+                                                Add Task
                                             </button>
                                             <button
                                                 type="button"
@@ -146,4 +139,4 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
     );
 };
 
-export default EditModal;
+export default CreateTaskModal;

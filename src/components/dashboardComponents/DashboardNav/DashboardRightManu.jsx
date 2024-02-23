@@ -13,7 +13,7 @@ const DashboardRightManu = ({ user, handleLogout }) => {
             <details className="dropdown">
                 <summary className="m-1">
                     <div className="avatar cursor-pointer">
-                        <div className="w-12">
+                        <div className="w-10 border border-black p-1 rounded-full">
                             <img src={user?.photo} alt="profile-photo" className="w-full rounded-full" />
                         </div>
                     </div>

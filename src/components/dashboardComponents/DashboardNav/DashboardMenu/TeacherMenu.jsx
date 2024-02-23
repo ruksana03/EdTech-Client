@@ -2,17 +2,19 @@
 import { MdOutlineDashboardCustomize, MdAdd, MdNotificationAdd   } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import { BiSolidNotification } from "react-icons/bi";
+import { FaCalendarDay } from "react-icons/fa";
 
 const TeacherMenu = ({ isActive }) => {
-    const teacherLinks = ['/post-resources', '/add-course', '/create-notice','/show-notices'];
-    const teacherMenu = ['Resources', 'AddCourse', 'Add Notice','Show Notices'];
+    const teacherLinks = ['/post-resources', '/add-course','/provide-rutine' ,'/create-notice','/show-notices'];
+    const teacherMenu = ['Resources', 'AddCourse', 'Provide Rutine', 'Add Notice','Show Notices'];
     const icons = [
         
         <MdOutlineDashboardCustomize className="text-xl" key={teacherLinks} />,
-            <MdAdd className="text-xl" key={teacherLinks[1]} />, // Add the MdAdd icon for the "AddCourse" link
-            <MdNotificationAdd  className="text-xl" key={teacherLinks[1]} />, // Add the MdAdd icon for the "AddCourse" link
-            <BiSolidNotification  className="text-xl" key={teacherLinks[2]} />, // Add the MdAdd icon for the "AddCourse" link
-        
+            <MdAdd className="text-xl" key={teacherLinks[1]} />,
+            <FaCalendarDay className="text-xl" key={teacherLinks[2]} />,
+            <MdNotificationAdd  className="text-xl" key={teacherLinks[3]} />,
+            <BiSolidNotification  className="text-xl" key={teacherLinks[4]} />,
+           
        
     
     ];

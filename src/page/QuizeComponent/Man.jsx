@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import  { useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../Style/Main.css'
 import '../../components/Footer/NewsLetter.css'
@@ -13,8 +13,8 @@ const Man = () => {
     const user = useSelector((state) => state.data.user.user);
     
 
-    const inputRef = useRef(null)
-    const dispatch = useDispatch()
+    const inputRef = useRef(null);
+    // const dispatch = useDispatch();
 
 
     const  startQuiz = () => {
@@ -37,7 +37,7 @@ const Man = () => {
         </ol>
 
         <form id="form">
-            <input ref={inputRef} className="userid" type="text" placeholder={user?.name} />
+            <input ref={inputRef} className="userid" type="text" placeholder={user.name} />
         </form>
 
         <div className='start'>

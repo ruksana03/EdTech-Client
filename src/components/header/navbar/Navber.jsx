@@ -10,6 +10,7 @@ import { logoutUser } from "../../../Features/UserSlice";
 import Logo from "../../shared/Logo";
 import NavUserButton from "../NavUserButton";
 import Sidebar from "./Sidebar";
+// import { MdMenu } from "react-icons/md";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
 import useUserRole from "../../../Hooks/useUserRole";
@@ -191,7 +192,7 @@ const Navbar = () => {
                     </div>
                   ) : (
                     <Link to={`/login`}>
-                      <button className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform   text-first hover:bg-transparent hover:text-gray-400 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
+                      <button className="flex justify-center items-center gap-2 text-sm font-medium px-4 py-2 duration-200 transform text-first hover:bg-transparent hover:text-gray-400 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100">
                         <GrLogin />
                         {t("navLogin.login")}
                       </button>
