@@ -72,6 +72,7 @@ import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
 import Demo from './../page/dashboard/Student/Enroll/Demo';
+import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 
 
 
@@ -265,10 +266,7 @@ const router = createBrowserRouter([
                 path: "my-class",
                 element: <MyClass />,
                 children: [
-                    {
-                        path: "liveclss",
-                        element: <Liveclass></Liveclass>,
-                    },
+                  
 
                     {
                         path: "support",
@@ -340,10 +338,7 @@ const router = createBrowserRouter([
                         element:<RecordedClass></RecordedClass>
                     },
                     
-                    {
-                        path:"demo",
-                        element:<Demo></Demo>
-                    },
+                  
                 ]
             },
             {
@@ -360,6 +355,16 @@ const router = createBrowserRouter([
             {
                 path: "add-course",
                 element: <AddCourse />,
+            },
+            {
+                path: "live-class",
+                element: <LiveClass></LiveClass>,
+                children:[
+                    {
+                        path: "liveclss",
+                        element: <Liveclass></Liveclass>,
+                    },
+                ]
             },
             {
                 path: "provide-rutine",
