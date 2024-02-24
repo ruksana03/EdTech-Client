@@ -10,13 +10,13 @@ const RecordVideo = () => {
     const courseName=useParams()
     const [data1,setData]=useState([])
     useEffect(() => {
-        fetch('../../../../../../public/recordedclass.json')
+        fetch('../../../../../../public/new.json')
             .then(res => res.json())
             .then(data => {
                setData(data);
             })
     }, []);
-    const orginalData1=data1.filter(data=> data.courseName===courseName.courseName)
+    const orginalData1=data1.filter(data=> data.title===courseName.courseName)
  
     const orginalData=orginalData1[0]
 

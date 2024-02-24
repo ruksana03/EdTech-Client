@@ -8,6 +8,7 @@ import React from "react";
 import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Cards from "../../components/Cards";
+import { useTranslation } from "react-i18next";
 
 const SimpleNextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -37,6 +38,8 @@ const SimplePrevArrow = (props) => {
 const Popular = () => {
   const [popular, setPopular] = useState([]);
   const slider = React.useRef(null);
+
+  const { t } = useTranslation('global');
 
   // handle side effects
   useEffect(() => {
@@ -88,8 +91,8 @@ const Popular = () => {
   return (
     <div className="section-container my-20 relative p-5">
       <div className="text-left dark:text-gray-400">
-        <h2 className="headtext__cormorant">Top Courses</h2>
-        <h2 className="p__cormorant">Explore our Popular Courses </h2>
+        <h2 className="headtext__cormorant">{t("popular.title")}</h2>
+        <h2 className="p__cormorant">{t("popular.subtitle")} </h2>
       </div>
 
       {/* next prev buttons */}

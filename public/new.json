@@ -1,0 +1,681 @@
+[
+    {
+        "data":[
+            {
+                "videoTitle":"Introduction of C ",
+                "videoLink":"https://drive.google.com/file/d/1yAANdS_yodrB5YvMIj9_nXkbifY8SAK9/preview"
+        
+            },
+            {
+                "videoTitle":"Write on VS Code",
+                "videoLink":"https://drive.google.com/file/d/1U9jKEoLsQkG84TNuFeU0SfRxGX_j-pYK/preview"
+        
+            },
+            {
+                "videoTitle":"Printing Hello World",
+                "videoLink":"https://drive.google.com/file/d/13W3digcMey2FL6Timapgw-0_zu5VXBJ4/preview"
+        
+            },
+            {
+                "videoTitle":"How to Comments",
+                "videoLink":"https://drive.google.com/file/d/1P2smLpigcJBKiOMMBbLLF_O5Xk255nf0/preview"
+        
+            },
+            {
+                "videoTitle":"Variables",
+                "videoLink":"https://drive.google.com/file/d/1U_G7KuFNLkMHYPBZO-leBXXhVpcPvxcX/preview"
+        
+            },
+            {
+                "videoTitle":"Problem Solving-1",
+                "videoLink":"https://drive.google.com/file/d/1RnaxSjvwUkil5ICTCt-OtWr8yX0m5baX/preview"
+        
+            }
+    ],
+        "_id": "65c46f30c83093a32b2339c0",
+        "title": "Programming Basics",
+        "details": "Learn essential programming concepts to start your journey. From variables and loops to functions and data structures, this course provides a solid foundation in programming logic and problem-solving techniques. Perfect for beginners aiming to enter the world of coding. Develop coding skills through hands-on practice and real-world projects. Explore the fundamentals of programming languages such as Python, Java, and JavaScript. Gain practical experience in software development and algorithmic thinking. Build a strong programming portfolio to showcase your skills and impress potential employers.",
+        "image": "https://i.ibb.co/YTKKYRs/programming.jpg",
+        "category": "popular",
+        "price": 24.99,
+        "duration": 6,
+        "name": "Emily Johnson",
+        "email": "emily.johnson@gmail.com",
+        "status": "approved",
+        "requirements": "No prior programming experience is required.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da620",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da621",
+                "name": "Hemrom Johnson",
+                "email": "hemrom@gmail.com"
+            }
+        ]
+    },
+    {
+        "data":[
+            {
+                "videoTitle":"Introduction of C ",
+                "videoLink":"https://drive.google.com/file/d/1yAANdS_yodrB5YvMIj9_nXkbifY8SAK9/preview"
+        
+            },
+            {
+                "videoTitle":"Write on VS Code",
+                "videoLink":"https://drive.google.com/file/d/1U9jKEoLsQkG84TNuFeU0SfRxGX_j-pYK/preview"
+        
+            },
+            {
+                "videoTitle":"Printing Hello World",
+                "videoLink":"https://drive.google.com/file/d/13W3digcMey2FL6Timapgw-0_zu5VXBJ4/preview"
+        
+            },
+            {
+                "videoTitle":"How to Comments",
+                "videoLink":"https://drive.google.com/file/d/1P2smLpigcJBKiOMMBbLLF_O5Xk255nf0/preview"
+        
+            },
+            {
+                "videoTitle":"Variables",
+                "videoLink":"https://drive.google.com/file/d/1U_G7KuFNLkMHYPBZO-leBXXhVpcPvxcX/preview"
+        
+            },
+            {
+                "videoTitle":"Problem Solving-1",
+                "videoLink":"https://drive.google.com/file/d/1RnaxSjvwUkil5ICTCt-OtWr8yX0m5baX/preview"
+        
+            }
+    ],
+        "_id": "65c46f30c83093a32b2339c1",
+        "title": "English Mastery",
+        "details": "Polish your grammar skills to enhance communication abilities. Delve into the intricacies of English grammar, punctuation, and syntax, improving your writing and speaking skills. Ideal for students, professionals, and language enthusiasts seeking to refine their English proficiency. Practice writing and speaking exercises to reinforce grammar rules and language usage. Explore literary analysis and critical thinking skills through the study of classic and contemporary texts. Cultivate effective communication strategies for academic, professional, and personal success. Gain confidence in expressing yourself eloquently in any situation.",
+        "image": "https://i.ibb.co/JCrYXjM/english.jpg",
+        "category": "popular",
+        "price": 17.99,
+        "duration": 3,
+        "name": "David Miller",
+        "email": "david.miller@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of English language and grammar is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da622",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da623",
+                "name": "Hemrom Johnson",
+                "email": "hemrom@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Science Explorations",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339c2",
+        "title": "Science Explorations",
+        "details": "Embark on a journey of scientific discovery with hands-on experiments. Explore various scientific disciplines, including physics, chemistry, biology, and environmental science, through engaging activities and real-world applications. Suitable for curious minds of all ages eager to explore the wonders of the natural world. Enhance critical thinking and problem-solving skills through scientific inquiry and experimentation. Learn about the latest advancements in scientific research and technology. Discover the interconnectedness of different scientific fields and their impact on society and the environment.",
+        "image": "https://i.ibb.co/qMrbx8Z/science.jpg",
+        "category": "popular",
+        "price": 29.99,
+        "duration": 6,
+        "name": "Sarah Davis",
+        "email": "sarah.davis@gmail.com",
+        "status": "approved",
+        "requirements": "No prior knowledge of science is required.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da624",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da625",
+                "name": "roksana Johnson",
+                "email": "roksana@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Marketing Essentials",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339c3",
+        "title": "Marketing Essentials",
+        "details": "Unlock secrets of effective digital marketing to boost online presence and drive business growth. Dive into market research, branding, social media marketing, and content strategy to develop a comprehensive marketing plan. Perfect for entrepreneurs, marketers, and business owners seeking to expand their digital footprint. Gain insights into consumer behavior, market trends, and innovative marketing techniques to stay ahead of the competition. Transform your business with powerful marketing strategies tailored to your target audience and industry. Learn from industry experts and successful entrepreneurs who have mastered the art of digital marketing.",
+        "image": "https://i.ibb.co/TW1cT1G/marketing.webp",
+        "category": "popular",
+        "price": 22.99,
+        "duration": 3,
+        "name": "Michael Brown",
+        "email": "michael.brown@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of business and marketing concepts is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da626",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da627",
+                "name": "roksana Johnson",
+                "email": "roksana@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Creativity Workshop",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339c4",
+        "title": "Creativity Workshop",
+        "details": "Unleash creativity through artistic expression and innovative projects. Discover techniques to overcome creative blocks and cultivate a mindset of innovation. Suitable for artists, designers, writers, and anyone seeking to harness their creative potential. Join us on a journey of self-discovery and artistic exploration. Through a series of interactive workshops and hands-on exercises, you'll learn how to tap into your inner creativity and unleash your imagination. From painting and sculpting to creative writing and multimedia projects, this workshop offers something for everyone.",
+        "image": "https://i.ibb.co/8DS6Q3v/art.jpg",
+        "category": "popular",
+        "price": 26.99,
+        "duration": 6,
+        "name": "Sophia Johnson",
+        "email": "sophia.johnson@gmail.com",
+        "status": "approved",
+        "requirements": "No prior knowledge of art or creative skills is required.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da628",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da629",
+                "name": "roksana Johnson",
+                "email": "roksana@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to CodeCraft Pro",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339c5",
+        "title": "CodeCraft Pro",
+        "details": "Premium quality with advanced features for coding enthusiasts. Dive deep into software development, algorithm design, and programming best practices. Perfect for intermediate to advanced learners looking to elevate their coding skills to the next level. Take your coding expertise to new heights with CodeCraft Pro. Our comprehensive curriculum covers everything from data structures and algorithms to software architecture and design patterns. Whether you're a seasoned developer or just starting out, CodeCraft Pro has something for everyone. Join a community of like-minded programmers and take your coding skills to the next level.",
+        "image": "https://codecraft.tv/assets/images/site/featured-image.png",
+        "category": "programming",
+        "price": 79.99,
+        "duration": 3,
+        "name": "Alex Turner",
+        "email": "alex.turner@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of programming concepts and data structures is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da62a",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da62b",
+                "name": "roksana Johnson",
+                "email": "roksana@gmail.com"
+            }
+        ]
+    },
+    {
+        "_id": "65c46f30c83093a32b2339c6",
+        "title": "ElectroTech Toolkit",
+        "details": "Sleek design for modern electrical engineering projects. Explore the latest advancements in electronics, circuit design, and power systems. Ideal for electrical engineering students and professionals seeking practical skills and industry knowledge. Dive into the world of electrical engineering with ElectroTech Toolkit. Our comprehensive toolkit includes everything you need to tackle modern engineering projects with confidence. From circuit simulation software to power supply design tools, ElectroTech Toolkit has you covered. Join thousands of engineers worldwide and take your projects to the next level with ElectroTech Toolkit.",
+        "image": "https://i.ebayimg.com/images/g/V9wAAOxyrM5TGmum/s-l640.jpg",
+        "category": "engineering",
+        "price": 59.99,
+        "duration": 6,
+        "name": "Jessica White",
+        "email": "jessica.white@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of electrical engineering principles and circuit design is recommended.",
+        "instructors": []
+    },
+    {
+        "video": {
+            "title": "Introduction to Business Strategy",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339c7",
+        "title": "Business strategy",
+        "details": "Efficient and easy-to-use tools for business. Master strategic planning, market analysis, and business development to drive organizational success. Suitable for entrepreneurs, executives, and business professionals seeking to gain a competitive edge. Unlock the secrets of business success with our comprehensive business strategy course. Learn how to develop a winning business plan, analyze market trends, and outmaneuver your competitors. Whether you're an aspiring entrepreneur or a seasoned executive, our course will provide you with the tools and strategies you need to thrive in today's competitive business environment.",
+        "image": "https://i.ibb.co/QnkDM3G/startae-team-7t-XA8xwe4-W4-unsplash.jpg",
+        "category": "business",
+        "price": 39.99,
+        "duration": 3,
+        "name": "Brian Johnson",
+        "email": "brian.johnson@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of business and management principles is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da62c",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da62d",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to PhysicsLab Explorer",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339c9",
+        "title": "PhysicsLab Explorer",
+        "details": "Elegant design with versatile functionality for physics experiments. Explore the wonders of physics with our innovative PhysicsLab Explorer. From simple pendulum experiments to advanced electromagnetism simulations, our platform offers a comprehensive suite of tools for students and researchers alike. Dive into the world of scientific discovery and unlock the secrets of the universe with PhysicsLab Explorer.",
+        "image": "https://i.ibb.co/Nt6mMk0/dan-cristian-padure-h3kuh-YUCE9-A-unsplash.jpg",
+        "category": "physics",
+        "price": 69.99,
+        "duration": 3,
+        "name": "Daniel White",
+        "email": "daniel.white@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of physics principles and scientific inquiry is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da62e",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da62f",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Green Chemistry",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339ca",
+        "title": "Green chemistry",
+        "details": "Perfect for any chemistry laboratory, a great choice for chemists. Dive into the world of sustainable chemistry with Green Chemistry. Our comprehensive course covers everything from renewable energy sources to eco-friendly chemical synthesis methods. Join us in revolutionizing the field of chemistry and creating a greener, more sustainable future for all.",
+        "image": "https://i.pinimg.com/564x/94/1c/c5/941cc53200081f593f4fbf6dee826740.jpg",
+        "category": "chemistry",
+        "price": 49.99,
+        "duration": 6,
+        "name": "Emma Davis",
+        "email": "emma.davis@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of chemistry principles and laboratory techniques is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da630",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da631",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to C++ Programming",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339cb",
+        "title": "C++",
+        "details": "Object-oriented programming language to enhance your skills. Master the fundamentals of C++ programming with our comprehensive course. From basic syntax to advanced object-oriented concepts, our curriculum covers everything you need to know to become a proficient C++ developer. Whether you're a beginner or an experienced programmer, our course will help you take your skills to the next level.",
+        "image": "https://miro.medium.com/v2/da:true/resize:fit:1200/0*ZpjhBs0gR5oSd3Il",
+        "category": "programming",
+        "price": 59.99,
+        "duration": 3,
+        "name": "Matthew Brown",
+        "email": "matthew.brown@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of programming concepts and data structures is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da632",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da633",
+                "name": "Atia Rahman",
+                "email": "atia@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Resource Management",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339cc",
+        "title": "Resource management",
+        "details": "Learn managing an organization. Dive into the world of organizational management with our comprehensive resource management course. From strategic planning to operational efficiency, our curriculum covers all aspects of managing resources within an organization. Whether you're a seasoned manager or just starting out, our course will provide you with the knowledge and skills you need to succeed in today's competitive business environment.",
+        "image": "https://i.ibb.co/Bn8HV8C/alvaro-reyes-q-Wwp-Hwip31-M-unsplash.jpg",
+        "category": "business",
+        "price": 89.99,
+        "duration": 6,
+        "name": "Olivia Johnson",
+        "email": "olivia.johnson@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of business and management principles is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da634",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da635",
+                "name": "shakil Johnson",
+                "email": "shakil@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Analog Electronics",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339cd",
+        "title": "Analog electronics",
+        "details": "Enhance your home with this elegant collection. Explore the world of analog electronics with our curated collection of high-quality electronic components. From vintage vacuum tubes to modern integrated circuits, our collection has something for every electronics enthusiast. Join us in rediscovering the beauty and elegance of analog electronics.",
+        "image": "https://i.ibb.co/KDHZ4VP/mario-calvo-YOT6k-S8-Yt-EA-unsplash.jpg",
+        "category": "engineering",
+        "price": 59.99,
+        "duration": 3,
+        "name": "William Smith",
+        "email": "william.smith@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of electronic components and circuit design is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da636",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da637",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Web Development",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339ce",
+        "title": "Web development",
+        "details": "Smart and intuitive, simplifying your coding tasks. Explore the dynamic world of web development with our comprehensive course. From HTML and CSS fundamentals to advanced JavaScript frameworks like React and Angular, our curriculum covers everything you need to build modern, responsive websites and web applications. Join us and embark on a journey to become a skilled web developer.",
+        "image": "https://www.creativeitinstitute.com/images/course/course_1663052056.jpg",
+        "category": "programming",
+        "price": 39.99,
+        "duration": 6,
+        "name": "Isabella Johnson",
+        "email": "isabella.johnson@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of programming concepts and web technologies is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da638",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da639",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Business Mathematics",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339cf",
+        "title": "Business mathematics",
+        "details": "Comfortable and stylish for everyday wear. Dive into the world of business mathematics with our practical and engaging course. From calculating interest rates and analyzing financial statements to forecasting sales and managing budgets, our curriculum equips you with the mathematical tools needed for success in business. Join us and elevate your quantitative skills to excel in the corporate world.",
+        "image": "https://i.ibb.co/T0VyP9f/estee-janssens-a-Qfhbxail-Cs-unsplash.jpg",
+        "category": "business",
+        "price": 79.99,
+        "duration": 3,
+        "name": "Christopher Turner",
+        "email": "christopher.turner@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of mathematics and financial concepts is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da63a",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da63b",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da63c",
+                "name": "Razib Johnson",
+                "email": "razib@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Digital Electronics",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339d0",
+        "title": "Digital electronic",
+        "details": "Create a cozy atmosphere with this essential item. Dive into the world of digital electronics with our hands-on course. From designing digital circuits and programming microcontrollers to troubleshooting electronic systems, our curriculum covers all aspects of digital electronics. Join us and discover the exciting possibilities of the digital world.",
+        "image": "https://i.ibb.co/mycBQgf/marvin-meyer-SYTO3xs06f-U-unsplash.jpg",
+        "category": "engineering",
+        "price": 44.99,
+        "duration": 3,
+        "name": "Ava Davis",
+        "email": "ava.davis@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of electronic components and circuit design is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da63d",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da63e",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da63f",
+                "name": "Razib Johnson",
+                "email": "razib@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Fashion Design",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339d2",
+        "title": "Trendsetter Accessory",
+        "details": "Chic and trendy, a must-have for fashion enthusiasts. Elevate your style with our trendsetting accessory collection. From statement jewelry and designer handbags to fashionable scarves and sunglasses, our curated selection offers something for every fashion-forward individual. Join us and make a bold fashion statement.",
+        "image": "https://i.ibb.co/YPPCN0p/ha-nguy-n-Fs-VVCYcg-XG8-unsplash.jpg",
+        "category": "business",
+        "price": 69.99,
+        "duration": 6,
+        "name": "Madison Johnson",
+        "email": "madison.johnson@gmail.com",
+        "status": "approved",
+        "requirements": "No prior knowledge of fashion or design is required.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da640",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da641",
+                "name": "shusil Johnson",
+                "email": "shushil@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Electromagnetic Field",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339d3",
+        "title": "Electronicmagnetic field",
+        "details": "Organize your space with this practical solution. Our electronic magnetic field course offers a comprehensive exploration of electromagnetic phenomena and their applications. From magnetic field theory and electromagnetic induction to electromagnetic waves and transmission lines, our curriculum covers fundamental concepts and practical techniques essential for understanding and manipulating electromagnetic fields. Join us and unlock the power of electromagnetism in your engineering projects.",
+        "image": "https://intellizpress.com/image/cache/catalog/9781682516300-800x1000.jpg",
+        "category": "engineering",
+        "price": 54.99,
+        "duration": 6,
+        "name": "James White",
+        "email": "james.white@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of physics and electrical engineering principles is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da642",
+                "name": "Mr Nayon",
+                "email": "nayon@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da643",
+                "name": "Shuvo Johnson",
+                "email": "shuvo@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Network Analysis",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339d4",
+        "title": "Network analysis",
+        "details": "Experience the ultimate in audio quality. Dive into the world of network analysis and audio engineering with our immersive course. From signal processing and frequency analysis to audio synthesis and digital audio effects, our curriculum covers the theoretical foundations and practical techniques used in modern audio production and analysis. Join us and elevate your audio engineering skills to create breathtaking soundscapes.",
+        "image": "https://i.ibb.co/D9S1DP4/stephen-dawson-qwt-Ce-J5c-LYs-unsplash.jpg",
+        "category": "programming",
+        "price": 49.99,
+        "duration": 6,
+        "name": "Lily Davis",
+        "email": "lily.davis@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of audio engineering principles and digital signal processing is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da644",
+                "name": "Mr Siraj",
+                "email": "siraj@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da645",
+                "name": "Mr Johnson",
+                "email": "johnson@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Marketing Principles",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339d5",
+        "title": "Principle of marketing",
+        "details": "Timeless elegance for any occasion. Delve into the principles of marketing with our comprehensive course. From market segmentation and consumer behavior to product development and promotion strategies, our curriculum covers the essential concepts and practices used in modern marketing. Join us and master the art of marketing to create compelling campaigns and drive business success.",
+        "image": "https://i.ibb.co/DGj9tXS/melanie-deziel-U33f-Hry-BYBU-unsplash.jpg",
+        "category": "business",
+        "price": 79.99,
+        "duration": 6,
+        "name": "Logan Turner",
+        "email": "logan.turner@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of business and marketing principles is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da646",
+                "name": "muhammad ali",
+                "email": "ali@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "Introduction to Power Electronics",
+            "link": "https://www.youtube.com/watch?v=3v3y3v3"
+        },
+        "_id": "65c46f30c83093a32b2339d6",
+        "title": "Power electronics",
+        "details": "Transform your living space with this statement piece. Explore the world of power electronics with our practical course. From power semiconductor devices and converters to power management and control techniques, our curriculum covers the foundational principles and advanced applications of power electronics. Join us and harness the power of electricity to revolutionize your home and workplace.",
+        "image": "https://i.ibb.co/7Q7dXPh/claudio-schwarz-qj-X0-QBt-DXto-unsplash.jpg",
+        "category": "engineering",
+        "price": 79.99,
+        "duration": 3,
+        "name": "Chloe Davis",
+        "email": "chloe.davis@gmail.com",
+        "status": "approved",
+        "requirements": "Basic understanding of electrical engineering principles and circuit design is recommended.",
+        "instructors": [
+            {
+                "_id": "65d742870de88fe9870da647",
+                "name": "mr smith",
+                "email": "smith@gmail.com"
+            },
+            {
+                "_id": "65d742870de88fe9870da648",
+                "name": "michal Johnson",
+                "email": "jonson@gmail.com"
+            }
+        ]
+    },
+    {
+        "video": {
+            "title": "All video",
+            "link": "https://www.youtube.com/watch?v=eiKNcRAyAEE"
+        },
+        "_id": "65cf6e4846b1c794d3981293",
+        "title": "Accounting ",
+        "details": "Respected Chairmen of all the Departments are requested to kindly circulate the notice among the students of the last two semesters and graduates of concerned departments so that the job and internship seekers of BUBT can avail this opportunity.",
+        "image": "https://i.ibb.co/Y09n2ZB/423454228-415014460890257-4724931930947896875-n.png",
+        "category": "popular",
+        "price": 12,
+        "duration": 4,
+        "name": "Teacher1",
+        "email": "teacher1@gmail.com",
+        "status": "approved",
+        "instructors": [
+            {
+                "name": "atia",
+                "email": "atia@gmail.com",
+                "_id": "65cf6e4846b1c794d3981294"
+            }
+        ],
+        "requirements": "pc"
+    }
+]
