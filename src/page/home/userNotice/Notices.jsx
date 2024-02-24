@@ -3,30 +3,29 @@ import { IoMdNotificationsOff } from "react-icons/io";
 import { Link } from "react-router-dom";
 import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
 import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
+import useTeacherNotices from "../../../Hooks/useTeacherNotices";
 
 
 const Notices = () => {
+    const [teacher, refetch] = useTeacherNotices();
     const [userNotices, studentRefetch,] = useStudentSpecificNotices();
     const [teacherNotices, teacherRefetch,] = useTeacherSpecificNotices();
     const [searchNotices, setSearchNotices] = useState("");
     const [filteredNotices, setFilteredNotices] = useState([0]);
     studentRefetch();
     teacherRefetch();
-
+    refetch();
+    console.log('admin sent this-for student', teacherNotices);
     useEffect(() => {
-        const addData = userNotices.concat(teacherNotices);
+        const addData = [...teacher, ...userNotices, ...teacherNotices];
+        // const addData = userNotices.concat(teacherNotices);
         const searchItem = addData.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
-        // console.log(searchItem);
-    }, [userNotices, teacherNotices, searchNotices]);
+    }, [teacher,userNotices, teacherNotices, searchNotices]);
 
     const noticeData = [...filteredNotices].sort((a, b) => {
         return new Date(b.date) - new Date(a.date);
     });
-
-
-    // console.log(filteredNotices);
-    // console.log(userNotices);
 
     return (
         <div>
@@ -41,7 +40,7 @@ const Notices = () => {
                     <table className="table border  mb-8">
                         <thead className='text-base text-white'>
                             <tr>
-                                <th className='border '>Notice Title </th>
+                                <th className='border '>Notice Title ({filteredNotices?.length}) </th>
                                 <th className='border w-36 '>Notice Category</th>
                                 <th className='border w-36'>Published On</th>
                             </tr>
