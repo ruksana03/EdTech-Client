@@ -38,7 +38,7 @@ const AllNotices = () => {
   const handleAllNotices = () => {
     setFilteredNotices(notices)
   }
-
+console.log(notices);
   useEffect(() => {
     if (dateFilter) {
       const filterDateItem = notices2.filter((item) =>
@@ -82,6 +82,7 @@ const AllNotices = () => {
       }
     });
   };
+
 
   return (
     <div className="section-container w-full min-h-[calc(100vh-40px)] -z-10">
