@@ -83,6 +83,7 @@ const NewPostResources = () => {
         // Open the PDF link in a new tab
         window.open(pdfLink, '_blank');
     };
+    // this function work for  deleted pdf file 
     const handleDeletePdf = (pdfId) => {
         console.log(pdfId);
         Swal.fire({
@@ -95,6 +96,7 @@ const NewPostResources = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
+                // added deleted operation here 
                 try {
                     const response = axiosPublic.delete(`/delete-pdf/${pdfId}`);
                     console.log('PDF deleted:', response.data);
@@ -107,6 +109,7 @@ const NewPostResources = () => {
         });
 
     };
+    // this is courec name get from backend  here
     useEffect(() => {
         const fetchData = async () => {
             try {
