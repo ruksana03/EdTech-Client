@@ -73,6 +73,7 @@ import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
 // import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
+import ChatRoom from "../page/dashboard/Common/ChatRoom";
 
 
 
@@ -411,6 +412,10 @@ const router = createBrowserRouter([
             {
                 path: "dashboard",
                 element: <Dashboard />,
+            },
+            {
+                path: "chat",
+                element: <ChatRoom/>,
             },
             {
                 path: "profile",
