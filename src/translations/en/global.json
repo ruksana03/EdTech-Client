@@ -1,0 +1,85 @@
+{
+    "navbarDash": {
+        "dashboard": "Dashboard"
+    },
+    "navProfile": {
+        "profile": "Profile"
+    },
+    "navLogin": {
+        "login": "Login"
+    },
+    "navLogout": {
+        "logout": "Log Out"
+    },
+    "navHome": {
+        "home": "Home"
+    },
+    "navAllCourse": {
+        "all-course": "All Courses"
+    },
+    "navBlog": {
+        "blog": "Blog"
+    },
+    "navContact": {
+        "contact": "Contact"
+    },
+    "navQuiz": {
+        "quiz": "Quiz"
+    },
+    "banner": {
+        "slide1": {
+            "title": "Learn Anytime, Anywhere",
+            "subtitle": "Unlock Your Potential With Our Flexible Online Courses.",
+            "button": "Explore"
+        },
+        "slide2": {
+            "title": "Expert Instructors",
+            "subtitle": "Learn from industry experts with real-world experience."
+        },
+        "slide3": {
+            "title": "Interactive Learning",
+            "subtitle": "Engage with interactive lessons and quizzes."
+        },
+        "slide4": {
+            "title": "Join a Global Community",
+            "subtitle": "Connect with learners from around the world.",
+            "button": "Join Us"
+        },
+        "typewriter": {
+            "words": "Learn Anytime, Anywhere with Us!"
+        }
+    },
+    "popular": {
+        "title": "Top Courses",
+        "subtitle": "Explore our Popular Courses"
+    },
+    "about": {
+        "title": "About Us",
+        "sectionTitle1": "Meet The Team Behind InnavatED",
+        "sectionDescription1": "Discover the story, vision, and people driving our mission to\nrevolutionize education through technology. Learn about the\njourney and the community shaping the future of learning",
+        "sectionTitle2":"Empowering Education",
+        "sectionDescription2":"InnavatED Started With A Vision To Empower Education Through Technology, Making Learning Accessible, Interactive, And Engaging. Founded In 2023.",
+        "sectionTitle3":"Millions Of Learning Opportunities",
+        "sectionDescription3":"Every Month, We Strive To Provide Millions Of Learning Opportunities Through Our Diverse Courses And Interactive Educational Experiences.",
+        "sectionTitle4":"Growing Community",
+        "sectionDescription4":"Our Community Of Learners Continues To Inspire Us To Enhance Our Platform, Fostering A Collaborative And Supportive Learning Environment.",
+        "sectionTitle5":"Dedicated Team",
+        "sectionDescription5":"Our team of educators, developers, and experts is committed to providing a seamless and enriching learning experience for all users.",
+        "sectionTitle6":"Our Mission",
+        "sectionDescription6":"At InnavateED, Our Mission Is To Revolutionize Education By Providing Accessible, Innovative, And Personalized Learning Experiences. We Believe In The Power Of Technology To Transform Education And Empower Learners Worldwide.",
+        "sectionTitle7":"Our Team",
+        "sectionDescription7":"Comprising Dedicated Educators, Developers, And Industry Experts, Our Team Is Focused On Shaping The Future Of Education And Fostering A Dynamic Learning Community."
+    },
+    "team":{
+        "title":"Meet our professionals",
+        "description":"Our talented team of experts is dedicated to providing top-notch solutions to our clients. With a variety of skills and backgrounds, we collaborate to turn ideas into reality"
+    },
+    "teacher":{
+        "partnerTitle":"Become a Partner",
+        "partnerDescription":"Do You Want To Join Our Organization As An Associate? Confirm Your Request By Clicking The Button Below.",
+        "partnerButton":"Apply Now",
+        "teacherTitle":"Become a Teacher",
+        "teacherDescription":"Do You Want To Join Our Organization? Confirm Your Request By Clicking The Button Below.",
+        "teacherButton":"Get Started"
+    }
+}

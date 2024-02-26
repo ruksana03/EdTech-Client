@@ -31,7 +31,7 @@ const StudentMenu = ({ isActive }) => {
                    fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
                    color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
                }} className={`flex gap-3   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
-                   <Link to={`/dashboard${link}`} className={`flex gap-3 my-2 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                   <Link to={`/dashboard${link}`} className={`flex justify-center items-center gap-3 my-2 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                        {icons[index]}
                        <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{studentMenu[index]}</p>
                         

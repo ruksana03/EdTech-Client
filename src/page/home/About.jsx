@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   FaFlagCheckered,
   FaNotesMedical,
@@ -6,17 +7,16 @@ import {
 } from "react-icons/fa";
 
 const About = () => {
+  const { t } = useTranslation('global');
   return (
     <div>
       <div className="section-container mt-16">
-        <p className="headtext__cormorant pb-2">About us</p>
+        <p className="headtext__cormorant pb-2">{t('about.title')}</p>
         <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
           <div className="w-full lg:w-6/12 dark:text-gray-400">
-            <h2 className="w-full p__cormorant">Meet the Team Behind InnavatED</h2>
+            <h2 className="w-full p__cormorant">{t('about.sectionTitle1')}</h2>
             <p className="font-normal text-base leading-6 p__opensans ">
-              Discover the story, vision, and people driving our mission to
-              revolutionize on education through technology. Learn about the
-              journey and the community shaping the future of learning
+             {t('about.sectionDescription1')}
             </p>
           </div>
           <div className="w-full lg:w-6/12">
@@ -60,11 +60,9 @@ const About = () => {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
-            <p className="p__cormorant mt-6">Empowering Education</p>
+            <p className="p__cormorant mt-6">{t('about.sectionTitle2')}</p>
             <p className="font-normal text-base leading-6 p__opensans mt-6">
-              InnavatED started with a vision to empower education through
-              technology, making learning accessible, interactive, and engaging.
-              Founded in 2023.
+            {t('about.sectionDescription2')}
             </p>
           </div>
           <div
@@ -72,11 +70,9 @@ const About = () => {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
-            <p className="p__cormorant mt-6">Millions of Learning Opportunities</p>
+            <p className="p__cormorant mt-6">{t('about.sectionTitle3')}</p>
             <p className="font-normal text-base leading-6 p__opensans mt-6">
-              Every month, we strive to provide millions of learning
-              opportunities through our diverse courses and interactive
-              educational experiences.
+            {t('about.sectionDescription3')}
             </p>
           </div>
           <div
@@ -85,11 +81,9 @@ const About = () => {
             data-aos-duration="2000"
             className="sm:block hidden"
           >
-            <p className="p__cormorant mt-6">Growing Community</p>
+            <p className="p__cormorant mt-6">{t('about.sectionTitle4')}</p>
             <p className="font-normal text-base leading-6 p__opensans mt-6">
-              Our community of learners continues to inspire us to enhance our
-              platform, fostering a collaborative and supportive learning
-              environment.
+            {t('about.sectionDescription4')}
             </p>
           </div>
         </div>
@@ -105,11 +99,9 @@ const About = () => {
         </div>
         <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
           <div>
-            <p className="p__cormorant mt-6 ">Dedicated Team</p>
+            <p className="p__cormorant mt-6 ">{t('about.sectionTitle5')}</p>
             <p className="font-normal text-base leading-6 p__opensans mt-6">
-              Our team of educators, developers, and experts is committed to
-              providing a seamless and enriching learning experience for all
-              users.
+            {t('about.sectionDescription5')}
             </p>
           </div>
         </div>
@@ -122,12 +114,9 @@ const About = () => {
             data-aos-duration="2000"
             className="w-full lg:w-6/12"
           >
-            <h2 className="p__cormorant">Our Mission</h2>
+            <h2 className="p__cormorant">{t('about.sectionTitle6')}</h2>
             <p className="font-normal text-base leading-6 p__opensans mt-6 w-full lg:w-10/12 xl:w-9/12">
-              At InnavateED, our mission is to revolutionize education by
-              providing accessible, innovative, and personalized learning
-              experiences. We believe in the power of technology to transform
-              education and empower learners worldwide.
+            {t('about.sectionDescription6')}
             </p>
           </div>
           <div className="w-full lg:w-6/12">
@@ -141,11 +130,9 @@ const About = () => {
                   data-aos-easing="ease-out-cubic"
                   data-aos-duration="2000"
                 >
-                  <p className="p__cormorant">Our Team</p>
+                  <p className="p__cormorant">{t('about.sectionTitle7')}</p>
                   <p className="mt-2 font-normal text-base leading-6 p__opensans ">
-                    Comprising dedicated educators, developers, and industry
-                    experts, our team is focused on shaping the future of
-                    education and fostering a dynamic learning community.
+                  {t('about.sectionDescription7')}
                   </p>
                 </div>
               </div>

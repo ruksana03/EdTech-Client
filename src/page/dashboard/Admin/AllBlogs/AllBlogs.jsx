@@ -54,6 +54,7 @@ const AllBlogs = () => {
           <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl">
             <tr  >
               <th className="py-3">#</th>
+              <th className="py-3">Image</th>
               <th className="py-3">Name</th>
               <th className="py-3">Email</th>
               <th className="py-3">Blog Title</th>
@@ -69,16 +70,18 @@ const AllBlogs = () => {
                 className="p__opensans"
               >
                 <td className="py-3 font-bold">{index + 1}</td>
-                <td className="py-3 font-bold">{blog.userName}</td>
-                <td className="py-3 font-bold">{blog. userEmail}</td>
-                <td className="py-3 font-bold cursor-pointer">{blog.title}</td>
+                <td className="py-3 font-bold"><img className="rounded-full w-8 h-8" src={blog?.imageUrl} alt="" /></td>
+
+                <td className="py-3 font-bold">{blog?.userName}</td>
+                <td className="py-3 font-bold">{blog?. userEmail}</td>
+                <td className="py-3 font-bold cursor-pointer">{blog?.title}</td>
                 <td className="py-3 text-red-500 font-bold cursor-pointer">
                 <button onClick={() => handleView(blog)}>
                   <IoMdEye className="text-xl" />
                 </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(blog._id)}>
+                  <button onClick={() => handleDelete(blog?._id)}>
                     <MdDelete className="text-xl" />
                   </button>
                 </td>

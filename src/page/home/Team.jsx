@@ -1,12 +1,13 @@
+import { useTranslation } from "react-i18next";
+
 const Team = () => {
+  const { t } = useTranslation('global');
   return (
     <div className="my-16 section-container">
       <div className="space-y-3 dark:text-gray-400 text-center">
-        <h2 className="headtext__cormorant "> Meet our professionals</h2>
+        <h2 className="headtext__cormorant "> {t('team.title')}</h2>
         <h4 className="p__cormorant">
-          Our talented team of experts is dedicated to delivering top-notch
-          solutions to our clients. With a diverse range of skills and
-          backgrounds, we collaborate to turn ideas into reality
+        {t('team.description')}
         </h4>
       </div>
       <div className="flex grid-flow-row items-center gap-12 justify-center flex-wrap mt-12">
@@ -38,7 +39,7 @@ const Team = () => {
           <h3 className="text-center p__cormorant font-medium  mt-1">
             Hasibul Hasan
           </h3>
-          <p className="font-medium p__opensans">FrontEnd Developer</p>
+          <p className="font-medium p__opensans">Backend Developer</p>
         </div>
         <div
           data-aos="flip-right"
@@ -103,6 +104,22 @@ const Team = () => {
             Al Nayem
           </h3>
           <p className="font-medium p__opensans">Backend Developer</p>
+        </div>
+        <div
+          data-aos="flip-right"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1500"
+          className="border  card   border-first p-6 shadow-md"
+        >
+          <img
+            src="https://ibb.co/K9zBSwb"
+            className="w-16 h-16 rounded-full mx-auto"
+            alt=" Shaikot photo"
+          />
+          <h3 className="text-center p__cormorant font-medium mt-1">
+          Saiful Islam Shaikot
+          </h3>
+          <p className="font-medium p__opensans">FrontEnd Developer</p>
         </div>
       </div>
     </div>

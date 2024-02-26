@@ -1,16 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from './useAxiosPublic';
 
+
 const useGetAllPdf = () => {
-    const { data: allPdf = [], isLoading: loading, refetch } = useQuery({
-        queryKey: ["allPdf"],
-        queryFn: async () => {
-            const res = await useAxiosPublic.get("/get-pdf");
-            return res.data; // Corrected this line
-        }
-    });
-    console.log("this get pdf", allPdf);
-    return [allPdf, loading, refetch]; // Changed return format to an array
+    const axiosPublic= useAxiosPublic()
+    const { data: allPdf = [],  refetch , isLoading: loading,} = useQuery({
+            queryKey: ['AllPdf'],
+            queryFn: async () => {
+              const res = await axiosPublic('/get-pdf');
+              console.log("Response data: from hook", res.data)
+              return res.data;
+            },
+          });
+        
+        
+          return { allPdf, loading, refetch };
 };
 
 export default useGetAllPdf;
+
+
+
+// const { data: AllBlogs = [], isLoading: loading, refetch } = useQuery({
+//     queryKey: ['AllBlogs'],
+//     queryFn: async () => {
+//       const res = await axiosSecure('/blogs');
+//       return res.data;
+//     },
+//   });
+
+
+//   return { AllBlogs, loading, refetch };
+// };

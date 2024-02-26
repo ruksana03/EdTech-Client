@@ -9,6 +9,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { Outlet } from "react-router-dom";
 import Navber from "../components/header/navbar/Navber";
 import Footer from "../page/home/Footer/Footer";
+import 'regenerator-runtime/runtime'
 
 // import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Preloader from "../components/shared/Preloader";
@@ -51,7 +52,7 @@ const MainLayout = () => {
     const loadingData = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 2000)
+      }, 1000)
     }
     loadingData();
   }, [])

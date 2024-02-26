@@ -15,6 +15,7 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
     const [title, setTitle] = useState('');
     const [forCourses, setForCourses] = useState('');
     const [start, setStart] = useState(new Date());
+    const [liveLink, setLiveLink] = useState('');
     const [end, setEnd] = useState(new Date());
     const [courses, setCourses] = useState([]);
 
@@ -42,8 +43,10 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
             title,
             start,
             end,
-            forCourses
+            forCourses,
+            liveLink
         })
+
         closeModal();
     }
     return (
@@ -90,6 +93,12 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
                                                     {courses?.map(noti => <option key={noti?._id} defaultValue="Selected for Courses">
                                                         {noti?.category}</option>)}
                                                 </select>
+                                            </div>
+                                        </div>
+                                       <div>
+                                            <label className="font-bold" htmlFor="description">Provide Your Link(if any) *</label>
+                                            <div>
+                                                <input type='url' placeholder='provide link....' onChange={() => setLiveLink(event.target.value)} className='w-full mt-2' />
                                             </div>
                                         </div>
                                         <div>
