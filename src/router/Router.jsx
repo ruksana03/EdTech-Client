@@ -73,6 +73,7 @@ import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
 // import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
+import AddMember from "../page/dashboard/Admin/AllMembers/AddMember";
 
 
 
@@ -266,6 +267,10 @@ const router = createBrowserRouter([
             {
                 path: "allpartners",
                 element: <Partners />,
+            },
+            {
+                path: "add-member",
+                element:<AddMember/>
             },
             // Student route
             {
