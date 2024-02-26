@@ -38,14 +38,7 @@ const NoticeHome = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem).reverse();
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    // console.log(currentItems);
-    // console.log(filteredNotices);
-    // console.log(notices);
-
     return (
-        //https://i.ibb.co/G73nQT5/unnamed.jpg 
-        //
         <div>
             <div className="section-container">
                 <div className="flex items-center flex-col-reverse md:flex-row gap-5 lg:flex-row justify-between w-full my-5">

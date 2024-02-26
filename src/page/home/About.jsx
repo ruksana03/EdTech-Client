@@ -15,7 +15,7 @@ const About = () => {
         <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
           <div className="w-full lg:w-6/12 dark:text-gray-400">
             <h2 className="w-full p__cormorant">{t('about.sectionTitle1')}</h2>
-            <p className="font-normal text-base leading-6 p__opensans ">
+            <p className="font-normal text-base leading-6 p__cormorant ">
              {t('about.sectionDescription1')}
             </p>
           </div>
@@ -54,7 +54,7 @@ const About = () => {
           <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
         </div>
 
-        <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+        <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4 ">
           <div
             data-aos="flip-left"
             data-aos-easing="ease-out-cubic"

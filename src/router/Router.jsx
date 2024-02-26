@@ -73,6 +73,9 @@ import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
 // import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
+import AddMember from "../page/dashboard/Admin/AllMembers/AddMember";
+import Man from "../page/QuizeComponent/Man";
+// import UpdateMemberModal from "../page/dashboard/Admin/AllMembers/UpdateMemberModal";
 
 
 
@@ -92,10 +95,10 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
-            // {
-            //     path: '/quest',
-            //     element: <Man />
-            // },
+            {
+                path: '/quest',
+                element: <Man />
+            },
             {
                 path: '/man',
                 element: <Questions />
@@ -188,13 +191,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'blog-details/:id',
-
                 element: <BlogDetails />,
                 loader: ({ params }) => getOneBlog(params.id),
             },
             {
                 path: 'blog-updated/:id',
-
                 element: <UpdatedBlog />,
                 loader: ({ params }) => getOneBlog(params.id),
             },
@@ -243,10 +244,10 @@ const router = createBrowserRouter([
                 path: "allBlogs",
                 element: <AllBlogs />,
             },
-            // {
-            //     path: "quiz",
-            //     element: <AddQuiz />
-            // },
+            {
+                path: "quiz",
+                element: <AddQuiz />
+            },
             {
                 path: "allCourses",
                 element: <AllCourses />,
@@ -267,6 +268,11 @@ const router = createBrowserRouter([
                 path: "allpartners",
                 element: <Partners />,
             },
+            {
+                path: "add-member",
+                element:<AddMember/>
+            },
+          
             // Student route
             {
                 path: "my-class",

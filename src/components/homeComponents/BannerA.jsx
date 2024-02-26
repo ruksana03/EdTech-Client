@@ -13,7 +13,7 @@ import img3 from '../../assets/home/03.jpg';
 import img4 from '../../assets/home/04.jpg';
 
 const Banner = () => {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   const slides = [
     {

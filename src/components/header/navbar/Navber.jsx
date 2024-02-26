@@ -79,7 +79,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="lg:fixed top-0 left-0 w-full z-50">
+    <div className="lg:fixed top-0 left-0 w-full z-10">
       <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div
