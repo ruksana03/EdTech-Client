@@ -30,7 +30,6 @@ export default function Calendar() {
         setIsOpen(false)
     }
     const onEventAdded = async (event) => {
-        console.log(event);
         await axiosPublic.post('/create-rutine', event)
         toast.success(`${event.title} created successfully`);
         let calendarApi = calendarRef.current.getApi()
@@ -54,7 +53,7 @@ export default function Calendar() {
     function handleDeleteClick(data) {
         const id = data?.event?.extendedProps?._id;
         if(id === undefined){
-            return toast.error('something is wrong! please try another')
+            return toast.error('something is wrong! please try later!')
         }
         setShowDeleteModal(true)
         setIdToDelete(id)

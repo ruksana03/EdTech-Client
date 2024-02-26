@@ -1,6 +1,6 @@
 import Calendar from "./Calendar";
 
-const TRutine = () => {
+const TRoutine = () => {
     return (
         <div className="mt-11">
             <Calendar />
@@ -8,5 +8,5 @@ const TRutine = () => {
     );
 };
 
-export default TRutine;
+export default TRoutine;
 
