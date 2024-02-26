@@ -74,10 +74,6 @@ import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
-<<<<<<< HEAD
-import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
-=======
->>>>>>> a8ff8c85726f6c48a899e55c2c15346f30f68ed4
 
 
 
