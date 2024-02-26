@@ -268,10 +268,10 @@ const router = createBrowserRouter([
                 path: "allpartners",
                 element: <Partners />,
             },
-            {
-                path: "add-member",
-                element:<AddMember/>
-            },
+            // {
+            //     path: "add-member",
+            //     element:<AddMember/>
+            // },
             // Student route
             {
                 path: "my-class",
