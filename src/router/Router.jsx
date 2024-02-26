@@ -65,15 +65,16 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import SpeechToText from "../components/SpeechToText/SpeechToText";
-import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRutine";
-import SRutine from "../page/dashboard/Student/rutine/SRutine";
+import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
+import SRutine from "../page/dashboard/Student/rutine/SRoutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
 // import Man from "../page/QuizeComponent/man";
 // import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
-import AddMember from "../page/dashboard/Admin/AllMembers/AddMember";
+import ChatRoom from "../page/dashboard/Common/ChatRoom";
+import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 
 
 
@@ -416,6 +417,10 @@ const router = createBrowserRouter([
             {
                 path: "dashboard",
                 element: <Dashboard />,
+            },
+            {
+                path: "chat",
+                element: <ChatRoom/>,
             },
             {
                 path: "profile",

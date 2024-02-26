@@ -97,8 +97,8 @@ const CreateNotice = () => {
                         <label className="text-xl font-bold" htmlFor="description">Set Our Course Here*</label>
                         <select className=" border border-gray-300 focus:outline-none bg-black text-white focus:border-first leading-tight input" name="courseName" required>
                             <option disabled selected>set course</option>
-                            {courses?.map(noti => <option key={noti?._id} defaultValue={noti?.category}>
-                                {noti?.category}</option>)}
+                            {courses?.map(noti => <option key={noti?._id} defaultValue={noti?.title}>
+                                {noti?.title}</option>)}
                         </select>
                     </div>
                     <div className="flex items-end justify-end mt-3 gap-3">
