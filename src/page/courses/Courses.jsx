@@ -117,7 +117,7 @@ const Courses = () => {
     <div>
       {/* banner text */}
       <div
-        className="hero min-h-[80vh] mb-12"
+        className="hero min-h-[80vh]  "
         // style={{
         //   backgroundImage:
         //     "url(https://i.ibb.co/z6Fz8Z2/jess-bailey-Bg14l3h-SAs-A-unsplash.jpg)",
@@ -148,7 +148,7 @@ const Courses = () => {
       </div>
 
       {/* courses */}
-      <div className="section-container mt-16">
+      <div className="section-container  ">
         {/* btns and sorts */}
         <div className="flex flex-col md:flex-row space-y-3 md:justify-between items-center">
           {/* all category data */}
@@ -233,7 +233,7 @@ const Courses = () => {
         </div>
 
         {/* classes card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 mb-16">
           {currentItems?.map((item) => (
             <Cards key={item._id} item={item} />
           ))}
@@ -247,7 +247,7 @@ const Courses = () => {
         }).map((_, index) => (
           <button
             className={`px-3 py-1 mx-1 rounded-full ${
-              currentPage === index + 1 ? "bg-first text-white" : "bg-gray-200"
+              currentPage === index + 1 ? "bg-first text-black" : "bg-gray-200"
             }`}
             key={index + 1}
             onClick={() => paginate(index + 1)}

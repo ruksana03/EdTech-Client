@@ -38,7 +38,7 @@ const Navbar = () => {
   const studentData = [...teacher, ...userNotices, ...teacherNotices];
   // const [t, i18n] = useTranslation("global");
 
-
+// console.log(commonNotices);
   const [t, i18n] = useTranslation("global");
   const [isEnglish, setIsEnglish] = useState(i18n.language === "en");
 

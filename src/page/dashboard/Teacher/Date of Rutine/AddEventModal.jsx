@@ -15,7 +15,7 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
     const [title, setTitle] = useState('');
     const [forCourses, setForCourses] = useState('');
     const [start, setStart] = useState(new Date());
-    const [liveLink, setLiveLink] = useState('');
+    const [liveLink, setLiveLink] = useState(null);
     const [end, setEnd] = useState(new Date());
     const [courses, setCourses] = useState([]);
 
@@ -32,6 +32,7 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
         };
         item();
     }, []);
+
     const onSubmit = (e) => {
         e.preventDefault();
         if (title === '') {
@@ -46,7 +47,6 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
             forCourses,
             liveLink
         })
-
         closeModal();
     }
     return (
@@ -91,7 +91,7 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
                                                 <select className="w-full mt-2" name="forCourses" onChange={() => setForCourses(event.target.value)} required>
                                                     <option disabled selected>set course</option>
                                                     {courses?.map(noti => <option key={noti?._id} defaultValue="Selected for Courses">
-                                                        {noti?.category}</option>)}
+                                                        {noti?.title}</option>)}
                                                 </select>
                                             </div>
                                         </div>
