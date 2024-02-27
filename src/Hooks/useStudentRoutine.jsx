@@ -19,7 +19,6 @@ const useStudentRoutine = () => {
         }
     }, [user]);
     const specifcRoutine = currentForRoutine[0]?.title.toString();
-    console.log(specifcRoutine);
     const { data: events, refetch } = useQuery({
         queryKey: [specifcRoutine, 'forCourses'],
         queryFn: async () => {
