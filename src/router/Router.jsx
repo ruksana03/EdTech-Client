@@ -75,6 +75,7 @@ import Partners from "../page/dashboard/Admin/Partners/Partners";
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
 import Certificate from "../page/dashboard/Student/certificates/Certificate";
+import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertificate";
 
 
 
@@ -356,6 +357,10 @@ const router = createBrowserRouter([
             {
                 path:"certifications",
                 element:<Certificate />
+            },
+            {
+                path:"certifications/show",
+                element:<ShowCertificate />
             },
             {
                 path:"record",
