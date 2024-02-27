@@ -1,22 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, {useState } from 'react';
 import './certificate.css'
 import { saveAsPng } from 'save-html-as-image';
 import PDF from '../pdf/PDF';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import Navbar from '../Header/Navbar/Navbar';
-import { AuthContext } from '../../firebase/AuthProvider';
+import { useSelector } from 'react-redux';
 
 const Certificate = () => {
     const [name, setName] = useState('');
     const componentRef = React.createRef()
+    const user = useSelector(state => state.data.user.user);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const common = document.querySelector("#certificate")
         localStorage.setItem('name', name)
         await saveAsPng(common)
     }
-    const { user } = useContext(AuthContext);
-    const anotherName = user?.displayName
     // console.log('finding this name is====>', user);
 
 
@@ -25,9 +24,9 @@ const Certificate = () => {
             <Navbar />
             <div className='mb-20 p-5'>
                 <div className='flex items-center justify-center'>
-                    <PDFDownloadLink document={<PDF anotherName={anotherName} />} fileName='certificate.pdf'>
+                    <PDFDownloadLink document={<PDF anotherName={user?.name} />} fileName='certificate.pdf'>
                         {
-                            (({ loading }) => loading ? <button>Loading....</button> : anotherName && <button className='btn btn-success'>Fast Download pdf Now</button>)
+                            (({ loading }) => loading ? <button>Loading....</button> : user?.name && <button className='btn btn-success'>Fast Download pdf Now</button>)
                         }
                     </PDFDownloadLink>
                     {/* <PDF anotherName={anotherName} /> */}
