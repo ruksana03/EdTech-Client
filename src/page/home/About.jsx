@@ -12,14 +12,14 @@ const About = () => {
     <div>
       <div className="section-container mt-16">
         <p className="headtext__cormorant pb-2">{t('about.title')}</p>
-        <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
+        <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12 overflow-hidden">
           <div className="w-full lg:w-6/12 dark:text-gray-400">
             <h2 className="w-full p__cormorant">{t('about.sectionTitle1')}</h2>
             <p className="font-normal text-base leading-6 p__opensans ">
              {t('about.sectionDescription1')}
             </p>
           </div>
-          <div className="w-full lg:w-6/12">
+          <div data-aos="fade-left" className="w-full lg:w-6/12 overflow-hidden">
             <img
               className="lg:block hidden w-full"
               src="https://i.ibb.co/bWXkkk7/jason-goodman-vbxy-Fxlgpj-M-unsplash.jpg"

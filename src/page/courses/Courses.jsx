@@ -137,7 +137,7 @@ const Courses = () => {
             <div className="my-4">
               <input
                 type="text"
-                placeholder="Search courses..."
+                placeholder="  Search courses..."
                 value={searchInput}
                 onChange={handleSearchChange}
                 className="border text-black  p-2 rounded-md"
