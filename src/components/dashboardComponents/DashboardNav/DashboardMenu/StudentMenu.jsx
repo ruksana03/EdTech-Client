@@ -8,7 +8,7 @@ import { FaCalendarDay } from "react-icons/fa";
 
 
 const StudentMenu = ({ isActive }) => {
-    const studentLinks = ['/my-class','/my-lab','/resources','/recommended','/studentdashboard','/rutine','/my-enroll','certifications'];
+    const studentLinks = ['/my-class','/my-lab','/resources','/recommended','/studentdashboard','/rutine','/my-enroll','/certifications'];
     const studentMenu = ['My Class','My Lab','Resources','Recommended','student dashboard', 'Rutine','My Enroll','Certifications'];
     
     const icons = [

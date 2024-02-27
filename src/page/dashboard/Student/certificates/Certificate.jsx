@@ -1,10 +1,9 @@
 import React, {useState } from 'react';
 import './certificate.css'
 import { saveAsPng } from 'save-html-as-image';
-import PDF from '../pdf/PDF';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import Navbar from '../Header/Navbar/Navbar';
 import { useSelector } from 'react-redux';
+import PDF from './pdf/PDF';
 
 const Certificate = () => {
     const [name, setName] = useState('');
@@ -21,8 +20,7 @@ const Certificate = () => {
 
     return (
         <>
-            <Navbar />
-            <div className='mb-20 p-5'>
+            <div className='my-20 p-5'>
                 <div className='flex items-center justify-center'>
                     <PDFDownloadLink document={<PDF anotherName={user?.name} />} fileName='certificate.pdf'>
                         {
@@ -40,7 +38,7 @@ const Certificate = () => {
                 </div>
                 <div>
                     <div id='certificate' ref={componentRef} className='w-full h-full certificate relative'>
-                        <h1 className='absolute top-24 md:top-[232px] lg:top-[300px] xl:top-[400px] 2xl:top-[500px] left-0 right-0 text-2xl md:text-5xl lg:text-7xl font-bold capitalize text-center font'>{name}</h1>
+                        <h1 className='absolute top-[105px] md:top-44 lg:top-[230px] xl:top-[390px] 2xl:top-[500px] left-0 right-0 text-2xl md:text-5xl lg:text-7xl font-bold capitalize text-center font'>{name}</h1>
                         <img src='https://i.ibb.co/3yMGWhT/certificate-new.png' alt="certificate" className='w-full h-full' />
                         <h1 className='absolute top-[350px] left-0 right-0 text-3xl md:text-4xl lg:text-6xl font-bold capitalize text-center'></h1>
                     </div>
