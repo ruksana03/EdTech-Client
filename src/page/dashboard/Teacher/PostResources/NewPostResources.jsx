@@ -18,7 +18,6 @@ const NewPostResources = () => {
     const { allPdf, refetch } = useGetAllPdf()
     const user = useSelector(state => state.data.user.user);
     const [courses, setCourses] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
     // console.log("this is cource name",courses);
     const axiosPublic = useAxiosPublic()
     const teacherName = user?.name;
