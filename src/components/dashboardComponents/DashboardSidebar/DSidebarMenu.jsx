@@ -34,9 +34,8 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
         }
         return null;
     };
-
-    const links = ['/dashboard','/chat', '/notes','/my-cart', '/profile'];
-    const menuNames = ['Dashboard','Chit-Chat', 'Notes','My Cart', 'Profile'];
+    const links = ['/dashboard','/chat', '/notes', '/my-cart', '/profile'];
+    const menuNames = ['Dashboard','Chit-Chat', 'Notes', 'My Cart', 'Profile'];
     const icons = [
         <MdOutlineDashboardCustomize key={links[0]} className="text-2xl" />,
         <FaRocketchat key={links[1]} className="text-2xl" />,
@@ -95,22 +94,24 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
             </div>
 
             <hr className="border border-first  " />
-            {links.map((link, index) => (
-                <ol key={link} className={`flex gap-3 text-sm   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+            {
+                links.map((link, index) => (
+                    <ol key={link} className={`flex gap-3 text-sm   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
 
-                    <li style={{
-                        padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
+                        <li style={{
+                            padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
 
-                        fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
-                        color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
-                    }} className={`flex gap-3 font-alt text-base ${isActive ? 'flex-col justify-center items-center' : ''}`}>
-                        <Link to={`/dashboard${link}`} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
-                            {icons[index]}
-                            <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{menuNames[index]}</p>
-                        </Link>
-                    </li>
-                </ol>
-            ))}
+                            fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
+                            color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
+                        }} className={`flex gap-3 font-alt text-base ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                            <Link to={`/dashboard${link}`} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                                {icons[index]}
+                                <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{menuNames[index]}</p>
+                            </Link>
+                        </li>
+                    </ol>
+                ))
+            }
         </div>
     );
 };

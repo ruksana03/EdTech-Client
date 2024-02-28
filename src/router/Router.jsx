@@ -48,7 +48,6 @@ import CreateNotice from "../page/dashboard/Teacher/noticeCreate/CreateNotice";
 import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
-import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import Applications from "../page/dashboard/Admin/application/Applications";
 import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
@@ -143,10 +142,10 @@ const router = createBrowserRouter([
                 path: "join-teacher",
                 element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
             },
-            {
-                path: "common-notice-details",
-                element: <CommonNoticeDetails />,
-            },
+            // {
+            //     path: "common-notice-details",
+            //     element: <CommonNoticeDetails />,
+            // },
             {
                 path: "/notices",
                 element: <NoticeBanner />,

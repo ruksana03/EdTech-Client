@@ -9,9 +9,9 @@ const NoticeHomeDetails = () => {
     const {image,date,title,description,} = data || {};
     // console.log(data);
     return (
-        <div className="section-container pt-24 pb-12 text-white">
-            <div className="">
-                <h1 className="text-xl font-semibold ">{title}</h1>
+        <div className="section-container pt-24 pb-12 text-white font-serif">
+            <div className="font-serif">
+                <h1 className="text-2xl font-semibold ">{title}</h1>
                 <p>Published on {date?.slice(0,10)}</p>
                 <hr className="my-8" />
             </div>

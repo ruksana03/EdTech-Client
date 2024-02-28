@@ -10,7 +10,7 @@ const TeacherNoticeTable = ({ notice,handleDelete }) => {
     const { _id, date, title } = notice || {};
     return (
         <>
-        <tr className='border overflow-x-scroll w-2/3  p__opensans cursor-pointer'>
+        <tr className='border overflow-x-scroll w-2/3 font-serif text-white cursor-pointer'>
             <th>
                 <label>
                     <input type="checkbox" className="checkbox" />
