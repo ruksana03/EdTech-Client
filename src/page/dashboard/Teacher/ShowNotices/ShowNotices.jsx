@@ -149,7 +149,7 @@ const ShowNotices = () => {
                     <div className="w-full overflow-x-auto overflow-y-hidden ">
                         <table className="table border w-full h-full overflow-x-scroll">
                             {/* head */}
-                            <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl">
+                            <thead className="bg-gradient-to-r from-second to-first text-white p__cormorant font-alt text-xl">
                                 <tr >
                                     <th className="border w-auto md:w-8 lg:w-8"></th>
                                     <th className="border w-auto md:w-8 lg:w-8"></th>

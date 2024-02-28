@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import { Link } from "react-router-dom";
 
 // import { Link } from "react-router-dom";
@@ -15,6 +14,7 @@ const Cards = ({ item }) => {
        
       <div className="w-[180px] aspect-square relative z-20 after:absolute after:h-1 after:w-full after:opacity-0 after:bg-[#7b956a] after:top-8 after:left-0 after:group-hover:opacity-100 after:translate-x-1/2 after:translate-y-1/2 after:-z-20 after:group-hover:w-full after:transition-all after:duration-300 after:group-hover:origin-right after:group-hover:-translate-x-1/2 group-hover:translate-x-[80%] transition-all duration-300">
         <img src={image} alt="" className="h-48" />
+
         <div className="tooltips absolute top-0 left-0 -translate-x-[150%] p-2 flex flex-col items-start gap-10 transition-all duration-300 group-hover:-translate-x-full">
           <p className=" font-semibold font-alt text-white  uppercase group-hover:delay-500 transition-all opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-500">
             ${price}

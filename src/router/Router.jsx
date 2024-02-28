@@ -48,7 +48,6 @@ import CreateNotice from "../page/dashboard/Teacher/noticeCreate/CreateNotice";
 import NoticeBanner from "../page/Notices/NoticeBanner";
 import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
-import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import Applications from "../page/dashboard/Admin/application/Applications";
 import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
@@ -76,6 +75,8 @@ import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
 import Certificate from "../page/dashboard/Student/certificates/Certificate";
 import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertificate";
+import Man from './../page/QuizeComponent/Man';
+import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 
 
 
@@ -95,10 +96,10 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
-            // {
-            //     path: '/quest',
-            //     element: <Man />
-            // },
+            {
+                path: '/quest',
+                element: <Man />
+            },
             {
                 path: '/man',
                 element: <Questions />
@@ -142,10 +143,10 @@ const router = createBrowserRouter([
                 path: "join-teacher",
                 element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
             },
-            {
-                path: "common-notice-details",
-                element: <CommonNoticeDetails />,
-            },
+            // {
+            //     path: "common-notice-details",
+            //     element: <CommonNoticeDetails />,
+            // },
             {
                 path: "/notices",
                 element: <NoticeBanner />,
@@ -270,10 +271,10 @@ const router = createBrowserRouter([
                 path: "allpartners",
                 element: <Partners />,
             },
-            // {
-            //     path: "add-member",
-            //     element:<AddMember/>
-            // },
+            {
+                path: "add-member",
+                element:<AddMember/>
+            },
             // Student route
             {
                 path: "my-class",

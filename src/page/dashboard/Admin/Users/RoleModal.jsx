@@ -34,20 +34,17 @@ const RoleModal = ({ userToChangeRole, refetch }) => {
     return (
         <div>
             <dialog id="user_role_modal" className="modal">
-                <div className="modal-box">
-
+                <div className="modal-box bg-black text-white border border-white">
                     <div>
-                        <h3 className="text-center text-xl font-bold">Select a Role</h3>
-
+                        <h3 className="text-center text-2xl font-bold font-serif ">Select a Role</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
-
                             <div className="form-control flex flex-col mt-2">
                                 <label className="label">
                                     <span className="label-text">Role</span>
                                 </label>
                                 <select
                                     {...register('role', { required: true })}
-                                    className="input input-bordered mt-2"
+                                    className="input mt-2  bg-black text-white border border-white "
                                 >
                                     <option value="">Select Role</option>
                                     <option value="teacher">Teacher</option>

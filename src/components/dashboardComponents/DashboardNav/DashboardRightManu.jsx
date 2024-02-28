@@ -6,7 +6,7 @@ import { HiMiniBellAlert } from "react-icons/hi2";
 
 const DashboardRightManu = ({ user, handleLogout }) => {
     return (
-        <div className="flex items-center justify-center gap-5  text-white">
+        <div className="flex items-center justify-center gap-5 text-white">
             <button className="relative"> <FiShoppingCart className="text-2xl" /> </button>
             <button><IoMdSettings className="text-2xl" /></button>
             <button><HiMiniBellAlert className="text-2xl" /></button>

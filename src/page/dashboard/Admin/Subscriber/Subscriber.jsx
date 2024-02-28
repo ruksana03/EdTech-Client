@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import { MdDelete } from "react-icons/md";
 import toast from "react-hot-toast";
+import Skeleton from "react-loading-skeleton";
 
 // Define the Subscriber component
 const Subscriber = () => {
@@ -37,7 +38,7 @@ const Subscriber = () => {
       const { data } = await axiosPublic.delete(`/subscribers/delete/${id}`);
 
       if (data.deletedCount === 1) {
-        await refetch();  
+        await refetch();
         toast.success("Subscriber deleted successfully");
       }
     } catch (error) {
@@ -105,6 +106,9 @@ const Subscriber = () => {
           </tbody>
         </table>
       </div>
+      {
+        subscribers?.length <= 0 && <Skeleton count={5 || subscribers?.length} height={30} borderRadius={10} />
+      }
     </div>
   );
 };

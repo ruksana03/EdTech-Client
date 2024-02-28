@@ -15,7 +15,7 @@ const Notices = () => {
     studentRefetch();
     teacherRefetch();
     refetch();
-    console.log('admin sent this-for student', teacherNotices);
+    // console.log('admin sent this-for student', teacherNotices);
     useEffect(() => {
         const addData = [...teacher, ...userNotices, ...teacherNotices];
         // const addData = userNotices.concat(teacherNotices);
@@ -29,7 +29,7 @@ const Notices = () => {
 
     return (
         <div>
-            <div className="section-container text-white">
+            <div className="section-container text-white font-serif">
                 <div className="flex items-center justify-center w-full my-5">
                     <div className='relative w-full md:w-1/2 lg:w-1/2 flex items-center gap-1 dark:text-gray-400'>
                         <p>Search</p>
@@ -38,7 +38,7 @@ const Notices = () => {
                 </div>
                 <div className="overflow-x-auto inset-0">
                     <table className="table border  mb-8">
-                        <thead className='text-base text-white'>
+                        <thead className='text-base text-white font-serif'>
                             <tr>
                                 <th className='border '>Notice Title ({filteredNotices?.length}) </th>
                                 <th className='border w-36 '>Notice Category</th>
@@ -48,7 +48,7 @@ const Notices = () => {
                         <tbody className=''>
                             {
                                 noticeData?.length > 0 && noticeData?.map(notice =>
-                                    <tr key={notice._id} className='border hover:bg-base-300 hover:text-black cursor-pointer'>
+                                    <tr key={notice._id} className='border hover:bg-base-300 hover:text-black cursor-pointer font-serif'>
                                        <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/notice-details/${notice?._id}`}>{notice?.title?.length > 50 ? <>{notice?.title?.slice(0, 75)}.....</> : notice?.title}</Link></td>
                                         <td className='border font-medium '>All Teacher</td>
                                         <td className='border font-medium '>{notice?.date?.slice(0, 10)}</td>
@@ -58,7 +58,7 @@ const Notices = () => {
                     </table>
                 </div>
                 {
-                    filteredNotices?.length <= 0 && <div className='text-4xl w-full text-white h-[30vh] flex items-center justify-center gap-2'>
+                    filteredNotices?.length <= 0 && <div className='text-4xl w-full text-white h-[30vh] flex font-serif items-center justify-center gap-2'>
                         <h1>Here, No Notice Available <IoMdNotificationsOff className='w-full text-5xl text-red-600' /></h1>
                     </div>
                 }

@@ -7,8 +7,8 @@ import Swal from 'sweetalert2';
 import { FaFileDownload, FaTrash } from 'react-icons/fa';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
-import Loader from '../../../../components/shared/Loader';
 import toast from 'react-hot-toast';
+import Skeleton from 'react-loading-skeleton';
 // import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
 const cloudinary_cloud_name = "dffbo5cwe";
 const cloudinary_upload_preset = "testing_uplod";
@@ -25,7 +25,7 @@ const NewPostResources = () => {
     const [formData, setFormData] = useState({
         teacherName: teacherName,
         teacherEmail: teacherEmail,
-        courseName:" "
+        courseName: " "
         // Add other fields here 
     });
     const handleChange = (event) => {
@@ -115,7 +115,6 @@ const NewPostResources = () => {
             try {
                 const res = await fetch("http://localhost:5000/courses");
                 const data = await res.json();
-                console.log("its data form cource", data);
                 setCourses(data);
             } catch (error) {
                 console.log(error);
@@ -166,12 +165,12 @@ const NewPostResources = () => {
                             <hr className="border-t border-first" />
                         </div>
                         {/* Course  dropdown  */}
-                        <div  className=" mt-6">
+                        <div className=" mt-6">
                             <label className="text-xl">Set Our Course Here*</label>
                             <select className=" border border-gray-300 focus:outline-none bg-black text-white focus:border-first leading-tight input"
-                             name="courseName"
-                             onChange={handleChange}
-                              required>
+                                name="courseName"
+                                onChange={handleChange}
+                                required>
                                 <option disabled selected>set course</option>
                                 {courses?.map(noti => <option key={noti?._id} defaultValue={noti?.category}>
                                     {noti?.category}</option>)}
@@ -238,7 +237,9 @@ const NewPostResources = () => {
                             }
                         </tbody>
                     </table>
-                    {allPdf.length <= 0 && <Loader></Loader>}
+                    {
+                        allPdf?.length <= 0 && <Skeleton count={15 || allPdf?.length} height={30} borderRadius={10} />
+                    }
                 </div>
             </div>
 
