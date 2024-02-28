@@ -76,19 +76,19 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all text-base ">
+                                <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-black text-white border border-white p-6 text-left align-middle shadow-xl transition-all">
 
                                     <form onSubmit={onSubmit} className='space-y-5'>
                                         <div>
-                                            <label className='font-bold'>Write Rutine Title</label>
+                                            <label className='font-bold text-xl p__cormorant'>Write Rutine Title</label>
                                             <div>
-                                                <input type='text' placeholder='Title....' onChange={() => setTitle(event.target.value)} className='w-full mt-2' />
+                                                <input type='text' placeholder='Title....' onChange={() => setTitle(event.target.value)} className='w-full mt-2 bg-black text-white focus:text-white' />
                                             </div>
                                         </div>
                                         <div>
-                                            <label className="font-bold" htmlFor="description">Selected Your Courses*</label>
+                                            <label className="font-bold text-xl p__cormorant" htmlFor="description">Selected Your Courses*</label>
                                             <div>
-                                                <select className="w-full mt-2" name="forCourses" onChange={() => setForCourses(event.target.value)} required>
+                                                <select className="w-full mt-2 bg-black text-white" name="forCourses" onChange={() => setForCourses(event.target.value)} required>
                                                     <option disabled selected>set course</option>
                                                     {courses?.map(noti => <option key={noti?._id} defaultValue="Selected for Courses">
                                                         {noti?.title}</option>)}
@@ -96,20 +96,20 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
                                             </div>
                                         </div>
                                        <div>
-                                            <label className="font-bold" htmlFor="description">Provide Your Link(if any) *</label>
+                                            <label className="font-bold text-xl p__cormorant" htmlFor="description">Provide Your Link(if any) *</label>
                                             <div>
-                                                <input type='url' placeholder='provide link....' onChange={() => setLiveLink(event.target.value)} className='w-full mt-2' />
+                                                <input type='url' placeholder='provide link....' onChange={() => setLiveLink(event.target.value)} className='w-full mt-2 bg-black text-white focus:text-white' />
                                             </div>
                                         </div>
                                         <div>
-                                            <label className='font-bold'>Start Date</label>
-                                            <Datetime value={start} onChange={date => setStart(date)} className='w-full mt-2' />
+                                            <label className='font-bold text-xl p__cormorant'>Start Date</label>
+                                            <Datetime value={start} onChange={date => setStart(date)} className='w-full mt-2 bg-black text-white' />
                                         </div>
                                         <div>
-                                            <label className='font-bold'>End Date</label>
-                                            <Datetime value={end} onChange={date => setEnd(date)} className='w-full mt-2' />
+                                            <label className='font-bold text-xl p__cormorant'>End Date</label>
+                                            <Datetime value={end} onChange={date => setEnd(date)} className='w-full mt-2 bg-black text-white' />
                                         </div>
-                                        <button className='px-5 py-2 bg-green-700 text-white hover:text-black w-full rounded'>Published</button>
+                                        <button className='px-5 py-2 btn-style hover:text-black w-full rounded'>Published</button>
                                     </form>
                                 </Dialog.Panel>
                             </Transition.Child>

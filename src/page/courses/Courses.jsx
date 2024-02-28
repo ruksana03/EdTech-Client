@@ -3,6 +3,7 @@ import { useState } from "react";
 import Cards from "../../components/Cards";
 import { FaFilter } from "react-icons/fa";
 import { useTypewriter } from "react-simple-typewriter";
+import CoursesSkeleton from "./CoursesSkeleton";
 
 const Courses = () => {
   const [course, setCourse] = useState([]);
@@ -12,16 +13,19 @@ const Courses = () => {
   const [sortOption, setSortOption] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(8);
+  const [isLoadig, setIsLoading] = useState(true);
 
   // load data
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true)
         const res = await fetch("http://localhost:5000/courses");
         const data = await res.json();
         //    console.log(data);
         setCourse(data);
         setFilteredItems(data);
+        setIsLoading(false)
       } catch (error) {
         console.log(error);
       }
@@ -33,13 +37,13 @@ const Courses = () => {
     const filtered =
       selectCategory === "all"
         ? course.filter((item) =>
-            item.title.toLowerCase().includes(searchInput.toLowerCase())
-          )
+          item.title.toLowerCase().includes(searchInput.toLowerCase())
+        )
         : course
-            .filter((item) => item.category === selectCategory)
-            .filter((item) =>
-              item.title.toLowerCase().includes(searchInput.toLowerCase())
-            );
+          .filter((item) => item.category === selectCategory)
+          .filter((item) =>
+            item.title.toLowerCase().includes(searchInput.toLowerCase())
+          );
     setFilteredItems(filtered);
     setCurrentPage(1);
   }, [selectCategory, searchInput, course]);
@@ -103,7 +107,7 @@ const Courses = () => {
 
   // typewriter effect
   const [typeEffect] = useTypewriter({
-    words: ["Enlightening", " Courses", "With","Us!"],
+    words: ["Enlightening", " Courses", "With", "Us!"],
     loop: {},
     typeSpeed: 100,
     deleteSpeed: 50,
@@ -118,10 +122,10 @@ const Courses = () => {
       {/* banner text */}
       <div
         className="hero min-h-[80vh]  "
-        // style={{
-        //   backgroundImage:
-        //     "url(https://i.ibb.co/z6Fz8Z2/jess-bailey-Bg14l3h-SAs-A-unsplash.jpg)",
-        // }}
+      // style={{
+      //   backgroundImage:
+      //     "url(https://i.ibb.co/z6Fz8Z2/jess-bailey-Bg14l3h-SAs-A-unsplash.jpg)",
+      // }}
       >
         <div className=" bg-opacity-20"></div>
         <div className="hero-content text-center text-neutral-content">
@@ -238,17 +242,22 @@ const Courses = () => {
             <Cards key={item._id} item={item} />
           ))}
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          {
+            isLoadig && <CoursesSkeleton cards={8} />
+          }
+        </div>
       </div>
 
       {/* pagination section */}
       <div className="flex justify-center items-center my-8">
+
         {Array.from({
           length: Math.ceil(filteredItems.length / itemsPerPage),
         }).map((_, index) => (
           <button
-            className={`px-3 py-1 mx-1 rounded-full ${
-              currentPage === index + 1 ? "bg-first text-black" : "bg-gray-200"
-            }`}
+            className={`px-3 py-1 mx-1 rounded-full ${currentPage === index + 1 ? "bg-first text-black" : "bg-gray-200"
+              }`}
             key={index + 1}
             onClick={() => paginate(index + 1)}
           >

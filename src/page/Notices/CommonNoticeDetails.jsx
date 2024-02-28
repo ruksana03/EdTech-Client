@@ -5,9 +5,9 @@ import { BsBing } from "react-icons/bs";
 import image from '../../assets/NOTICE.png'
 const CommonNoticeDetails = () => {
     return (
-        <div className="section-container my-12 dark:text-gray-400">
-            <div className="">
-                <h1 className="text-xl font-semibold ">Job Title Hellow Sushil How Are You</h1>
+        <div className="section-container my-12 dark:text-gray-400 font-serif">
+            <div className="font-serif">
+                <h1 className="text-2xl ">Job Title Hellow Sushil How Are You</h1>
                 <p>Published on 12-05-2023</p>
                 <hr className="my-8" />
             </div>
