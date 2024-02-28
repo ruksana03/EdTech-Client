@@ -70,10 +70,11 @@ import SRutine from "../page/dashboard/Student/rutine/SRoutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
-// import Man from "../page/QuizeComponent/man";
+import Man from "../page/QuizeComponent/Man"
 // import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
+import ServicesHome from "../page/Services/ServicesHome";
 
 
 
@@ -93,10 +94,10 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
-            // {
-            //     path: '/quest',
-            //     element: <Man />
-            // },
+            {
+                path: '/quest',
+                element: <Man />
+            },
             {
                 path: '/man',
                 element: <Questions />
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
             {
                 path: '/voiceTyping',
                 element: <SpeechToText />
+            },
+            {
+                path: '/services',
+                element: <ServicesHome />
             },
            
             {
