@@ -6,7 +6,7 @@ export const data = [
   ["quiz left", 7],
   ["quiz completed", 5],
   ["Watch Videos", 4],
-  
+
 ];
 
 export const options = {
@@ -15,18 +15,17 @@ export const options = {
 };
 
 const QuizAnalytics = () => {
-    return (
-        <div>
-              <Chart
-      chartType="PieChart"
-      data={data}
-      options={options}
-      width={"100%"}
-      height={"400px"}
-    />
-            
-        </div>
-    );
+  return (
+    <div className="w-full">
+      <Chart
+        chartType="PieChart"
+        data={data}
+        options={options}
+        height={"400px"}
+      />
+
+    </div>
+  );
 };
 
 export default QuizAnalytics;

@@ -1,13 +1,13 @@
-import Lottie from "lottie-react";
+// import Lottie from "lottie-react";
 // import image3 from '../../assets/image/loader/Animation - 1707676706258.json';
-import image3 from '../../assets/image/loader/Animation - 1707561724900.json';
+// import image3 from '../../assets/image/loader/Animation - 1707561724900.json';
+import Skeleton from "react-loading-skeleton";
 
 const Preloader = () => {
     return (
-        <div className="w-full h-screen flex items-center justify-center bg-black ">
-            <div className="w-full h-96 flex items-center justify-center gap-1 flex-col bg-black">
-                <Lottie animationData={image3} loop={true}></Lottie>
-            </div>
+        <div className="flex items-center justify-center relative w-full h-screen">
+            <Skeleton width={1920} height={500}>
+            </Skeleton>
         </div>
     );
 };
