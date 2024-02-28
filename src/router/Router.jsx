@@ -76,6 +76,7 @@ import ChatRoom from "../page/dashboard/Common/ChatRoom";
 import Certificate from "../page/dashboard/Student/certificates/Certificate";
 import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertificate";
 import Man from './../page/QuizeComponent/Man';
+import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 
 
 
@@ -270,10 +271,10 @@ const router = createBrowserRouter([
                 path: "allpartners",
                 element: <Partners />,
             },
-            // {
-            //     path: "add-member",
-            //     element:<AddMember/>
-            // },
+            {
+                path: "add-member",
+                element:<AddMember/>
+            },
             // Student route
             {
                 path: "my-class",

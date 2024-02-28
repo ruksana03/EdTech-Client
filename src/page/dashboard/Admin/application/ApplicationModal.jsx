@@ -21,7 +21,7 @@ const ApplicationModal = ({ isOpen, setIsOpen, applications, id }) => {
                         <p className="text-xl font-medium">Education: {applicationData?.education}</p>
                         <p className="text-xl font-medium">Grade Point: {applicationData?.gradePoint}</p>
                         <p className="text-xl font-medium">Address: {applicationData?.streetAddress}</p>
-                        <p className="text-xl font-medium mb-3">CV Link: <a href={applicationData?.cvLink} target="_blank" className="link link-hover text-blue-500">Click here</a></p>
+                        <p className="text-xl font-medium mb-3">CV Link: <a href={applicationData?.cvLink} target="_blank" className="link link-hover text-blue-300">Click here</a></p>
                     </div>
                     <p className="text-base">{applicationData?.message}</p>
                 </div>

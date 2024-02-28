@@ -2,6 +2,7 @@ import { MdDeleteForever } from "react-icons/md";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import Skeleton from "react-loading-skeleton";
 
 const AllCourses = () => {
 
@@ -43,8 +44,8 @@ const AllCourses = () => {
     }
   };
 
-   // Reverse the order of courseData
-   const reversedCourseData = [...courseData].reverse();
+  // Reverse the order of courseData
+  const reversedCourseData = [...courseData].reverse();
 
   return (
     <div className="mt-16">
@@ -66,7 +67,7 @@ const AllCourses = () => {
               <tr
                 key={index}
                 className="p__opensans"
-                // className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+              // className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
               >
                 <td className="py-3 font-medium">{index + 1}</td>
                 <td className="py-3 font-medium">{courseItem.title}</td>
@@ -89,6 +90,9 @@ const AllCourses = () => {
             ))}
           </tbody>
         </table>
+        {
+          reversedCourseData?.length <= 0 && <Skeleton count={23 || reversedCourseData?.length} height={30} borderRadius={10} />
+        }
       </div>
     </div>
   );
