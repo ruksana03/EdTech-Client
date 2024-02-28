@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdNotificationsOff } from "react-icons/io";
 import useTeacherSpecificNotices from "../../Hooks/useTeacherSpecificNotices";
+import useTeacherNotices from "../../Hooks/useTeacherNotices";
 
 const NoticeHome = () => {
     const [notices, setNotices] = useState([]);
+    const [teacher, refetch] = useTeacherNotices();
     const [teacherNotices, teacherRefetch,] = useTeacherSpecificNotices();
     const [searchNotices, setSearchNotices] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -12,13 +14,15 @@ const NoticeHome = () => {
     const [itemsPerPage, setItemPerPage] = useState(settingPage);
     const [filteredNotices, setFilteredNotices] = useState([]);
     teacherRefetch();
+    refetch();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 // const res = await fetch("http://localhost:5000/notices");
                 // const data = await res.json();
-                setNotices(teacherNotices);
-                setFilteredNotices(teacherNotices);
+                const teacherData = [...teacher, ...teacherNotices];
+                setNotices(teacherData);
+                setFilteredNotices(teacherData);
                 const parseSettingPage = parseInt(settingPage)
                 setItemPerPage(parseSettingPage)
             } catch (error) {
@@ -26,7 +30,7 @@ const NoticeHome = () => {
             }
         };
         fetchData();
-    }, [teacherNotices, settingPage]);
+    }, [teacher,teacherNotices, settingPage]);
     console.log(teacherNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));

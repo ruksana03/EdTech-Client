@@ -13,7 +13,7 @@ const Team = () => {
         </h4>
       </div>
 
- 
+
       <div className="grid grid-cols-4 gap-4 mt-12">
         {AllMember.map(member => (
           <div
@@ -33,7 +33,7 @@ const Team = () => {
           </div>
         ))}
       </div>
-      </div>
+    </div>
 
   );
 };

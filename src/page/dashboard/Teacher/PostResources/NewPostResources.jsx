@@ -4,31 +4,28 @@ import { useEffect, useState } from 'react';
 // user import by useselector
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import { FaEye, FaTrash } from 'react-icons/fa';
+import { FaFileDownload, FaTrash } from 'react-icons/fa';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
+import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
+import Loader from '../../../../components/shared/Loader';
+import toast from 'react-hot-toast';
 // import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
 const cloudinary_cloud_name = "dffbo5cwe";
 const cloudinary_upload_preset = "testing_uplod";
 const cloudinary_upload_url = `https://api.cloudinary.com/v1_1/${cloudinary_cloud_name}/upload`;
 
 const NewPostResources = () => {
-    // const [allPdf] = useGetAllPdf()
-    const [allPdf,setAlPdf]=useState([])
-    useEffect(()=>{
-        fetch("http://localhost:5000/get-pdf")
-        .then(res=>res.json())
-        .then(data=>setAlPdf(data))
-    },[])
-    
-    console.log("newPost line 18", allPdf);
+    const { allPdf, refetch } = useGetAllPdf()
     const user = useSelector(state => state.data.user.user);
-    // const [pdfFile, setPdfFile] = useState(null);
+    const [courses, setCourses] = useState([]);
+    // console.log("this is cource name",courses);
     const axiosPublic = useAxiosPublic()
     const teacherName = user?.name;
     const teacherEmail = user?.email;
     const [formData, setFormData] = useState({
         teacherName: teacherName,
         teacherEmail: teacherEmail,
+        courseName:" "
         // Add other fields here 
     });
     const handleChange = (event) => {
@@ -81,6 +78,51 @@ const NewPostResources = () => {
             console.error('Upload error:', error);
         }
     };
+    // this function work to open pdf file in the new tab 
+    const handelOpenPdf = (pdfLink) => {
+        // Open the PDF link in a new tab
+        window.open(pdfLink, '_blank');
+    };
+    // this function work for  deleted pdf file 
+    const handleDeletePdf = (pdfId) => {
+        console.log(pdfId);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // added deleted operation here 
+                try {
+                    const response = axiosPublic.delete(`/delete-pdf/${pdfId}`);
+                    console.log('PDF deleted:', response.data);
+                    refetch()
+                } catch (error) {
+                    toast.error(error);
+                }
+                toast.success("Delete Successfully")
+            }
+        });
+
+    };
+    // this is courec name get from backend  here
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/courses");
+                const data = await res.json();
+                console.log("its data form cource", data);
+                setCourses(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
     return (
         <div className="mt-12 p__cormorant w-10/12 mx-auto">
             <div className="w-[800px] mx-auto p-6 border border-white rounded-xl flex justify-center">
@@ -110,17 +152,31 @@ const NewPostResources = () => {
                             <hr className="border-t border-first" />
                         </div>
                     </div>
-                    {/* resources title  */}
-                    <div className=" mt-6">
-                        <label className="text-xl">Resource Title</label><br />
-                        <input type="text"
-                            placeholder="Title"
-                            required
-                            name='title'
-                            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-                            onChange={handleChange}
-                        />
-                        <hr className="border-t border-first" />
+                    <div className='flex justify-between gap-4'>
+                        {/* resources title  */}
+                        <div className=" mt-6">
+                            <label className="text-xl">Resource Title</label><br />
+                            <input type="text"
+                                placeholder="Title"
+                                required
+                                name='title'
+                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                                onChange={handleChange}
+                            />
+                            <hr className="border-t border-first" />
+                        </div>
+                        {/* Course  dropdown  */}
+                        <div  className=" mt-6">
+                            <label className="text-xl">Set Our Course Here*</label>
+                            <select className=" border border-gray-300 focus:outline-none bg-black text-white focus:border-first leading-tight input"
+                             name="courseName"
+                             onChange={handleChange}
+                              required>
+                                <option disabled selected>set course</option>
+                                {courses?.map(noti => <option key={noti?._id} defaultValue={noti?.category}>
+                                    {noti?.category}</option>)}
+                            </select>
+                        </div>
                     </div>
                     {/* pdf field  */}
                     <div
@@ -141,17 +197,18 @@ const NewPostResources = () => {
                     </button>
                 </form>
             </div>
-            
+
             {/* show here teacher given pdf file  */}
             <div className="w-[800px] mx-auto p-6 border border-black rounded-xl my-8">
                 <div className="overflow-x-auto">
                     <h1 className='text-center text-4xl text-first font-bold mb-4'>Your Uploaded File</h1>
-                    <table className="table table-zebra border border-black">
+                    <table className="table  border border-black">
                         {/* head */}
                         <thead>
                             <tr>
+                                <th>Index</th>
                                 <th className='text-white'>Teacher Name</th>
-                                <th className='text-white'>File Name</th>
+                                <th className='text-white'>Title</th>
                                 <th className='text-white'>Pdf Resource</th>
                                 <th></th>
                             </tr>
@@ -159,19 +216,20 @@ const NewPostResources = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                allPdf && allPdf.map((pdf) => {
+                                allPdf && allPdf.map((pdf, index) => {
                                     return (
                                         <tr key={pdf._id}>
+                                            <td>{index + 1}</td>
                                             <td>{pdf.teacherName}</td>
                                             <td>{pdf.title}</td>
                                             <td>
                                                 <button
-                                                    onClick={() => (pdf.pdf)}
-                                                    className="bg-first text-white p-2 rounded-full text-2xl"><FaEye></FaEye></button>
+                                                    onClick={() => handelOpenPdf(pdf.pdfLink)}
+                                                    className="bg-first text-white p-2 rounded-full text-2xl"><FaFileDownload /></button>
                                             </td>
                                             <td>
                                                 <button
-                                                    onClick={() => (pdf.pdf)}
+                                                    onClick={() => handleDeletePdf(pdf._id)}
                                                     className="bg-first text-white p-2 rounded-full text-2xl"><FaTrash></FaTrash></button>
                                             </td>
                                         </tr>
@@ -180,9 +238,10 @@ const NewPostResources = () => {
                             }
                         </tbody>
                     </table>
+                    {allPdf.length <= 0 && <Loader></Loader>}
                 </div>
             </div>
-            {/* <PdfView pdfFile={pdfFile}></PdfView> */}
+
         </div>
     );
 };

@@ -20,9 +20,11 @@ import { IoNotificationsSharp } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { CiMenuFries } from "react-icons/ci";
 import { ImProfile } from "react-icons/im";
+import useTeacherNotices from "../../../Hooks/useTeacherNotices";
 
 
 const Navbar = () => {
+  const [teacher, refetch] = useTeacherNotices();
   const [userNotices, studentRefetch] = useStudentSpecificNotices();
   const [teacherNotices, teacherRefetch] = useTeacherSpecificNotices();
   const [commonNotices, commonRefetch,] = useCommonNotices();
@@ -32,8 +34,10 @@ const Navbar = () => {
   const user = useSelector((state) => state.data.user.user);
   const [cart] = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const teacherData = [...teacher, ...teacherNotices];
+  const studentData = [...teacher, ...userNotices, ...teacherNotices];
   // const [t, i18n] = useTranslation("global");
+
 
   const [t, i18n] = useTranslation("global");
   const [isEnglish, setIsEnglish] = useState(i18n.language === "en");
@@ -43,10 +47,11 @@ const Navbar = () => {
     setIsEnglish(!isEnglish);
     i18n.changeLanguage(newLanguage);
   };
-
+        //  refetch for all upcomming data 
   studentRefetch();
   teacherRefetch();
   commonRefetch();
+  refetch();
   const dispatch = useDispatch();
   const handleClick = () => {
     setActive(!active);
@@ -115,7 +120,7 @@ const Navbar = () => {
                         className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
                         <IoNotificationsSharp className="text-2xl" />
                         {/* <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" /> */}
-                        <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-black rounded-full flex items-center justify-center">{userNotices?.length}</span>
+                        <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-black rounded-full flex items-center justify-center">{studentData?.length}</span>
                       </button>
                     </Link>
                   }
@@ -125,7 +130,7 @@ const Navbar = () => {
                       className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
                       <IoNotificationsSharp className="text-2xl" />
                       {/* <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" /> */}
-                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-black rounded-full flex items-center justify-center">{teacherNotices?.length}</span>
+                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-black rounded-full flex items-center justify-center">{teacherData?.length}</span>
                     </button>
                     </Link>
                   }
@@ -160,7 +165,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-black rounded-box w-44 relative right-1"
                       >
-                       
+
                         <li
                           className={`menu-item ${location.pathname.startsWith('/profile') ? 'active' : ''}`}
                         >

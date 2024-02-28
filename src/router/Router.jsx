@@ -76,6 +76,8 @@ import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 import AddMember from "../page/dashboard/Admin/AllMembers/AddMember";
 import Man from "../page/QuizeComponent/Man";
 // import UpdateMemberModal from "../page/dashboard/Admin/AllMembers/UpdateMemberModal";
+import ChatRoom from "../page/dashboard/Common/ChatRoom";
+import MakeAdvertisement from "../page/dashboard/Admin/Advertisement/MakeAdvertisement";
 
 
 
@@ -103,12 +105,12 @@ const router = createBrowserRouter([
                 path: '/man',
                 element: <Questions />
             },
-            
+
             {
                 path: '/voiceTyping',
                 element: <SpeechToText />
             },
-           
+
             {
                 path: "contact",
                 element: <Contact />,
@@ -205,7 +207,7 @@ const router = createBrowserRouter([
             },
         ]
     },
-   
+
     {
         path: "/dashboard",
         element: <DashboardLayout />,
@@ -270,33 +272,38 @@ const router = createBrowserRouter([
             },
             {
                 path: "add-member",
-                element:<AddMember/>
+                element: <AddMember />
             },
-          
+            {
+                path: "add",
+                element: <MakeAdvertisement/>
+            },
+
+
             // Student route
             {
                 path: "my-class",
                 element: <MyClass />,
                 children: [
-                  
+
 
                     {
                         path: "support",
-                        element: <Support></Support>,
+                        element: <Support />,
                     },
                     {
                         path: "recordedclass",
-                        element: <RecordedClass></RecordedClass>,
+                        element: <RecordedClass />,
                     },
                     {
                         path: "recordedclass/:courseName",
-                        element: <RecordVideo></RecordVideo>,
+                        element: <RecordVideo />,
                     },
                 ],
             },
             {
-                path:'my-class/recordedclass/English%20Mastery',
-                element: <RecordVideo></RecordVideo>
+                path: 'my-class/recordedclass/English%20Mastery',
+                element: <RecordVideo />
             },
             {
                 path: "my-lab",
@@ -343,21 +350,21 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-enroll",
-                element:  <Myenroll/>,
-                children:[
+                element: <Myenroll />,
+                children: [
                     {
-                        path:"record",
-                        element:<RecordedClass></RecordedClass>
+                        path: "record",
+                        element: <RecordedClass></RecordedClass>
                     },
-                    
-                  
+
+
                 ]
             },
             {
-                path:"record",
-                element:<RecordedClass></RecordedClass>
+                path: "record",
+                element: <RecordedClass></RecordedClass>
             },
-           
+
             // teachers route
             {
                 path: "post-resources",
@@ -371,7 +378,7 @@ const router = createBrowserRouter([
             {
                 path: "live-class",
                 element: <LiveClass></LiveClass>,
-                children:[
+                children: [
                     {
                         path: "liveclss",
                         element: <Liveclass></Liveclass>,
@@ -382,7 +389,7 @@ const router = createBrowserRouter([
                 path: "provide-rutine",
                 element: <TRutine />,
             },
-          
+
 
             {
                 path: "show-notices",
@@ -417,6 +424,10 @@ const router = createBrowserRouter([
             {
                 path: "dashboard",
                 element: <Dashboard />,
+            },
+            {
+                path: "chat",
+                element: <ChatRoom />,
             },
             {
                 path: "profile",
