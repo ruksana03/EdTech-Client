@@ -76,6 +76,7 @@ import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
 import Certificate from "../page/dashboard/Student/certificates/Certificate";
 import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertificate";
+import Man from './../page/QuizeComponent/Man';
 
 
 
@@ -95,10 +96,10 @@ const router = createBrowserRouter([
                 path: "/all-courses",
                 element: <Courses />,
             },
-            // {
-            //     path: '/quest',
-            //     element: <Man />
-            // },
+            {
+                path: '/quest',
+                element: <Man />
+            },
             {
                 path: '/man',
                 element: <Questions />
