@@ -8,6 +8,8 @@ import React from "react";
 import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Cards from "../../components/Cards";
+import { useTranslation } from "react-i18next";
+import PopularSkeleton from "./PopularSkeleton";
 
 const SimpleNextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -37,13 +39,17 @@ const SimplePrevArrow = (props) => {
 const Popular = () => {
   const [popular, setPopular] = useState([]);
   const slider = React.useRef(null);
+  const [isLoadig, setIsLoading] = useState(true);
+  const { t } = useTranslation('global');
 
   // handle side effects
   useEffect(() => {
+    setIsLoading(true)
     fetch("http://localhost:5000/popular")
       .then((res) => res.json())
       .then((data) => {
         setPopular(data);
+        setIsLoading(false);
       });
   }, []);
 
@@ -52,7 +58,7 @@ const Popular = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
@@ -87,33 +93,39 @@ const Popular = () => {
 
   return (
     <div className="section-container my-20 relative p-5">
-      <div className="text-left dark:text-gray-400">
-        <h2 className="headtext__cormorant">Top Courses</h2>
-        <h2 className="p__cormorant">Explore our Popular Courses </h2>
+      <div className="text-left">
+        <h2 className="headtext__cormorant">{t("popular.title")}</h2>
+        <h2 className="p__cormorant">{t("popular.subtitle")} </h2>
       </div>
 
       {/* next prev buttons */}
       <div className="md:absolute right-3 top-8 mb-10 md:mr-16">
         <button
           onClick={() => slider?.current?.slickPrev()}
-          className="btn p-2 rounded-full shadow-md  dark:bg-zinc-800 dark:text-gray-400 dark:hover:text-first  bg-white text-first "
+          className="btn p-2 rounded-full shadow-m  bg-first text-black "
         >
           <FaAngleLeft className="w-8 h-8 p-1" />
         </button>
         <button
           onClick={() => slider?.current?.slickNext()}
-          className="btn shadow-md p-2 bg-white dark:bg-zinc-800 dark:text-gray-400 dark:hover:text-first text-first rounded-full ml-3"
+          className="btn p-2 rounded-full shadow-m  bg-first text-black  ml-3"
         >
           <FaAngleRight className="w-8 h-8 p-1" />
         </button>
       </div>
 
       {/* map recipies */}
-      <Slider {...settings} ref={slider} className="mt-12 overflow-hidden">
+      <Slider {...settings} ref={slider} className="mt-12 overflow-hidden flex items-center justify-center">
         {popular?.map((item, idx) => (
           <Cards key={idx} item={item}></Cards>
         ))}
       </Slider>
+      {/* react loading skeleton  */}
+      <div className="flex items-center justify-center w-full gap-4">
+        {
+          isLoadig && <PopularSkeleton cards={4} />
+        }
+      </div>
     </div>
   );
 };

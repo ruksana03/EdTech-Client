@@ -1,12 +1,13 @@
- 
+
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import { MdDelete } from 'react-icons/md';
 import toast from 'react-hot-toast';
+import Skeleton from 'react-loading-skeleton';
 
 const AllPaymentInfo = () => {
   const axiosPublic = useAxiosPublic();
-  
+
   const { data: payments = [], refetch } = useQuery({
     queryKey: ['payments'],
     queryFn: async () => {
@@ -20,7 +21,7 @@ const AllPaymentInfo = () => {
       const { data } = await axiosPublic.delete(`/bookings/delete/${id}`);
 
       if (data.deletedCount === 1) {
-        await refetch();  
+        await refetch();
         toast.success("payment deleted successfully");
       }
     } catch (error) {
@@ -56,7 +57,7 @@ const AllPaymentInfo = () => {
                 <td className="py-2 ">{payment.transactionId}</td>
                 <td className="py-2 text-red-500 font-semibold cursor-pointer">
                   <button onClick={() => deletePayment(payment._id)} >
-                  <MdDelete  className='text-xl'/>
+                    <MdDelete className='text-xl' />
                   </button>
                 </td>
               </tr>
@@ -64,6 +65,9 @@ const AllPaymentInfo = () => {
           </tbody>
         </table>
       </div>
+      {
+        payments?.length <= 0 && <Skeleton count={23 || payments?.length} height={30} borderRadius={10} />
+      }
     </div>
   );
 };

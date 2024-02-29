@@ -5,6 +5,7 @@ import { loginUser, logoutUser, setLoading } from "../Features/UserSlice";
 import { useDispatch, useSelector } from "react-redux";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import {   Outlet, useNavigate } from "react-router-dom";
+
 import { RxCross1 } from 'react-icons/rx';
 import DSidebar from "../components/dashboardComponents/DashboardSidebar/DSidebar";
 import { FiMenu } from "react-icons/fi";
@@ -67,9 +68,9 @@ const DashboardLayout = () => {
 
     return (
         <div className="min-h-screen">
-            <div className={`flex items-center justify-between bg-first h-16  ${isActive ? 'w-full md:w-[calc(100%-150px)] md:pl-8 transition-all duration-200 lg:w-[calc(100%-160px)]' : ' w-full md:w-[calc(100%-186px)] lg:w-[calc(100%-250px)] transition duration-200 ease-in-out'} float-right lg:px-5 px-3 md:px-5 shadow sticky inset-0 top-0 z-10 mb-5 `}>
+            <div className={`flex items-center justify-between bg-gradient-to-r from-second to-first pt-4 pb-2 h-12  ${isActive ? 'w-full md:w-[calc(100%-150px)] md:pl-8 transition-all duration-200 lg:w-[calc(100%-160px)]' : ' w-full md:w-[calc(100%-186px)] lg:w-[calc(100%-250px)] transition duration-200 ease-in-out'} float-right lg:px-5 px-3 md:px-5 shadow sticky inset-0 top-0 z-10 mb-5 `}>
                 <div className=" hidden md:block lg:block relative">
-                    <div className={` border-e-2overflow-x-hidden z-10 fixed pt-3 overflow-y-auto h-screen px-2 inset-y-0 left-0 transform ${isActive ? ' transition-all duration-200 w-[calc(100%-160px)] md:w-[150px] lg:w-[160px]' : ' w-[160px] md:w-[186px] lg:w-[250px] lg:translate-x-0  transition duration-200 ease-in-out'} `}>
+                    <div className={` border-e-2  overflow-x-hidden z-10 fixed pt-3   overflow-y-auto h-screen px-2 inset-y-0 left-0 transform ${isActive ? ' transition-all duration-200 w-[calc(100%-160px)] md:w-[150px] lg:w-[160px]' : ' w-[160px] md:w-[186px] lg:w-[250px] lg:translate-x-0  transition duration-200 ease-in-out'} `}>
                         <div className="pt-10">
                             {
                                 isActive ? <RxCross1 onClick={handleReverse} className="absolute right-0 top-0 text-white text-2xl cursor-pointer block md:hidden lg:hidden" /> : ''

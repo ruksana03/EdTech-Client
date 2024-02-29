@@ -121,6 +121,11 @@ const PostBlogCard = ({ blog, user }) => {
                             </span>
                         </div>
 
+                        {/* <Link to={`/blog/blog-details/${_id}`} className="flex items-center rounded-md btn-style btn-sm focus:outline-none focus:ring-4 focus:ring-blue-300">
+                            <LiaDirectionsSolid className="text-lg" />
+                            <span className="ml-2">More</span>
+                        </Link> */}
+                        
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import "../App.css";
-import { useEffect, useState } from "react";
+import { useEffect, } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { loginUser, setLoading } from "../Features/UserSlice";
@@ -12,12 +12,12 @@ import Footer from "../page/home/Footer/Footer";
 import 'regenerator-runtime/runtime'
 
 // import MessengerCustomerChat from 'react-messenger-customer-chat';
-import Preloader from "../components/shared/Preloader";
+// import Preloader from "../components/shared/Preloader";
 
 const MainLayout = () => {
   const dispatch = useDispatch();
   const axiosPublic = useAxiosPublic();
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -48,26 +48,21 @@ const MainLayout = () => {
   }, [dispatch, axiosPublic]);
 
 
-  useEffect(() => {
-    const loadingData = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000)
-    }
-    loadingData();
-  }, [])
+  // useEffect(() => {
+  //   const loadingData = () => {
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //     }, 1000)
+  //   }
+  //   loadingData();
+  // }, [])
 
   return (
     <>
-      {
-        isLoading ? <Preloader /> :
-          <>
-            <Navber />
-            <Outlet />
-            <Footer />
-            {/* <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" /> */}
-          </>
-      }
+      <Navber />
+      <Outlet />
+      <Footer />
+      {/* <MessengerCustomerChat pageId="211034232098177" appId="711331871134355" /> */}
     </ >
   );
 };

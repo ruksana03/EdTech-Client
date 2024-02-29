@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
@@ -41,6 +42,7 @@ const ManageTask = () => {
             setProgress([...filteredProgress]);
             setCompleted([...filteredCompleted]);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
     let [isOpen, setIsOpen] = useState(false);
     function closeModal() {

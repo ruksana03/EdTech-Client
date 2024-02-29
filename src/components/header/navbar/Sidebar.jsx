@@ -1,90 +1,81 @@
 /* eslint-disable react/prop-types */
-
-import { Link, useLocation } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import { HiOutlineExternalLink } from "react-icons/hi";
-import { FaBlog } from "react-icons/fa";
-import { IoIosContacts } from "react-icons/io";
-import { MdDashboardCustomize } from "react-icons/md";
-import { useSelector } from "react-redux";
-import { ImProfile } from "react-icons/im";
-import { BiLogIn } from "react-icons/bi";
-import { RiDeleteBack2Line } from "react-icons/ri";
+/* eslint-disable no-unused-vars */
+import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { ImProfile } from 'react-icons/im';
+import { BiLogIn } from 'react-icons/bi';
+import { RiDeleteBack2Line } from 'react-icons/ri';
+import { useTranslation } from 'react-i18next';
+import ManuList from '../../shared/ManuList';
+import { useState } from 'react';
 
 const Sidebar = ({ handleClick }) => {
   const user = useSelector((state) => state.data.user.user);
   const location = useLocation();
+  const [t, i18n] = useTranslation('global');
+  
+  const [isEnglish, setIsEnglish] = useState(i18n.language === "en");
 
-  const navLinks = ["/", "/all-courses", "/blog", "/contact", "/dashboard"];
-  const menuNames = ["Home", "Courses", "Blogs", "Contact", "Dashboard"];
-  const icons = [
-    <FaHome key={navLinks[0]} />,
-    <HiOutlineExternalLink key={navLinks[1]} />,
-    <FaBlog key={navLinks[2]} />,
-    <IoIosContacts key={navLinks[3]} />,
-    <MdDashboardCustomize key={navLinks[5]} />,
-  ];
+  const handleChangeLanguage = () => {
+    const newLanguage = isEnglish ? "bn" : "en";
+    setIsEnglish(!isEnglish);
+    i18n.changeLanguage(newLanguage);
+  };
 
   return (
-    <div className="pt-16 menu  bg-black text-white flex gap-3 items-start pl-12   h-screen relative">
-      <div className="absolute right-1 top-0 flex items-center justify-end w-full gap-3 py-2 pr-4  bg-first text-white">
-        <button onClick={handleClick} className="text-2xl ">
+    <div className="pt-16 menu bg-black text-white flex gap-3 items-start pl-12 h-screen relative">
+      <div className="absolute right-1 top-0 flex items-center justify-end w-full gap-3 py-2 pr-4 bg-first text-white">
+        <button onClick={handleClick} className="text-2xl text-black ">
           <RiDeleteBack2Line />
         </button>
+              {/* language chage button  */}
+              <button onClick={handleChangeLanguage} className="mr-4 text-black">
+                    {isEnglish ? (
+                      <div className="flex items-center">
+                        <img className="h-4 w-6" src="https://i.ibb.co/SQdjzFm/uk.png" alt="UK Flag" />
+                        <span className="ml-1">En</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center">
+                        <img className="h-4 w-6" src="https://i.ibb.co/pLsw4Qd/bn.png" alt="Bangladesh Flag" />
+                        <span className="ml-1">বাং</span>
+                      </div>
+                    )}
+                  </button>
       </div>
 
-      {navLinks.map((link, index) => (
-        <ol  key={link}>
-          <li   
-            style={{
-              padding: location.pathname.startsWith(`${link}`)
-                ? "4px 2px   "
-                : "",
-              border: location.pathname.startsWith(`${link}`)
-                ? "1px solid white"
-                : "",
-              fontWeight: location.pathname.startsWith(`${link}`)
-                ? "bold"
-                : "normal",
-              color: location.pathname.startsWith(`${link}`)
-                ? "white"
-                : "white",
-            }}
-            className="text-first"
-          >
-            <Link to={`${link}`} className="flex gap-3">
-              {icons[index]}
-              {menuNames[index]}
-            </Link>
-          </li>
-        </ol>
-      ))}
+      <div className="flex-none">
+        <ul className={`menu menu-horizontal flex flex-col text-white p__cormorant`}>
+          {/* Navbar menu content here */}
+          <ManuList address={'/'} linkTitle={t('navHome.home')}  />
+          <ManuList address={'all-courses'} linkTitle={t('navAllCourse.all-course')}  />
+          <ManuList address={'blog'} linkTitle={t('navBlog.blog')}  />
+          <ManuList address={'contact'} linkTitle={t('navContact.contact')} />
+          <ManuList address={'quest'} linkTitle={t('navQuiz.quiz')} />
+        </ul>
+      </div>
 
-      <div>
+      <div className="p__cormorant text-white">
         {user ? (
           <li
-            className={`menu-item ${
-              location.pathname.startsWith("/profile") ? "active" : ""
-            }`}
+            className={`menu-item ${location.pathname.startsWith('/profile') ? 'active' : ''}`}
           >
-            <Link to={"/profile"}>
+            <Link to="dashboard/profile">
               <h1>
                 <ImProfile />
               </h1>
-              <p>Profile</p>
+              <p>{t("navProfile.profile")}</p>
             </Link>
           </li>
         ) : (
           <li
-            className={`menu-item ${
-              location.pathname.startsWith("/login") ? "active" : ""
-            }`}
+            className={`menu-item ${location.pathname.startsWith('/login') ? 'active' : ''}`}
           >
-            <Link to={"/login"}>
+            <Link to="/login">
               <h1>
                 <BiLogIn />
               </h1>
-              <p>Login</p>
+              <p> {t("navLogin.login")}</p>
             </Link>
           </li>
         )}

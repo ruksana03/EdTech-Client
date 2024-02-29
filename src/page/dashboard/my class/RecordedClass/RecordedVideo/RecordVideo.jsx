@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Iframe from "react-iframe";
 import {  useParams } from "react-router-dom";
+import useAxiosPublic from "../../../../../Hooks/useAxiosPublic";
 //import data from '../../../../../../public/bal.json'
 
 
@@ -8,15 +9,26 @@ const RecordVideo = () => {
    
 
     const courseName=useParams()
+     const axiosPublic= useAxiosPublic()
     const [data1,setData]=useState([])
+    console.log(courseName)
     useEffect(() => {
-        fetch('../../../../../../public/recordedclass.json')
-            .then(res => res.json())
-            .then(data => {
-               setData(data);
-            })
+      
+            axiosPublic.get('/recorded')
+            .then(response => {
+               // Handle successful response
+               const jsonData = response.data;
+               console.log(jsonData);
+               setData(jsonData)
+             })
+             .catch(error => {
+               // Handle error
+               console.error('Error fetching data:', error);
+             });
+
+
     }, []);
-    const orginalData1=data1.filter(data=> data.courseName===courseName.courseName)
+    const orginalData1=data1.filter(data=> data.title===courseName.courseName)
  
     const orginalData=orginalData1[0]
 

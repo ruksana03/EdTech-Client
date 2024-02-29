@@ -7,6 +7,7 @@ import Popular from "./Popular";
 import Reviews from "./Reviews";
 import Team from "./Team";
 import Teacher from "./joining  teacher/Teacher";
+import GetOfferData from "./showCountDownOffer/GetOfferData";
 
 const Home = () => {
   return (
@@ -18,6 +19,8 @@ const Home = () => {
       <Intro />
       <Team />
       <Teacher />
+      {/* akhane dite hbo  */}
+      <GetOfferData></GetOfferData>
       <Reviews />
       <Faq />
     </div>

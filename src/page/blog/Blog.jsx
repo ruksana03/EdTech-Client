@@ -45,13 +45,14 @@ const Blog = () => {
 
     return (
         <div>
-        <div className="lg:fixed top-0 left-0 w-full z-50">
-        <BlogNev/>
+            <div className="lg:fixed top-0 left-0 w-full z-50">
+                <BlogNev />
+            </div >
+            <div className=' min-h-[calc(100vh-48px)]'>
+                <Outlet></Outlet>
+            </div>
+            <BlogFooter />
         </div>
-        
-        <Outlet></Outlet>
-       <BlogFooter/>
-    </div>
     );
 };
 

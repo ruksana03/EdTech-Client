@@ -41,7 +41,7 @@ const DetailsInfo = ({ detailInfo }) => {
         name: detailInfo?.name,
         price: detailInfo?.price,
         image: detailInfo?.image,
-        duration:detailInfo?.duration,
+        duration: detailInfo?.duration,
         details: detailInfo?.details,
         email: detailInfo?.email,
         classId: detailInfo?._id,
@@ -240,7 +240,7 @@ const DetailsInfo = ({ detailInfo }) => {
               </li>
 
               <li className="flex items-center text-left text-sm font-medium p__opensans">
-                <MdFreeCancellation className="text-lg"/>
+                <MdFreeCancellation className="text-lg" />
                 <span className="ml-2">Cancel Anytime</span>
               </li>
             </ul>

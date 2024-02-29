@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdNotificationsOff } from "react-icons/io";
 import useTeacherSpecificNotices from "../../Hooks/useTeacherSpecificNotices";
+import useTeacherNotices from "../../Hooks/useTeacherNotices";
 
 const NoticeHome = () => {
     const [notices, setNotices] = useState([]);
+    const [teacher, refetch] = useTeacherNotices();
     const [teacherNotices, teacherRefetch,] = useTeacherSpecificNotices();
     const [searchNotices, setSearchNotices] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -12,13 +14,15 @@ const NoticeHome = () => {
     const [itemsPerPage, setItemPerPage] = useState(settingPage);
     const [filteredNotices, setFilteredNotices] = useState([]);
     teacherRefetch();
+    refetch();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 // const res = await fetch("http://localhost:5000/notices");
                 // const data = await res.json();
-                setNotices(teacherNotices);
-                setFilteredNotices(teacherNotices);
+                const teacherData = [...teacher, ...teacherNotices];
+                setNotices(teacherData);
+                setFilteredNotices(teacherData);
                 const parseSettingPage = parseInt(settingPage)
                 setItemPerPage(parseSettingPage)
             } catch (error) {
@@ -26,8 +30,8 @@ const NoticeHome = () => {
             }
         };
         fetchData();
-    }, [teacherNotices, settingPage]);
-    console.log(teacherNotices);
+    }, [teacher,teacherNotices, settingPage]);
+    // console.log(teacherNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
@@ -39,17 +43,14 @@ const NoticeHome = () => {
     const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem).reverse();
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    // console.log(currentItems);
-    // console.log(filteredNotices);
-    // console.log(notices);
 
     return (
         //https://i.ibb.co/G73nQT5/unnamed.jpg 
         //
         <div>
-            <div className="section-container">
+            <div className="section-container font-serif">
                 <div className="flex items-center flex-col-reverse md:flex-row gap-5 lg:flex-row justify-between w-full my-5">
-                    <div className="flex items-center gap-3 text-white">
+                    <div className="flex items-center gap-3 text-white font-serif">
                         <h1>Show</h1>
                         <select onChange={() => setSettingPage(event.target.value)} className="w-32 border bg-black text-white border-gray-300   focus:outline-none focus:border-first leading-tight input" name='select'>
                             <option disabled selected>set page </option>

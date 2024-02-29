@@ -6,14 +6,15 @@ import { SiContentful } from "react-icons/si";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { IoIosApps } from "react-icons/io";
-import { FaQuestion } from "react-icons/fa";
+import { FaPlus, FaQuestion } from "react-icons/fa";
 import { MdOutlineUnsubscribe } from "react-icons/md";
 import { LuPartyPopper } from "react-icons/lu";
 
 
 const AdminMenu = ({ isActive }) => {
-    const adminLinks = ['/allUsers', '/applications', '/allNotices', '/allBlogs', '/allCourses','/quiz','/allPaymentInfo','/subscriber','/allpartners'];
-    const adminMenu = ['Users','Application', 'Notices', 'Blogs', 'Courses','Quiz','Payment Info','Subscribers','Partners'];
+  
+    const adminLinks = ['/allUsers', '/applications', '/allNotices', '/allBlogs', '/allCourses', '/quiz', '/allPaymentInfo', '/subscriber', '/allpartners', '/add-member','/add-offer','/dashboard'];
+    const adminMenu = ['Users', 'Application', 'Notices', 'Blogs', 'Courses', 'Quiz', 'Payment Info', 'Subscribers', 'Partners', 'Add Member','Add Offer','Dashboard'];
     const icons = [
         <FaUsersViewfinder key={adminLinks[0]} className="text-2xl" />,
         <IoIosApps key={adminLinks[1]} className="text-2xl" />,
@@ -23,7 +24,9 @@ const AdminMenu = ({ isActive }) => {
         <FaQuestion key={adminLinks[6]} className="text-2xl" />,
         <RiSecurePaymentFill key={adminLinks[6]} className="text-2xl" />,
         <MdOutlineUnsubscribe key={adminLinks[7]} className="text-2xl" />,
-        <LuPartyPopper key={adminLinks[8]}  className="text-2xl" />
+        <LuPartyPopper key={adminLinks[8]} className="text-2xl" />,
+        <FaPlus key={adminLinks[9]} className="text-2xl" />,
+        <FaPlus key={adminLinks[10]} className="text-2xl" />
     ];
 
     const location = useLocation();

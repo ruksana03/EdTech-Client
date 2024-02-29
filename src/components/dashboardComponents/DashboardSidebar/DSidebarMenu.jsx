@@ -13,13 +13,10 @@ import AdminMenu from "../DashboardNav/DashboardMenu/AdminMenu";
 import { CgProfile } from "react-icons/cg";
 import { FaAnglesRight, FaGraduationCap } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
-// import { FaAnglesRight } from "react-icons/fa6";
-// import { FaShoppingCart } from "react-icons/fa";
+import { FaRocketchat } from "react-icons/fa";
 
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
-    // const DSidebarMenu = () => {
-
     const user = useSelector(state => state.data.user.user);
     const { AllUsers } = useUsers();
     const getMenuBasedOnRole = () => {
@@ -38,13 +35,14 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
         return null;
     };
 
-    const links = ['/dashboard', '/notes','/my-cart', '/profile'];
-    const menuNames = ['Dashboard', 'Notes','My Cart', 'Profile'];
+    const links = ['/chat', '/notes','/my-cart', '/profile'];
+    const menuNames = ['Chit-Chat', 'Notes','My Cart', 'Profile'];
     const icons = [
         <MdOutlineDashboardCustomize key={links[0]} className="text-2xl" />,
-        <SiBookstack key={links[1]} className="text-2xl" />,
-        <FaShoppingCart key={links[2]} className="text-2xl" />,
-        <CgProfile key={links[3]} className="text-2xl" />
+        <FaRocketchat key={links[1]} className="text-2xl" />,
+        <SiBookstack key={links[2]} className="text-2xl" />,
+        <FaShoppingCart key={links[3]} className="text-2xl" />,
+        <CgProfile key={links[4]} className="text-2xl" />
     ];
 
     const location = useLocation();
@@ -96,23 +94,25 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
                 {getMenuBasedOnRole()}
             </div>
 
-            <hr className="border border-first " />
-            {links.map((link, index) => (
-                <ol key={link} className={`flex gap-3   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+            <hr className="border border-first  " />
+            {
+                links.map((link, index) => (
+                    <ol key={link} className={`flex gap-3 text-sm   ${isActive ? 'flex-col justify-center items-center' : ''}`}>
 
-                    <li style={{
-                        padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
+                        <li style={{
+                            padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
 
-                        fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
-                        color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
-                    }} className={`flex gap-3 font-alt text-xl ${isActive ? 'flex-col justify-center items-center' : ''}`}>
-                        <Link to={`/dashboard${link}`} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
-                            {icons[index]}
-                            <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{menuNames[index]}</p>
-                        </Link>
-                    </li>
-                </ol>
-            ))}
+                            fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
+                            color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
+                        }} className={`flex gap-3 font-alt text-base ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                            <Link to={`/dashboard${link}`} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                                {icons[index]}
+                                <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{menuNames[index]}</p>
+                            </Link>
+                        </li>
+                    </ol>
+                ))
+            }
         </div>
     );
 };
