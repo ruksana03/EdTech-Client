@@ -1,6 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 
-const NoticeDetails = () => {
+
+const TeacherDetailsNotice = () => {
     const data = useLoaderData();
     const navigate = useNavigate();
     const { image, date, title, description, sentNotices, hostName } = data || {};
@@ -27,4 +28,4 @@ const NoticeDetails = () => {
     );
 };
 
-export default NoticeDetails;
+export default TeacherDetailsNotice;

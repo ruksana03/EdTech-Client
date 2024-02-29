@@ -64,69 +64,71 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden  bg-black p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-lg font-semibold text-center leading-6 text-orange-500 "
+                                        className="headtext__cormorant"
                                     >
                                         Add Task
                                     </Dialog.Title>
-                                    <div className="mt-2">
+                                    <div className="mt-2 p__cormorant">
                                         <form onSubmit={handleSubmit(onSubmit)}>
-                                            <label className="text-orange-500">Title: </label>
                                             <input
                                                 {...register("title")}
-                                                className="outline-orange-500 overflow-hidden bg-orange-200 py-1 px-1"
+                                                className="py-2 bg-transparent text-xl transition-colors peer w-full pl-3 font-poppins  border-none outline-none focus:ring-0"
                                                 type="text"
                                                 placeholder="Title"
                                                 name="title"
                                                 required
                                             />
-                                            <label className="text-orange-500">Description: </label>
+                                              <hr className="border-t border-first mb-4" />
                                             <textarea
                                                 {...register("description")}
                                                 required
-                                                className="outline-orange-500  bg-orange-200 py-1 px-1 mt-2"
+                                                className="py-2 bg-transparent text-xl transition-colors peer w-full pl-3 font-poppins  border-none outline-none focus:ring-0"
                                                 placeholder="Description"
                                                 name="description"
-                                                cols="25"
-                                                rows="4"
                                             ></textarea>
+                                              <hr className="border-t border-first" />
                                             <br />
                                             <label className="text-orange-500 ">Priority: </label>
                                             <select
                                                 {...register("priority")}
                                                 required
-                                                className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
+                                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-white font-bold border-none outline-none focus:ring-0 "
                                                 name="priority"
                                             >
-                                                <option disabled>Set Status</option>
-                                                <option value="low">Low</option>
-                                                <option value="moderate">Moderate</option>
-                                                <option value="high">High</option>
+                                                <option className="text-black font-bold " disabled>Set Status</option>
+                                                <option className="text-black font-bold " value="low">Low</option>
+                                                <option className="text-black font-bold " value="moderate">Moderate</option>
+                                                <option className="text-black font-bold " value="high">High</option>
                                             </select>
+                                            <hr className="border-t border-first mb-4" />
+
                                             <label className="text-orange-500 pl-1 ">Deadline:</label>
                                             <input
                                                 required
                                                 {...register("deadline")}
-                                                className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
+                                                className="py-2 bg-white transition-colors peer w-full pl-3 font-poppins text-black font-bold border-none outline-none focus:ring-0"
                                                 type="date"
                                                 name="deadline"
                                             />
                                             <br />
-                                            <button
+                                           <div className="flex justify-between mt-4">
+                                           <button
                                                 type="submit"
-                                                className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+                                                className="btn-style"
                                             >
                                                 Add Task
                                             </button>
                                             <button
                                                 type="button"
                                                 onClick={handleCloseModal}
-                                                className="mt-4 ml-2 inline-flex justify-center rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
+                                                className="mt-4 ml-2 inline-flex justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
                                             >
                                                 Close
                                             </button>
+                                           </div>
                                         </form>
                                     </div>
                                 </Dialog.Panel>

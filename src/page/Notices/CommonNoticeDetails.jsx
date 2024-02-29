@@ -2,10 +2,15 @@ import { FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaInstagram ,FaFacebookF,FaFacebookMessenger,FaWhatsapp ,FaLinkedinIn,FaYoutube,FaTelegramPlane } from "react-icons/fa";
 import { BsBing } from "react-icons/bs";
-import image from '../../assets/NOTICE.png'
+import { useLoaderData } from "react-router-dom";
 const CommonNoticeDetails = () => {
+
+    const data = useLoaderData();
+    const {image,date,title,description,hostEmail,hostName,sentForCourse,sentNotices,_id} = data || {};
+    console.log(data);
+
     return (
-        <div className="section-container my-12 dark:text-gray-400">
+        <div className="section-container my-12 p__cormorant">
             <div className="">
                 <h1 className="text-xl font-semibold ">Job Title Hellow Sushil How Are You</h1>
                 <p>Published on 12-05-2023</p>

@@ -30,26 +30,6 @@ const UpdateProfile = () => {
                     return navigate('/dashboard/profile')
                 })
 
-
-                // console.log(userInfo);
-                // updateUserEmail(email)
-                //     .then((res) => {
-                //         console.log(res);
-                //     })
-                //     .catch((err) =>{
-                //         console.log(err.message);
-                //         toast.error(err.message)
-                //     })
-                // axiosPublic.patch(`/user/${currentUser?._id}`, updatedData)
-                //     .then(res => {
-                //         if (res.data) {
-                //             setLoading(false);
-                //             refetch();
-                //             // console.log(res.data);
-                //              toast.success('Updated successfully')
-                //             return navigate('/dashboard/profile')
-                //         }
-                //    
                 .catch((error) => {
                     console.log(error.message)
                     toast.error(error.message)

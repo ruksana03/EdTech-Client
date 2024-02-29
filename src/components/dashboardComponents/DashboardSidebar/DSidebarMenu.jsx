@@ -11,10 +11,11 @@ import StudentMenu from "../DashboardNav/DashboardMenu/StudentMenu";
 import TeacherMenu from "../DashboardNav/DashboardMenu/TeacherMenu";
 import AdminMenu from "../DashboardNav/DashboardMenu/AdminMenu";
 import { CgProfile } from "react-icons/cg";
-import { FaAnglesRight, FaGraduationCap } from "react-icons/fa6";
+import { FaGraduationCap } from "react-icons/fa6";
+import { CgMenuGridR } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaRocketchat } from "react-icons/fa";
-
+import { CgMenuGridO } from "react-icons/cg";
 
 const DSidebarMenu = ({ handleReverse, isActive }) => {
     const user = useSelector(state => state.data.user.user);
@@ -48,17 +49,19 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
     const location = useLocation();
 
     return (
-        <div className={`fixed pl-4 flex flex-col lg:gap-4 bg-black text-white ${isActive ? 'pl-0 ' : ' space-y-2'}`}>
+        <div className={`p__cormorant fixed pl-4 flex flex-col lg:gap-4   text-white`}>
             <div className="flex items-center justify-center fixed right-0 top-4 z-[1]  ">
-                <span onClick={handleReverse} className={` hidden md:block lg:block w-auto cursor-pointer text-white border rounded-full text-[26px] px-2 py-[2px] ${isActive ? ' rotate-180 w-12 h-8' : 'bg-first text-white  w-16 h-8 '}`}>
-                    <FaAnglesRight className="hover:scale-100" />
+                <span onClick={handleReverse} className={` hidden md:block lg:block w-auto cursor-pointer  text-[26px] px-2 py-[2px] ${isActive ? ' bg-first text-black  w-16 h-8' : 'bg-first text-black  w-16 h-8 '}`}>
+                    {
+                        isActive?(<CgMenuGridO/>):(<CgMenuGridR className="hover:scale-100" />)
+                    }
                 </span>
             </div>
             <div className="pt-8 md:pt-10 lg:pt-3">
                 {isActive ? <Link to="/">
-                    <article className="font-bold absolute left-10 -top-10 dark:text-gray-400 text-black ">
-                        <FaGraduationCap className="  dark:text-green-500 text-first text-4xl " /> <br />
-                        <span className="dark:text-green-500 text-first absolute left-0 top-8">ED</span>
+                    <article className="font-bold absolute left-10 -top-10  text-black ">
+                        <FaGraduationCap className="  text-first text-4xl " /> <br />
+                        <span className=" text-first absolute left-0 top-8">ED</span>
                     </article>
                 </Link> : <Logo isActive={isActive} />}
 

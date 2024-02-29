@@ -1,5 +1,4 @@
-import moment from "moment";
-import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+/* eslint-disable no-unused-vars */
 import { useRef, useState } from 'react';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
@@ -7,35 +6,27 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react';
-import './SRutine.css'
+import './SRoutine.css'
+import useStudentRoutine from "../../../../Hooks/useStudentRoutine";
 
-
-const SRutine = () => {
-    const axiosPublic = useAxiosPublic();
+const SRoutine = () => {
+    const [events, refetch] = useStudentRoutine();
     const calendarRef = useRef(null);
-    const [events, setEvents] = useState([]);
     let [isOpen, setIsOpen] = useState(false);
-    const [currentEvent,setCurrentEvent] = useState(null)
-
-
+    const [currentEvent, setCurrentEvent] = useState(null)
+    refetch();
     function closeModal() {
         setIsOpen(false)
     }
-
+    
     function handleDeleteClick(data) {
         setIsOpen(true)
         const currentData = data.event._def.extendedProps;
-        const findData = events.find(event => event._id=== currentData._id);
+        const findData = events.find(event => event._id === currentData._id);
         // console.log(findData);
         setCurrentEvent(findData)
     }
-    // console.log(currentEvent);
-    async function handleDateSet(data) {
-        const response = await axiosPublic.get('/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
-        const forShowRutine = response?.data.filter(item => item?.forCourses==='programming');
-        // setEvents(response.data)
-        setEvents(forShowRutine)
-    }
+
     return (
         <section className='w-full h-screen mx-auto p-5'>
             <div className='w-[90%] mx-auto flex items-center justify-between p-5 flex-col '>
@@ -46,7 +37,6 @@ const SRutine = () => {
                             events={events}
                             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                             initialView="dayGridMonth"
-                            datesSet={(date) => handleDateSet(date)}
                             height={'80vh'}
                             nowIndicator={true}
                             droppable={true}
@@ -61,7 +51,7 @@ const SRutine = () => {
                 </div>
             </div>
             <>
-              <Transition appear show={isOpen} as={Fragment}>
+                <Transition appear show={isOpen} as={Fragment}>
                     <Dialog as="div" className="relative z-10" onClose={closeModal}>
                         <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
                             <div className="fixed inset-0 bg-black/25" />
@@ -71,16 +61,16 @@ const SRutine = () => {
                                 <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
                                     <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all flex items-center justify-center flex-col">
                                         <Dialog.Title as="h3" className="text-lg capitalize font-medium leading-6 text-gray-900">
-                                           {currentEvent?.title}
+                                            {currentEvent?.title}
                                         </Dialog.Title>
-                                       <h1>Start Date : {currentEvent?.start?.slice(0,10)}</h1>
-                                       <h1>End Date : {currentEvent?.end?.slice(0,10)}</h1>
-                                       <h1>Meet Link : <a href={currentEvent?.liveLink} className='font-bold underline' target='_blank' rel='noopener noreferrer'>Click Here</a></h1>
+                                        <h1>Start Date : {currentEvent?.start?.slice(0, 10)}</h1>
+                                        <h1>End Date : {currentEvent?.end?.slice(0, 10)}</h1>
+                                        <h1>Meet Link : <a href={currentEvent?.liveLink} className='font-bold underline' target='_blank' rel='noopener noreferrer'>Click Here</a></h1>
 
 
                                         <div className="mt-4">
                                             <button type="button" className="px-5 py-2 bg-green-700 text-white hover:text-black rounded" onClick={closeModal}>
-                                               Close
+                                                Close
                                             </button>
                                         </div>
                                     </Dialog.Panel>
@@ -94,4 +84,4 @@ const SRutine = () => {
     )
 };
 
-export default SRutine;
+export default SRoutine;

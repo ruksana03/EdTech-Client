@@ -6,10 +6,9 @@ import { SiContentful } from "react-icons/si";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { IoIosApps } from "react-icons/io";
-import { FaQuestion } from "react-icons/fa";
+import { FaPlus, FaQuestion } from "react-icons/fa";
 import { MdOutlineUnsubscribe } from "react-icons/md";
 import { LuPartyPopper } from "react-icons/lu";
-import { FaPlus } from "react-icons/fa6";
 import { RiAdvertisementFill } from "react-icons/ri";
 
 
@@ -32,17 +31,17 @@ const AdminMenu = ({ isActive }) => {
 
     const location = useLocation();
     return (
-        <div className="">
+        <div className="p__cormorant">
             {adminLinks.map((link, index) => (
-                <ol key={link} className={`flex gap-3 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                <ol key={link} className={`flex gap-3 text-base ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                     <li style={{
                         padding: location.pathname.startsWith(`/dashboard${link}`) ? "4px 2px " : "",
                         fontWeight: location.pathname.startsWith(`/dashboard${link}`) ? "bold" : "normal",
                         color: location.pathname.startsWith(`/dashboard${link}`) ? "white" : "white",
-                    }} className={`flex gap-3 font-alt text-xl ${isActive ? 'flex-col justify-center items-center' : ''}`}>
-                        <Link to={`/dashboard${link}`} className={`flex gap-3 my-2 dark:text-white ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                    }} className={`flex gap-3  ${isActive ? 'flex-col justify-center items-center' : ''}`}>
+                        <Link to={`/dashboard${link}`} className={`flex gap-3 my-2  ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                             {icons[index]}
-                            <p className={`flex gap-3 dark:text-white ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{adminMenu[index]}</p>
+                            <p className={`flex gap-3  ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{adminMenu[index]}</p>
 
                         </Link>
                     </li>

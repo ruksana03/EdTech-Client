@@ -33,22 +33,20 @@ import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
 import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import NoticeDetails from "./../page/dashboard/Admin/AllNotices/details/NoticeDetails";
-import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
 import BlogHome from "../page/blog/BlogHome";
 import WriteBlog from "../page/blog/WriteBlog";
 import BlogProfile from "../page/blog/BlogProfile";
-import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
-import NoticeHome from "../page/Notices/NoticeHome";
+// import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
+// import NoticeHome from "../page/Notices/NoticeHome";
 import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
 import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
 import DashboardLayout from "../layout/DashboardLayout";
 import AddCourse from "../page/dashboard/Teacher/AddCourse";
-import Notices from "../page/home/userNotice/Notices";
+// import Notices from "../page/home/userNotice/Notices";
 import CreateNotice from "../page/dashboard/Teacher/noticeCreate/CreateNotice";
-import NoticeBanner from "../page/Notices/NoticeBanner";
-import NewNotices from "../page/Notices/NewNotices";
+// import NoticeBanner from "../page/Notices/NoticeBanner";
+// import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
-import CommonNoticeDetails from "../page/Notices/CommonNoticeDetails";
 import Applications from "../page/dashboard/Admin/application/Applications";
 import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
@@ -65,8 +63,8 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import SpeechToText from "../components/SpeechToText/SpeechToText";
-import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRutine";
-import SRutine from "../page/dashboard/Student/rutine/SRutine";
+import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
+import SRutine from "../page/dashboard/Student/rutine/SRoutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
@@ -78,6 +76,15 @@ import Man from "../page/QuizeComponent/Man";
 // import UpdateMemberModal from "../page/dashboard/Admin/AllMembers/UpdateMemberModal";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
 import MakeAdvertisement from "../page/dashboard/Admin/Advertisement/MakeAdvertisement";
+import TeacherDetailsNotice from "../page/dashboard/Teacher/ShowNotices/TeacherDetailsNotice";
+import UpdateAdminNotice from "../page/dashboard/Admin/AllNotices/update/UpdateAdminNotice";
+import NoticeBanner from "../page/Notices/NoticeBanner";
+import NoticeHome from "../page/Notices/NoticeHome";
+import NewNotices from "../page/Notices/NewNotices";
+import Notices from "../page/home/userNotice/Notices";
+import AdminNoticeStudent from "../page/Notices/AdminNoticeStudent";
+import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
+import TeacherNoticeDetails from "../page/Notices/TeacherNoticeDetails";
 
 
 
@@ -145,32 +152,38 @@ const router = createBrowserRouter([
                 element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
             },
             {
-                path: "common-notice-details",
-                element: <CommonNoticeDetails />,
-            },
-            {
                 path: "/notices",
                 element: <NoticeBanner />,
                 children: [
                     {
-                        path: 'teacher-notices',
+                        path: 'teachers-notices',
                         element: <NoticeHome />
                     },
                     {
-                        path: 'user-notices',
+                        path: 'admins-notices-teacher',
                         element: <Notices />
                     },
                     {
-                        path: 'new-notices',
+                        path: 'admins-notices-student',
+                        element: <AdminNoticeStudent />
+                    },
+                    {
+                        path: 'common-notices-admin',
                         element: <NewNotices />
                     },
                 ]
             },
             {
-                path: 'notice-details/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/notice/${params.id}`),
+                path: 'admin-notice-details/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/admin-notice/${params.id}`),
                 element: <NoticeHomeDetails />
             },
+            {
+                path: 'teacher-notice-details/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/teacher-notice/${params.id}`),
+                element: <TeacherNoticeDetails />
+            },
+            
         ],
     },
 
@@ -231,16 +244,16 @@ const router = createBrowserRouter([
                 element: <AllNotices />,
             },
             {
-                path: "notice-details/:id",
+                path: "admin-notice-details/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
+                    fetch(`http://localhost:5000/admin-notice/${params.id}`),
                 element: <NoticeDetails />,
             },
             {
-                path: "notice-updated/:id",
+                path: "admin-notice-updated/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
-                element: <UpdateNotice />,
+                    fetch(`http://localhost:5000/admin-notice/${params.id}`),
+                element: <UpdateAdminNotice/>,
             },
             {
                 path: "allBlogs",
@@ -276,7 +289,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "add",
-                element: <MakeAdvertisement/>
+                element: <MakeAdvertisement />
             },
 
 
@@ -368,7 +381,6 @@ const router = createBrowserRouter([
             // teachers route
             {
                 path: "post-resources",
-
                 element: <NewPostResources />
             },
             {
@@ -397,27 +409,20 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "notice-update/:id",
+                path: "teacher-notice-update/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
+                    fetch(`http://localhost:5000/teacher-notice/${params.id}`),
                 element: <TeacherUpdateNotices />,
             },
-
-
-
             {
                 path: 'create-notice',
                 element: <CreateNotice />
             },
             {
-                path: 'show-notices',
-                element: <ShowNotices />
-            },
-            {
-                path: "notice-update/:id",
+                path: "teacher-notice-details/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
-                element: <TeacherUpdateNotices />,
+                    fetch(`http://localhost:5000/teacher-notice/${params.id}`),
+                element: <TeacherDetailsNotice />,
             },
 
             // common route

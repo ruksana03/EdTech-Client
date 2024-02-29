@@ -14,7 +14,6 @@ const AddMember = () => {
     const [loading, setLoading] = useState(false);
     const [profilePicture, setProfilePicture] = useState(null);
     const axiosPublic = useAxiosPublic();
-
     const { AllMember, refetch } = useMember();
 
     const handleImageUrlChange = (e) => {

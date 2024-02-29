@@ -1,14 +1,10 @@
-/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import useAdminNotice from "../../Hooks/useAdminNotice";
 
-// Common notice from admin
-const NewNotices = () => {
+// admin posted notice for student only 
+const AdminNoticeStudent = () => {
     const { AllAdminNotice } = useAdminNotice();
-    const filteredAdminNotices = AllAdminNotice.filter(notice => notice.sentNotices === "common");
-
-    // const { date, description, hostEmail, hostName, image, sentNotices, title, __v, _id } = YourDataObject;
-
+    const filteredAdminNotices = AllAdminNotice.filter(notice => notice.sentNotices === "student");
     return (
         <div className="w-8/12 mx-auto">
         {filteredAdminNotices?.map(notice => (
@@ -38,9 +34,7 @@ const NewNotices = () => {
           </div>
         ))}
       </div>
-      
     );
 };
 
-export default NewNotices;
-
+export default AdminNoticeStudent;

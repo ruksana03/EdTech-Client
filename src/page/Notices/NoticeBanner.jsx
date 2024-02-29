@@ -1,45 +1,49 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FcCheckmark } from "react-icons/fc";
 import useUserRole from "../../Hooks/useUserRole";
-import useStudentSpecificNotices from "../../Hooks/useStudentSpecificNotices";
+// import useTeacherNotice from "../../Hooks/useTeacherNotice";
+// import useAdminNotice from "../../Hooks/useAdminNotice";
+// import useStudentSpecificNotices from "../../Hooks/useStudentSpecificNotices";
 
 const NoticeBanner = () => {
-  const [role, refetch,] = useUserRole();
-  const [, studentRefetch,] = useStudentSpecificNotices();
-  // console.log(role);
+  const [role, refetch] = useUserRole();
   const currentRole = role[0]?.role
   refetch();
-  studentRefetch();
-  // console.log(currentRole);
+
 
   return (
-    <div>
-      <figure className=" w-full h-96 relative">
-        {/* <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" /> */}
-        <img src='https://i.ibb.co/LzXmwF2/learning-3245793-1280.jpg' alt="notice-image" className="w-full h-full" />
-        <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
-      </figure>
+    <div className="p__cormorant">
+      <div className="bg-second py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="lg:text-center">
+            <h2 className="text-lg leading-6 font-semibold text-white uppercase tracking-wider">
+              {/* Important Notices */}
+            </h2>
+            <p className="mt-2 text-3xl h-12 font-extrabold text-white sm:text-4xl">
+
+            </p>
+            <p className="mt-4 max-w-2xl text-xl text-white mx-auto uppercase headtext__cormorant">
+              {currentRole} || Notice
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="section-container flex items-center justify-between flex-col md:flex-row lg:flex-row mt-7">
-        <div className="flex items-center gap-4 my-5 flex-col md:flex-row lg:flex-row">
+        <div className="flex items-center gap-4 my-5 flex-col md:flex-row lg:flex-row ">
           {
             currentRole === 'teacher' && <div className="relative w-auto flex items-center flex-col md:flex-row lg:flex-row gap-10 ">
-              <NavLink to='teacher-notices'
+              <NavLink to='admins-notices-teacher'
                 className={({ isActive }) =>
-                  ` text-[18px] font-medium duration-200 transform btn hover:border-white hover:text-white bg-first hover:bg-transparent text-whiterounded-2xl text-start w-52  h-16 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? 'text-white green_gradient_text border-black ' : 'bg-second'
+                  `btn-style ${isActive ? 'bg-black text-white ' : 'bg-black text-white'
                   }`} >
-                <span> Teacher </span>
-                {
-                  <div className="relative w-auto ml-16 -mt-16">
-                    <FcCheckmark className="text-7xl font-bold absolute right-0 top-0" />
-                    <span className="w-8 h-8 bg-second rounded-full right-6 top-1 absolute "></span>
-                  </div>
-                }
+                 Admin 
+               
               </NavLink>
 
               <NavLink
-                to='new-notices'
+                to='common-notices-admin'
                 className={({ isActive }) =>
-                  `text-[18px] font-medium duration-200 transform btn hover:border-black hover:text-white hover:bg-transparent bg-second text-white rounded-2xl h-16 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 online${isActive ? ' text-white green_gradient_text border-black' : 'bg-second'
+                  `btn-style ${isActive ? ' bg-black text-white border-black' : 'bg-black text-white'
                   }`} >
                 Common Notice
               </NavLink>
@@ -48,27 +52,28 @@ const NoticeBanner = () => {
 
           {
             currentRole === 'student' && <div className="relative w-auto flex items-center flex-col md:flex-row lg:flex-row gap-10">
-              <NavLink to='user-notices'
+              <NavLink to='teachers-notices'
                 className={({ isActive }) =>
-                  ` text-[18px] font-medium duration-200 transform btn hover:border-black hover:text-white bg-first hover:bg-transparent text-white rounded-2xl text-start w-52  h-16 hover:-translate-y-[2px] transition-all ease-in hover:scale-100 ${isActive ? 'text-white green_gradient_text border-black ' : 'bg-second'
+                `btn-style ${isActive ? 'bg-black text-white ' : 'bg-black text-white'
                   }`} >
-                <span> Student </span>
-                {
-                  <div className="relative w-auto ml-16 -mt-16">
-                    <FcCheckmark className="text-7xl font-bold absolute right-0 top-0" />
-                    <span className="w-8 h-8 bg-second rounded-full right-6 top-1 absolute "></span>
-                  </div>
-                }
+                Teacher
               </NavLink>
               <NavLink
-                to='new-notices'
+                to='common-notices-admin'
                 className={({ isActive }) =>
-                  `text-[18px] font-medium duration-200 transform btn hover:border-black hover:text-white hover:bg-transparent bg-second text-white rounded-2xl h-16  hover:-translate-y-[2px] transition-all ease-in hover:scale-100 online${isActive ? ' text-white green_gradient_text border-black' : 'bg-second'
+                `btn-style ${isActive ? 'bg-black text-white ' : 'bg-black text-white'
                   }`} >
                 Common Notice
               </NavLink>
+              <NavLink
+                to='admins-notices-student'
+                className={({ isActive }) =>
+                `btn-style ${isActive ? 'bg-black text-white ' : 'bg-black text-white'
+                  }`} >
+                Student
+              </NavLink>
             </div>
-          }
+          } 
 
         </div>
       </div>

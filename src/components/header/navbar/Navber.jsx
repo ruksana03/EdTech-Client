@@ -10,33 +10,27 @@ import { logoutUser } from "../../../Features/UserSlice";
 import Logo from "../../shared/Logo";
 import NavUserButton from "../NavUserButton";
 import Sidebar from "./Sidebar";
-// import { MdMenu } from "react-icons/md";
-import useStudentSpecificNotices from "../../../Hooks/useStudentSpecificNotices";
-import useTeacherSpecificNotices from "../../../Hooks/useTeacherSpecificNotices";
-import useUserRole from "../../../Hooks/useUserRole";
 import useCart from "../../../Hooks/useCart";
-import useCommonNotices from "../../../Hooks/useCommonNotices";
-import { IoNotificationsSharp } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { CiMenuFries } from "react-icons/ci";
 import { ImProfile } from "react-icons/im";
-import useTeacherNotices from "../../../Hooks/useTeacherNotices";
+import { HiMiniBellAlert } from "react-icons/hi2";
+import useTeacherNotice from "../../../Hooks/useTeacherNotice";
+import { PiSignOutFill } from "react-icons/pi";
+import useUserRole from "../../../Hooks/useUserRole";
+import useAdminNotice from "../../../Hooks/useAdminNotice";
 
 
 const Navbar = () => {
-  const [teacher, refetch] = useTeacherNotices();
-  const [userNotices, studentRefetch] = useStudentSpecificNotices();
-  const [teacherNotices, teacherRefetch] = useTeacherSpecificNotices();
-  const [commonNotices, commonRefetch,] = useCommonNotices();
-  const [role] = useUserRole();
-  const currentRole = role[0]?.role;
+
   const [active, setActive] = useState(true);
   const user = useSelector((state) => state.data.user.user);
   const [cart] = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
-  const teacherData = [...teacher, ...teacherNotices];
-  const studentData = [...teacher, ...userNotices, ...teacherNotices];
-  // const [t, i18n] = useTranslation("global");
+  const { AllTeacherNotice } = useTeacherNotice();
+  const { AllAdminNotice } = useAdminNotice();
+  const [role] = useUserRole();
+  const currentRole = role[0]?.role
 
 
   const [t, i18n] = useTranslation("global");
@@ -47,11 +41,7 @@ const Navbar = () => {
     setIsEnglish(!isEnglish);
     i18n.changeLanguage(newLanguage);
   };
-        //  refetch for all upcomming data 
-  studentRefetch();
-  teacherRefetch();
-  commonRefetch();
-  refetch();
+
   const dispatch = useDispatch();
   const handleClick = () => {
     setActive(!active);
@@ -84,7 +74,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="lg:fixed top-0 left-0 w-full z-10">
+    <div className="lg:fixed top-0 left-0 w-full z-10 p__cormorant ">
       <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div
@@ -112,42 +102,27 @@ const Navbar = () => {
             <div>
               <NavUserButton user={user} handleLogout={handleLogout} />
               <div className="hidden lg:block">
+
                 {/* notice show here  */}
                 <div className="flex items-center justify-center gap-4">
-                  {
-                    currentRole === 'student' && <Link to='notices/user-notices'>
-                      <button
-                        className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                        <IoNotificationsSharp className="text-2xl" />
-                        {/* <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" /> */}
-                        <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-black rounded-full flex items-center justify-center">{studentData?.length}</span>
-                      </button>
-                    </Link>
-                  }
-                  {
-                    currentRole === 'teacher' &&
-                    <Link to='notices/teacher-notices'> <button
-                      className="text-[18px] font-medium w-8 h-8 mr-3 mt-4 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                      <IoNotificationsSharp className="text-2xl" />
-                      {/* <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" /> */}
-                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-black rounded-full flex items-center justify-center">{teacherData?.length}</span>
-                    </button>
-                    </Link>
-                  }
-                  {
-                    (currentRole !== 'student' && currentRole !== 'teacher') && currentRole !== 'admin' && <Link to='notices/new-notices'> <button
-                      className="text-[18px] font-medium w-8 h-8 mr-5 duration-200 transformhover:bg-transparent rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100 relative">
-                      <IoNotificationsSharp className="text-2xl" />
-                      {/* <img src={noticeIcon} alt="notice" className="w-full h-full scale-110 rounded-full" /> */}
-                      <span className="w-6 h-6 absolute -top-3 left-4 bg-first text-black rounded-full flex items-center justify-center">{commonNotices?.length}</span>
-                    </button>
-                    </Link>
-                  }
 
+                  {/* notice section  */}
+                  <Link to='/notices' className="flex items-center gap-2">
+                    <HiMiniBellAlert className="ml-2 text-xl" />
+                    {currentRole === 'student' && <div className="badge badge-warning">+{AllTeacherNotice?.length}</div>}
+                    {currentRole === 'teacher' && <div className="badge badge-warning">+{AllAdminNotice?.length}</div>}
+                  </Link>
+
+
+
+                  {/* cart section  */}
                   <Link to='/dashboard/my-cart'><button className="flex items-center">
                     <FaShoppingCart className="mr-2 text-xl"></FaShoppingCart>
                     <div className="badge badge-warning">+{cart.length}</div>
                   </button></Link>
+
+
+                  {/* profile dropdown with login logout  */}
                   {user ? (
                     <div className="dropdown dropdown-hover">
                       <div className="w-12" tabIndex={0} role="button">
@@ -190,6 +165,7 @@ const Navbar = () => {
                             onClick={handleLogout}
                             className="text-[18px] font-medium px-4 py-2 duration-200 transform text-black hover:bg-transparent hover:text-red-500 rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"
                           >
+                            <PiSignOutFill />
                             {t("navLogout.logout")}
                           </button>
                         </li>
