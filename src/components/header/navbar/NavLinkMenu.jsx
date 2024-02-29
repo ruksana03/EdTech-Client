@@ -16,7 +16,6 @@ const NavLinkMenu = ({isScrolled}) => {
                     <ManuList address={'all-courses'} linkTitle={t("navAllCourse.all-course")}  />
                     <ManuList address={'blog'} linkTitle={t("navBlog.blog")}  />
                     <ManuList address={'contact'} linkTitle={t("navContact.contact")} />
-                    <ManuList address={'quest'} linkTitle={t("navQuiz.quiz")} />
                     <ManuList address={'services'} linkTitle={t("Services")} />
                 </ul>
             </div>
