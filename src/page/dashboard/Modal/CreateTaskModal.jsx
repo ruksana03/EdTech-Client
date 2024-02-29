@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -8,7 +7,7 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import {  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
     // const axiosSecure = useAxiosSecure();
@@ -30,7 +29,7 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
 
         const { data: res } = await axiosPublic.post("/task", updatedData);
         toast.success("Task Added Successfully");
-        refetch();
+        refetch()
     };
 
     const handleCloseModal = () => {
@@ -114,19 +113,19 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
                                                 name="deadline"
                                             />
                                             <br />
-                                            <button
+                                            <button  onClick={handleCloseModal}
                                                 type="submit"
                                                 className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
                                             >
                                                 Add Task
                                             </button>
-                                            <button
+                                            {/* <button
                                                 type="button"
                                                 onClick={handleCloseModal}
                                                 className="mt-4 ml-2 inline-flex justify-center rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
                                             >
                                                 Close
-                                            </button>
+                                            </button> */}
                                         </form>
                                     </div>
                                 </Dialog.Panel>
