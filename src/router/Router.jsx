@@ -77,6 +77,7 @@ import Certificate from "../page/dashboard/Student/certificates/Certificate";
 import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertificate";
 import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 import ServicesHome from "../page/Services/ServicesHome";
+import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
 
 
 
@@ -278,6 +279,10 @@ const router = createBrowserRouter([
             {
                 path: "add-member",
                 element:<AddMember/>
+            },
+            {
+                path: "add-offer",
+                element:<AddOffer></AddOffer>
             },
             // Student route
             {

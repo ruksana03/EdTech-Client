@@ -5,13 +5,22 @@ import toast from "react-hot-toast";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import useFeedback from "../../../../Hooks/useFeedback";
+
+
 const Feedback = () => {
     let [isOpne, setIsOpen] = useState(true);
+    const [feedbackAll,setFeedbackAll] = useState({});
+    const [feedbacks,refetch] = useFeedback();
+    const fildId = feedbackAll?._id;
     const axiosPublic = useAxiosPublic();
     const [rating, setRating] = useState(0);
     const [feetbackMessage, setFeedbackMessage] = useState({});
     const user = useSelector((state) => state.data.user.user);
-
+    const name = user?.name;
+    const email = user?.email;
+    const image = user?.photo;
+    const feedbackData = { name, email,image, feetbackMessage, rating };
 
     const handleModal = () => {
         const idFind = document.getElementById('my_modal_5').showModal()
@@ -19,11 +28,10 @@ const Feedback = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const name = user?.name;
-            const email = user?.email;
-            // const feedbackData = { name, email, feetbackMessage, rating };
-            // const sentDb = await axiosPublic.post('create-feedback', feedbackData);
-            // console.log(sentDb);
+            axiosPublic.post('/create-feedback', feedbackData)
+            .then(res => {
+                setFeedbackAll(res.data)
+            })
             handleClose();
             handleModal();
         }
@@ -33,10 +41,22 @@ const Feedback = () => {
     };
 
     if (rating > 0) {
-        toast.success('your feedback has been submitted!')
+        const feedbackData = { name, email,image, feetbackMessage, rating };
+         axiosPublic.put(`/updated-feedback/${fildId}`, feedbackData)
+            .then(res => {
+               toast.success('your feedback has been submitted!')
+            })
         return <form method="dialog"></form>
     };
-
+    const handleDelete = (id) => {
+        axiosPublic.delete(`/deleted-feedback/${id}`)
+        .then(res => {
+           if(res.data){
+            toast.success('deleted successfully')
+            refetch()
+           }
+        })
+    }
     const handleOpne = () => {
         setIsOpen(true)
     }
@@ -50,6 +70,14 @@ const Feedback = () => {
                 <button onClick={handleOpne} className="btn-style">Feedback Open</button>
                 <button className="btn-style">Feedback Close</button>
             </div>
+            <div className="w-full h-full">
+                {
+                    feedbacks.map(fee => <div key={fee._id}>
+                            <h1 className="text-xl text-white">{fee?.feetbackMessage}</h1>
+                            <button onClick={()=>handleDelete(fee?._id)} className="btn-style">ok</button>
+                    </div>)
+                }
+            </div>
             <div>
                 {/* <button className="btn" onClick={handleModal}>open modal</button> */}
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
@@ -57,7 +85,7 @@ const Feedback = () => {
                         <div className="modal-action justify-center">
                             <button onClick={handleClose} className="absolute -top-1 -right-1 btn btn-circle"><RxCross2 className="text-4xl" /></button>
                             <span className="flex items-center justify-center flex-col gap-2">
-                                <h1 className="text-3xl font-bold text-center font-serif text-white">Please Ratting Us!</h1>
+                                <h1 className="text-3xl font-bold text-center font-serif text-white">Please Rating Us!</h1>
                                 <Rating
                                     style={{ maxWidth: 180, color: '#f59e0b', zIndex: ' 1' }}
                                     value={rating}
