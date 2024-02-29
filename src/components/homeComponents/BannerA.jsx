@@ -11,6 +11,7 @@ import img1 from '../../assets/home/01.jpg';
 import img2 from '../../assets/home/02.jpg';
 import img3 from '../../assets/home/03.jpg';
 import img4 from '../../assets/home/04.jpg';
+import Skeleton from 'react-loading-skeleton';
 
 const Banner = () => {
   const [t] = useTranslation("global");

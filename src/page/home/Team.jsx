@@ -1,3 +1,4 @@
+
 import { useTranslation } from "react-i18next";
 import useMember from "../../Hooks/useMember";
 
@@ -5,8 +6,8 @@ const Team = () => {
   const { t } = useTranslation('global');
   const { AllMember } = useMember();
   return (
-    <div className="my-16 section-container">
-      <div className="space-y-3 dark:text-gray-400 text-center">
+  <div className="section-container my-12">
+    <div className="space-y-3 text-center">
         <h2 className="headtext__cormorant "> {t('team.title')}</h2>
         <h4 className="p__cormorant">
           {t('team.description')}
@@ -34,7 +35,7 @@ const Team = () => {
         ))}
       </div>
     </div>
-
   );
 };
+
 export default Team;

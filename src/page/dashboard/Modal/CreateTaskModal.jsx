@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import {  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
     // const axiosSecure = useAxiosSecure();
@@ -30,7 +30,7 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
 
         const { data: res } = await axiosPublic.post("/task", updatedData);
         toast.success("Task Added Successfully");
-        refetch();
+        refetch()
     };
 
     const handleCloseModal = () => {
@@ -114,7 +114,7 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
                                                 name="deadline"
                                             />
                                             <br />
-                                           <div className="flex justify-between mt-4">
+                                            <div className="flex justify-between mt-4">
                                            <button
                                                 type="submit"
                                                 className="btn-style"
@@ -140,5 +140,6 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
         </>
     );
 };
+
 
 export default CreateTaskModal;

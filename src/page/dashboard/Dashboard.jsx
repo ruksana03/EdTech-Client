@@ -1,12 +1,62 @@
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { Bar } from "recharts";
 import Revenue from "./Revenue/Revenue";
 import Analytic from "./Revenue/Analytic/Analytic";
+import { useEffect, useState } from "react";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Dashboard = () => {
+  const[data1, setData]=useState([])
+  const[data2, setData2]=useState([])
+  const[data3, setData3]=useState([])
+	console.log(data2)
+		const axiosPublic=useAxiosPublic()
+		useEffect(() => {
+      
+            axiosPublic.get('/users')
+            .then(response => {
+               // Handle successful response
+               const jsonData = response.data;
+               console.log(jsonData);
+               setData(jsonData)
+             })
+             .catch(error => {
+               // Handle error
+               console.error('Error fetching data:', error);
+             });
+           
+
+
+    }, []);
+    useEffect(()=>{
+      axiosPublic.get('/bookings-all')
+      .then(response => {
+         // Handle successful response
+         const jsonData = response.data;
+         console.log(jsonData);
+         setData2(jsonData)
+       })
+       .catch(error => {
+         // Handle error
+         console.error('Error fetching data:', error);
+       });
+   
+    },[])
+
+    const orginalData1=data1.filter(data=> data.role==='student')
+    const orginalData2=data1.filter(data=> data.role==='teacher')
+    const orginalData3=data2.filter(d=> d.transactionId!=false)
+   // console.log(orginalData1)
+   let sum=0
+    const totalSale= orginalData3.map(d => sum+d.price)
+    for(let i=0;i<totalSale.length;i++){
+      sum=sum+totalSale[i]
+      
+    }
+    console.log(data3)
   const data = [
-    { name: "Students", value: 400 },
-    { name: "Teachers", value: 300 },
+    { name: "Students", value: orginalData1.length },
+    { name: "Teachers", value: orginalData2.length },
   ];
 
   const COLORS = ["#0088FE", "#00C49F"];
@@ -64,7 +114,7 @@ const Dashboard = () => {
                     </dt>
 
                     <dd className="text-4xl font-extrabold text-first md:text-5xl">
-                      $4.8m
+                      ${parseFloat(sum).toFixed(2)}
                     </dd>
                   </div>
 
@@ -72,7 +122,7 @@ const Dashboard = () => {
                     <dt className="order-last p__opensans">Total Teacher</dt>
 
                     <dd className="text-4xl font-extrabold text-first md:text-5xl">
-                      24
+                      {orginalData2.length}
                     </dd>
                   </div>
 
@@ -80,7 +130,7 @@ const Dashboard = () => {
                     <dt className="order-last  p__opensans">Total Students</dt>
 
                     <dd className="text-4xl font-extrabold text-first md:text-5xl">
-                      86
+                      {orginalData1.length}
                     </dd>
                   </div>
                 </dl>

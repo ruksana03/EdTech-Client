@@ -10,9 +10,7 @@ import { useSelector } from "react-redux";
 const UpdateProfile = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-
     const user = useSelector(state => state.data.user.user);
-
     const handleUpdate = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -29,7 +27,6 @@ const UpdateProfile = () => {
                     toast.success('Profile updated successfully')
                     return navigate('/dashboard/profile')
                 })
-
                 .catch((error) => {
                     console.log(error.message)
                     toast.error(error.message)

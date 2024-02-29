@@ -6,6 +6,7 @@ body {
   line-height: 1.5;
   background: url("./assets/bg.png");
 }
+
 .font-alt {
   font-family: "Cormorant Upright", serif;
 }
@@ -30,7 +31,7 @@ body {
   text-underline-offset: 5px;
   color: #dcca87;
 }
- 
+
 .btn-style {
   background-color: var(--color-crimson);
   color: var(--color-black);
@@ -43,7 +44,6 @@ body {
   border-radius: 1px;
   border: none;
   outline: none;
-  cursor: pointer;
 }
 
 .green_gradient_text {
@@ -135,6 +135,7 @@ body {
 }
 
 @media screen and (min-width: 2000px) {
+
   .custom__button,
   .p__cormorant {
     font-size: 37px;

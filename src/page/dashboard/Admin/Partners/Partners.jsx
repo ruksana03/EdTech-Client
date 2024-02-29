@@ -1,13 +1,13 @@
 // Import necessary libraries
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import PartnerSkeleton from "./PartnerSkeleton";
 // import { MdDelete } from "react-icons/md";
 // import toast from "react-hot-toast";
 
 // Define the partner component
 const Partners = () => {
   const axiosPublic = useAxiosPublic();
-
   // Fetch partners data using useQuery
   const { data: partners = [] } = useQuery({
     queryKey: ["partners"],
@@ -16,7 +16,6 @@ const Partners = () => {
       return res.data;
     },
   });
-
   //   const deletePartner = async (id) => {
   //     try {
   //       const { data } = await axiosPublic.delete(`/partners/delete/${id}`);
@@ -71,6 +70,11 @@ const Partners = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-5">
+        {
+          partners?.length <= 0 && <PartnerSkeleton partners={ 4 || partners?.length} />
+        }
       </div>
     </div>
   );
