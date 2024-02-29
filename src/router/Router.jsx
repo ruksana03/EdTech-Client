@@ -221,6 +221,10 @@ const router = createBrowserRouter([
                 element: <AllUser />,
             },
             {
+                path: "dashboard",
+                element: <Dashboard />,
+            },
+            {
                 path: "applications",
                 element: <Applications />,
             },
@@ -429,10 +433,7 @@ const router = createBrowserRouter([
             },
 
             // common route
-            {
-                path: "dashboard",
-                element: <Dashboard />,
-            },
+          
             {
                 path: "chat",
                 element: <ChatRoom/>,

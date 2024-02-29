@@ -12,8 +12,9 @@ import { LuPartyPopper } from "react-icons/lu";
 
 
 const AdminMenu = ({ isActive }) => {
-    const adminLinks = ['/allUsers', '/applications', '/allNotices', '/allBlogs', '/allCourses', '/quiz', '/allPaymentInfo', '/subscriber', '/allpartners', '/add-member','/add-offer'];
-    const adminMenu = ['Users', 'Application', 'Notices', 'Blogs', 'Courses', 'Quiz', 'Payment Info', 'Subscribers', 'Partners', 'Add Member','Add Offer'];
+  
+    const adminLinks = ['/allUsers', '/applications', '/allNotices', '/allBlogs', '/allCourses', '/quiz', '/allPaymentInfo', '/subscriber', '/allpartners', '/add-member','/add-offer','/dashboard'];
+    const adminMenu = ['Users', 'Application', 'Notices', 'Blogs', 'Courses', 'Quiz', 'Payment Info', 'Subscribers', 'Partners', 'Add Member','Add Offer','Dashboard'];
     const icons = [
         <FaUsersViewfinder key={adminLinks[0]} className="text-2xl" />,
         <IoIosApps key={adminLinks[1]} className="text-2xl" />,

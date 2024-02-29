@@ -6,7 +6,7 @@ import {
     CartesianGrid,
     Tooltip,
     Legend,
-    ResponsiveContainer,
+  
   } from "recharts";
   import './Rechart.css'
   const AssignmentAnalytic = () => {
@@ -20,11 +20,12 @@ import {
       { Assignment: "07", marks: 40 },
     ];
     return (
-      <div className="p__opensans w-full">
-        <h2 className="p__opensans w-1/2">Student Assigmet Analytics</h2>
+      <div className="p__opensans w-fit">
+        <h2 className="p__opensans">Student Assigmet Analytics</h2>
   
         <LineChart
-        width={350}
+          width={430}
+
           height={300}
           data={data}
           margin={{
