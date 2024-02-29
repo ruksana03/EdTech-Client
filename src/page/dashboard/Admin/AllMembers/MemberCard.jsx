@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { MdAutoDelete } from "react-icons/md";
@@ -9,7 +8,7 @@ import UpdateMemberInfoModal from "./UpdateMemberInfoModal";
 import { useState } from 'react';
 
 
-const MemberCard = ({ member, refetch, loading }) => {
+const MemberCard = ({ member, refetch, loading, setLoading,setProfilePicture}) => {
     let [isOpen, setIsOpen] = useState(false);
     const [editData,setEditData] = useState(null)
     const { _id, memberName, designation, profilePicture } = member || {};
@@ -48,7 +47,7 @@ const MemberCard = ({ member, refetch, loading }) => {
     };
     return (
         <>
-            <UpdateMemberInfoModal isOpen={isOpen} setIsOpen={setIsOpen} editData={editData} />
+            <UpdateMemberInfoModal isOpen={isOpen} setIsOpen={setIsOpen} refetch={refetch} editData={editData} setProfilePicture={setProfilePicture} loading={loading} setLoading={setLoading}/>
             <div className="ml-6 border rounded-md col-span-4 p-2 flex justify-start items-center gap-4 text-white p__cormorant">
                 <img className="w-32 h-32 rounded-full" src={profilePicture} alt="" />
                 <div className="text-xl">

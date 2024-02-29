@@ -1,21 +1,19 @@
 /* eslint-disable react/prop-types */
-
 import { Draggable } from "react-beautiful-dnd";
 import TaskCard from "./TaskCard";
+import "../../../Styles/scrollbar.css";
 
-
-
-const TaskColumn = ({ task, title, refetch, provided }) => {
+const TaskColumn = ({ task, title, refetch, provided, icon }) => {
     return (
         <div
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="rounded w-[300px] h-[629px] flex flex-col overflow-y-auto"
+            className="w-[300px] h-[629px] flex flex-col overflow-hidden" // Set overflow to hidden
         >
-            <div className="text-center h-[60px] rounded-t-md px-3 bg-[#00B5FF] flex items-center justify-center">
-                <p className="text-xl font-semibold">{title}</p>
+            <div className="text-start px-3 bg-second">
+                <p className="text-base font-semibold flex gap-2 items-center">{icon}{title}</p>
             </div>
-            <div className="px-2 flex flex-1 flex-col text-black border-b-2 border-x-2 border-[#00B5FF] rounded-b-md overflow-y-auto">
+            <div className="px-2 flex flex-1 flex-col text-black overflow-y-auto custom-scrollbar"> {/* Add custom-scrollbar class here */}
                 {task &&
                     task.map((item, index) => (
                         <Draggable key={item._id} draggableId={item._id} index={index}>

@@ -33,20 +33,19 @@ import AllCourses from "../page/dashboard/Admin/AllCourses/AllCourses";
 import AllPaymentInfo from "../page/dashboard/Admin/AllPaymentInfo/AllPaymentInfo";
 import AllNotices from "../page/dashboard/Admin/AllNotices/AllNotices";
 import NoticeDetails from "./../page/dashboard/Admin/AllNotices/details/NoticeDetails";
-import UpdateNotice from "../page/dashboard/Admin/AllNotices/update/UpdateNotice";
 import BlogHome from "../page/blog/BlogHome";
 import WriteBlog from "../page/blog/WriteBlog";
 import BlogProfile from "../page/blog/BlogProfile";
-import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
-import NoticeHome from "../page/Notices/NoticeHome";
+// import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
+// import NoticeHome from "../page/Notices/NoticeHome";
 import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
 import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
 import DashboardLayout from "../layout/DashboardLayout";
 import AddCourse from "../page/dashboard/Teacher/AddCourse";
-import Notices from "../page/home/userNotice/Notices";
+// import Notices from "../page/home/userNotice/Notices";
 import CreateNotice from "../page/dashboard/Teacher/noticeCreate/CreateNotice";
-import NoticeBanner from "../page/Notices/NoticeBanner";
-import NewNotices from "../page/Notices/NewNotices";
+// import NoticeBanner from "../page/Notices/NoticeBanner";
+// import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import Applications from "../page/dashboard/Admin/application/Applications";
 import MyCart from "../page/dashboard/Common/MyCart";
@@ -72,7 +71,18 @@ import Partners from "../page/dashboard/Admin/Partners/Partners";
 import Man from "../page/QuizeComponent/Man"
 // import Demo from './../page/dashboard/Student/Enroll/Demo';
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
+// import UpdateMemberModal from "../page/dashboard/Admin/AllMembers/UpdateMemberModal";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
+import MakeAdvertisement from "../page/dashboard/Admin/Advertisement/MakeAdvertisement";
+import TeacherDetailsNotice from "../page/dashboard/Teacher/ShowNotices/TeacherDetailsNotice";
+import UpdateAdminNotice from "../page/dashboard/Admin/AllNotices/update/UpdateAdminNotice";
+import NoticeBanner from "../page/Notices/NoticeBanner";
+import NoticeHome from "../page/Notices/NoticeHome";
+import NewNotices from "../page/Notices/NewNotices";
+import Notices from "../page/home/userNotice/Notices";
+import AdminNoticeStudent from "../page/Notices/AdminNoticeStudent";
+import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
+import TeacherNoticeDetails from "../page/Notices/TeacherNoticeDetails";
 import Certificate from "../page/dashboard/Student/certificates/Certificate";
 import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertificate";
 import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
@@ -105,7 +115,7 @@ const router = createBrowserRouter([
                 path: '/man',
                 element: <Questions />
             },
-            
+
             {
                 path: '/voiceTyping',
                 element: <SpeechToText />
@@ -148,33 +158,39 @@ const router = createBrowserRouter([
                 path: "join-teacher",
                 element: <PrivateRouter> <JoiningTeacher /></PrivateRouter>,
             },
-            // {
-            //     path: "common-notice-details",
-            //     element: <CommonNoticeDetails />,
-            // },
             {
                 path: "/notices",
                 element: <NoticeBanner />,
                 children: [
                     {
-                        path: 'teacher-notices',
+                        path: 'teachers-notices',
                         element: <NoticeHome />
                     },
                     {
-                        path: 'user-notices',
+                        path: 'admins-notices-teacher',
                         element: <Notices />
                     },
                     {
-                        path: 'new-notices',
+                        path: 'admins-notices-student',
+                        element: <AdminNoticeStudent />
+                    },
+                    {
+                        path: 'common-notices-admin',
                         element: <NewNotices />
                     },
                 ]
             },
             {
-                path: 'notice-details/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/notice/${params.id}`),
+                path: 'admin-notice-details/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/admin-notice/${params.id}`),
                 element: <NoticeHomeDetails />
             },
+            {
+                path: 'teacher-notice-details/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/teacher-notice/${params.id}`),
+                element: <TeacherNoticeDetails />
+            },
+            
         ],
     },
 
@@ -197,13 +213,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'blog-details/:id',
-
                 element: <BlogDetails />,
                 loader: ({ params }) => getOneBlog(params.id),
             },
             {
                 path: 'blog-updated/:id',
-
                 element: <UpdatedBlog />,
                 loader: ({ params }) => getOneBlog(params.id),
             },
@@ -213,7 +227,7 @@ const router = createBrowserRouter([
             },
         ]
     },
-   
+
     {
         path: "/dashboard",
         element: <DashboardLayout />,
@@ -241,25 +255,25 @@ const router = createBrowserRouter([
                 element: <AllNotices />,
             },
             {
-                path: "notice-details/:id",
+                path: "admin-notice-details/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
+                    fetch(`http://localhost:5000/admin-notice/${params.id}`),
                 element: <NoticeDetails />,
             },
             {
-                path: "notice-updated/:id",
+                path: "admin-notice-updated/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
-                element: <UpdateNotice />,
+                    fetch(`http://localhost:5000/admin-notice/${params.id}`),
+                element: <UpdateAdminNotice/>,
             },
             {
                 path: "allBlogs",
                 element: <AllBlogs />,
             },
-            // {
-            //     path: "quiz",
-            //     element: <AddQuiz />
-            // },
+            {
+                path: "quiz",
+                element: <AddQuiz />
+            },
             {
                 path: "allCourses",
                 element: <AllCourses />,
@@ -282,7 +296,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "add-member",
-                element:<AddMember/>
+                element: <AddMember />
+            },
+            {
+                path: "add",
+                element: <MakeAdvertisement />
             },
             {
                 path: "add-offer",
@@ -293,25 +311,25 @@ const router = createBrowserRouter([
                 path: "my-class",
                 element: <MyClass />,
                 children: [
-                  
+
 
                     {
                         path: "support",
-                        element: <Support></Support>,
+                        element: <Support />,
                     },
                     {
                         path: "recordedclass",
-                        element: <RecordedClass></RecordedClass>,
+                        element: <RecordedClass />,
                     },
                     {
                         path: "recordedclass/:courseName",
-                        element: <RecordVideo></RecordVideo>,
+                        element: <RecordVideo />,
                     },
                 ],
             },
             {
-                path:'my-class/recordedclass/English%20Mastery',
-                element: <RecordVideo></RecordVideo>
+                path: 'my-class/recordedclass/English%20Mastery',
+                element: <RecordVideo />
             },
             {
                 path: "my-lab",
@@ -358,17 +376,20 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-enroll",
-                element:  <Myenroll/>,
-                children:[
+                element: <Myenroll />,
+                children: [
                     {
-                        path:"record",
-                        element:<RecordedClass></RecordedClass>
+                        path: "record",
+                        element: <RecordedClass></RecordedClass>
                     },
-                    
-                  
+
+
                 ]
             },
             {
+                path: "record",
+                element: <RecordedClass></RecordedClass>},
+                {
                 path:"certifications",
                 element:<Certificate />
             },
@@ -380,11 +401,10 @@ const router = createBrowserRouter([
                 path:"record",
                 element:<RecordedClass></RecordedClass>
             },
-           
+
             // teachers route
             {
                 path: "post-resources",
-
                 element: <NewPostResources />
             },
             {
@@ -394,7 +414,7 @@ const router = createBrowserRouter([
             {
                 path: "live-class",
                 element: <LiveClass></LiveClass>,
-                children:[
+                children: [
                     {
                         path: "liveclss",
                         element: <Liveclass></Liveclass>,
@@ -405,7 +425,7 @@ const router = createBrowserRouter([
                 path: "provide-rutine",
                 element: <TRutine />,
             },
-          
+
 
             {
                 path: "show-notices",
@@ -413,34 +433,27 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "notice-update/:id",
+                path: "teacher-notice-update/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
+                    fetch(`http://localhost:5000/teacher-notice/${params.id}`),
                 element: <TeacherUpdateNotices />,
             },
-
-
-
             {
                 path: 'create-notice',
                 element: <CreateNotice />
             },
             {
-                path: 'show-notices',
-                element: <ShowNotices />
-            },
-            {
-                path: "notice-update/:id",
+                path: "teacher-notice-details/:id",
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/notice/${params.id}`),
-                element: <TeacherUpdateNotices />,
+                    fetch(`http://localhost:5000/teacher-notice/${params.id}`),
+                element: <TeacherDetailsNotice />,
             },
 
             // common route
           
             {
                 path: "chat",
-                element: <ChatRoom/>,
+                element: <ChatRoom />,
             },
             {
                 path: "profile",

@@ -148,7 +148,7 @@ const WriteBlog = () => {
 
     return (
 
-        <div className="max-w-7xl mx-auto pt-28 pb-12  px-12  w-10/12 text-white">
+        <div className = "max-w-7xl mx-auto pt-28 pb-12  px-12  w-10/12 text-white">
             <Link
                 to={'/'}
                 className='flex text-xs font-bold justify-start items-center text-white'>

@@ -36,7 +36,7 @@ const Reviews = () => {
                 readOnly
               />
               <BiSolidQuoteLeft className="text-4xl mt-4 p__cormorant"></BiSolidQuoteLeft>
-              <p className="py-8 p__opensans">{review.details}</p>
+              <p className="py-8 p__cormorant">{review.details}</p>
               <h3 className="text-2xl p__cormorant">{review.name}</h3>
             </div>
           </SwiperSlide>

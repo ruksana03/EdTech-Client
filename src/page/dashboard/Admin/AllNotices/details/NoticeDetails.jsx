@@ -4,7 +4,6 @@ const NoticeDetails = () => {
     const data = useLoaderData();
     const navigate = useNavigate();
     const { image, date, title, description, sentNotices, hostName } = data || {};
-    console.log(image);
     const handleCancel = () => {
         return navigate(-1)
     }
