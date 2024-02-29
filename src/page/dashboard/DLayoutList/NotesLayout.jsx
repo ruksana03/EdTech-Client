@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 
 
 import ManageTask from "../ManageTask/ManageTask";
@@ -6,9 +5,6 @@ import ManageTask from "../ManageTask/ManageTask";
 
 
 const NotesLayout = () => {
-   
-  
-
 
   
     return (

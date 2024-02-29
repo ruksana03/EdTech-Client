@@ -17,6 +17,7 @@
     "@fullcalendar/react": "^6.1.11",
     "@fullcalendar/timegrid": "^6.1.11",
     "@headlessui/react": "^1.7.18",
+    "@react-google-maps/api": "^2.19.3",
     "@reduxjs/toolkit": "^2.0.1",
     "@smastrom/react-rating": "^1.4.0",
     "@stripe/react-stripe-js": "^2.4.0",
@@ -46,9 +47,11 @@
     "react-router-dom": "^6.21.3",
     "react-simple-typewriter": "^5.0.1",
     "react-slick": "^0.29.0",
+    "react-speech-recognition": "^3.10.0",
     "react-tag-input": "^6.9.0",
     "recharts": "^2.11.0",
     "redux": "^5.0.1",
+    "regenerator-runtime": "^0.14.1",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.10.3",
@@ -70,5 +73,3 @@
     "vite": "^5.0.11"
   }
 }
-
-
