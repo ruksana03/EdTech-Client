@@ -1,8 +1,6 @@
 import { PieChart, Pie,  Cell } from 'recharts';
 import AssignmentAnalytic from './StudeentAnalytic/AssignmentAnalytics';
 import QuizAnalytics from './StudeentAnalytic/QuizAnalytics';
-import useAxiosPublic from '../../../Hooks/useAxiosPublic';
-import { useEffect, useState } from 'react';
 
 
 

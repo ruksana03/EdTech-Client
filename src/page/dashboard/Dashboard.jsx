@@ -1,4 +1,4 @@
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { Bar } from "recharts";
 import Revenue from "./Revenue/Revenue";
 import Analytic from "./Revenue/Analytic/Analytic";
