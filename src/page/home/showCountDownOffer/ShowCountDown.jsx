@@ -1,21 +1,21 @@
 /* eslint-disable react/prop-types */
 import Countdown from 'react-countdown';
-import Modal from './Modal';
 import { useState } from 'react';
+import OfferModal from './OfferModal';
 const ShowCountDown = ({ offerData }) => {
+    // let for modal 
     let [isOpen, setIsOpen] = useState(false);
     function openModal() {
         setIsOpen(true);
     }
-    console.log("this is h", offerData);
+    // console.log("this is h", offerData);
     const startDay = offerData[0]?.startDate
     const endDay = offerData[0]?.endDate
     const offerDescription = offerData[0]?.offerDescription
-    console.log("this a for modal", startDay, endDay, offerDescription);
+    // console.log("this a for modal", startDay, endDay, offerDescription);
 
     // Random component
     const Completionist = () => <span>Offer has been closed</span>;
-
     // Renderer callback with condition
     const renderer = ({ days, hours, minutes, seconds, completed }) => {
         if (completed) {
@@ -52,9 +52,8 @@ const ShowCountDown = ({ offerData }) => {
                         <button className='btn-style '
                             onClick={openModal}
                         >See Offer Details</button>
-                        <Modal isOpen={isOpen} setIsOpen={setIsOpen} openModal={openModal} offerDescription={offerDescription}></Modal>
-                        
-
+                        {/* offer modal veiw for offer deatils  */}
+                        <OfferModal isOpen={isOpen} setIsOpen={setIsOpen} openModal={openModal} offerDescription={offerDescription}></OfferModal>
                     </div>
                 </div>
             );

@@ -16,7 +16,7 @@ const GetOfferData = () => {
             });
     }, []);
 
-    console.log("Received offerData:", offerData);
+    // console.log("Received offerData:", offerData);
 
     if (!offerData) {
         return <div>Loading...</div>;

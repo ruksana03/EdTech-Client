@@ -2,7 +2,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment,  } from 'react';
 
-export default function Modal({isOpen ,setIsOpen,openModal,offerDescription}) {
+export default function OfferModal({isOpen ,setIsOpen,offerDescription}) {
   function closeModal() {
     setIsOpen(false);
   }
