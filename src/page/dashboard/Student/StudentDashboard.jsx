@@ -1,10 +1,15 @@
 import { PieChart, Pie,  Cell } from 'recharts';
 import AssignmentAnalytic from './StudeentAnalytic/AssignmentAnalytics';
 import QuizAnalytics from './StudeentAnalytic/QuizAnalytics';
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import { useEffect, useState } from 'react';
 
 
 
 const StudentDashboard = () => {
+	
+
+
     const data02 = [
         { name: 'A1', value: 100 },
         { name: 'A2', value: 30 },
@@ -44,10 +49,10 @@ const StudentDashboard = () => {
      </div>
         </div>
        
-<div className='flex'>
-            <div className='flex-1'>    <AssignmentAnalytic></AssignmentAnalytic>
+<div className='flex flex-col lg:flex-row-reverse gap-20'>
+            <div className=''>    <AssignmentAnalytic></AssignmentAnalytic>
 </div>
-            <div>    <QuizAnalytics></QuizAnalytics>
+            <div className=''>    <QuizAnalytics></QuizAnalytics>
 </div>
 </div>
 <section className="p-6 bg-gray-800 text-gray-100">

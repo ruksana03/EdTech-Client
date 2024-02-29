@@ -20,11 +20,11 @@ import {
       { Assignment: "07", marks: 40 },
     ];
     return (
-      <div className="p__opensans">
+      <div className="p__opensans w-fit">
         <h2 className="p__opensans">Student Assigmet Analytics</h2>
   
         <LineChart
-          width={500}
+          width={430}
           height={300}
           data={data}
           margin={{
