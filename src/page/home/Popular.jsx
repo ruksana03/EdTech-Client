@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Cards from "../../components/Cards";
 import { useTranslation } from "react-i18next";
+import PopularSkeleton from "./PopularSkeleton";
 
 const SimpleNextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -38,15 +39,17 @@ const SimplePrevArrow = (props) => {
 const Popular = () => {
   const [popular, setPopular] = useState([]);
   const slider = React.useRef(null);
-
+  const [isLoadig, setIsLoading] = useState(true);
   const { t } = useTranslation('global');
 
   // handle side effects
   useEffect(() => {
+    setIsLoading(true)
     fetch("http://localhost:5000/popular")
       .then((res) => res.json())
       .then((data) => {
         setPopular(data);
+        setIsLoading(false);
       });
   }, []);
 
@@ -112,11 +115,17 @@ const Popular = () => {
       </div>
 
       {/* map recipies */}
-      <Slider {...settings} ref={slider} className="mt-12 overflow-hidden">
+      <Slider {...settings} ref={slider} className="mt-12 overflow-hidden flex items-center justify-center">
         {popular?.map((item, idx) => (
           <Cards key={idx} item={item}></Cards>
         ))}
       </Slider>
+      {/* react loading skeleton  */}
+      <div className="flex items-center justify-center w-full gap-4">
+        {
+          isLoadig && <PopularSkeleton cards={4} />
+        }
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ const NoticeHome = () => {
         };
         fetchData();
     }, [teacher,teacherNotices, settingPage]);
-    console.log(teacherNotices);
+    // console.log(teacherNotices);
     useEffect(() => {
         const searchItem = notices.filter((item) => item.title.toLowerCase().includes(searchNotices.toLowerCase()));
         setFilteredNotices(searchItem);
@@ -48,9 +48,9 @@ const NoticeHome = () => {
         //https://i.ibb.co/G73nQT5/unnamed.jpg 
         //
         <div>
-            <div className="section-container">
+            <div className="section-container font-serif">
                 <div className="flex items-center flex-col-reverse md:flex-row gap-5 lg:flex-row justify-between w-full my-5">
-                    <div className="flex items-center gap-3 text-white">
+                    <div className="flex items-center gap-3 text-white font-serif">
                         <h1>Show</h1>
                         <select onChange={() => setSettingPage(event.target.value)} className="w-32 border bg-black text-white border-gray-300   focus:outline-none focus:border-first leading-tight input" name='select'>
                             <option disabled selected>set page </option>

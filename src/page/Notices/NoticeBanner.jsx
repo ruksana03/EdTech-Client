@@ -14,13 +14,13 @@ const NoticeBanner = () => {
 
   return (
     <div>
-      <figure className=" w-full h-96 relative">
+      <figure className=" w-full h-96 relative ">
         {/* <img src='https://i.ibb.co/YZLxNS8/notice.jpg' alt="notice-image" className="w-full h-full" /> */}
         <img src='https://i.ibb.co/LzXmwF2/learning-3245793-1280.jpg' alt="notice-image" className="w-full h-full" />
         <div className="bg-black opacity-50 w-full h-full absolute top-0"></div>
       </figure>
       <div className="section-container flex items-center justify-between flex-col md:flex-row lg:flex-row mt-7">
-        <div className="flex items-center gap-4 my-5 flex-col md:flex-row lg:flex-row">
+        <div className="flex items-center gap-4 my-5 flex-col md:flex-row lg:flex-row font-serif">
           {
             currentRole === 'teacher' && <div className="relative w-auto flex items-center flex-col md:flex-row lg:flex-row gap-10 ">
               <NavLink to='teacher-notices'

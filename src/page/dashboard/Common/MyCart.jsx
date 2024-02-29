@@ -4,6 +4,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 const MyCart = () => {
   const axiosPublic = useAxiosPublic();
@@ -38,7 +39,7 @@ const MyCart = () => {
   };
 
   return (
-  <div>
+    <div>
       <h2 className="text-3xl mb-3 mt-3 p__cormorant text-center">
         Total Saved Courses: {cart?.length}
       </h2>
@@ -82,6 +83,9 @@ const MyCart = () => {
           </tbody>
         </table>
       </div>
+      {
+        cart?.length <= 0 && <Skeleton count={10 || cart?.length} height={30} borderRadius={10} />
+      }
     </div>
   );
 };

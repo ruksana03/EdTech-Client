@@ -5,10 +5,11 @@ import { useState } from "react";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import Skeleton from "react-loading-skeleton";
 
 const Applications = () => {
     const axiosPublic = useAxiosPublic();
-    const [applications, refetch] = useApplication();
+    const [applications, refetch, ] = useApplication();
     let [isOpen, setIsOpen] = useState(false)
     let [id, setId] = useState('');
     const applicationData = [...applications].reverse();
@@ -23,8 +24,6 @@ const Applications = () => {
                 const res = await axiosPublic.put(`/users/${courseItem.id}`);
                 console.log(res.data);
                 toast.success("application has been approved successfully");
-                
-                
             }
         } catch (error) {
             console.error("Error approving class:", error);
@@ -71,7 +70,6 @@ const Applications = () => {
             <div className="m-5">
                 {/* show modal  */}
                 <ApplicationModal isOpen={isOpen} setIsOpen={setIsOpen} applications={applications} id={id} />
-                <h1 className="text-2xl font-bold text-white my-5">Applications is Comming</h1>
                 <div className="overflow-x-auto ">
                     <table className="table w-full border-collapse border border-gray-300">
                         {/* head */}
@@ -110,6 +108,9 @@ const Applications = () => {
                         </tbody>
                     </table>
                 </div>
+                {
+                    applicationData?.length <= 0 && <Skeleton count={13 || applicationData?.length} height={30} borderRadius={10} />
+                }
             </div>
         </div>
     );

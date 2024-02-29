@@ -43,7 +43,7 @@ const Faq = () => {
       </div>
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-16">
         <div data-aos="fade-right" className="flex-1 overflow-hidden">
-          <Lottie animationData={faq} loop={false} ></Lottie>
+          <Lottie animationData={faq} ></Lottie>
         </div>
         {/* accordion */}
         <div className="flex-1">

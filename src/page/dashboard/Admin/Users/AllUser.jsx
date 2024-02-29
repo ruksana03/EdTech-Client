@@ -7,17 +7,17 @@ import toast from 'react-hot-toast';
 import { useState } from 'react';
 import { FaEdit } from "react-icons/fa";
 import RoleModal from './RoleModal';
+import Skeleton from 'react-loading-skeleton';
 
 const AllUser = () => {
   // const { AllUsers, loading, refetch } = useUsers();
-  const { AllUsers, refetch } = useUsers();
+  const { AllUsers, refetch, isLoading } = useUsers();
   const [userToChangeRole, setUserToChangeRole] = useState(null);
 
   const handleUserRole = (user) => {
     setUserToChangeRole(user);
     document.getElementById('user_role_modal').showModal();
   };
-
   const handleDelete = async (userToDelete) => {
     try {
       await toast.promise(
@@ -40,7 +40,7 @@ const AllUser = () => {
       console.log('User deleted successfully.');
     } catch (error) {
       console.error('Error deleting User:', error);
-  
+
       // Show an error toast
       toast.error('Error deleting User. Please try again.');
     }
@@ -67,24 +67,28 @@ const AllUser = () => {
               <tr
                 key={user._id}
                 className='p__opensans'
-              
+
               >
                 <td className="py-3 font-bold">{index + 1}</td>
                 <td className="py-3 font-bold">{user.name}</td>
                 <td className="py-3 font-bold lowercase">{user.email}</td>
                 <td className="py-3 font-bold cursor-pointer">{user.role}</td>
                 <td>
-                <button onClick={()=>handleUserRole(user)}><FaEdit className="text-xl"></FaEdit></button>
+                  <button onClick={() => handleUserRole(user)}><FaEdit className="text-xl"></FaEdit></button>
                 </td>
                 <td>
                   <button onClick={() => handleDelete(user)}>
                     <MdDelete className="text-xl" />
-                    </button>
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        {
+          AllUsers?.length <= 0 &&  <Skeleton count={23} height={30} borderRadius={10} />
+        }
+       
       </div>
       <RoleModal userToChangeRole={userToChangeRole} refetch={refetch}></RoleModal>
     </div>
