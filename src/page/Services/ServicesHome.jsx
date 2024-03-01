@@ -7,7 +7,7 @@ import ChildrenEduHome from "./children education/ChildrenEduHome";
 
 const ServicesHome = () => {
     return (
-        <div className="py-20 ">
+        <div className="p__cormorant ">
              <div className="py-20">
                 <QuizContest />
                 <BeAPartner />
