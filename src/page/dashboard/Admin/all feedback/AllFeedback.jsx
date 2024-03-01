@@ -27,7 +27,6 @@ const AllFeedback = () => {
             })
     }
 
-    console.log(findFeedback);
 
     return (
         <div className="mt-10 p-5">
@@ -49,7 +48,7 @@ const AllFeedback = () => {
                     </p>
                 </div>
             </Modal>
-            <div className="grid grid-cols-4 items-center justify-center w-full gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center justify-center w-full gap-5">
                 {
                     feedbacks?.map((feedback) =>
                         <div key={feedback?._id} className="bg-black text-white border border-white rounded-md hover:bg-gradient-to-b from-first to-blue-second transition ease-in-out cursor-pointer w-full h-auto p-5">
