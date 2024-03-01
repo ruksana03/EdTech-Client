@@ -36,22 +36,16 @@ import NoticeDetails from "./../page/dashboard/Admin/AllNotices/details/NoticeDe
 import BlogHome from "../page/blog/BlogHome";
 import WriteBlog from "../page/blog/WriteBlog";
 import BlogProfile from "../page/blog/BlogProfile";
-// import NoticeHomeDetails from "../page/Notices/NoticeHomeDetails";
-// import NoticeHome from "../page/Notices/NoticeHome";
 import RecordedClass from "../page/dashboard/my class/RecordedClass/RecordedClass";
 import RecordVideo from "../page/dashboard/my class/RecordedClass/RecordedVideo/RecordVideo";
 import DashboardLayout from "../layout/DashboardLayout";
 import AddCourse from "../page/dashboard/Teacher/AddCourse";
-// import Notices from "../page/home/userNotice/Notices";
 import CreateNotice from "../page/dashboard/Teacher/noticeCreate/CreateNotice";
-// import NoticeBanner from "../page/Notices/NoticeBanner";
-// import NewNotices from "../page/Notices/NewNotices";
 import UpdateProfile from "../page/dashboard/update profile/UpdateProfile";
 import Applications from "../page/dashboard/Admin/application/Applications";
 import MyCart from "../page/dashboard/Common/MyCart";
 import Myenroll from "../page/dashboard/Student/Enroll/Myenroll";
 import AddQuiz from "../page/dashboard/Admin/AddQuiz/AddQuiz";
-// import DashboardLayout2 from "../layout/DashboardLayout2";
 import NewPostResources from "../page/dashboard/Teacher/PostResources/NewPostResources";
 import Questions from "../page/QuizeComponent/Questions";
 import BlogDetails from "../page/blog/BlogDetails";
@@ -59,12 +53,9 @@ import BlogSettings from "../page/blog/BlogSettings";
 import { getOneBlog } from "../api/blogs";
 import UpdatedBlog from "../page/blog/UpdatedBlog";
 import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
-// import DashboardLayout2 from "../layout/DashboardLayout2";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import SpeechToText from "../components/SpeechToText/SpeechToText";
-import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
-import SRutine from "../page/dashboard/Student/rutine/SRoutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
@@ -73,7 +64,6 @@ import Man from "../page/QuizeComponent/Man"
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 // import UpdateMemberModal from "../page/dashboard/Admin/AllMembers/UpdateMemberModal";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
-import MakeAdvertisement from "../page/dashboard/Admin/Advertisement/MakeAdvertisement";
 import TeacherDetailsNotice from "../page/dashboard/Teacher/ShowNotices/TeacherDetailsNotice";
 import UpdateAdminNotice from "../page/dashboard/Admin/AllNotices/update/UpdateAdminNotice";
 import NoticeBanner from "../page/Notices/NoticeBanner";
@@ -88,6 +78,9 @@ import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertific
 import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 import ServicesHome from "../page/Services/ServicesHome";
 import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
+import AdmissionForm from "../page/Services/admission form/AdmissionForm";
+import SRoutine from "../page/dashboard/Student/rutine/SRoutine";
+import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
 
 
 
@@ -123,6 +116,10 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <ServicesHome />
+            },
+            {
+                path: 'get-addmission',
+                element: <AdmissionForm />
             },
            
             {
@@ -298,10 +295,10 @@ const router = createBrowserRouter([
                 path: "add-member",
                 element: <AddMember />
             },
-            {
-                path: "add",
-                element: <MakeAdvertisement />
-            },
+            // {
+            //     path: "add",
+            //     element: <MakeAdvertisement />
+            // },
             {
                 path: "add-offer",
                 element:<AddOffer></AddOffer>
@@ -371,8 +368,8 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "rutine",
-                element: <SRutine />,
+                path: "routine",
+                element: <SRoutine />,
             },
             {
                 path: "my-enroll",
@@ -422,8 +419,8 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                path: "provide-rutine",
-                element: <TRutine />,
+                path: "provide-routine",
+                element: <TRoutine />,
             },
 
 

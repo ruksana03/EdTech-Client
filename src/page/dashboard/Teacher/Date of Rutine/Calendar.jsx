@@ -84,15 +84,15 @@ export default function Calendar() {
 
     async function handleDateSet(data) {
         const response = await axiosPublic.get('/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
-       const findRutine = response?.data?.filter(event=> event?.teacherEmail === user?.email )
-    //    console.log(findRutine);
-        setEvents(findRutine)
+       const findRoutine = response?.data?.filter(event=> event?.teacherEmail === user?.email )
+    //    console.log(findRoutine);
+        setEvents(findRoutine)
     }
     return (
         <section className='w-full h-screen mx-auto p-5'>
             <div className='flex items-center justify-center w-full'>
                 <button type="button" onClick={openModal} className="px-5 py-2 btn-style hover:text-black rounded">
-                    Create Rutine
+                    Create Routine
                 </button>
             </div>
             <div className='w-[90%] mx-auto flex items-center justify-between p-5 flex-col '>
