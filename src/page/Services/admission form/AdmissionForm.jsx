@@ -66,7 +66,7 @@ const AdmissionForm = () => {
         //     setLoading(false)
         //     toast.error(error.message)
         // }
-         toast.error('something went wrong!')
+        toast.error('something went wrong!')
     }
     return (
         <div className="section-container mb-5">
@@ -129,7 +129,6 @@ const AdmissionForm = () => {
                                 />
                                 <hr className="border-t border-first" />
                             </div>
-
                             <div className="mb-6 w-full md:w-2/12">
                                 <input
                                     className="py-2 bg-transparent transition-colors peer w-full pl-3 text-sm border-none outline-none focus:ring-0"
@@ -179,7 +178,7 @@ const AdmissionForm = () => {
                                 <hr className="border-t border-first" />
                             </div>
 
-
+                            {/* education part  */}
                             <div className=" w-full md:w-1/3 mt-2">
                                 <input
                                     className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
