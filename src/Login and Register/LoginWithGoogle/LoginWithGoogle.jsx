@@ -42,8 +42,7 @@ const LoginWithGoogle = () => {
             <div
                 onClick={handleGoogleSignIn}
                 className="my-4">
-                {/* <button className="text-[18px] font-medium px-4 py-2 duration-200 transform bg-first text-white hover:bg-transparent hover:text-first rounded hover:-translate-y-[2px] transition-all ease-in hover:scale-100"><FcGoogle /></button>  */}
-                <button className="text-4xl"><FcGoogle /></button> 
+                <button className="text-3xl flex justify-center items-center"><FcGoogle className="mx-4"/></button> 
             </div>
         </div>
     );

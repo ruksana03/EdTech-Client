@@ -40,7 +40,7 @@ const LoginWithGitHub = () => {
             <div
                 onClick={handleGitHubSignIn}
                 className="my-4">
-                <button className="text-4xl"><FaGithub className="text-first" /></button> 
+                <button className="text-3xl flex justify-center items-center"><FaGithub className="text-black mx-4 my-2" /></button> 
                 
             </div>
         </div>

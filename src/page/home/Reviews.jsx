@@ -12,7 +12,6 @@ import useFeedback from './../../Hooks/useFeedback';
 
 const Reviews = () => {
   const [feedbacks,refetch] = useFeedback();
-  console.log(feedbacks);
   // const [reviews, setReviews] = useState([]);
   // useEffect(() => {
   //   fetch("http://localhost:5000/reviews")

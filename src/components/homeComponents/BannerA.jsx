@@ -14,7 +14,7 @@ import img4 from '../../assets/home/04.jpg';
 import Skeleton from 'react-loading-skeleton';
 
 const Banner = () => {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   const slides = [
     {
