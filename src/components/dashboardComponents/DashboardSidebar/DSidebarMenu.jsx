@@ -36,8 +36,8 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
         return null;
     };
 
-    const links = ['/chat', '/notes','/my-cart', '/profile'];
-    const menuNames = ['Chit-Chat', 'Notes','My Cart', 'Profile'];
+    const links = ['/common-dashboard','/chat', '/notes','/my-cart', '/profile'];
+    const menuNames = ['Dashboard','Chit-Chat', 'Notes','My Cart', 'Profile'];
     const icons = [
         <MdOutlineDashboardCustomize key={links[0]} className="text-2xl" />,
         <FaRocketchat key={links[1]} className="text-2xl" />,

@@ -56,15 +56,12 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import SpeechToText from "../components/SpeechToText/SpeechToText";
-import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
-import SRutine from "../page/dashboard/Student/rutine/SRoutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
 import Man from "../page/QuizeComponent/Man"
 import LiveClass from "../page/dashboard/Teacher/LiveClass/LiveClass";
 import ChatRoom from "../page/dashboard/Common/ChatRoom";
-import MakeAdvertisement from "../page/dashboard/Admin/Advertisement/MakeAdvertisement";
 import TeacherDetailsNotice from "../page/dashboard/Teacher/ShowNotices/TeacherDetailsNotice";
 import UpdateAdminNotice from "../page/dashboard/Admin/AllNotices/update/UpdateAdminNotice";
 import NoticeBanner from "../page/Notices/NoticeBanner";
@@ -79,6 +76,10 @@ import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertific
 import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 import ServicesHome from "../page/Services/ServicesHome";
 import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
+import AdmissionForm from "../page/Services/admission form/AdmissionForm";
+import SRoutine from "../page/dashboard/Student/rutine/SRoutine";
+import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
+import CommonDashboard from "../page/dashboard/Common/CommonDashboard";
 
 
 
@@ -115,7 +116,11 @@ const router = createBrowserRouter([
                 path: '/services',
                 element: <ServicesHome />
             },
-           
+            {
+                path: 'get-addmission',
+                element: <AdmissionForm />
+            },
+
             {
                 path: "contact",
                 element: <Contact />,
@@ -181,7 +186,7 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/teacher-notice/${params.id}`),
                 element: <TeacherNoticeDetails />
             },
-            
+
         ],
     },
 
@@ -255,7 +260,7 @@ const router = createBrowserRouter([
                 path: "admin-notice-updated/:id",
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/admin-notice/${params.id}`),
-                element: <UpdateAdminNotice/>,
+                element: <UpdateAdminNotice />,
             },
             {
                 path: "allBlogs",
@@ -289,13 +294,13 @@ const router = createBrowserRouter([
                 path: "add-member",
                 element: <AddMember />
             },
-            {
-                path: "add",
-                element: <MakeAdvertisement />
-            },
+            // {
+            //     path: "add",
+            //     element: <MakeAdvertisement />
+            // },
             {
                 path: "add-offer",
-                element:<AddOffer></AddOffer>
+                element: <AddOffer></AddOffer>
             },
             // Student route
             {
@@ -362,8 +367,8 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "rutine",
-                element: <SRutine />,
+                path: "routine",
+                element: <SRoutine />,
             },
             {
                 path: "my-enroll",
@@ -379,18 +384,19 @@ const router = createBrowserRouter([
             },
             {
                 path: "record",
-                element: <RecordedClass></RecordedClass>},
-                {
-                path:"certifications",
-                element:<Certificate />
+                element: <RecordedClass></RecordedClass>
             },
             {
-                path:"certifications/show",
-                element:<ShowCertificate />
+                path: "certifications",
+                element: <Certificate />
             },
             {
-                path:"record",
-                element:<RecordedClass></RecordedClass>
+                path: "certifications/show",
+                element: <ShowCertificate />
+            },
+            {
+                path: "record",
+                element: <RecordedClass></RecordedClass>
             },
 
             // teachers route
@@ -413,8 +419,8 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                path: "provide-rutine",
-                element: <TRutine />,
+                path: "provide-routine",
+                element: <TRoutine />,
             },
 
 
@@ -441,7 +447,11 @@ const router = createBrowserRouter([
             },
 
             // common route
-          
+            {
+                path: "common-dashboard",
+                element: <CommonDashboard />
+            },
+
             {
                 path: "chat",
                 element: <ChatRoom />,
@@ -472,6 +482,7 @@ const router = createBrowserRouter([
         ],
 
     },
+  
     {
         path: "/updated-profile",
         element: <UpdateProfile />,

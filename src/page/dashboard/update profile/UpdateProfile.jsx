@@ -31,9 +31,6 @@ const UpdateProfile = () => {
                     console.log(error.message)
                     toast.error(error.message)
                 });
-
-
-
         }
         catch (error) {
             setLoading(false);

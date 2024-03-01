@@ -10,11 +10,12 @@ import { FaPlus, FaQuestion } from "react-icons/fa";
 import { MdOutlineUnsubscribe } from "react-icons/md";
 import { LuPartyPopper } from "react-icons/lu";
 import { RiAdvertisementFill } from "react-icons/ri";
+import { FcStatistics } from "react-icons/fc";
 
 
 const AdminMenu = ({ isActive }) => {
     const adminLinks = ['/allUsers', '/applications', '/allNotices', '/allBlogs', '/allCourses','/quiz','/allPaymentInfo','/subscriber','/allpartners','/add-member','/add','/add-offer','/dashboard'];
-    const adminMenu = ['Users','Application', 'Notices', 'Blogs', 'Courses','Quiz','Payment Info','Subscribers','Partners','Add Member','Advertisement','Add Offer','Dashboard'];
+    const adminMenu = ['Users','Application', 'Notices', 'Blogs', 'Courses','Quiz','Payment Info','Subscribers','Partners','Add Member','Advertisement','Add Offer','Admin Dashboard'];
 
     const icons = [
         <FaUsersViewfinder key={adminLinks[0]} className="text-2xl" />,
@@ -28,7 +29,8 @@ const AdminMenu = ({ isActive }) => {
         <LuPartyPopper key={adminLinks[8]} className="text-2xl" />,
         <FaPlus key={adminLinks[9]} className="text-2xl" />,
         <RiAdvertisementFill key={adminLinks[10]} className="text-2xl"/>,
-        <FaPlus key={adminLinks[11]} className="text-2xl" />
+        <FaPlus key={adminLinks[11]} className="text-2xl" />,
+        <FcStatistics key={adminLinks[12]} className="text-2xl" />
     ];
 
     const location = useLocation();
