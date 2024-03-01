@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import otherCate from '../../../assets/image/services/Animation - 1709181732197.json'
 
 
 const AdditionalPart = () => {
