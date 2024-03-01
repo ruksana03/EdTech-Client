@@ -42,7 +42,7 @@ const Reviews = () => {
                 readOnly
               />
               <BiSolidQuoteLeft className="text-4xl mt-4 p__cormorant"></BiSolidQuoteLeft>
-              <p className="py-8 p__opensans text-center px-2 lg:px-10">{review.feetbackMessage}</p>
+              <p className="py-8 p__opensans text-center px-2 lg:px-10">{review.feedbackMessage}</p>
               <h3 className="text-2xl p__cormorant">{review.name}</h3>
             </div>
           </SwiperSlide>

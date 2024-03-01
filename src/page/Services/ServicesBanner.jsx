@@ -8,7 +8,7 @@ const ServicesBanner = () => {
                 <h1 className="text-5xl ">Studying in the new curriculum will be with new enthusiasm.</h1>
                 <p className="text-xl">Innovated Education is next to the students to give maximum support in this new journey</p>
                 <div className="flex items-center gap-5">
-                    <Link to='/get-addmission'>
+                    <Link to='https://youtu.be/3H_aIzeiOhE?si=86DYZeKWBUpLTMvq' target='_blank'>
                         <button className='mt-5 btn-style'>Book a free demo class</button>
                     </Link>
                     <Link to='/get-addmission'>

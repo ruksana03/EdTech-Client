@@ -81,6 +81,8 @@ import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
 import AdmissionForm from "../page/Services/admission form/AdmissionForm";
 import SRoutine from "../page/dashboard/Student/rutine/SRoutine";
 import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
+import AllFeedback from "../page/dashboard/Admin/all feedback/AllFeedback";
+// import MakeAdvertisement from './../page/dashboard/Admin/Advertisement/MakeAdvertisement';
 
 
 
@@ -299,6 +301,10 @@ const router = createBrowserRouter([
             //     path: "add",
             //     element: <MakeAdvertisement />
             // },
+            {
+                path: "all-feedback",
+                element: <AllFeedback />
+            },
             {
                 path: "add-offer",
                 element:<AddOffer></AddOffer>
