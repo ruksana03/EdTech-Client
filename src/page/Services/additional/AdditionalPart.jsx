@@ -61,7 +61,7 @@ const AdditionalPart = () => {
                         <article className="flex-1">
                             <h2 className="text-2xl font-bold">Check out the free live class</h2>
                             <p>Join the free demo class to know how Innovated Education has organized this online batch.</p>
-                            <Link to='/get-addmission'>
+                            <Link to='https://youtu.be/3H_aIzeiOhE?si=86DYZeKWBUpLTMvq' target='_blank'>
                                 <button className='mt-5 btn-style'>Book a free demo class</button>
                             </Link>
                         </article>

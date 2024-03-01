@@ -80,6 +80,7 @@ import ShowCertificate from "../page/dashboard/Student/certificates/ShowCertific
 import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 import ServicesHome from "../page/Services/ServicesHome";
 import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
+import AdmissionForm from "../page/Services/admission form/AdmissionForm";
 
 
 
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <ServicesHome />
+            },
+            {
+                path: 'get-addmission',
+                element: <AdmissionForm />
             },
            
             {
