@@ -8,6 +8,7 @@ import '../../components/Footer/NewsLetter.css'
 import { useSelector } from 'react-redux';
 
 
+
 const Man = () => {
     const [username, setUsername] = useState('');
     const user = useSelector((state) => state.data.user.user);
@@ -23,6 +24,10 @@ const Man = () => {
             // dispatch(setUserId(inputRef.current?.value));
         }
     }
+
+
+   
+    
   return (
     <div className='w-8/12 mx-auto pt-28 p__cormorant'>
         <h1 className='title text-light font-bold text-white text-2xl headtext__cormorant'>Quiz Application</h1>

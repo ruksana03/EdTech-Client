@@ -39,7 +39,7 @@ const LoginWithFacebook = () => {
             <div
                 onClick={handleFacebookSignIn}
                 className="my-4">
-                <button className="text-4xl"><FaFacebook className="text-first"/></button> 
+                <button className="text-3xl text- flex justify-center items-center"><FaFacebook className="text-black mx-4"/></button> 
             </div>
         </div>
     );

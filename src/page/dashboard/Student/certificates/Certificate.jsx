@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import toast from 'react-hot-toast';
+import Feedback from '../feedback/Feedback';
 
 const Certificate = () => {
     const user = useSelector(state => state.data.user.user);
@@ -85,6 +86,7 @@ const Certificate = () => {
                         </Dialog>
                     </Transition>
                 </div>
+                <Feedback />
             </div>
         </>
     );

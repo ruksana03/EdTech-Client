@@ -13,11 +13,7 @@ const RecordVideo = () => {
     const [data1,setData]=useState([])
     console.log(courseName)
     useEffect(() => {
-      //   fetch('../../../../../../public/new.json')
-      //       .then(res => res.json())
-      //       .then(data => {
-      //          setData(data);
-      //       })
+      
             axiosPublic.get('/recorded')
             .then(response => {
                // Handle successful response
