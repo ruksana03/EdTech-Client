@@ -56,8 +56,6 @@ import StudentDashboard from "../page/dashboard/Student/StudentDashboard";
 import ShowNotices from "../page/dashboard/Teacher/ShowNotices/ShowNotices";
 import TeacherUpdateNotices from "../page/dashboard/Teacher/UpdateNotice/TeacherUpdateNotices";
 import SpeechToText from "../components/SpeechToText/SpeechToText";
-import TRutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
-import SRutine from "../page/dashboard/Student/rutine/SRoutine";
 import Subscriber from "../page/dashboard/Admin/Subscriber/Subscriber";
 import Partner from "../page/home/joining  teacher/Partner";
 import Partners from "../page/dashboard/Admin/Partners/Partners";
@@ -81,6 +79,8 @@ import AddMember from './../page/dashboard/Admin/AllMembers/AddMember';
 import ServicesHome from "../page/Services/ServicesHome";
 import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
 import AdmissionForm from "../page/Services/admission form/AdmissionForm";
+import SRoutine from "../page/dashboard/Student/rutine/SRoutine";
+import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
 
 
 
@@ -368,8 +368,8 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "rutine",
-                element: <SRutine />,
+                path: "routine",
+                element: <SRoutine />,
             },
             {
                 path: "my-enroll",
@@ -419,8 +419,8 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                path: "provide-rutine",
-                element: <TRutine />,
+                path: "provide-routine",
+                element: <TRoutine />,
             },
 
 

@@ -5,8 +5,8 @@ import { BiSolidNotification } from "react-icons/bi";
 import { FaCalendarDay } from "react-icons/fa";
 
 const TeacherMenu = ({ isActive }) => {
-    const teacherLinks = ['/post-resources', '/add-course','/provide-rutine' ,'/create-notice','/show-notices','/live-class'];
-    const teacherMenu = ['Resources', 'AddCourse', 'Provide Rutine', 'Add Notice','Show Notices','Live Class'];
+    const teacherLinks = ['/post-resources', '/add-course','/provide-routine' ,'/create-notice','/show-notices','/live-class'];
+    const teacherMenu = ['Resources', 'AddCourse', 'Provide Routine', 'Add Notice','Show Notices','Live Class'];
     const icons = [
         
         <MdOutlineDashboardCustomize className="text-xl" key={teacherLinks} />,
