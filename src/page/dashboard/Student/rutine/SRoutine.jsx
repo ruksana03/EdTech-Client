@@ -11,6 +11,7 @@ import useStudentRoutine from "../../../../Hooks/useStudentRoutine";
 
 const SRoutine = () => {
     const [events, refetch] = useStudentRoutine();
+    console.log('new apdate---->',events);
     const calendarRef = useRef(null);
     let [isOpen, setIsOpen] = useState(false);
     const [currentEvent, setCurrentEvent] = useState(null)
@@ -29,6 +30,11 @@ const SRoutine = () => {
 
     return (
         <section className='w-full h-screen mx-auto p-5'>
+            <div className='flex items-center justify-center gap-5 w-full'>
+                <button className='btn-style'>Class Routine</button>
+                <button className='btn-style'>Common Routine</button>
+                <button className='btn-style'>Program Routine</button>
+            </div>
             <div className='w-[90%] mx-auto flex items-center justify-between p-5 flex-col '>
                 <div className='w-full'>
                     <div className='relative z-0 w-full text-white'>
