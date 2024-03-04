@@ -72,6 +72,7 @@ const NewPostResources = () => {
                 })
 
                 console.log('Data sent to backend successfully:', backendResponse.data);
+                
             }
 
         } catch (error) {
