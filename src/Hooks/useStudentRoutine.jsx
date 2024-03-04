@@ -22,6 +22,7 @@ const useStudentRoutine = () => {
     const specifcRoutine2 = currentForRoutine[1]?.title.toString();
     const specifcRoutine3 = currentForRoutine[2]?.title.toString();
     const specifcRoutine4 = currentForRoutine[3]?.title.toString();
+    const specifcRoutine5 = currentForRoutine[4]?.title.toString();
  
 
     useEffect(() => {
@@ -43,7 +44,8 @@ const useStudentRoutine = () => {
             const res2 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine2}`);
             const res3 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine3}`);
             const res4 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine4}`);
-            const addRoutine = [...res1.data, ...res2.data, ...res3.data,...res4.data];
+            const res5 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine5}`);
+            const addRoutine = [...res1.data, ...res2.data, ...res3.data,...res4.data,...res5.data];
             return addRoutine;
         }
     })

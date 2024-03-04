@@ -20,8 +20,6 @@ const RoutineHome = () => {
         return newRoutine
     }, [events])
 
-      console.log('what i find----->',currentFindData );
-    // console.log('what i find----->', firstRoutine);
 
     return (
         <div>
