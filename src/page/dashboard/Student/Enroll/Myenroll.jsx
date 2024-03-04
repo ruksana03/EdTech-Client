@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Myenroll = () => {
   const user = useSelector((state) => state.data.user.user);
   const [enrolls, setEnrolls] = useState([]);
+  console.log("its enroll",enrolls);
 
   useEffect(() => {
     // Check if user is defined before making the API call
