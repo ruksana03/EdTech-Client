@@ -22,15 +22,6 @@ const TaskCard = ({ item, refetch, provided }) => {
     }
     refetch();
   };
-  // const handleDelete = async () => {
-  //   const res = await axiosSecure.delete(`/delete?id=${item._id}`);
-  //   console.log(res.data);
-  //   if (res.data.deletedCount > 0) {
-  //     toast.success("Deleted successfully");
-  //   }
-  //   refetch();
-  // };
-
   const handleDelete = async () => {
     try {
       const res = await axiosPublic.delete(`/delete/${item._id}`);
@@ -63,20 +54,20 @@ const TaskCard = ({ item, refetch, provided }) => {
         ref={provided.innerRef}
         {...provided.draggableProps}
         {...provided.dragHandleProps}
-        className="mb-1  rounded-sm p-3 outline-2 outline-orange-500"
+        className="p-2 border m-2"
       >
-        <div className="bg-slate-100 p-4 rounded-2xl">
-          <h3 className="text-bold">{item.title}</h3>
-          <p className="text-sm">{item.description}</p>
+        <div className="bg-transparent text-white">
+          <h3 className="text-bold text-base">{item.title}</h3>
+          <p className="text-xs">{item.description}</p>
           <div className="flex justify-between pt-2">
             <span
-              className={`px-1 rounded-md text-white ${item.priority === "low" && "bg-yellow-600"
-                } ${item.priority === "moderate" && "bg-[#00B5FF]"} ${item.priority === "high" && "bg-red-500"
+              className={`px-1 rounded-md text-white text-sm ${item.priority === "low" && "bg-yellow-600"
+                } ${item.priority === "moderate" && "bg-second"} ${item.priority === "high" && "bg-red-500"
                 }`}
             >
               {item.priority}
             </span>
-            <span className="flex items-center gap-1">
+            <span className="flex items-center text-sm gap-1">
               <FaRegClock />
               {formattedDeadline}
             </span>
@@ -85,13 +76,13 @@ const TaskCard = ({ item, refetch, provided }) => {
             <button
               onClick={() => openModal()}
               className="text-xl"
-              title="Delete Task"
+              title="EditDelete Task"
             >
               <FaEdit />
             </button>
             <select
               onChange={handleStatus}
-              className="rounded-lg outline-[#00B5FF]"
+              className="text-black"
               name="status"
               id=""
               defaultValue={item.status}
@@ -103,7 +94,7 @@ const TaskCard = ({ item, refetch, provided }) => {
             </select>
 
             <button onClick={handleDelete} className="text-xl" title="Delete Task">
-              <MdDelete />
+              <MdDelete className="text-red-700"/>
             </button>
           </div>
         </div>

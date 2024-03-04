@@ -19,12 +19,12 @@ const GetOfferData = () => {
     // console.log("Received offerData:", offerData);
 
     if (!offerData) {
-        return <div>Loading...</div>;
+        return <div>Loading...</div>
     }
 
     return (
-        <div className=''>
-            <ShowCountDown offerData={offerData}/>
+        <div>
+            <ShowCountDown offerData={offerData} />
         </div>
     );
 };

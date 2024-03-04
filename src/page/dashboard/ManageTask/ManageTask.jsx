@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
@@ -5,11 +6,12 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
 import TaskColumn from "./TaskColumn";
 import CreateTaskModal from "../Modal/CreateTaskModal";
-// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-
+import { LuListTodo } from "react-icons/lu";
+import { GrCompliance } from "react-icons/gr";
+import { ImSpinner6 } from "react-icons/im";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-
 import { FaPlus } from "react-icons/fa";
+
 
 
 const ManageTask = () => {
@@ -17,13 +19,10 @@ const ManageTask = () => {
     const [progress, setProgress] = useState([]);
     const [completed, setCompleted] = useState([]);
     const user = useSelector(state => state.data.user.user);
-    // const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
-    // const queryClient = new QueryClient(); 
     const { data, refetch } = useQuery({
         queryKey: ['all-task', user],
         queryFn: async () => {
-            // const res = await axiosSecure(/addtask?email=${user?.email});
             const res = await axiosPublic('/addtask');
             return res.data;
         },
@@ -34,16 +33,23 @@ const ManageTask = () => {
         if (data) {
             console.log('Fetched Data:', data);
             const filteredTodo = data.filter(item => item.status === 'todo');
+            const currentUserTodo = filteredTodo.filter(item => item?.email === user?.email);
+
             const filteredProgress = data.filter(item => item.status === 'progress');
-            const filteredCompleted = data.filter(
-                item => item.status === 'completed'
-            );
-            setTodo([...filteredTodo]);
-            setProgress([...filteredProgress]);
-            setCompleted([...filteredCompleted]);
+            const currentUserProgress = filteredProgress.filter(item => item?.email === user?.email);
+
+            const filteredCompleted = data.filter(item => item.status === 'completed');
+            const currentUserCompleted = filteredCompleted.filter(item => item?.email === user?.email);
+
+            setTodo([...currentUserTodo]);
+            setProgress([...currentUserProgress]);
+            setCompleted([...currentUserCompleted]);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [data]);
+
+
+
     let [isOpen, setIsOpen] = useState(false);
     function closeModal() {
         setIsOpen(false);
@@ -78,10 +84,11 @@ const ManageTask = () => {
 
     return (
         <div>
-            <button className="btn  btn-secondary " onClick={() => setIsOpen(true)}><FaPlus />CreateTask</button>
+            <button className=" btn-style flex gap-2 justify-start items-center " onClick={() => setIsOpen(true)}><FaPlus />Create Task</button>
+
             <div className="flex flex-col min-h-screen w-full mx-auto text-white pb-5">
                 <DragDropContext onDragEnd={onDragEnd}>
-                    <div className="flex flex-wrap mx-auto justify-center gap-10 px-8 mt-20">
+                    <div className="flex flex-wrap mx-auto justify-center gap-10 px-8 mt-4">
                         <Droppable droppableId="todo">
                             {provided => (
                                 <TaskColumn
@@ -89,6 +96,7 @@ const ManageTask = () => {
                                     title={'Todo'}
                                     task={todo}
                                     refetch={refetch}
+                                    icon={<LuListTodo />}
                                 />
                             )}
                         </Droppable>
@@ -96,9 +104,10 @@ const ManageTask = () => {
                             {provided => (
                                 <TaskColumn
                                     provided={provided}
-                                    title={'IN-PROGRESS'}
+                                    title={'In-Progress'}
                                     task={progress}
                                     refetch={refetch}
+                                    icon={<ImSpinner6 />}
                                 />
                             )}
                         </Droppable>
@@ -109,6 +118,7 @@ const ManageTask = () => {
                                     title={'Completed'}
                                     task={completed}
                                     refetch={refetch}
+                                    icon={<GrCompliance />}
                                 />
                             )}
                         </Droppable>

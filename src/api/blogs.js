@@ -14,15 +14,19 @@ export const getAllBlogs = async () => {
   return data
 }
 
-// http://localhost:5000/blog/65bcf92c1ff140f79aa0b416
 
 export const getOneBlog = async id => {
   const { data } = await axiosSecure(`/blog/${id}`)
   return data
 }
 
-export const updateBlogInfo = async (id, blog) => {
-  const { data } = await axiosSecure.put(`/blog/updated/${id}`, blog);
-  return data;
-}
 
+
+export const updateBlogInfo  = async (id, updatedData) => {
+  try {
+    const { data } = await axiosSecure.put(`/blog/update/${id}`, updatedData);
+    return data;
+  } catch (error) {
+    throw new Error('Failed to update member information: ' + error.message);
+  }
+};

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 
-
+// admin form 
 const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
     const [loading, setLoading] = useState(false)
     const axiosPublic = useAxiosPublic();
@@ -30,18 +30,14 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
                 title,
                 description,
                 sentNotices,
-                sentForCourse:'',
                 hostName: user?.name,
                 hostEmail: user?.email
             }
-            // console.log(noticeData);
-
-            axiosPublic.post('/notices', noticeData)
+            axiosPublic.post('/admin-notices', noticeData)
                 .then(res => {
                     if (res.data) {
                         setLoading(false);
                         refetch();
-                        // console.log(res.data);
                         return toast.success('created successfully')
                     }
                 })
@@ -98,4 +94,3 @@ const NoticeModal = ({ isOpen, setIsOpen, refetch }) => {
 };
 
 export default NoticeModal;
-//

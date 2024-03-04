@@ -6,35 +6,34 @@ import { CiBookmarkCheck } from "react-icons/ci";
 import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const NoticeTable = ({ notice,handleDelete }) => {
-    // const axiosSecure = useAxiosSecure();
-    const { _id, date, title,sentNotices } = notice || {};
+const NoticeTableForTeacher = ({ notice,handleDeleteTeacherNotice}) => {
+    const { _id, date, title, sentForCourse } = notice || {};
     
     return (
         <>
-            <tr className='border overflow-x-scroll w-2/3  p__opensans cursor-pointer'>
+            <tr className='border overflow-x-scroll w-2/3  p__cormorant cursor-pointer'>
                 <th>
                     <label>
                         <input type="checkbox" className="checkbox" />
                     </label>
                 </th>
-                <th className='border text-xl md:text-2xl lg:text-2xl text-[#f79a01]'><CiBookmarkCheck /></th>
-                <td className='border'>{sentNotices || "Student"}</td>
-                <td className='border text-center text-base lg:text-[18px] font-medium'><Link to={`/dashboard/notice-details/${_id}`}>{title?.length > 40 ? <>{ title?.slice(0,50)}.....</> : title}</Link></td>
-                <td className='border'>{date?.slice(0, 10)}</td>
-                <td className='border'>{date?.slice(11, 16)} AM</td>
+                <th className='border  text-white'><CiBookmarkCheck /></th>
+                <td className='border'>{sentForCourse || "No Course"}</td>
+                <td className='border text-center font-medium'><Link to={`/dashboard/notice-details/${_id}`}>{title?.length > 40 ? <>{ title?.slice(0,50)}.....</> : title}</Link></td>
+                <td className='border text-sm'>{date?.slice(0, 10)}</td>
+                <td className='border text-sm'>{date?.slice(11, 16)} AM</td>
                 <td>
                     <div className="dropdown dropdown-end flex items-center justify-center ">
                         <div tabIndex={0} role="button" className="flex items-center justify-center">
-                            <BsThreeDots className='text-2xl cursor-pointer' />
+                            <BsThreeDots className='text-xl cursor-pointer' />
                         </div>
                         <ul tabIndex={0} className="menu menu-sm border dropdown-content -mt-8 relative mr-[60px] z-0 p-2 shadow bg-black rounded w-40">
                             <li className="flex items-center justify-center gap-2">
-                                <Link to={`/dashboard/notice-updated/${_id}`}>Update <FaEdit /></Link>
+                                <Link to={`/dashboard/teacher-notice-update/${_id}`}>Update <FaEdit /></Link>
                             </li>
-                            <li onClick={() => handleDelete(_id)} className="flex items-center justify-center gap-2"><a>Delete <AiFillDelete /></a></li>
+                            <li onClick={() => handleDeleteTeacherNotice(_id)} className="flex items-center justify-center gap-2"><a>Delete <AiFillDelete /></a></li>
                             <li className="flex items-center justify-center gap-2">
-                                <Link to={`/dashboard/notice-details/${_id}`}>Details <BiMessageAltDetail /></Link>
+                                <Link to={`/dashboard/teacher-notice-details/${_id}`}>Details <BiMessageAltDetail /></Link>
                             </li>
                         </ul>
                     </div>
@@ -44,4 +43,4 @@ const NoticeTable = ({ notice,handleDelete }) => {
     );
 };
 
-export default NoticeTable;
+export default NoticeTableForTeacher;

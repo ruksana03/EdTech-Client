@@ -1,18 +1,40 @@
+
+
 import { useEffect, useState } from "react";
-import quiz from '../../../public/quiz.json';
 import Quiz from "./Quiz";
 import Result from "./Result";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Questions = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [selectedOptions, setSelectedOptions] = useState(Array(quiz.length).fill(null));
+    const [selectedOptions, setSelectedOptions] = useState([]);
     const [isReviewMode, setIsReviewMode] = useState(false);
+    const axiosPublic = useAxiosPublic();
 
-    const question = quiz[currentQuestionIndex];
+
+    const { data: quizData, isLoading, isError } = useQuery({
+        queryKey: "quizData",
+        queryFn: async () => {
+            const response = await axiosPublic.get('/quiz'); // Update the URL as per your backend API
+            return response.data;
+        },
+    });
+
 
     useEffect(() => {
-        console.log(question);
-    }, [currentQuestionIndex, question]);
+        axiosPublic.get("http://localhost:5000/quiz")
+        .then(response => {
+          
+            if (response.data) {
+                setSelectedOptions(Array.isArray(response.data) ? Array(response.data.length).fill(null) : []);
+            }
+        })
+        .catch(error => {
+            console.log('error in data', error);
+        });
+    }, []);
+    
 
     const onSelect = (option) => {
         const updatedSelectedOptions = [...selectedOptions];
@@ -21,7 +43,7 @@ const Questions = () => {
     };
 
     const onNext = () => {
-        if (currentQuestionIndex < quiz.length - 1) {
+        if (currentQuestionIndex < quizData.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         }
     };
@@ -36,19 +58,22 @@ const Questions = () => {
         setIsReviewMode(!isReviewMode);
     };
 
-    const isQuizCompleted = selectedOptions.every(option => option !== null);
+    const isQuizCompleted = selectedOptions.length === quizData?.length && !selectedOptions.includes(null);
+
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error fetching data</div>;
 
     return (
         <div className="pt-28 p__cormorant">
             <div className="mx-auto flex justify-center">
                 {isQuizCompleted && !isReviewMode ? (
-                    <Result selectedOptions={selectedOptions} quiz={quiz} />
+                    <Result selectedOptions={selectedOptions} quiz={quizData} />
                 ) : (
                     <div className="">
                         <div className='questions'>
-                            <h2 className='text-white text-3xl'>{question.question}</h2>
-                            <ul className="mt-4 space-y-2 " key={question.id}>
-                                {question.options.map((q, i) => (
+                            <h2 className='text-white text-3xl'>{quizData[currentQuestionIndex]?.question}</h2>
+                            <ul className="mt-4 space-y-2 " key={quizData[currentQuestionIndex]?.id}>
+                                {quizData[currentQuestionIndex]?.options.map((q, i) => (
                                     <li key={i}>
                                         <input
                                             type="radio"
@@ -75,6 +100,16 @@ const Questions = () => {
 };
 
 export default Questions;
+
+
+
+
+
+
+
+
+
+
 
 
 

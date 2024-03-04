@@ -6,16 +6,14 @@ import { postMember } from "../../../../api/member";
 import toast from "react-hot-toast";
 import useMember from "../../../../Hooks/useMember";
 import MemberCard from "./MemberCard";
-import UpdateMemberInfoModal from "./UpdateMemberInfoModal";
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+
 
 const AddMember = () => {
     const [loading, setLoading] = useState(false);
     const [profilePicture, setProfilePicture] = useState(null);
     const axiosPublic = useAxiosPublic();
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [queryData, setQueriData] = useState([])
     const { AllMember, refetch } = useMember();
 
     const handleImageUrlChange = (e) => {
@@ -74,20 +72,16 @@ const AddMember = () => {
     };
 
 
-
-
-
-
-
     return (
         <div>
             {/* show all member  */}
             <div className="grid grid-cols-12 gap-4 mx-2">
                 {
-                    AllMember.map(member => <MemberCard key={member._id} member={member} refetch={refetch} loading={loading} />
+                    AllMember.map(member => <MemberCard key={member._id} member={member} refetch={refetch} setProfilePicture={setProfilePicture} loading={loading} setLoading={setLoading}/>
                     )
                 }
             </div>
+
             {/* Add new member  */}
             <h1 className="headtext__cormorant text-center">Add A New Member</h1>
 
@@ -271,22 +265,22 @@ const AddMember = () => {
                     </div>
                 </div>
                 <div className="mb-6 p__cormorant  text-white">
-                    <div>
-                        <label htmlFor="profilePicture" className="block font-bold text-start mb-1 md:mb-0 pr-4 p__cormorant">
-                            Portfolio
-                        </label>
+                        <div>
+                            <label htmlFor="profilePicture" className="block font-bold text-start mb-1 md:mb-0 pr-4 p__cormorant">
+                                Portfolio
+                            </label>
+                        </div>
+                        <div className="md:w-full mt-2 text-white">
+                            <input
+                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                                id="portfolio"
+                                name="portfolio"
+                                type="text"
+                                required
+                            />
+                            <hr className="border-t border-first" />
+                        </div>
                     </div>
-                    <div className="md:w-full mt-2 text-white">
-                        <input
-                            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-                            id="portfolio"
-                            name="portfolio"
-                            type="text"
-                            required
-                        />
-                        <hr className="border-t border-first" />
-                    </div>
-                </div>
 
                 <button type="submit" className=" btn-style w-full"> {loading ? (
                     <TbFidgetSpinner className="animate-spin text-black m-auto" />
