@@ -5,14 +5,13 @@ import { onAuthStateChanged } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { loginUser, setLoading } from "../Features/UserSlice";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
-// import SubNav from "../components/header/navbar/SubNav";
 import { Outlet } from "react-router-dom";
 import Navber from "../components/header/navbar/Navber";
 import Footer from "../page/home/Footer/Footer";
 import 'regenerator-runtime/runtime'
 
 // import MessengerCustomerChat from 'react-messenger-customer-chat';
-// import Preloader from "../components/shared/Preloader";
+
 
 const MainLayout = () => {
   const dispatch = useDispatch();

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -20,13 +21,56 @@ const WriteBlog = () => {
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
 
+  const textArray = [
+    "Programming",
+    "React",
+    "Development",
+    "Mern",
+    "English",
+    "Physics",
+    "Chemistry",
+    "Math",
+    "Calculus",
+    "History",
+    "History",
+    "History",
+    "Development",
+    "Mern",
+    "English",
+    "Physics",
+  ];
+
   // State variables
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [contents, setContent] = useState([{ id: 1, value: "" }]);
+  const [suggestions, setSuggestions] = useState(textArray.map(text => ({ id: text, text: text })));
   const [tags, setTags] = useState([]);
   const [imageFile, setImageFile] = useState(null);
   const [isListening, setIsListening] = useState(false);
+
+  const handleDelete = i => {
+    setTags(tags.filter((tag, index) => index !== i));
+  };
+
+  const handleAddition = tag => {
+    setTags([...tags, tag]);
+  };
+
+  const handleDrag = (tag, currPos, newPos) => {
+    const newTags = tags.slice();
+
+    newTags.splice(currPos, 1);
+    newTags.splice(newPos, 0, tag);
+
+    // re-render
+    setTags(newTags);
+  };
+
+  const handleTagClick = index => {
+    console.log('The tag at index ' + index + ' was clicked');
+  };
+
 
   // Function to add a new input section for blog content
   const addInput = (e) => {
@@ -159,55 +203,39 @@ const WriteBlog = () => {
       </Link>
       {/* Blog form */}
       <form onSubmit={handleSubmit}>
+
+        {/* read only - Personal info  */}
         <div className="flex flex-col md:flex-row gap-4 my-10 p__cormorant">
           <div className="mb-4">
-            <label
-              htmlFor="userPhoto"
-              className="block text-lg font-semibold mb-2"
-            >
-              Your Photo
-            </label>
+            <label htmlFor="userPhoto" className="block text-lg font-semibold mb-2">Your Photo</label>
             <input
               type="text"
               id="userPhoto"
               value={user?.photo || ""}
               className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-              readOnly
-            />
+              readOnly />
             <hr className="border-t border-first" />
           </div>
 
           <div className="mb-4">
-            <label
-              htmlFor="userName"
-              className="block text-lg font-semibold mb-2"
-            >
-              Your Name
-            </label>
+            <label htmlFor="userName" className="block text-lg font-semibold mb-2">Your Name</label>
             <input
               type="text"
               id="userName"
-              value={user?.name || ""}
+              value={user?.name || ''}
               className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-              readOnly
-            />
+              readOnly />
             <hr className="border-t border-first" />
           </div>
 
           <div className="mb-4">
-            <label
-              htmlFor="userEmail"
-              className="block text-lg font-semibold mb-2"
-            >
-              Your Email
-            </label>
+            <label htmlFor="userName" className="block text-lg font-semibold mb-2">Your Name</label>
             <input
               type="text"
-              id="userEmail"
-              value={user?.email || ""}
+              id="userName"
+              value={user?.email}
               className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-              readOnly
-            />
+              readOnly />
             <hr className="border-t border-first" />
           </div>
         </div>
@@ -216,25 +244,26 @@ const WriteBlog = () => {
         <h1 className="text-3xl font-bold mb-4 mt-8 headtext__cormorant">
           Write a story
         </h1>
-
+{/* Editable area  */}
         <div className="my-12 p__cormorant">
           <div className="my-6 ">
             <h1> Add Your Blog Category </h1>
             <div className="bg-transparent text-black my-4">
               <ReactTags
                 tags={tags}
-                handleDelete={() => {}}
-                handleAddition={() => {}}
-                handleDrag={() => {}}
-                handleTagClick={() => {}}
+                suggestions={suggestions}
+                handleDelete={handleDelete}
+                handleAddition={handleAddition}
+                handleDrag={handleDrag}
+                handleTagClick={handleTagClick}
                 inputFieldPosition="bottom"
                 autocomplete
                 classNames={{
-                  tags: "bg-transparent",
-                  tagInput: "bg-transparent",
-                  selected: "bg-transparent",
-                  tag: "border-white border px-2 py-1 text-white mt-1 mb-1",
-                  remove: "bg-transparent",
+                  tags: 'bg-transparent',
+                  tagInput: 'bg-transparent',
+                  selected: 'bg-transparent',
+                  tag: 'border-white border  px-2 py-1 text-white mt-1 mb-1',
+                  remove: 'bg-transparent'
                 }}
               />
             </div>
@@ -296,27 +325,27 @@ const WriteBlog = () => {
             ))}
 
             {/* Voice typing controls */}
-        <div className="flex justify-end mb-8 ">
-          {!isListening ? (
-            <button
-              type="button"
-              className="flex items-center btn-style "
-              onClick={startListening}
-            >
-              <FaMicrophone className="mr-2" />
-              Start Voice Typing
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="flex items-center btn-style "
-              onClick={stopListening}
-            >
-              <FaStop className="mr-2" />
-              Stop Voice Typing
-            </button>
-          )}
-        </div>
+            <div className="flex justify-end mb-8 ">
+              {!isListening ? (
+                <button
+                  type="button"
+                  className="flex items-center btn-style "
+                  onClick={startListening}
+                >
+                  <FaMicrophone className="mr-2" />
+                  Start Voice Typing
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="flex items-center btn-style "
+                  onClick={stopListening}
+                >
+                  <FaStop className="mr-2" />
+                  Stop Voice Typing
+                </button>
+              )}
+            </div>
 
             <button
               className="text-slate-400 w-full text-left pl-4 flex justify-end items-center gap-4 hover:text-white"
@@ -327,7 +356,7 @@ const WriteBlog = () => {
           </div>
         </div>
 
-        
+
 
         <button type="submit" className="btn-style w-full">
           {loading ? (

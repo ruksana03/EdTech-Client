@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import LoginWithGoogle from "./LoginWithGoogle/LoginWithGoogle";
 import LoginWithGitHub from "./LoginWithGitHUb/LoginWithGitHub";
 import LoginWithFacebook from "./LoginWithFacebook/LoginWithFacebook";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import { CgProfile } from "react-icons/cg";
@@ -65,11 +65,14 @@ const Register = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
 
   return (
       <div className="pt-6 w-11/12 mx-auto">
         <div className="lg:flex justify-center">
-          <div className="max-w-[800px] mx-auto p__cormorant p-6 bg-transparent shadow-md sm:px-8 sm:py-10 lg:px-12  border my-12">
+          <div className=" p__cormorant p-6 bg-transparent shadow-md sm:px-8 sm:py-10 lg:px-12  border my-12">
             <div className="flex flex-col sm:flex-row justify-between space-x-0 sm:space-x-12">
               <div className="w-full sm:w-1/2 mb-8 sm:mb-0">
                 {/* Left side form */}
@@ -110,7 +113,7 @@ const Register = () => {
                     </div>
                   </div>
                   <hr className="border-t border-first" />
-                  <div className="flex items-center space-x-2 mb-6 text-white">
+                  <div className="flex items-center space-x-2 mb-6 text-white my-4">
                     <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" className="peer h-4 w-4 shrink-0 rounded-sm border  " />
                     <label className="text-sm font-medium" htmlFor="keep-signed-in">
                       Keep me signed in

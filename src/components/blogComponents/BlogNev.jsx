@@ -46,6 +46,9 @@ const BlogNev = () => {
                     <li className=" px-4 py-1">
                         <Link to="/blog/blog-settings" className="flex gap-2 justify-start items-center text-sm"><IoSettings /> Settings</Link>
                     </li>
+                    <li className=" px-4 py-1">
+                        <Link to="/Contact" className="flex gap-2 justify-start items-center text-sm"><IoSettings /> Contact</Link>
+                    </li>
                     <li className="px-4 py-1">
                         {
                             user ? (

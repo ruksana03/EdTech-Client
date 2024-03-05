@@ -8,12 +8,10 @@ import { Link } from 'react-router-dom';
 const BlogBanner = () => {
     // Array of image URLs
     const images = [
-        ' https://i.ibb.co/3ySfjSB/pexels-laker-6156940.jpg',
     'https://i.ibb.co/C6zXz57/istockphoto-1569228708-612x612.jpg',
          'https://i.ibb.co/D5pm3dV/istockphoto-1493060482-612x612.jpg',
         ' https://i.ibb.co/gtm3f4p/istockphoto-1205061931-612x612.jpg',
        '  https://i.ibb.co/26p2W8X/istockphoto-1462942852-170667a.webp',
-        ' https://i.ibb.co/f0M2HjR/marvin-meyer-SYTO3xs06f-U-unsplash.jpg',
      ];
  
 
