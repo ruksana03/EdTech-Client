@@ -69,6 +69,7 @@ const Applications = () => {
         <div className="mt-14 w-full h-screen">
             <div className="m-5">
                 {/* show modal  */}
+                <h1 className="text-2xl font-bold text-white mb-5 text-center">All Application is Here!</h1>
                 <ApplicationModal isOpen={isOpen} setIsOpen={setIsOpen} applications={applications} id={id} />
                 <div className="overflow-x-auto ">
                     <table className="table w-full border-collapse border border-gray-300">

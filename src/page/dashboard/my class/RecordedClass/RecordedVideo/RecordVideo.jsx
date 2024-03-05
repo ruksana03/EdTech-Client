@@ -42,7 +42,7 @@ const RecordVideo = () => {
     }
     return (
        <div>
-        <div className='flex gap-4 max-w-fit '>
+        <div className='flex flex-col lg:flex-row gap-4 max-w-fit my-10 '>
         {/* <iframe src="https://drive.google.com/file/d/17k0YlVukMElFD7sJoHutKSq-OPt0ceAn/preview" width="640" height="480" allow="autoplay"></iframe> */}
         <div >
         
@@ -50,7 +50,7 @@ const RecordVideo = () => {
                 width="640px"
                 height="320px"
                 id=""
-                className=""
+                className="w-80 h-40 md:w-[610px] md:h-[320px]"
                 display="block"
                 position="relative"/>
         </div>

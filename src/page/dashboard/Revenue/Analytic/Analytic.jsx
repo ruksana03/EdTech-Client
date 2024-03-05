@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 const Analytic = () => {
 
@@ -19,7 +20,8 @@ const [data, setData]= useState([])
        console.error('Error fetching data:', error);
      });
   },[])
-  console.log(data)
+  const pendings = data.filter(d => d.status != 'selected')
+  console.log(pendings)
 
   return (
     <div>
@@ -29,24 +31,21 @@ const [data, setData]= useState([])
             <div className="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
               <h2 className="headtext__cormorant">Teacher Position requests</h2>
 
-              <p className="mt-4 p__opensans">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                vero aliquid sint distinctio iure ipsum cupiditate? Quis, odit
-                assumenda? Deleniti quasi inventore, libero reiciendis minima
-                aliquid tempora. Obcaecati, autem.
-              </p>
+              
 
-              <a
+            <Link to={"/dashboard/applications"}>
+            <a
                 href="#"
                 className="mt-8 inline-block rounded btn-style  px-12 py-3 text-sm font-medium   transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
               >
                 Goto The page
               </a>
+            </Link>
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
               {
-                data.map(d => <a key={d.id}
+                pendings.map(d => <a key={d.id}
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
                 href="#"
               >

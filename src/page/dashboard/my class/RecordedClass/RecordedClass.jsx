@@ -30,7 +30,7 @@ const RecordedClass = () => {
     }
   }, [user]);
   return (
-    <div className='flex mt-20 flex-col lg:flex-row gap-4'>
+    <div className='flex mt-20 flex-col md:flex-row gap-4'>
 
       {
         data.map((item) => (
