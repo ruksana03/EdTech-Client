@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {  MdOutlineDashboardCustomize, MdRecommend} from "react-icons/md";
+import { MdRecommend} from "react-icons/md";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { Link, useLocation } from "react-router-dom";
 import { GrResources } from "react-icons/gr";
@@ -8,18 +8,16 @@ import { FaCalendarDay } from "react-icons/fa";
 
 
 const StudentMenu = ({ isActive }) => {
-    const studentLinks = ['/my-class','/resources','/recommended','/studentdashboard','/routine','/my-enroll','/certifications'];
-    const studentMenu = ['My Class','Resources','Recommended','student dashboard', 'Routine','My Enroll','Certifications'];
+    const studentLinks = ['/resources','/recommended','/studentdashboard','/routine','/my-enroll','/certifications'];
+    const studentMenu = ['Resources','Recommended','student dashboard', 'Routine','My Enroll','Certifications'];
     
     const icons = [
-        <MdOutlineDashboardCustomize key={studentLinks[0]} />,
-         
-        <GrResources key={studentLinks[1]}/>,
-        <MdRecommend key={studentLinks[2]}/>,
-        <GrResources key={studentLinks[3]} />,
-        <FaCalendarDay key={studentLinks[4]}/>,
-        <GrResources key={studentLinks[5]}/>,
-        <LiaCertificateSolid key={studentLinks[6]}/>,
+        <GrResources key={studentLinks[0]}/>,
+        <MdRecommend key={studentLinks[1]}/>,
+        <GrResources key={studentLinks[2]} />,
+        <FaCalendarDay key={studentLinks[3]}/>,
+        <GrResources key={studentLinks[4]}/>,
+        <LiaCertificateSolid key={studentLinks[5]}/>,
         
 
     ];
