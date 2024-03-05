@@ -16,9 +16,8 @@ const AllAdmissionModal = ({ isOpen, setIsOpen, applications, id }) => {
                         </figure>
                         <h1 className="text-xl font-medium">{admissionData?.fullName} ({admissionData?.gender})</h1>
                         <h1>{admissionData?.email}</h1>
-                        <p className="text-xl font-medium">Post Name: {admissionData?.position}</p>
                         <p className="text-xl font-medium">Education: {admissionData?.education}</p>
-                        <p className="text-xl font-medium">Education: {admissionData?.instituteName}</p>
+                        <p className="text-xl font-medium">Institute: {admissionData?.instituteName}</p>
                         <p className="text-xl font-medium">Address: {admissionData?.streetAddress}</p>
                     </div>
                     <p className="text-base">{admissionData?.message}</p>

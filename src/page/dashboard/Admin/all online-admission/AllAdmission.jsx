@@ -11,7 +11,7 @@ import AllAdmissionModal from "./AllAdmissionModal";
 
 const AllAdmission = () => {
     const axiosPublic = useAxiosPublic();
-    const [admissions,refetch,] = useOnlineAdmission();
+    const [admissions, refetch,] = useOnlineAdmission();
     let [isOpen, setIsOpen] = useState(false)
     let [id, setId] = useState('');
     const admissionData = [...admissions].reverse();
@@ -23,8 +23,8 @@ const AllAdmission = () => {
             // console.log(data);
             if (data.status === "selected") {
                 await refetch();
-                const res = await axiosPublic.put(`/users/${courseItem.id}`);
-                console.log(res.data);
+                // const res = await axiosPublic.put(`/users/${courseItem.id}`);
+                console.log(courseItem);
                 toast.success("application has been approved successfully");
             }
         } catch (error) {
@@ -44,19 +44,12 @@ const AllAdmission = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 try {
-                    const res = axiosPublic.delete(`/application/reject/${id}`);
-                    console.log(res);
+                    const res = axiosPublic.delete(`/online-admission/reject/${id}`);
                     if (res) {
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Application has been rejected successfully.",
-                            icon: "success"
-                        });
-                        refetch();
+                          refetch();
+                        toast.success("Application has been rejected successfully.")
                     }
-                } catch (error) {
-                    toast.error("Failed to delete application");
-                }
+                } catch (error) {toast.error("Failed to delete application")}
             }
         });
 
@@ -88,21 +81,21 @@ const AllAdmission = () => {
                             </tr>
                         </thead>
                         <tbody className="text-gray-700 text-sm">
-                            {admissionData.map((courseItem, index) => (
+                            {admissionData.map((admissionItem, index) => (
                                 <tr key={index} className="p__opensans">
                                     <td className="py-3 font-medium">{index + 1}</td>
-                                    <td className="py-3 font-medium">{courseItem.position}</td>
-                                    <td className="py-3 font-medium">{courseItem.fullName}</td>
-                                    <td className="py-3 font-medium">{courseItem.email}</td>
-                                    <td onClick={() => handleToggle(courseItem?._id)} className="py-3 font-medium"><FaEye className="text-2xl text-white cursor-pointer" /></td>
+                                    <td className="py-3 font-medium">{admissionItem.position}</td>
+                                    <td className="py-3 font-medium">{admissionItem.fullName}</td>
+                                    <td className="py-3 font-medium">{admissionItem.email}</td>
+                                    <td onClick={() => handleToggle(admissionItem?._id)} className="py-3 font-medium"><FaEye className="text-2xl text-white cursor-pointer" /></td>
                                     <td className="py-3">
                                         {/* <button>Approve</button> */}
-                                        <button onClick={() => approveAdmission(courseItem)} className="btn-style  rounded-2xl hover:text-first hover:bg-white font-medium">
-                                            {courseItem.status === 'pending' ? 'select Now' : courseItem.status}
+                                        <button onClick={() => approveAdmission(admissionItem)} className="btn-style  rounded-2xl hover:text-first hover:bg-white font-medium">
+                                            {admissionItem.status === 'pending' ? 'select Now' : admissionItem.status}
                                         </button>
                                     </td>
                                     <td className="py-3 font-medium">
-                                        <button onClick={() => handleRejected(courseItem?._id)} className="hover:text-red-600 text-[17px] hover:underline font-bold">
+                                        <button onClick={() => handleRejected(admissionItem?._id)} className="hover:text-red-600 text-[17px] hover:underline font-bold">
                                             Reject
                                         </button>
                                     </td>
@@ -115,7 +108,7 @@ const AllAdmission = () => {
                     admissionData?.length <= 0 && <Skeleton count={13 || admissionData?.length} height={30} borderRadius={10} />
                 }
             </div>
-        </div>                                                                                                                  
+        </div>
     );
 };
 
