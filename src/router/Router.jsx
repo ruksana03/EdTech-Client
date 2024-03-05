@@ -19,12 +19,12 @@ import CreateNotes from "../page/dashboard/notes/CreateNotes";
 import MyClass from "../page/dashboard/my class/MyClass";
 import Liveclass from "../page/dashboard/my class/LiveClass/Liveclass";
 import Support from "../page/dashboard/my class/Support/Support";
-import MyLabLayout from "../page/dashboard/DLayoutList/MyLabLayout";
-import Science from "../page/dashboard/my lab/lab pages/Science";
-import Math from "../page/dashboard/my lab/lab pages/Math";
-import Coding from "../page/dashboard/my lab/lab pages/Coding";
-import ResearchL from "../page/dashboard/my lab/lab pages/ResearchL";
-import Creative from "../page/dashboard/my lab/lab pages/Creative";
+// import MyLabLayout from "../page/dashboard/DLayoutList/MyLabLayout";
+// import Science from "../page/dashboard/my lab/lab pages/Science";
+// import Math from "../page/dashboard/my lab/lab pages/Math";
+// import Coding from "../page/dashboard/my lab/lab pages/Coding";
+// import ResearchL from "../page/dashboard/my lab/lab pages/ResearchL";
+// import Creative from "../page/dashboard/my lab/lab pages/Creative";
 import Resources from "../page/dashboard/Student/Resources";
 import Recommended from "../page/dashboard/Student/Recommended";
 import AllUser from "../page/dashboard/Admin/Users/AllUser";
@@ -338,32 +338,32 @@ const router = createBrowserRouter([
                 path: 'my-class/recordedclass/English%20Mastery',
                 element: <RecordVideo />
             },
-            {
-                path: "my-lab",
-                element: <MyLabLayout />,
-                children: [
-                    {
-                        path: "science-lab",
-                        element: <Science />,
-                    },
-                    {
-                        path: "math-lab",
-                        element: <Math />,
-                    },
-                    {
-                        path: "coding-lab",
-                        element: <Coding />,
-                    },
-                    {
-                        path: "research-lab",
-                        element: <ResearchL />,
-                    },
-                    {
-                        path: "creative-lab",
-                        element: <Creative />,
-                    },
-                ],
-            },
+            // {
+            //     path: "my-lab",
+            //     element: <MyLabLayout />,
+            //     children: [
+            //         {
+            //             path: "science-lab",
+            //             element: <Science />,
+            //         },
+            //         {
+            //             path: "math-lab",
+            //             element: <Math />,
+            //         },
+            //         {
+            //             path: "coding-lab",
+            //             element: <Coding />,
+            //         },
+            //         {
+            //             path: "research-lab",
+            //             element: <ResearchL />,
+            //         },
+            //         {
+            //             path: "creative-lab",
+            //             element: <Creative />,
+            //         },
+            //     ],
+            // },
             {
                 path: "resources",
                 element: <Resources />,
