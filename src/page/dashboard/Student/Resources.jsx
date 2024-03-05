@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useGetAllPdf from "../../../Hooks/useGetAllPdf";
 import { FaFileDownload } from "react-icons/fa";
+import Skeleton from "react-loading-skeleton";
 
 
 const Resources = () => {
@@ -76,9 +77,9 @@ const Resources = () => {
                             }
                         </tbody>
                     </table>
-                    {/* {
+                    {
                         matchedPdfs?.length <= 0 && <Skeleton count={15 || matchedPdfs?.length} height={30} borderRadius={10} />
-                    } */}
+                    }
                 </div>
             </div>
         </div>
