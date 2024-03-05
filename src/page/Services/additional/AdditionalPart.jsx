@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import otherCate from '../../../assets/image/services/Animation - 1709181732197.json'
 
 
 const AdditionalPart = () => {
@@ -62,11 +61,12 @@ const AdditionalPart = () => {
                         <article className="flex-1">
                             <h2 className="text-2xl font-bold">Check out the free live class</h2>
                             <p>Join the free demo class to know how Innovated Education has organized this online batch.</p>
-                            <Link to='/get-addmission'>
+                            <Link to='https://youtu.be/3H_aIzeiOhE?si=86DYZeKWBUpLTMvq' target='_blank'>
                                 <button className='mt-5 btn-style'>Book a free demo class</button>
                             </Link>
                         </article>
-                        <img src='https://i.ibb.co/vLtv2Ry/ai-11914040.png' alt="knowledge-image" className="rounded-2xl bg-black mt-5 w-24 h-20 md:w-64 md:h-36 lg:w-44 lg:h-36" />
+                        {/* https://i.ibb.co/fDVJ7wB/instagram-live.png */}
+                        <img src='https://i.ibb.co/sK6NbKw/live.png' alt="knowledge-image" className="rounded-2xl bg-black mt-5 w-24 h-20 md:w-64 md:h-36 lg:w-44 lg:h-36" />
                     </div>
                 </div>
                 <div>

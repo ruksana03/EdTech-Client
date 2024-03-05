@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const BeAPartner = () => {
     return (
-        <div className="w-4/5 mx-auto mt-20">
+        <div className="section-container mt-12">
             <div className="mb-8">
                 <h2 className="text-center text-first text-2xl">{`--- Become a Partner ---`}</h2>
                 <p className="text-center text-white">Become One of Us</p>
             </div>
 
-            <div className="card w-96 md:w-full bg-black shadow-md shadow-white p-8">
-                <div className="flex justify-center items-center gap-24">
+            <div className="w-full bg-black shadow-md shadow-white p-8">
+                <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center gap-24">
                     <div className="card w-72 text-white bg-black shadow-md shadow-white p-4">
                         <p className="text-justify">Do You Want To Join Our Organization As An Associate? We are offering you to become one of us. If you are interested confirm now. We are eagerly waiting for you.</p>
                     </div>

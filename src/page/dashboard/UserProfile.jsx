@@ -23,7 +23,7 @@ const UserProfile = () => {
   const axiosPublic = useAxiosPublic();
   const [role] = useUserRole();
   const { AllCovers, refetch } = useCover();
-  console.log(AllCovers)
+  // console.log(AllCovers)
   const currenUserRole = role[0]?.role;
   const email = user?.email;
 
