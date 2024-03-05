@@ -120,7 +120,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'get-addmission',
-                element: <AdmissionForm />
+                element: <PrivateRouter><AdmissionForm /></PrivateRouter>
             },
 
             {

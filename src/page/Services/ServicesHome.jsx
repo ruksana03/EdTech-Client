@@ -10,17 +10,16 @@ import ChildrenEduHome from "./children education/ChildrenEduHome";
 const ServicesHome = () => {
     return (
         <div className="py-20 ">
-            {/* <ServicesBanner />
+            <ServicesBanner />
              <div className="py-20">
                 <QuizContest />
                 <BeAPartner />
                 <BeATeacher />
-            </div> */}
+            </div>
              {/* <QuizContest /> */}
             <OurAchivement />
             <ChildrenEduHome />
             <AdditionalPart />
-          
         </div>
     );
 };

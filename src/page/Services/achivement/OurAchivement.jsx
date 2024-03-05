@@ -23,10 +23,10 @@ const OurAchivement = () => {
     return (
         <div className="section-container">
             <div className="flex items-center flex-col lg:flex-row justify-center gap-5">
-                <div className="w-full lg:w-1/2">
-                    <img src="https://i.ibb.co/r47H5NB/achivements.jpg" className="opacity-55 hover:opacity-90 transition ease-in-out rounded cursor-pointer" alt="achivements-image" />
+                <div className="w-full lg:w-1/2 h-full lg:h-[500px]">
+                    <img src="https://i.ibb.co/r47H5NB/achivements.jpg" className="opacity-55 hover:opacity-90 transition ease-in-out rounded cursor-pointer w-full h-full" alt="achivements-image" />
                 </div>
-                <div className="text-white w-full lg:w-1/2 font-serif">
+                <div className="text-white w-full lg:w-1/2 h-auto font-serif">
                     <h2 className="text-3xl "> Our Achivements</h2>
                     <p> {`Welcome to Innovated Education! We offer top-notch educational services tailored to your needs. Our passionate educators inspire learning and critical thinking, both in-person and online. Partner with us for customized solutions and celebrate success with our proven track record. Join us as we reshape education through innovation.`} </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mt-8">

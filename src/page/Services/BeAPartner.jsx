@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const BeAPartner = () => {
     return (
-        <div className="section-container mt-12">
+        <div className="section-container mt-12 font-serif">
             <div className="mb-8">
                 <h2 className="text-center text-first text-2xl">{`--- Become a Partner ---`}</h2>
                 <p className="text-center text-white">Become One of Us</p>

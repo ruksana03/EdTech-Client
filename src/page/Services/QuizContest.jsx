@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const QuizContest = () => {
     return (
-        <div className="section-container">
+        <div className="section-container font-serif">
             <div className="mb-8">
                 <h2 className="text-center text-first text-2xl">{`--- Play Quiz ---`}</h2>
                 <p className="text-center text-white">Win 40% scholarship</p>

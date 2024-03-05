@@ -1,6 +1,4 @@
-import { PiChalkboardTeacherBold } from "react-icons/pi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -11,8 +9,8 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 const AdmissionForm = () => {
-    // const axiosPublic = useAxiosPublic();
-    // const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const user = useSelector((state) => state.data.user.user);
     const userPhoto = user?.photo;
@@ -27,45 +25,37 @@ const AdmissionForm = () => {
         const email = form.form_email.value;
         const phoneNumber = form.phonenumber.value;
         const streetAddress = form.streetaddress.value;
-        const education = form.educat.value;
-        const gradePoint = form.gradepoint.value;
-        const passedYear = form.passedyear.value;
+        const education = form.education.value;
         const gender = form.form_gender.value;
         const instituteName = form.institutename.value;
-        const position = form.positionname.value;
         const message = form.form_message.value;
-        const cvLink = form.cvlink.value;
-        const applicationData = {
+        const admissionFormData = {
             userRole,
             fullName,
             email,
             phoneNumber,
             streetAddress,
             education,
-            gradePoint,
-            passedYear,
             gender,
             instituteName,
-            position,
             message,
-            cvLink,
             profile_photo: userPhoto
         }
-
-        // try {
-        //     await axiosPublic.post('/applications', applicationData)
-        //         .then(res => {
-        //             setLoading(false)
-        //             if (res.data) {
-        //                 navigate('/')
-        //                 return toast.success('created successfully')
-        //             }
-        //         })
-        // }
-        // catch (error) {
-        //     setLoading(false)
-        //     toast.error(error.message)
-        // }
+        // console.log(admissionFormData);
+        try {
+            await axiosPublic.post('/online-admission', admissionFormData)
+                .then(res => {
+                    setLoading(false)
+                    if (res.data) {
+                        navigate('/')
+                        return toast.success('applied successfully')
+                    }
+                })
+        }
+        catch (error) {
+            setLoading(false)
+            toast.error(error.message)
+        }
         toast.error('something went wrong!')
     }
     return (
@@ -77,7 +67,7 @@ const AdmissionForm = () => {
             {/* heading  */}
             <div className="mt-10">
                 <h1 className="headtext__cormorant text-center my-5 flex items-center justify-center gap-2 flex-wrap px-10">
-                    Please Fill Up the Form 
+                    Please Fill Up the Form
                 </h1>
 
                 {/* form section here  */}
@@ -163,53 +153,29 @@ const AdmissionForm = () => {
                             </div>
                         </div>
                         {/* educational   */}
-                        <div className="mb-6 flex gap-4">
-                            <div className="w-full md:w-1/3 mt-2">
+                        <div className="flex items-center gap-4">
+                            <div className="mb-6 w-full md:1/2 lg:w-1/2 mt-2">
                                 <input
-                                    className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0 "
-                                    id="inline-password"
-                                    name="educat"
+                                    className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                                    id="inline-full-name"
+                                    name="education"
                                     type="text"
                                     placeholder="Education* (hsc/bsc/msc etc)..."
                                     required
                                 />
                                 <hr className="border-t border-first" />
                             </div>
-
-                            {/* education part  */}
-                            <div className=" w-full md:w-1/3 mt-2">
+                            <div className="mb-6 w-full md:1/2 lg:w-1/2  mt-2">
                                 <input
                                     className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-                                    id="inline-password"
-                                    name="gradepoint"
+                                    id="inline-full-name"
+                                    name="institutename"
                                     type="text"
-                                    placeholder="Grade point..."
+                                    placeholder="Varsity or institute name..."
                                     required
                                 />
                                 <hr className="border-t border-first" />
                             </div>
-                            <div className=" w-full md:w-1/3 mt-2">
-                                <input
-                                    className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-                                    id="inline-password"
-                                    name="passedyear"
-                                    type="text"
-                                    placeholder="Passed year..."
-                                    required
-                                />
-                                <hr className="border-t border-first" />
-                            </div>
-                        </div>
-                        <div className="mb-6 md:w-full mt-2">
-                            <input
-                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-                                id="inline-full-name"
-                                name="institutename"
-                                type="text"
-                                placeholder="Varsity or institute name..."
-                                required
-                            />
-                            <hr className="border-t border-first" />
                         </div>
                         <div className="mb-6">
                             <div className="md:w-full mt-2 ">
@@ -222,7 +188,7 @@ const AdmissionForm = () => {
                                 <hr className="border-t border-first" />
                             </div>
                         </div>
-                       
+
                         <div className="flex items-end justify-end">
                             <button
                                 className="shadow btn-style w-full  hover:bg-second transition-all focus:shadow-outline focus:outline-none text-black hover:text-white py-2 px-4 rounded text-[17px]"

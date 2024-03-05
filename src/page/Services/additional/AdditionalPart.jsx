@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AdditionalPart = () => {
     return (
-        <div className="mt-20 section-container">
+        <div className="mt-20 section-container font-serif">
             <h2 className="text-center mt-5 font-bold text-3xl text-white">Along with academic studies, there are opportunities for all skill development for your child.</h2>
             <p className="text-center text-white mb-10">Along with classes and assessments throughout the year, there will be individual and team competitions to test all required skills.
             </p>
