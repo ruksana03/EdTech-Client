@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { PiChalkboardTeacherBold } from "react-icons/pi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useEffect } from "react";

@@ -172,8 +172,8 @@ const NewPostResources = () => {
                                 onChange={handleChange}
                                 required>
                                 <option disabled selected>set course</option>
-                                {courses?.map(noti => <option key={noti?._id} defaultValue={noti?.category}>
-                                    {noti?.category}</option>)}
+                                {courses?.map(course => <option key={course?._id} defaultValue={course?.category}>
+                                    {course?.category}</option>)}
                             </select>
                         </div>
                     </div>
@@ -204,9 +204,10 @@ const NewPostResources = () => {
                     <table className="table  border border-black">
                         {/* head */}
                         <thead>
-                            <tr>
-                                <th>Index</th>
+                            <tr className='text-lg font-bold'>
+                                <th className='text-white'>Index</th>
                                 <th className='text-white'>Teacher Name</th>
+                                <th className='text-white'>Courses</th>
                                 <th className='text-white'>Title</th>
                                 <th className='text-white'>Pdf Resource</th>
                                 <th></th>
@@ -217,10 +218,11 @@ const NewPostResources = () => {
                             {
                                 allPdf && allPdf.map((pdf, index) => {
                                     return (
-                                        <tr key={pdf._id}>
+                                        <tr key={pdf?._id}>
                                             <td>{index + 1}</td>
-                                            <td>{pdf.teacherName}</td>
-                                            <td>{pdf.title}</td>
+                                            <td>{pdf?.teacherName}</td>
+                                            <td>{pdf && pdf.courseName ? pdf.courseName : "Not Given"}</td>
+                                            <td>{pdf?.title} </td>
                                             <td>
                                                 <button
                                                     onClick={() => handelOpenPdf(pdf.pdfLink)}

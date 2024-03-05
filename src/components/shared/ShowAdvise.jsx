@@ -2,14 +2,12 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useState } from 'react';
 import { RxCross1 } from "react-icons/rx";
-import image1 from '../../assets/image/loader/Animation - joint-teacher.json'
-import image2 from '../../assets/image/loader/partner.json'
-import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
 import useGetAllAdvertisement from '../../Hooks/useGetAllAdvertisement';
 
 
 const ShowAdvise = () => {
+    // eslint-disable-next-line no-unused-vars
     const { allAd, refetch } = useGetAllAdvertisement()
     let [isOpen, setIsOpen] = useState(false)
 

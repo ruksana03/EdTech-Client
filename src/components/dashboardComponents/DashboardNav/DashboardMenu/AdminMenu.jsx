@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import { Link, useLocation } from "react-router-dom";
 import { GiMicrophone } from "react-icons/gi";
-import { FaBlog,FaUsersViewfinder } from "react-icons/fa6";
+import { FaBlog, FaUsersViewfinder } from "react-icons/fa6";
 import { SiContentful } from "react-icons/si";
-import { RiSecurePaymentFill,RiAdvertisementFill} from "react-icons/ri";
+import { RiSecurePaymentFill, RiAdvertisementFill } from "react-icons/ri";
 import { IoIosApps } from "react-icons/io";
 import { FaPlus, FaQuestion } from "react-icons/fa";
-import { MdOutlineUnsubscribe ,MdFeedback,MdDashboardCustomize } from "react-icons/md";
+import { MdOutlineUnsubscribe, MdFeedback } from "react-icons/md";
+import { LuPartyPopper } from "react-icons/lu";
+import { FcStatistics } from "react-icons/fc";
 import { IoPersonAdd } from "react-icons/io5";
 
 
@@ -15,6 +17,7 @@ const AdminMenu = ({ isActive }) => {
     const adminMenu = ['Users','Application', 'Notices', 'Blogs', 'Courses','Quiz','Payment Info','Subscribers','Feedback','Partners','Add Member','Advertisement','Add Offer','Dashboard'];
 
     const icons = [
+
         <FaUsersViewfinder key={adminLinks[0]} className="text-2xl" />,
         <IoIosApps key={adminLinks[1]} className="text-2xl" />,
         <GiMicrophone key={adminLinks[2]} className="text-2xl" />,
@@ -24,11 +27,11 @@ const AdminMenu = ({ isActive }) => {
         <RiSecurePaymentFill key={adminLinks[6]} className="text-2xl" />,
         <MdOutlineUnsubscribe key={adminLinks[7]} className="text-2xl" />,
         <MdFeedback key={adminLinks[8]} className="text-2xl" />,
-        <MdFeedback key={adminLinks[9]} className="text-2xl" />,
+        <LuPartyPopper key={adminLinks[9]} className="text-2xl" />,
         <IoPersonAdd key={adminLinks[10]} className="text-2xl"/>,
         <RiAdvertisementFill key={adminLinks[11]} className="text-2xl"/>,
         <FaPlus key={adminLinks[12]} className="text-2xl" />,
-        <MdDashboardCustomize key={adminLinks[12]} className="text-2xl" />
+        <FcStatistics key={adminLinks[12]} className="text-2xl" />
     ];
 
     const location = useLocation();

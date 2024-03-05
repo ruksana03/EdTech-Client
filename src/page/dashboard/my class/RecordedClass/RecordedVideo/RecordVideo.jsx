@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Iframe from "react-iframe";
 import {  useParams } from "react-router-dom";
 import useAxiosPublic from "../../../../../Hooks/useAxiosPublic";
-//import data from '../../../../../../public/bal.json'
 
 
 const RecordVideo = () => {

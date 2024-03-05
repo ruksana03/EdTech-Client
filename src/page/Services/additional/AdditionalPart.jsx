@@ -4,25 +4,25 @@ import { Link } from 'react-router-dom';
 const AdditionalPart = () => {
     return (
         <div className="mt-20 section-container">
-            <h2 className="text-center mt-5 font-bold text-3xl text-white">Along with academic studies, there are opportunities for all skill development for your child.</h2>
-            <p className="text-center text-white mb-10">Along with classes and assessments throughout the year, there will be individual and team competitions to test all required skills.
+            <h2 className="text-center mt-5 font-bold text-3xl text-first w-10/12 mx-auto">Along with academic studies, there are opportunities for all skill development for your child.</h2>
+            <p className="text-center text-white mb-10 w-6/12 mx-auto text-lg my-8">Along with classes and assessments throughout the year, there will be individual and team competitions to test all required skills.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center justify-center w-full h-44 mb-64 md:mb-52 mt-3 lg:mb-24 xl:mb-8">
                 <div className=" border border-white bg-black text-white md:col-span-4 lg:col-span-3 order-1 md:order-1 lg:order-1 p-3 w-full h-auto md:h-full lg:h-full xl:h-full px-3 rounded">
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 text-base">
                         <h2 className="text-2xl font-bold w-1/2">Mental skills development program</h2>
                         <img src='https://i.ibb.co/vLtv2Ry/ai-11914040.png' alt="knowledge-image" className="rounded-2xl bg-black flex-1 mt-5 w-24 h-20" />
                     </div>
                 </div>
                 <div className="border border-white bg-black text-white md:col-span-8 lg:col-span-5 order-1 md:order-3 lg:order-1 p-3 w-full h-auto md:h-auto lg:h-full xl:h-full">
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 text-base">
                         <article className="flex-1">
-                            <h2 className=" text-2xl font-bold w[90%]">Communication skills Courses</h2>
-                            <ul>
+                            <h2 className=" text-2xl font-bold w-11/12">Communication skills Courses</h2>
+                            
                                 <li>Basic Communication</li>
                                 <li>Presentations and speeches</li>
                                 <li>Story telling techniques</li>
-                            </ul>
+                           
                         </article>
                         <img src='https://i.ibb.co/DzdndWH/group.png' alt="communication-image" className="rounded-2xl bg-black mt-5 w-24 h-20 md:w-64 md:h-36 lg:w-44 lg:h-36" />
                     </div>
@@ -55,7 +55,7 @@ const AdditionalPart = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-5 mt-36 w-full lg:h-auto xl:h-56 ">
+            <div className=" text-base flex flex-col lg:flex-row items-center justify-between gap-5 mt-36 w-full lg:h-auto xl:h-56 ">
                 <div className="border border-white bg-black text-white col-span-4 p-3 h-full md:h-auto lg:h-80 xl:h-56">
                     <div className="flex gap-3">
                         <article className="flex-1">
@@ -70,8 +70,8 @@ const AdditionalPart = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="border border-white bg-black text-white col-span-5 p-3 h-full  md:h-auto lg:h-80 xl:h-56 ">
-                        <div className="flex gap-3">
+                    <div className="border border-white bg-black text-base text-white col-span-5 p-3 h-full  md:h-auto lg:h-80 xl:h-56 ">
+                        <div className="flex gap-3 ">
                             <article className="flex-1">
                                 <h2 className="text-2xl font-bold">Take advantage of special discounted admission.</h2>
                                 <p>Pre-book online batch now and get special discounts and many more benefits.</p>
