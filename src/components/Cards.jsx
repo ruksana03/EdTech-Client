@@ -16,7 +16,7 @@ const Cards = ({ item }) => {
         <img src={image} alt="" className="h-48" />
 
         <div className="tooltips absolute top-0 left-0 -translate-x-[150%] p-2 flex flex-col items-start gap-10 transition-all duration-300 group-hover:-translate-x-full">
-          <p className=" font-semibold font-alt text-white  uppercase group-hover:delay-500 transition-all opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-500">
+          <p className=" font-semibold font-alt text-white  uppercase group-hover:delay-300 transition-all opacity-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-500">
             ${price}
           </p>
           <ul className="flex flex-col items-start gap-2">
