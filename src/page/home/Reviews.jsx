@@ -10,16 +10,8 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useEffect, useState } from "react";
 import useFeedback from './../../Hooks/useFeedback';
-
 const Reviews = () => {
   const [feedbacks, refetch] = useFeedback();
-  // const [reviews, setReviews] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/reviews")
-  //     .then((res) => res.json())
-  //     .then((data) => setReviews(data));
-  // }, []);
-
   return (
     <section className="mt-20 section-container p__cormorant">
       <div className="text-center space-y-2 mt-8">
@@ -42,9 +34,9 @@ const Reviews = () => {
                 value={review?.rating}
                 readOnly
               />
-              <BiSolidQuoteLeft className="text-4xl mt-4 "></BiSolidQuoteLeft>
-              <p className="py-8  text-base text-center px-2 lg:px-10">{review?.feedbackMessage}</p>
-              <h3 className="text-2xl ">{review?.name}</h3>
+              <BiSolidQuoteLeft className="text-4xl mt-4 p__cormorant"></BiSolidQuoteLeft>
+              <p className="py-8 p__opensans text-center px-2 lg:px-10">{review.feedbackMessage}</p>
+              <h3 className="text-2xl p__cormorant">{review.name}</h3>
             </div>
           </SwiperSlide>
         ))}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { PiChalkboardTeacherBold } from "react-icons/pi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useEffect } from "react";
@@ -78,7 +79,7 @@ const AdmissionForm = () => {
             <div className="mt-10">
                 <h1 className="headtext__cormorant text-center my-5 flex items-center justify-center gap-2 flex-wrap px-10">
                     Please Fill the Form to be a{" "}
-                    <span className="text-first  ">Teacher</span>{" "}
+                    <span className="text-first  ">Student</span>{" "}
                     <PiChalkboardTeacherBold className="text-first text-3xl  " />
                 </h1>
 

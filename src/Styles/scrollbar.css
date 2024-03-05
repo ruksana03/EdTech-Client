@@ -7,7 +7,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: black;
+    background-color: wheat;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {

@@ -4,6 +4,7 @@ import Cards from "../../components/Cards";
 import { FaFilter } from "react-icons/fa";
 import { useTypewriter } from "react-simple-typewriter";
 import CoursesSkeleton from "./CoursesSkeleton";
+import axiosSecure from "../../api/axiosSecure";
 
 const Courses = () => {
   const [course, setCourse] = useState([]);
@@ -19,13 +20,13 @@ const Courses = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading(true)
-        const res = await fetch("http://localhost:5000/courses");
-        const data = await res.json();
-        //    console.log(data);
+        setIsLoading(true);
+        const res = await axiosSecure.get("/courses");
+        const data = res.data;
+        // console.log(data);
         setCourse(data);
         setFilteredItems(data);
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }

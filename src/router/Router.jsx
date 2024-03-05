@@ -17,7 +17,6 @@ import NotesLayout from "../page/dashboard/DLayoutList/NotesLayout";
 import MyNotes from "../page/dashboard/notes/MyNotes";
 import CreateNotes from "../page/dashboard/notes/CreateNotes";
 import MyClass from "../page/dashboard/my class/MyClass";
-import Liveclass from "../page/dashboard/my class/LiveClass/Liveclass";
 import Support from "../page/dashboard/my class/Support/Support";
 import MyLabLayout from "../page/dashboard/DLayoutList/MyLabLayout";
 import Science from "../page/dashboard/my lab/lab pages/Science";
@@ -79,7 +78,18 @@ import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
 import AdmissionForm from "../page/Services/admission form/AdmissionForm";
 import SRoutine from "../page/dashboard/Student/rutine/SRoutine";
 import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
+
+import AllFeedback from "../page/dashboard/Admin/all feedback/AllFeedback";
+import MakeAdvertisement from './../page/dashboard/Admin/Advertisement/MakeAdvertisement';
 import CommonDashboard from "../page/dashboard/Common/CommonDashboard";
+import VideoFeature from "../page/dashboard/Teacher/LiveClass/VideoCall/VideoFeature";
+import Help from "../page/dashboard/Teacher/LiveClass/Help/Help";
+import RecordedCoursesLayout from "../page/dashboard/Teacher/AllRecordedCourses/RecordedCoursesLayout";
+import axiosSecure from "../api/axiosSecure";
+import TeacherCourseDetails from "../page/dashboard/Teacher/AllRecordedCourses/TeacherCourseDetails";
+import TeacherUpdateCourse from "../page/dashboard/Teacher/AllRecordedCourses/TeacherUpdateCourse";
+import AddCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/AddCourseVideo";
+import UpdateCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/UpdateCourseVideo";
 
 
 
@@ -294,10 +304,14 @@ const router = createBrowserRouter([
                 path: "add-member",
                 element: <AddMember />
             },
-            // {
-            //     path: "add",
-            //     element: <MakeAdvertisement />
-            // },
+            {
+                path: "add",
+                element: <MakeAdvertisement />
+            },
+            {
+                path: "all-feedback",
+                element: <AllFeedback />
+            },
             {
                 path: "add-offer",
                 element: <AddOffer></AddOffer>
@@ -363,7 +377,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "studentdashboard",
-                element: <StudentDashboard></StudentDashboard>
+                element: <StudentDashboard />
 
             },
             {
@@ -376,7 +390,7 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "record",
-                        element: <RecordedClass></RecordedClass>
+                        element: <RecordedClass />
                     },
 
 
@@ -384,7 +398,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "record",
-                element: <RecordedClass></RecordedClass>
+                element: <RecordedClass />
             },
             {
                 path: "certifications",
@@ -396,10 +410,62 @@ const router = createBrowserRouter([
             },
             {
                 path: "record",
-                element: <RecordedClass></RecordedClass>
+                element: <RecordedClass />
             },
 
             // teachers route
+            {
+                path: "all-class",
+                element: <RecordedCoursesLayout />
+            },
+            {
+                path: 'teacher-course-details/:id',
+                element: <TeacherCourseDetails />,
+                loader: ({ params }) =>
+                    axiosSecure.get(`/courses/${params.id}`)
+                        .then(response => response.data)
+                        .catch(error => {
+                            console.error("Error fetching course:", error);
+                            throw error;
+                        })
+            },
+            {
+                path: 'teacher-course-update/:id',
+                element: <TeacherUpdateCourse />,
+                loader: ({ params }) =>
+                    axiosSecure.get(`/courses/${params.id}`)
+                        .then(response => response.data)
+                        .catch(error => {
+                            console.error("Error fetching course:", error);
+                            throw error;
+                        })
+
+            },
+            {
+                path: 'teacher-add-course-video/:id',
+                element: <AddCourseVideo />,
+                loader: ({ params }) =>
+                    axiosSecure.get(`/courses/${params.id}`)
+                        .then(response => response.data)
+                        .catch(error => {
+                            console.error("Error fetching course:", error);
+                            throw error;
+                        })
+            },
+            {
+                path: 'teacher-update-course-video/:id',
+                element: <UpdateCourseVideo />,
+                loader: ({ params }) => {
+                    console.log("Params:", params); // Log the params object
+                    return axiosSecure.get(`/videos/${params.id}`)
+                        .then(response => response.data)
+                        .catch(error => {
+                            console.error("Error fetching course:", error);
+                            throw error;
+                        });
+                }
+
+            },
             {
                 path: "post-resources",
                 element: <NewPostResources />
@@ -410,12 +476,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "live-class",
-                element: <LiveClass></LiveClass>,
+                element: <LiveClass />,
                 children: [
                     {
-                        path: "liveclss",
-                        element: <Liveclass></Liveclass>,
+                        path: "video-class",
+                        element: <VideoFeature />,
                     },
+                    {
+                        path: "teacher-help",
+                        element: <Help />
+                    }
                 ]
             },
             {
@@ -482,7 +552,7 @@ const router = createBrowserRouter([
         ],
 
     },
-  
+
     {
         path: "/updated-profile",
         element: <UpdateProfile />,

@@ -10,6 +10,7 @@ import Skeleton from "react-loading-skeleton";
 const Applications = () => {
     const axiosPublic = useAxiosPublic();
     const [applications, refetch, ] = useApplication();
+    console.log(applications)
     let [isOpen, setIsOpen] = useState(false)
     let [id, setId] = useState('');
     const applicationData = [...applications].reverse();
@@ -66,8 +67,9 @@ const Applications = () => {
     }
 
     return (
-        <div className="mt-14 w-full h-screen">
+        <div className="mt-14 w-full">
             <div className="m-5">
+            <h1 className="text-2xl font-bold text-white mb-5 text-center">All Application is Here!</h1>
                 {/* show modal  */}
                 <ApplicationModal isOpen={isOpen} setIsOpen={setIsOpen} applications={applications} id={id} />
                 <div className="overflow-x-auto ">
@@ -76,8 +78,8 @@ const Applications = () => {
                         <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl ">
                             <tr>
                                 <th className="py-2">#</th>
-                                <th className="py-2">Title</th>
                                 <th className="py-2">Name</th>
+                                <th className="py-2">Courses</th>
                                 <th className="py-2">Email</th>
                                 <th className="py-2">View</th>
                                 <th className="py-2">Action</th>
@@ -88,9 +90,9 @@ const Applications = () => {
                             {applicationData.map((courseItem, index) => (
                                 <tr key={index} className="p__opensans">
                                     <td className="py-3 font-medium">{index + 1}</td>
-                                    <td className="py-3 font-medium">{courseItem.position}</td>
-                                    <td className="py-3 font-medium">{courseItem.fullName}</td>
-                                    <td className="py-3 font-medium">{courseItem.email}</td>
+                                    <td className="py-3 font-medium">{courseItem?.fullName}</td>
+                                    <td className="py-3 font-medium">{courseItem?.position}</td>
+                                    <td className="py-3 font-medium">{courseItem?.email}</td>
                                     <td onClick={() => handleToggle(courseItem?._id)} className="py-3 font-medium"><FaEye className="text-2xl text-white cursor-pointer" /></td>
                                     <td className="py-3">
                                         {/* <button>Approve</button> */}

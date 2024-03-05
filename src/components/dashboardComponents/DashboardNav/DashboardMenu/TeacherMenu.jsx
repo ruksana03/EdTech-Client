@@ -3,22 +3,22 @@ import { MdOutlineDashboardCustomize, MdAdd, MdNotificationAdd   } from "react-i
 import { Link, useLocation } from "react-router-dom";
 import { BiSolidNotification } from "react-icons/bi";
 import { FaCalendarDay } from "react-icons/fa";
+import { TbBellQuestion } from "react-icons/tb";
+import { BsRecordCircleFill } from "react-icons/bs";
+
 
 const TeacherMenu = ({ isActive }) => {
-    const teacherLinks = ['/post-resources', '/add-course','/provide-routine' ,'/create-notice','/show-notices','/live-class'];
-    const teacherMenu = ['Resources', 'AddCourse', 'Provide Routine', 'Add Notice','Show Notices','Live Class'];
+    const teacherLinks = ['/post-resources', '/add-course','/provide-routine' ,'/create-notice','/show-notices','/live-class','/all-class'];
+    const teacherMenu = ['Resources', 'AddCourse', 'Provide Routine', 'Add Notice','Show Notices','Live Class','Recorded Class'];
     const icons = [
-        
         <MdOutlineDashboardCustomize className="text-xl" key={teacherLinks} />,
             <MdAdd className="text-xl" key={teacherLinks[1]} />,
             <FaCalendarDay className="text-xl" key={teacherLinks[2]} />,
             <MdNotificationAdd  className="text-xl" key={teacherLinks[3]} />,
-            <BiSolidNotification  className="text-xl" key={teacherLinks[4]} />,
+            <TbBellQuestion  className="text-xl" key={teacherLinks[4]} />,
             <BiSolidNotification  className="text-xl" key={teacherLinks[5]} />,
-           
-       
-    
-    ];
+            <BsRecordCircleFill  className="text-xl" key={teacherLinks[6]} />,
+            ];
 
     const location = useLocation();
 
