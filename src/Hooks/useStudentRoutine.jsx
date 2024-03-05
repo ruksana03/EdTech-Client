@@ -23,7 +23,7 @@ const useStudentRoutine = () => {
     const specifcRoutine3 = currentForRoutine[2]?.title.toString();
     const specifcRoutine4 = currentForRoutine[3]?.title.toString();
     const specifcRoutine5 = currentForRoutine[4]?.title.toString();
- 
+
 
     useEffect(() => {
         if (user && user.email) {
@@ -40,16 +40,18 @@ const useStudentRoutine = () => {
     const { data: events, refetch } = useQuery({
         queryKey: [specifcRoutine4, 'forCourses'],
         queryFn: async () => {
+            // const specific = await axiosPublic.get(`/rutines-for?forCourses="C++"`);
+            // console.log("find one data", specific);
             const res1 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine1}`);
             const res2 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine2}`);
             const res3 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine3}`);
             const res4 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine4}`);
             const res5 = await axiosPublic.get(`/rutines-for?forCourses=${specifcRoutine5}`);
-            const addRoutine = [...res1.data, ...res2.data, ...res3.data,...res4.data,...res5.data];
+            const addRoutine = [...res1.data, ...res2.data, ...res3.data, ...res4.data, ...res5.data];
             return addRoutine;
         }
     })
-    
+
     return [events, refetch];
 };
 

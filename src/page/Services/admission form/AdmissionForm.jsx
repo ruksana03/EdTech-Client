@@ -77,7 +77,7 @@ const AdmissionForm = () => {
             {/* heading  */}
             <div className="mt-10">
                 <h1 className="headtext__cormorant text-center my-5 flex items-center justify-center gap-2 flex-wrap px-10">
-                    Please Fill the Form 
+                    Please Fill Up the Form 
                 </h1>
 
                 {/* form section here  */}
@@ -213,28 +213,16 @@ const AdmissionForm = () => {
                         </div>
                         <div className="mb-6">
                             <div className="md:w-full mt-2 ">
-                                <textarea
-                                    className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                                <textarea className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
                                     name="form_message"
                                     type="text"
-                                    placeholder="Tell us something about this course *..."
+                                    placeholder="Tell us why apply for online *..."
                                     required
                                 ></textarea>
                                 <hr className="border-t border-first" />
                             </div>
                         </div>
-                        <div className="mb-6">
-                            <input
-                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
-                                id="inline-password"
-                                name="cvlink"
-                                type="Link"
-                                pattern="https://.*"
-                                placeholder="Please Give Your CV/Resume link Here *..."
-                                required
-                            />
-                            <hr className="border-t border-first" />
-                        </div>
+                       
                         <div className="flex items-end justify-end">
                             <button
                                 className="shadow btn-style w-full  hover:bg-second transition-all focus:shadow-outline focus:outline-none text-black hover:text-white py-2 px-4 rounded text-[17px]"
