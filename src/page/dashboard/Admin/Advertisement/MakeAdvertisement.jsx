@@ -11,7 +11,7 @@ const cloudinary_upload_preset = "testing_uplod";
 const cloudinary_upload_url = `https://api.cloudinary.com/v1_1/${cloudinary_cloud_name}/upload`;
 const MakeAdvertisement = () => {
     const axiosPublic = useAxiosPublic()
-    const { allAD, refetch } = useGetAllAdvertisement()
+    const { allAd, refetch } = useGetAllAdvertisement()
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         title: " ",
@@ -35,15 +35,12 @@ const MakeAdvertisement = () => {
             const uploadFormData = new FormData();
             uploadFormData.append('file', file);
             uploadFormData.append('upload_preset', cloudinary_upload_preset);
-
             // Upload file to Cloudinary
             const response = await axios.post(cloudinary_upload_url, uploadFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-
             // ar vitore thakbe pdf file cloudniry back link 
             const uploadedImgUrl = response.data.secure_url;
-
             // Combine form data and uploaded file URL into a single object
             const finalData = { ...formData, imgLink: uploadedImgUrl };
             // console.log("datataa", finalData);
@@ -59,10 +56,9 @@ const MakeAdvertisement = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-
                 console.log('Data sent to backend successfully:', backendResponse.data);
             }
-
+            refetch()
         } catch (error) {
             setLoading(false)
             console.error('Upload error:', error);
@@ -83,7 +79,7 @@ const MakeAdvertisement = () => {
             if (result.isConfirmed) {
                 try {
                     const response = await axiosPublic.delete(`/delete-advertise/${adId}`);
-                    console.log('PDF deleted:', response.data);
+                    console.log(' deleted:', response.data);
                     refetch();
                     toast.success("Delete Successfully");
                 } catch (error) {
@@ -102,22 +98,22 @@ const MakeAdvertisement = () => {
                         {/* title field  */}
                         <div className="flex justify-between gap-4">
                             <div>
-                                <label className="text-xl"> Title</label><br />
+                                <label className="text-xl text-white"> Title</label><br />
                                 <input type="text"
                                     placeholder="Advertisement Title"
                                     name='title'
-                                    className="w-full py-2 bg-transparent transition-colors peer pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                                    className="w-full py-2 bg-transparent transition-colors peer pl-3 font-poppins text-sm border-none outline-none focus:ring-0  focus:text-white"
                                     onChange={handleChange}
                                 />
                                 <hr className="border-t border-first" />
                             </div>
                             {/*  Description field  */}
                             <div>
-                                <label className="text-xl">Description</label><br />
+                                <label className="text-xl text-white">Description</label><br />
                                 <input type="text"
                                     placeholder='Description'
                                     name='description'
-                                    className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                                    className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0 focus:text-white"
                                     onChange={handleChange}
                                 />
                                 <hr className="border-t border-first" />
@@ -131,7 +127,7 @@ const MakeAdvertisement = () => {
                                 accept="image/*" // Accepts any image format (JPEG, PNG, GIF, etc.)
                                 name='file'
                                 required
-                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                                className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0  focus:text-white"
                             />
                             <hr className="border-t border-first" />
                         </div>
@@ -165,7 +161,8 @@ const MakeAdvertisement = () => {
                             <tbody>
                                 {/* row 1 */}
                                 {
-                                    allAD && allAD.map((ad, index) => {
+                                    allAd.length > 0 &&
+                                    allAd.map((ad, index) => {
                                         return (
                                             <tr key={ad._id}>
                                                 <td className='text-white'>{index + 1}</td>
