@@ -56,7 +56,6 @@ const AdmissionForm = () => {
             setLoading(false)
             toast.error(error.message)
         }
-        toast.error('something went wrong!')
     }
     return (
         <div className="section-container mb-5">

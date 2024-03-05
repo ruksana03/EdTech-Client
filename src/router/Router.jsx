@@ -82,6 +82,7 @@ import AdmissionForm from "../page/Services/admission form/AdmissionForm";
 import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
 import AllFeedback from "../page/dashboard/Admin/all feedback/AllFeedback";
 import RoutineHome from "../page/dashboard/Student/rutine/RoutineHome";
+import AllAdmission from "../page/dashboard/Admin/all online-admission/AllAdmission";
 
 
 
@@ -243,6 +244,10 @@ const router = createBrowserRouter([
             {
                 path: "applications",
                 element: <Applications />,
+            },
+            {
+                path: "online-applications",
+                element: <AllAdmission />,
             },
             {
                 path: "quiz",
