@@ -78,9 +78,7 @@ const AdmissionForm = () => {
             {/* heading  */}
             <div className="mt-10">
                 <h1 className="headtext__cormorant text-center my-5 flex items-center justify-center gap-2 flex-wrap px-10">
-                    Please Fill the Form to be a{" "}
-                    <span className="text-first  ">Student</span>{" "}
-                    <PiChalkboardTeacherBold className="text-first text-3xl  " />
+                    Please Fill the Form 
                 </h1>
 
                 {/* form section here  */}
@@ -89,7 +87,7 @@ const AdmissionForm = () => {
                         <div className="mb-6">
                             <div className="">
                                 <label className="block font-bold text-start mb-1 md:mb-0 pr-4 p__cormorant">
-                                    Which course are you interested in teaching?
+                                    Which course are you interested in Admission?
                                 </label>
                             </div>
                             <div className="md:w-full mt-2">

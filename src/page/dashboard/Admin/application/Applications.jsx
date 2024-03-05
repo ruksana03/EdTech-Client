@@ -9,8 +9,7 @@ import Skeleton from "react-loading-skeleton";
 
 const Applications = () => {
     const axiosPublic = useAxiosPublic();
-    const [applications, refetch, ] = useApplication();
-    console.log(applications)
+    const [applications, refetch,] = useApplication();
     let [isOpen, setIsOpen] = useState(false)
     let [id, setId] = useState('');
     const applicationData = [...applications].reverse();
@@ -67,11 +66,11 @@ const Applications = () => {
     }
 
     return (
-        <div className="mt-14 w-full">
-            <div className="m-5">
+        <div className="mt-10">
             <h1 className="text-2xl font-bold text-white mb-5 text-center">All Application is Here!</h1>
-                {/* show modal  */}
-                <ApplicationModal isOpen={isOpen} setIsOpen={setIsOpen} applications={applications} id={id} />
+              {/* show modal  */}
+              <ApplicationModal isOpen={isOpen} setIsOpen={setIsOpen} applications={applications} id={id} />
+            <div className="m-5">
                 <div className="overflow-x-auto ">
                     <table className="table w-full border-collapse border border-gray-300">
                         {/* head */}

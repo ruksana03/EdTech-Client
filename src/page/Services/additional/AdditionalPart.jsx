@@ -65,6 +65,7 @@ const AdditionalPart = () => {
                                 <button className='mt-5 btn-style'>Book a free demo class</button>
                             </Link>
                         </article>
+                        {/* https://i.ibb.co/fDVJ7wB/instagram-live.png */}
                         <img src='https://i.ibb.co/sK6NbKw/live.png' alt="knowledge-image" className="rounded-2xl bg-black mt-5 w-24 h-20 md:w-64 md:h-36 lg:w-44 lg:h-36" />
                     </div>
                 </div>
