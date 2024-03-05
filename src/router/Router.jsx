@@ -94,6 +94,7 @@ import RoutineHome from "../page/dashboard/Student/rutine/RoutineHome";
 
 
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -305,7 +306,7 @@ const router = createBrowserRouter([
                 element: <AddMember />
             },
             {
-                path: "add",
+                path: "add-advertisement",
                 element: <MakeAdvertisement />
             },
             {
@@ -520,6 +521,10 @@ const router = createBrowserRouter([
 
             // common route
           
+            {
+                path: "common-dashboard",
+                element: <ChatRoom />,
+            },
             {
                 path: "chat",
                 element: <ChatRoom />,
