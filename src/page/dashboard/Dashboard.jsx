@@ -99,11 +99,7 @@ const Dashboard = () => {
                   TOtal Overview Businesses
                 </h2>
 
-                <p className="mt-4 p__opensans">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ratione dolores laborum labore provident impedit esse
-                  recusandae facere libero harum sequi.
-                </p>
+             
               </div>
 
               <div className="mt-8 sm:mt-12">
