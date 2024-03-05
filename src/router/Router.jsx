@@ -82,6 +82,7 @@ import AdmissionForm from "../page/Services/admission form/AdmissionForm";
 import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
 import AllFeedback from "../page/dashboard/Admin/all feedback/AllFeedback";
 import RoutineHome from "../page/dashboard/Student/rutine/RoutineHome";
+import MakeAdvertisement from "../page/dashboard/Admin/Advertisement/MakeAdvertisement";
 
 
 
@@ -296,10 +297,10 @@ const router = createBrowserRouter([
                 path: "add-member",
                 element: <AddMember />
             },
-            // {
-            //     path: "add",
-            //     element: <MakeAdvertisement />
-            // },
+            {
+                path: "add-advertisement",
+                element: <MakeAdvertisement />
+            },
             {
                 path: "all-feedback",
                 element: <AllFeedback />

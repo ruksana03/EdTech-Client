@@ -11,7 +11,7 @@ import { IoPersonAdd } from "react-icons/io5";
 
 
 const AdminMenu = ({ isActive }) => {
-    const adminLinks = ['/allUsers', '/applications', '/allNotices', '/allBlogs', '/allCourses','/quiz','/allPaymentInfo','/subscriber','/all-feedback','/allpartners','/add-member','/add','/add-offer','/dashboard'];
+    const adminLinks = ['/allUsers', '/applications', '/allNotices', '/allBlogs', '/allCourses','/quiz','/allPaymentInfo','/subscriber','/all-feedback','/allpartners','/add-member','/add-advertisement','/add-offer','/dashboard'];
     const adminMenu = ['Users','Application', 'Notices', 'Blogs', 'Courses','Quiz','Payment Info','Subscribers','Feedback','Partners','Add Member','Advertisement','Add Offer','Dashboard'];
 
     const icons = [
