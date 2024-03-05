@@ -71,6 +71,7 @@ const NewPostResources = () => {
                 })
 
                 console.log('Data sent to backend successfully:', backendResponse.data);
+                
             }
 
         } catch (error) {
@@ -225,7 +226,8 @@ const NewPostResources = () => {
                                             <td>
                                                 <button
                                                     onClick={() => handelOpenPdf(pdf.pdfLink)}
-                                                    className="bg-first text-white p-2 rounded-full text-2xl"><FaFileDownload /></button>
+                                                    className="bg-first text-white p-2 rounded-full text-2xl"><FaFileDownload />
+                                                    </button>
                                             </td>
                                             <td>
                                                 <button

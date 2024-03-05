@@ -80,17 +80,18 @@ import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
 
 import AllFeedback from "../page/dashboard/Admin/all feedback/AllFeedback";
 import MakeAdvertisement from './../page/dashboard/Admin/Advertisement/MakeAdvertisement';
-import VideoFeature from "../page/dashboard/Teacher/LiveClass/VideoCall/VideoFeature";
-import Help from "../page/dashboard/Teacher/LiveClass/Help/Help";
-import RecordedCoursesLayout from "../page/dashboard/Teacher/AllRecordedCourses/RecordedCoursesLayout";
-import axiosSecure from "../api/axiosSecure";
-import TeacherCourseDetails from "../page/dashboard/Teacher/AllRecordedCourses/TeacherCourseDetails";
-import TeacherUpdateCourse from "../page/dashboard/Teacher/AllRecordedCourses/TeacherUpdateCourse";
-import AddCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/AddCourseVideo";
-import UpdateCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/UpdateCourseVideo";
+// import VideoFeature from "../page/dashboard/Teacher/LiveClass/VideoCall/VideoFeature";
+// import Help from "../page/dashboard/Teacher/LiveClass/Help/Help";
+// import RecordedCoursesLayout from "../page/dashboard/Teacher/AllRecordedCourses/RecordedCoursesLayout";
+// import axiosSecure from "../api/axiosSecure";
+// import TeacherCourseDetails from "../page/dashboard/Teacher/AllRecordedCourses/TeacherCourseDetails";
+// import TeacherUpdateCourse from "../page/dashboard/Teacher/AllRecordedCourses/TeacherUpdateCourse";
+// import AddCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/AddCourseVideo";
+// import UpdateCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/UpdateCourseVideo";
 import RoutineHome from "../page/dashboard/Student/rutine/RoutineHome";
 import AllAdmission from "../page/dashboard/Admin/all online-admission/AllAdmission";
-import CommonDashboard from './../page/dashboard/Common/CommonDashboard';
+// import CommonDashboard from './../page/dashboard/Common/CommonDashboard';
+
 
 
 
@@ -310,7 +311,7 @@ const router = createBrowserRouter([
                 element: <AddMember />
             },
             {
-                path: "add",
+                path: "add-advertisement",
                 element: <MakeAdvertisement />
             },
             {
@@ -396,58 +397,58 @@ const router = createBrowserRouter([
             },
 
             // teachers route
-            {
-                path: "all-class",
-                element: <RecordedCoursesLayout />
-            },
-            {
-                path: 'teacher-course-details/:id',
-                element: <TeacherCourseDetails />,
-                loader: ({ params }) =>
-                    axiosSecure.get(`/courses/${params.id}`)
-                        .then(response => response.data)
-                        .catch(error => {
-                            console.error("Error fetching course:", error);
-                            throw error;
-                        })
-            },
-            {
-                path: 'teacher-course-update/:id',
-                element: <TeacherUpdateCourse />,
-                loader: ({ params }) =>
-                    axiosSecure.get(`/courses/${params.id}`)
-                        .then(response => response.data)
-                        .catch(error => {
-                            console.error("Error fetching course:", error);
-                            throw error;
-                        })
+            // {
+            //     path: "all-class",
+            //     element: <RecordedCoursesLayout />
+            // },
+            // {
+            //     path: 'teacher-course-details/:id',
+            //     element: <TeacherCourseDetails />,
+            //     loader: ({ params }) =>
+            //         axiosSecure.get(`/courses/${params.id}`)
+            //             .then(response => response.data)
+            //             .catch(error => {
+            //                 console.error("Error fetching course:", error);
+            //                 throw error;
+            //             })
+            // },
+            // {
+            //     path: 'teacher-course-update/:id',
+            //     element: <TeacherUpdateCourse />,
+            //     loader: ({ params }) =>
+            //         axiosSecure.get(`/courses/${params.id}`)
+            //             .then(response => response.data)
+            //             .catch(error => {
+            //                 console.error("Error fetching course:", error);
+            //                 throw error;
+            //             })
 
-            },
-            {
-                path: 'teacher-add-course-video/:id',
-                element: <AddCourseVideo />,
-                loader: ({ params }) =>
-                    axiosSecure.get(`/courses/${params.id}`)
-                        .then(response => response.data)
-                        .catch(error => {
-                            console.error("Error fetching course:", error);
-                            throw error;
-                        })
-            },
-            {
-                path: 'teacher-update-course-video/:id',
-                element: <UpdateCourseVideo />,
-                loader: ({ params }) => {
-                    console.log("Params:", params); // Log the params object
-                    return axiosSecure.get(`/videos/${params.id}`)
-                        .then(response => response.data)
-                        .catch(error => {
-                            console.error("Error fetching course:", error);
-                            throw error;
-                        });
-                }
+            // },
+            // {
+            //     path: 'teacher-add-course-video/:id',
+            //     element: <AddCourseVideo />,
+            //     loader: ({ params }) =>
+            //         axiosSecure.get(`/courses/${params.id}`)
+            //             .then(response => response.data)
+            //             .catch(error => {
+            //                 console.error("Error fetching course:", error);
+            //                 throw error;
+            //             })
+            // },
+            // {
+            //     path: 'teacher-update-course-video/:id',
+            //     element: <UpdateCourseVideo />,
+            //     loader: ({ params }) => {
+            //         console.log("Params:", params); // Log the params object
+            //         return axiosSecure.get(`/videos/${params.id}`)
+            //             .then(response => response.data)
+            //             .catch(error => {
+            //                 console.error("Error fetching course:", error);
+            //                 throw error;
+            //             });
+            //     }
 
-            },
+            // },
             {
                 path: "post-resources",
                 element: <NewPostResources />
@@ -459,16 +460,16 @@ const router = createBrowserRouter([
             {
                 path: "live-class",
                 element: <LiveClass />,
-                children: [
-                    {
-                        path: "video-class",
-                        element: <VideoFeature />,
-                    },
-                    {
-                        path: "teacher-help",
-                        element: <Help />
-                    }
-                ]
+                // children: [
+                //     {
+                //         path: "video-class",
+                //         element: <VideoFeature />,
+                //     },
+                //     {
+                //         path: "teacher-help",
+                //         element: <Help />
+                //     }
+                // ]
             },
             {
                 path: "provide-routine",
@@ -502,7 +503,7 @@ const router = createBrowserRouter([
           
             {
                 path: "common-dashboard",
-                element: <CommonDashboard />,
+                element: <ChatRoom />,
             },
             {
                 path: "chat",
