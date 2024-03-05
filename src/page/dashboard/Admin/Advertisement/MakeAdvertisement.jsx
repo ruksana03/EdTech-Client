@@ -2,15 +2,20 @@ import axios from "axios";
 import { useState } from "react";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { FaSpinner, FaTrash } from "react-icons/fa";
+import useGetAllAdvertisement from "../../../../Hooks/useGetAllAdvertisement";
+import toast from "react-hot-toast";
 // image  upload credintials 
 const cloudinary_cloud_name = "dffbo5cwe";
 const cloudinary_upload_preset = "testing_uplod";
 const cloudinary_upload_url = `https://api.cloudinary.com/v1_1/${cloudinary_cloud_name}/upload`;
 const MakeAdvertisement = () => {
     const axiosPublic = useAxiosPublic()
+    const { allAD, refetch } = useGetAllAdvertisement()
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         title: " ",
-        description:" "
+        description: " "
         // Add other fields here 
     });
     const handleChange = (event) => {
@@ -18,14 +23,13 @@ const MakeAdvertisement = () => {
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        setLoading(true)
         const file = event.target.elements.file.files[0];
-
         if (!file) {
             // Handle error: No file selected
+            setLoading(false)
             return console.error('Please select a file to upload');
         }
-
         try {
             // Create FormData for file upload
             const uploadFormData = new FormData();
@@ -42,26 +46,52 @@ const MakeAdvertisement = () => {
 
             // Combine form data and uploaded file URL into a single object
             const finalData = { ...formData, imgLink: uploadedImgUrl };
-            console.log(finalData);
+            // console.log("datataa", finalData);
             // Send the combined data to your backend endpoint
-            // const backendResponse = await axiosPublic.post('/pdf-upload', finalData);
-            // console.log(backendResponse);
-            // if (backendResponse) {
-            //     Swal.fire({
-            //         position: "top-end",
-            //         icon: "success",
-            //         title: `upload Resource successfully `,
-            //         showConfirmButton: false,
-            //         timer: 1500
-            //     })
+            const backendResponse = await axiosPublic.post('/post-advertise', finalData);
+            console.log(backendResponse);
+            if (backendResponse) {
+                setLoading(false)
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `upload Resource successfully `,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
 
-            //     console.log('Data sent to backend successfully:', backendResponse.data);
-                
-            // }
+                console.log('Data sent to backend successfully:', backendResponse.data);
+            }
 
         } catch (error) {
+            setLoading(false)
             console.error('Upload error:', error);
         }
+    };
+    // ad deleted function 
+    const handleDeleteOffer = async (adId) => {
+        console.log(adId);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await axiosPublic.delete(`/delete-advertise/${adId}`);
+                    console.log('PDF deleted:', response.data);
+                    refetch();
+                    toast.success("Delete Successfully");
+                } catch (error) {
+                    console.error("Error deleting ad:", error);
+                    toast.error("Failed to delete AD");
+                }
+            }
+        });
     };
     return (
         <>
@@ -105,13 +135,61 @@ const MakeAdvertisement = () => {
                             />
                             <hr className="border-t border-first" />
                         </div>
-                        
-                        <button
-                            className="btn-style w-full mt-6"
-                            type="submit">
-                            Submit
-                        </button>
+
+                        <div>
+                            <button
+                                className="shadow btn-style w-full hover:bg-second transition-all focus:shadow-outline focus:outline-none text-black hover:text-white py-2 px-4 rounded text-[17px]"
+                                type="submit">
+                                {loading ?
+                                    <span className='flex items-center justify-center gap-1'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span> : 'Submit'
+                                }
+                            </button>
+                        </div>
                     </form>
+                </div>
+                {/* show here all advertise data  */}
+                <div className="w-[800px] mx-auto p-6 border border-black rounded-xl my-8">
+                    <div className="overflow-x-auto">
+                        <h1 className='text-center text-4xl text-first font-bold mb-4'>All Advertisement Here</h1>
+                        <table className="table  border border-black">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th className='text-white'>Index</th>
+                                    <th className='text-white'>AD Title</th>
+                                    <th className='text-white'>Ad Description</th>
+                                    <th className='text-white'>Delete AD</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* row 1 */}
+                                {
+                                    allAD && allAD.map((ad, index) => {
+                                        return (
+                                            <tr key={ad._id}>
+                                                <td className='text-white'>{index + 1}</td>
+                                                <td className='text-white'>
+                                                    {ad.title}
+                                                </td>
+                                                <td className='text-white'>
+                                                    {ad.description}
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        onClick={() => handleDeleteOffer(ad._id)}
+                                                        className="bg-first text-white p-2 rounded-full text-2xl"><FaTrash></FaTrash></button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                        {/* {
+                        allOffers?.length <= 0 && <Skeleton count={15 || allOffers?.length} height={30} borderRadius={10} />
+                    } */}
+                    </div>
                 </div>
             </div>
         </>
