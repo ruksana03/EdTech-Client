@@ -70,84 +70,89 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="mx-auto max-w-3xl p-4 mt-16 bg-white rounded-md shadow-md">
+    <div className="mx-auto max-w-3xl p-4 mt-16 bg-transparent rounded-md shadow-md p__cormorant text-white">
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Title */}
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block  text-sm font-bold mb-2">
             Title*
           </label>
           <input
             {...register("title", { required: true })}
             type="text"
             placeholder="Enter the title..."
-            className="input w-full"
+            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
           />
+            <hr className="border-t border-first" />
         </div>
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block  text-sm font-bold mb-2">
             Duration*
           </label>
           <input
             {...register("duration", { required: true })}
             type="number"
             placeholder="Enter the title..."
-            className="input w-full"
-          />
+            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+            />
+              <hr className="border-t border-first" />
         </div>
 
         {/* Price and Category */}
         <div className="flex items-center gap-6">
           {/* Price */}
           <div className="flex-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block  text-sm font-bold mb-2">
               Price*
             </label>
             <input
               {...register("price", { required: true })}
               type="number"
               placeholder="Enter the price"
-              className="input w-full"
-            />
+              className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+              />
+                <hr className="border-t border-first" />
           </div>
 
           {/* Category */}
           <div className="flex-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block  text-sm font-bold mb-2">
               Category*
             </label>
             <select
               {...register("category", { required: true })}
-              className="select w-full"
+              className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
             >
-              <option value="" disabled>
+              <option className="text-black" value="" disabled>
                 Select a category
               </option>
-              <option value="popular">Popular</option>
-              <option value="law">Law</option>
-              <option value="physics">Physics</option>
-              <option value="chemistry">Chemistry</option>
-              <option value="programming">Programming</option>
-              <option value="engineering">Engineering</option>
+              <option className="text-black" value="popular">Popular</option>
+              <option className="text-black" value="law">Law</option>
+              <option className="text-black" value="physics">Physics</option>
+              <option className="text-black" value="chemistry">Chemistry</option>
+              <option className="text-black" value="programming">Programming</option>
+              <option className="text-black" value="engineering">Engineering</option>
             </select>
+            <hr className="border-t border-first" />
           </div>
         </div>
 
         {/* Details */}
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+        <div className="my-6 ">
+          <label className="block  text-sm font-bold mb-2">
             Details
           </label>
           <textarea
             {...register("details", { required: true })}
-            className="textarea h-16 w-full"
+            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
             placeholder="Enter details..."
           ></textarea>
+           <hr className="border-t border-first" />
         </div>
 
         {/* Instructor Name and Email */}
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block  text-sm font-bold mb-2">
             Instructor Name and Email*
           </label>
           {[1, 2, 3].map((index) => (
@@ -157,16 +162,18 @@ const AddCourse = () => {
                   {...register(`instructorName${index}`)}
                   type="text"
                   placeholder={`Instructor ${index} Name`}
-                  className="input w-full"
+                  className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
                 />
+                <hr className="border-t border-first" />
               </div>
               <div className="flex-1">
                 <input
                   {...register(`instructorEmail${index}`)}
                   type="email"
                   placeholder={`Instructor ${index} Email`}
-                  className="input w-full"
-                />
+                  className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+                  />
+                    <hr className="border-t border-first" />
               </div>
             </div>
           ))}
@@ -175,57 +182,61 @@ const AddCourse = () => {
         {/* Video Title and Link */}
         <div className="flex items-center gap-6">
           <div className="flex-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block  text-sm font-bold mb-2">
               Video Title
             </label>
             <input
               {...register("videoTitle")}
               type="text"
               placeholder="Enter video title"
-              className="input w-full"
-            />
+              className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+              />
+                <hr className="border-t border-first" />
           </div>
           <div className="flex-1">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block  text-sm font-bold mb-2">
               Video Link
             </label>
             <input
               {...register("videoLink")}
               type="url"
               placeholder="Enter video link"
-              className="input w-full"
-            />
+              className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+              />
+                <hr className="border-t border-first" />
           </div>
         </div>
 
         {/* Requirements */}
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+        <div className="my-6">
+          <label className="block  text-sm font-bold mb-2">
             Requirements
           </label>
           <textarea
             {...register("requirements")}
-            className="textarea h-16 w-full"
+            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
             placeholder="Enter requirements..."
           ></textarea>
+          <hr className="border-t border-first" />
         </div>
 
         {/* Image Upload */}
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block  text-sm font-bold mb-2">
             Image
           </label>
           <input
             {...register("image", { required: true })}
             type="file"
-            className="file-input w-full text-first"
-          />
+            className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
+            />
+              <hr className="border-t border-first" />
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="btn text-white bg-gradient-to-r from-second to-first focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-full"
+          className="btn text-black bg-gradient-to-r text-xl from-second to-first font-extrabold focus:outline-none focus:ring-0 rounded-lg  px-5 py-2.5 text-center w-full"
           disabled={loading}
         >
           {loading ? (

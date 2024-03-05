@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import Countdown from 'react-countdown';
 import { useState } from 'react';

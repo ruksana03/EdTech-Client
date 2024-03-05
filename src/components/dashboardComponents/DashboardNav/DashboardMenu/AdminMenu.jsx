@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Link, useLocation } from "react-router-dom";
 import { GiMicrophone } from "react-icons/gi";
-import { FaBlog,FaUsersViewfinder } from "react-icons/fa6";
+import { FaBlog, FaUsersViewfinder } from "react-icons/fa6";
 import { SiContentful } from "react-icons/si";
-import { RiSecurePaymentFill,RiAdvertisementFill} from "react-icons/ri";
+import { RiSecurePaymentFill, RiAdvertisementFill } from "react-icons/ri";
 import { IoIosApps } from "react-icons/io";
 import { FaPlus, FaQuestion } from "react-icons/fa";
 import { HiOutlineStatusOnline } from "react-icons/hi";
@@ -16,6 +16,7 @@ const AdminMenu = ({ isActive }) => {
     const adminMenu = ['Users','Application', 'Online Applications' , 'Notices', 'Blogs', 'Courses','Quiz','Payment Info','Subscribers','Feedback','Partners','Add Member','Advertisement','Add Offer','Dashboard'];
 
     const icons = [
+
         <FaUsersViewfinder key={adminLinks[0]} className="text-2xl" />,
         <IoIosApps key={adminLinks[2]} className="text-2xl" />,
         <HiOutlineStatusOnline key={adminLinks[1]} className="text-2xl" />,

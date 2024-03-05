@@ -8,7 +8,7 @@ const TaskColumn = ({ task, title, refetch, provided, icon }) => {
         <div
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="w-[300px] h-[629px] flex flex-col overflow-hidden" // Set overflow to hidden
+            className="w-[300px] lg:h-[629px] flex flex-col overflow-hidden" // Set overflow to hidden
         >
             <div className="text-start px-3 bg-second">
                 <p className="text-base font-semibold flex gap-2 items-center">{icon}{title}</p>

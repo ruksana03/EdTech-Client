@@ -7,7 +7,7 @@ import LoginWithGoogle from "./LoginWithGoogle/LoginWithGoogle";
 import LoginWithGitHub from "./LoginWithGitHUb/LoginWithGitHub";
 import LoginWithFacebook from "./LoginWithFacebook/LoginWithFacebook";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { CgProfile } from "react-icons/cg";
 import { FaSpinner } from "react-icons/fa";
@@ -37,6 +37,10 @@ const Login = () => {
         toast.error(errorMessage.slice(10));
       });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
 
   return (
         <div className="pt-6 lg:flex justify-center">
