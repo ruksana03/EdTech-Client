@@ -12,8 +12,6 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 const AdmissionForm = () => {
-    // const axiosPublic = useAxiosPublic();
-    // const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const user = useSelector((state) => state.data.user.user);
     const userPhoto = user?.photo;
@@ -52,21 +50,6 @@ const AdmissionForm = () => {
             cvLink,
             profile_photo: userPhoto
         }
-
-        // try {
-        //     await axiosPublic.post('/applications', applicationData)
-        //         .then(res => {
-        //             setLoading(false)
-        //             if (res.data) {
-        //                 navigate('/')
-        //                 return toast.success('created successfully')
-        //             }
-        //         })
-        // }
-        // catch (error) {
-        //     setLoading(false)
-        //     toast.error(error.message)
-        // }
         toast.error('something went wrong!')
     }
     return (

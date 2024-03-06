@@ -17,7 +17,6 @@ const AdminMenu = ({ isActive }) => {
     const adminMenu = ['Users', 'Application', 'Notices', 'Blogs', 'Courses', 'Quiz', 'Payment Info', 'Subscribers', 'Feedback', 'Partners', 'Add Member', 'Advertisement', 'Add Offer', 'Admin Dashboard'];
 
     const icons = [
-
         <FaUsersViewfinder key={adminLinks[0]} className="text-2xl" />,
         <IoIosApps key={adminLinks[1]} className="text-2xl" />,
         <GiMicrophone key={adminLinks[2]} className="text-2xl" />,

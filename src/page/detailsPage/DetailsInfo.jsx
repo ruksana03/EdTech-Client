@@ -14,17 +14,12 @@ import useCart from "../../Hooks/useCart";
 
 const DetailsInfo = ({ detailInfo }) => {
   const {_id, title, image, price, details, name, email, requirements, duration } = detailInfo || {};
-
-
   const [isOpen, setIsOpen] = useState(false);
-
   const user = useSelector((state) => state.data.user.user);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate()
-  
   const location = useLocation()
   const [,refetch] = useCart()
-
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -72,7 +67,6 @@ const DetailsInfo = ({ detailInfo }) => {
       }
       axiosPublic.post('/carts', cartItem)
         .then(res => {
-          console.log(res.data);
           if (res.data  ) {
             Swal.fire({
               position: "top-end",
@@ -97,7 +91,6 @@ const DetailsInfo = ({ detailInfo }) => {
         confirmButtonText: "Yes, log In!"
       }).then((result) => {
         if (result.isConfirmed) {
-          // send the user to login page
           navigate('/login',{state:{from:location}})
         }
       });

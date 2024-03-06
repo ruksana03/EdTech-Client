@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { MdAddCircleOutline, MdDelete } from "react-icons/md";
 import axios from "axios";
 import { FaDeleteLeft } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa";
 
 const cloudinary_cloud_name = "dffbo5cwe";
 const cloudinary_upload_preset = "testing_uplod";
@@ -16,21 +17,16 @@ const cloudinary_upload_url = `https://api.cloudinary.com/v1_1/${cloudinary_clou
 const AddCourseResources = () => {
     const course = useLoaderData();
     const navigate = useNavigate();
-
     const [uploadedFileUrls, setUploadedFileUrls] = useState([]);
-
     const { CourseAllResources, loading, refetch } = useCourseResources();
-
     const filterData = CourseAllResources.filter(
         (resource) => resource.courseId === course?._id
     );
-
     const { register, control, handleSubmit } = useForm({
         defaultValues: {
             resources: [{ title: "", link: "" }]
         }
     });
-
     const { fields, append, remove } = useFieldArray({
         control,
         name: "resources"
@@ -85,8 +81,6 @@ const AddCourseResources = () => {
               courseId: course._id,
               resources: resourcesWithFiles, // Use the resources with uploaded file URLs
             });
-      
-            console.log(response.data);
             toast.success("Resources added successfully");
             refetch();
             navigate(`/dashboard/teacher-course-details/${course?._id}`);
@@ -94,7 +88,7 @@ const AddCourseResources = () => {
             toast.info("Resources already exist for this course");
           }
         } catch (error) {
-          console.error("Error adding course resources:", error);
+          // console.error("Error adding course resources:", error);
           toast.error("Failed to add resources");
         }
       };
@@ -108,13 +102,19 @@ const AddCourseResources = () => {
                 refetch();
             }
         } catch (error) {
-            console.error("Error deleting resources:", error);
+            // console.error("Error deleting resources:", error);
             toast.error("Failed to delete resources");
         }
     };
 
+    const handleBack = () => { return navigate(-1) }
+
     return (
         <div className="p__cormorant w-8/12 mx-auto mt-24 ">
+             <button onClick={handleBack}
+                className="my-4 border rounded-full p-2 hover:text-first hover:bg-black hover:text-xl">
+                <FaArrowLeft />
+            </button>
             <div className="grid grid-cols-4 gap-4">
                 {CourseAllResources?.map((resource) => (
                     <div key={resource._id} className="flex gap-4 justify-start items-center border rounded-lg p-1">

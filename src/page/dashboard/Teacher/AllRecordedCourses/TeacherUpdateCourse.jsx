@@ -6,6 +6,7 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import { useState } from "react";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -33,12 +34,10 @@ const TeacherUpdateCourse = () => {
                         "content-type": "multipart/form-data",
                     },
                 });
-
                 if (res.data.success) {
                     imageUrl = res.data.data.display_url; // Update imageUrl with new image URL
                 }
             }
-
             // Build courseItem object
             const instructors = [];
             for (let i = 1; i <= 3; i++) {
@@ -65,7 +64,6 @@ const TeacherUpdateCourse = () => {
             };
 
             // Update courseItem if there are changes
-            console.log(courseItem);
 
             const { data: datas = [] } = await axiosPublic.put(
                 `courses/update/${course?._id}`,
@@ -78,14 +76,21 @@ const TeacherUpdateCourse = () => {
                 navigate('/dashboard/all-class')
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         } finally {
             setLoading(false);
         }
     };
 
+    const handleBack = () => { return navigate(-1) }
+
     return (
         <div className="mx-auto max-w-3xl p-4 mt-16 bg-transparent rounded-md shadow-md p__cormorant text-white">
+            <button onClick={handleBack}
+                className="my-4 border rounded-full p-2 hover:text-first hover:bg-black hover:text-xl">
+                <FaArrowLeft />
+            </button>
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/* Title */}
                 <div className="mb-6">

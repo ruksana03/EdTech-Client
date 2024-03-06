@@ -9,12 +9,10 @@ import { useEffect } from "react";
 import { loginUser, setLoading } from "../../Features/UserSlice";
 import auth from "../../firebase/firebase.config";
 
-
 const Blog = () => {
     const dispatch = useDispatch();
     const axiosPublic = useAxiosPublic();
     
-  
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         if (currentUser) {

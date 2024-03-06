@@ -13,7 +13,6 @@ const BlogBanner = () => {
         ' https://i.ibb.co/gtm3f4p/istockphoto-1205061931-612x612.jpg',
        '  https://i.ibb.co/26p2W8X/istockphoto-1462942852-170667a.webp',
      ];
- 
 
     return (
         <div className='w-full text-black '>

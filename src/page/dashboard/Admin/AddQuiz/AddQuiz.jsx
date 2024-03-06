@@ -1,11 +1,9 @@
+/* eslint-disable no-unused-vars */
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
-
 const AddQuiz = () => {
-
     const axiosPublic = useAxiosPublic();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const question = e.target.question.value;
@@ -14,33 +12,30 @@ const AddQuiz = () => {
         const option3 = e.target.option3.value;
         const option4 = e.target.option4.value;
         const correct_answer = e.target.correctAnswer.value;
-        
         const info = {
             question,
             options: [option1, option2, option3, option4],
             correct_answer
         };
 
-        console.log(info);
         axiosPublic.post('/quiz', info)
-                            .then(res => {
-                                console.log(res.data)
-                                if (res.data.status == "ok") {
-                                    e.target.reset();
-                                    Swal.fire({
-                                        position: "top-start",
-                                        icon: "success",
-                                        title: "Quiz added Successfully",
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    });
-                                   
-                                }
-                            })
-                    
-                    .catch(error => {
-                        console.log(error);
-                    })
+            .then(res => {
+                if (res.data.status == "ok") {
+                    e.target.reset();
+                    Swal.fire({
+                        position: "top-start",
+                        icon: "success",
+                        title: "Quiz added Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                }
+            })
+
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (

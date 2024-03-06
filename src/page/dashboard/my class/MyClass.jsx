@@ -4,9 +4,7 @@ const MyClass = () => {
 
     const handleClick = () => {
         window.location.reload();
-
     }
-
     return (
         <div>
             <div className=" max-h-fit my-5 mx-4 mt-14">

@@ -14,9 +14,7 @@ const JoiningTeacher = () => {
   const user = useSelector((state) => state.data.user.user);
   const userPhoto = user?.photo;
   const [role] = useUserRole();
-  console.log(role);
   const id = role[0]?._id;
-  console.log(id);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -184,7 +182,6 @@ const JoiningTeacher = () => {
                 />
                 <hr className="border-t border-first" />
               </div>
-
 
               <div className=" w-full md:w-1/3 mt-2">
                 <input

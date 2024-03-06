@@ -11,8 +11,6 @@ import './SRoutine.css'
 
 // eslint-disable-next-line react/prop-types
 const SRoutine = ({ events }) => {
-    // const [events, refetch] = useStudentRoutine();
-    // console.log('new apdate---->', events);
     const calendarRef = useRef(null);
     let [isOpen, setIsOpen] = useState(false);
     const [currentEvent, setCurrentEvent] = useState(null)
@@ -20,29 +18,16 @@ const SRoutine = ({ events }) => {
     function closeModal() {
         setIsOpen(false)
     }
-
     function handleDeleteClick(data) {
         setIsOpen(true)
         const currentData = data.event._def.extendedProps;
         const findData = events.find(event => event._id === currentData._id);
-        // console.log(findData);
         setCurrentEvent(findData)
     }
 
     return (
         <section className='w-full h-screen mx-auto p-5'>
             <div>
-                {/* <div className='flex items-center justify-center gap-5 w-full'>
-                    {
-                       events?.length >= 2 && events?.map(routine => <div key={routine?._id}>
-                            <Link to={`/dashboard/routine/${routine?.forCourses?.slice(0, 7)}`}>
-                                <button className='btn-style'>{routine?.forCourses}</button>
-                            </Link>
-
-                        </div>)
-                    }
-
-                </div> */}
                 <div className='w-full lg:w-[90%] mx-auto flex items-center justify-between p-5 flex-col '>
                     <div className='w-full'>
                         <div className='relative z-0 w-full text-white'>

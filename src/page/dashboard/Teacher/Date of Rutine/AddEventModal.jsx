@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-// import Modal from 'react-modal';
 import Datetime from 'react-datetime';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
@@ -8,10 +7,8 @@ import toast from 'react-hot-toast';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-
 export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
     const user = useSelector((state) => state.data.user.user);
-    // console.log(user.name);
     const [title, setTitle] = useState('');
     const [forCourses, setForCourses] = useState('');
     const [start, setStart] = useState(new Date());
@@ -24,7 +21,6 @@ export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
             try {
                 const res = await fetch("http://localhost:5000/courses");
                 const data = await res.json();
-                //    console.log(data);
                 setCourses(data);
             } catch (error) {
                 console.log(error);

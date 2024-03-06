@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import { useState } from 'react';
 import Swal from 'sweetalert2';
@@ -26,10 +27,8 @@ const AddOffer = () => {
 
         try {
             const finalData = { ...formData };
-            console.log(finalData);
             // Send the combined data to your backend endpoint
             const backendResponse = await axiosPublic.post('/post-offer', finalData);
-            console.log(backendResponse);
 
             if (backendResponse) {
                 Swal.fire({
@@ -39,13 +38,10 @@ const AddOffer = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-
-                console.log('Data sent to backend successfully:', backendResponse.data);
                 setFormData({})
             }
            
         } catch (error) {
-            console.error('Error sending data to backend:', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -55,7 +51,6 @@ const AddOffer = () => {
     }
     // this function work for  deleted offer 
     const handleDeleteOffer = async (offerId) => {
-        console.log(offerId);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -68,11 +63,9 @@ const AddOffer = () => {
             if (result.isConfirmed) {
                 try {
                     const response = await axiosPublic.delete(`/delete-offer/${offerId}`);
-                    console.log('PDF deleted:', response.data);
                     refetch();
                     toast.success("Delete Successfully");
                 } catch (error) {
-                    console.error("Error deleting PDF:", error);
                     toast.error("Failed to delete PDF");
                 }
             }

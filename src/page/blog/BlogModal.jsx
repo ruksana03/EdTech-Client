@@ -14,9 +14,6 @@ const BlogModal = ({ isOpen, setIsOpen }) => {
             handleCancel();
             const loadImage = await imageUpload(image);
             const postData = {
-                // host_user:user?.displaName,
-                // host_email:user?.email,
-                // host_image:user?.displayUrl,
                 post_image:loadImage?.data?.url,
                 date: new Date(),
                 description,

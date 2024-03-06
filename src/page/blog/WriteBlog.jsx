@@ -124,7 +124,6 @@ const WriteBlog = () => {
     };
 
     recognition.onerror = (event) => {
-      console.error("Speech recognition error:", event.error);
       setIsListening(false);
     };
 
@@ -168,7 +167,6 @@ const WriteBlog = () => {
 
         // Post blog data to backend
         const savedPost = await postBlog(formData);
-        console.log("blog saved successfully:", savedPost);
         toast.success("Blog post submitted successfully");
 
         // Reset form fields after successful submission
@@ -182,7 +180,6 @@ const WriteBlog = () => {
       }
     } catch (error) {
       // Handle errors during submission
-      console.error("Error saving blog post:", error);
       toast.error("An unexpected error occurred. Please try again.");
     } finally {
       // Reset loading state after submission attempt

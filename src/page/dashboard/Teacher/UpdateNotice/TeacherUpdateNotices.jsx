@@ -19,7 +19,6 @@ const TeacherUpdateNotices = () => {
     const { AllCourses } = useCourses();
     const [loading, setLoading] = useState(false);
 
-    //   console.log(courses);
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -39,7 +38,6 @@ const TeacherUpdateNotices = () => {
                 hostEmail: user?.email
             };
 
-            // console.log(noticeData);
             axiosPublic.put(`/teacher-notice-updated/${_id}`, noticeData).then((res) => {
                 if (res.data?.modifiedCount > 0) {
                     refetch();

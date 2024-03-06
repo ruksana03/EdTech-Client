@@ -2,8 +2,6 @@
 import { FaLocationArrow } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
- 
-
 const MyenrollCard = ({ enroll }) => {
   const { image, name, title } = enroll || {}
 
@@ -26,8 +24,6 @@ const MyenrollCard = ({ enroll }) => {
         <p className="block mb-8  antialiased   p__cormorant leading-relaxed ">
           {name}
         </p>
-     
-       
 
         <Link to='/dashboard/my-class/recordedclass/English%20Mastery'>
           <button className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none btn-style"
@@ -36,21 +32,6 @@ const MyenrollCard = ({ enroll }) => {
             <FaLocationArrow />
           </button>
         </Link>
-
-
-
-        {/* <Link to={"demo"}>  <button 
-            className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none btn-style"
-            type="button"
-          >
-             continue
-            
-             <FaLocationArrow />
-          </button></Link>
-        */}
-        
-      
-       
       </div>
     </div>
   );

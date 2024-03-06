@@ -18,7 +18,6 @@ const DashboardRightManu = ({ user, handleLogout }) => {
     const currentRole = role[0]?.role
     const [cart] = useCart();
 
-
     return (
         <div className="flex items-center justify-center gap-5  text-white">
             <Link to='/notices' className="flex items-center gap-2">

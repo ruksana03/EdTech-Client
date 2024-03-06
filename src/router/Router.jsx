@@ -87,8 +87,6 @@ import AddCourseResources from "../page/dashboard/Teacher/TeacherProvideResource
 import UpdateCourseResources from "../page/dashboard/Teacher/TeacherProvideResources/UpdateCourseResources";
 
 
-
-
 const router = createBrowserRouter([
     {
         path: "/",

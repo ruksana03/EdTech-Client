@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Chart } from "react-google-charts";
 
 export const data = [
@@ -6,7 +7,6 @@ export const data = [
   ["quiz left", 7],
   ["quiz completed", 5],
   ["Watch Videos", 4],
-
 ];
 
 export const options = {
@@ -23,7 +23,6 @@ const QuizAnalytics = () => {
         options={options}
         height={"400px"}
       />
-
     </div>
   );
 };

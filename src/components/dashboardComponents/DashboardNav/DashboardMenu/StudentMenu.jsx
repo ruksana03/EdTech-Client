@@ -10,7 +10,6 @@ import { FaCalendarDay } from "react-icons/fa";
 const StudentMenu = ({ isActive }) => {
     const studentLinks = ['/resources','/recommended','/studentdashboard','/routine','/my-enroll','/certifications'];
     const studentMenu = ['Resources','Recommended','student dashboard', 'Routine','My Enroll','Certifications'];
-    
     const icons = [
         <GrResources key={studentLinks[0]}/>,
         <MdRecommend key={studentLinks[1]}/>,
@@ -18,8 +17,6 @@ const StudentMenu = ({ isActive }) => {
         <FaCalendarDay key={studentLinks[3]}/>,
         <GrResources key={studentLinks[4]}/>,
         <LiaCertificateSolid key={studentLinks[5]}/>,
-        
-
     ];
 
     const location = useLocation();

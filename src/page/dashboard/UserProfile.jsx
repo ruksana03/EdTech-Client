@@ -15,7 +15,6 @@ import { PiNotePencilLight } from "react-icons/pi";
 
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-
 const defaultCoverPhoto = "https://i.ibb.co/8mdj06s/abstract-1264071-1280.png";
 
 const UserProfile = () => {
@@ -23,10 +22,8 @@ const UserProfile = () => {
   const axiosPublic = useAxiosPublic();
   const [role] = useUserRole();
   const { AllCovers, refetch } = useCover();
-  // console.log(AllCovers)
   const currenUserRole = role[0]?.role;
   const email = user?.email;
-
   const [showDropdown, setShowDropdown] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -34,18 +31,12 @@ const UserProfile = () => {
   const [postCoverPhoto, setPostCoverPhoto] = useState(false)
 
   const filteredCover = AllCovers.filter(cover => cover?.userEmail === email);
-
-  console.log(filteredCover)
-
   const id = filteredCover[0]?._id;
-  console.log(id)
 
   let imageURL = null;
   if (filteredCover.length > 0) {
     imageURL = filteredCover[0].image;
   }
-
-  console.log(imageURL);
 
 
   useEffect(() => {
@@ -102,7 +93,6 @@ const UserProfile = () => {
         };
 
         const savedPost = await postCover(formData);
-        console.log("Cover Photo Updated successfully:", savedPost);
         toast.success("Cover Photo Updated successfully");
         refetch();
 
@@ -113,14 +103,11 @@ const UserProfile = () => {
         setImageFile(null);
       }
     } catch (error) {
-      console.error("Error saving blog post:", error);
       toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
   };
-
-  console.log(postCoverPhoto)
 
   const handleUpdateCover = async (event) => {
     event.preventDefault();
@@ -156,15 +143,11 @@ const UserProfile = () => {
         toast.error("Failed to upload image");
       }
     } catch (error) {
-      console.error('Error updating cover photo:', error);
       toast.error("Internal Server Error");
     } finally {
       setLoading(false); // Set loading state back to false
     }
   };
-
-
-
 
   const handleClose = () => {
     setShowDropdown(false);
@@ -182,7 +165,6 @@ const UserProfile = () => {
     }).then((result) => {
       updateUserPassword(email)
         .then((res) => {
-          console.log(res);
           if (result.isConfirmed) {
             Swal.fire({
               title: "OK, check Your Email, then change your password",
@@ -204,7 +186,7 @@ const UserProfile = () => {
           }
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     });
   };
