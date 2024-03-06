@@ -1,38 +1,39 @@
 import { useFieldArray, useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { MdAddCircleOutline } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
 import axiosSecure from "../../../../api/axiosSecure";
 import toast from "react-hot-toast";
+import { MdAddCircleOutline, MdDelete } from "react-icons/md";
 
-const UpdateCourseVideo = () => {
-    const video = useLoaderData();
+
+const UpdateCourseResources = () => {
+    const resource = useLoaderData();
+    console.log(resource);
     const navigate = useNavigate();
     const { register, control, handleSubmit, reset } = useForm({
         defaultValues: {
-            videos: video.videos.map(({ title, link }) => ({ title, link }))
+            resources: resource.resources.map(({ title, link }) => ({ title, link }))
         }
     });
 
     const { fields, append, remove } = useFieldArray({
         control,
-        name: "videos"
+        name: "resources"
     });
 
     const onSubmit = async (data) => {
         try {
-            const response = await axiosSecure.put(`video/update/${video?._id}`, {
-                videos: data.videos
+            const response = await axiosSecure.put(`/resources/update/${resource?._id}`, {
+                resources: data.resources
             });
             console.log(response.data);
             if (response) {
                 reset();
-                toast.success("Videos updated successfully");
+                toast.success("resources updated successfully");
                 navigate('/dashboard/all-class'); // Move navigation here
             }
         } catch (error) {
-            console.error("Error updating course videos:", error);
-            toast.error("Failed to update videos");
+            console.error("Error updating course resources:", error);
+            toast.error("Failed to update resources");
         }
     };
 
@@ -40,9 +41,9 @@ const UpdateCourseVideo = () => {
     return (
         <div className="p__cormorant w-8/12 mx-auto">
             <h2 className="my-2 text-2xl text-first">
-                Add Videos on
+                Add Resources on
                 <span className="mx-2 text-white border-b border-first hover:border-2 hover:text-second ">
-                    {video?.title}
+                    {resource?.title}
                 </span>
                 Course
             </h2>
@@ -52,18 +53,18 @@ const UpdateCourseVideo = () => {
                     <div key={item.id} className="mb-4 flex gap-4">
                         <div className="w-full">
                             <input
-                                {...register(`videos.${index}.title`)}
+                                {...register(`resources.${index}.title`)}
                                 type="text"
-                                placeholder="Enter video title"
+                                placeholder="Enter resources title"
                                 className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
                             />
                             <hr className="border-t border-first" />
                         </div>
                         <div className="w-full">
                             <input
-                                {...register(`videos.${index}.link`)}
+                                {...register(`resources.${index}.link`)}
                                 type="text"
-                                placeholder="Enter video link"
+                                placeholder="Enter resources link"
                                 className="py-2 bg-transparent transition-colors peer w-full pl-3 font-poppins text-sm border-none outline-none focus:ring-0"
                             />
                             <hr className="border-t border-first" />
@@ -88,5 +89,4 @@ const UpdateCourseVideo = () => {
         </div>
     );
 };
-
-export default UpdateCourseVideo;
+export default UpdateCourseResources;
