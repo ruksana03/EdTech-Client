@@ -4,7 +4,7 @@ import axiosSecure from "../api/axiosSecure";
 
 const useCourseVideo = () => {
     const { data: CourseAllVideo = [], isLoading: loading, refetch } = useQuery({
-        queryKey: ['AllCovers'],
+        queryKey: ['AllVideos'],
         queryFn: async () => {
           const res = await axiosSecure('/videos');
           return res.data;

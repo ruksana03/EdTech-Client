@@ -1,19 +1,20 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import axiosSecure from "../../../../api/axiosSecure";
 import useCourseVideo from "../../../../Hooks/useCourseVideo";
+import useCourseResources from "../../../../Hooks/useCourseResources";
 
 const TeacherCourseDetails = () => {
     const course = useLoaderData();
 
     const { CourseAllVideo, loading, refetch } = useCourseVideo()
-
+    const { CourseAllResources } = useCourseResources()
     // Function to filter CourseAllVideo by courseId
 
-       const filterData =  CourseAllVideo.filter((video) => video.courseId === course?._id);
-       console.log("Filter Data", filterData)
-       
+    const filterData = CourseAllVideo.filter((video) => video.courseId === course?._id);
+    console.log("Filter Data", filterData)
+
+    const filterResourcesData = CourseAllResources.filter((resource) => resource.courseId === course?._id);
+    console.log("Filter Resources Data", filterResourcesData)
 
     return (
         <div className=" mx-auto p-8 p__cormorant mt-12">
@@ -30,14 +31,25 @@ const TeacherCourseDetails = () => {
                         Add Videos
                     </button>
                 </Link>
-                <Link to={`/dashboard/teacher-update-course-video/${filterData?._id}`}>
-                    <button
-                        className="btn-style mx-2">
+                <Link to={`/dashboard/teacher-update-course-video/${filterData[0]?._id}`}>
+                    <button className="btn-style mx-2">
                         Update Videos
                     </button>
                 </Link>
-                <button className="btn-style mx-2">Add Resources</button>
-                <button className="btn-style mx-2">Add Routine</button>
+
+                <Link to={`/dashboard/teacher-add-course-resources/${course?._id}`}>
+                    <button
+                        className="btn-style mx-2">
+                        Add Resources
+                    </button>
+                </Link>
+
+                <Link to={`/dashboard/teacher-update-course-resources/${filterResourcesData[0]?._id}`}>
+                    <button className="btn-style mx-2">
+                        Update Resources
+                    </button>
+                </Link>
+
             </div>
 
             <h1 className="headtext__cormorant">{course.title}</h1>
