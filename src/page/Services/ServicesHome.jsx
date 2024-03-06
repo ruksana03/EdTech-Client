@@ -15,9 +15,9 @@ const ServicesHome = () => {
                 <ServicesBanner />
                 <div className=" text-black">
                     <GetOfferData />
-                   <div className="my-20">
-                   <QuizContest />
-                   </div>
+                    <div className="my-20">
+                        <QuizContest />
+                    </div>
                     <BeAPartner />
                     <BeATeacher />
                 </div>
