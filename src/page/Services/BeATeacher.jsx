@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 
 const BeATeacher = () => {
     return (
-        <div className="section-container mt-20">
-
+        <div className="section-container mt-20 font-serif">
             <div className="mb-8">
                 <h2 className="text-center text-first text-2xl">{`--- Be a Teacher ---`}</h2>
                 <p className="text-center text-white">Stay With Us</p>

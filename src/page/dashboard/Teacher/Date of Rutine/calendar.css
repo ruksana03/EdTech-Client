@@ -28,7 +28,11 @@
     font-size: 18px;
     color: white;
 }
-.form-control, .rdtPicker{
+.form-control{
     background-color: black;
     color: white;
 }
+/* .rdtPicker {
+  background-color: black;
+  color: white;
+  } */

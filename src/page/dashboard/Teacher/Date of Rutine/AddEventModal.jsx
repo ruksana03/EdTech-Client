@@ -7,6 +7,7 @@ import { Fragment } from 'react'
 import toast from 'react-hot-toast';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import './date.css'
 
 
 export default function AddEventModal({ isOpen, closeModal, onEventAdded }) {
