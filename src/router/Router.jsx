@@ -18,12 +18,6 @@ import MyNotes from "../page/dashboard/notes/MyNotes";
 import CreateNotes from "../page/dashboard/notes/CreateNotes";
 import MyClass from "../page/dashboard/my class/MyClass";
 import Support from "../page/dashboard/my class/Support/Support";
-// import MyLabLayout from "../page/dashboard/DLayoutList/MyLabLayout";
-// import Science from "../page/dashboard/my lab/lab pages/Science";
-// import Math from "../page/dashboard/my lab/lab pages/Math";
-// import Coding from "../page/dashboard/my lab/lab pages/Coding";
-// import ResearchL from "../page/dashboard/my lab/lab pages/ResearchL";
-// import Creative from "../page/dashboard/my lab/lab pages/Creative";
 import Resources from "../page/dashboard/Student/Resources";
 import Recommended from "../page/dashboard/Student/Recommended";
 import AllUser from "../page/dashboard/Admin/Users/AllUser";
@@ -77,10 +71,8 @@ import ServicesHome from "../page/Services/ServicesHome";
 import AddOffer from "../page/dashboard/Admin/addOffer/AddOffer";
 import AdmissionForm from "../page/Services/admission form/AdmissionForm";
 import TRoutine from "../page/dashboard/Teacher/Date of Rutine/TRoutine";
-
 import AllFeedback from "../page/dashboard/Admin/all feedback/AllFeedback";
 import MakeAdvertisement from './../page/dashboard/Admin/Advertisement/MakeAdvertisement';
-// import CommonDashboard from "../page/dashboard/Common/CommonDashboard";
 import VideoFeature from "../page/dashboard/Teacher/LiveClass/VideoCall/VideoFeature";
 import Help from "../page/dashboard/Teacher/LiveClass/Help/Help";
 import RecordedCoursesLayout from "../page/dashboard/Teacher/AllRecordedCourses/RecordedCoursesLayout";
@@ -90,6 +82,9 @@ import TeacherUpdateCourse from "../page/dashboard/Teacher/AllRecordedCourses/Te
 import AddCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/AddCourseVideo";
 import UpdateCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/UpdateCourseVideo";
 import RoutineHome from "../page/dashboard/Student/rutine/RoutineHome";
+import CommonDashboard from "../page/dashboard/Common/CommonDashboard";
+import AddCourseResources from "../page/dashboard/Teacher/TeacherProvideResources/AddCourseResources";
+import UpdateCourseResources from "../page/dashboard/Teacher/TeacherProvideResources/UpdateCourseResources";
 
 
 
@@ -341,32 +336,6 @@ const router = createBrowserRouter([
                 path: 'my-class/recordedclass/English%20Mastery',
                 element: <RecordVideo />
             },
-            // {
-            //     path: "my-lab",
-            //     element: <MyLabLayout />,
-            //     children: [
-            //         {
-            //             path: "science-lab",
-            //             element: <Science />,
-            //         },
-            //         {
-            //             path: "math-lab",
-            //             element: <Math />,
-            //         },
-            //         {
-            //             path: "coding-lab",
-            //             element: <Coding />,
-            //         },
-            //         {
-            //             path: "research-lab",
-            //             element: <ResearchL />,
-            //         },
-            //         {
-            //             path: "creative-lab",
-            //             element: <Creative />,
-            //         },
-            //     ],
-            // },
             {
                 path: "resources",
                 element: <Resources />,
@@ -383,7 +352,7 @@ const router = createBrowserRouter([
             {
                 path: "routine",
                 element: <RoutineHome />,
-               
+
             },
 
 
@@ -400,19 +369,12 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                path: "record",
-                element: <RecordedClass></RecordedClass>},
-                {
-                path:"certifications",
-                element:<Certificate />
+                path: "certifications",
+                element: <Certificate />
             },
             {
                 path: "certifications/show",
                 element: <ShowCertificate />
-            },
-            {
-                path:"record",
-                element:<RecordedClass></RecordedClass>
             },
 
             // teachers route
@@ -455,11 +417,36 @@ const router = createBrowserRouter([
                         })
             },
             {
+                path: 'teacher-add-course-resources/:id',
+                element: <AddCourseResources />,
+                loader: ({ params }) =>
+                    axiosSecure.get(`/courses/${params.id}`)
+                        .then(response => response.data)
+                        .catch(error => {
+                            console.error("Error fetching course:", error);
+                            throw error;
+                        })
+            },
+            {
                 path: 'teacher-update-course-video/:id',
                 element: <UpdateCourseVideo />,
                 loader: ({ params }) => {
                     console.log("Params:", params); // Log the params object
                     return axiosSecure.get(`/videos/${params.id}`)
+                        .then(response => response.data)
+                        .catch(error => {
+                            console.error("Error fetching course:", error);
+                            throw error;
+                        });
+                }
+
+            },
+            {
+                path: 'teacher-update-course-resources/:id',
+                element: <UpdateCourseResources />,
+                loader: ({ params }) => {
+                    console.log("Params:", params); // Log the params object
+                    return axiosSecure.get(`/resources/${params.id}`)
                         .then(response => response.data)
                         .catch(error => {
                             console.error("Error fetching course:", error);
@@ -519,7 +506,11 @@ const router = createBrowserRouter([
             },
 
             // common route
-          
+
+            {
+                path: "common-dashboard",
+                element: <CommonDashboard />,
+            },
             {
                 path: "chat",
                 element: <ChatRoom />,
