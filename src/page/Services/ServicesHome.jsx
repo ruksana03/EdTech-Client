@@ -21,12 +21,7 @@ const ServicesHome = () => {
                     <BeAPartner />
                     <BeATeacher />
                 </div>
-                {/* <QuizContest /> */}
-                <ChildrenEduHome />
-                <AdditionalPart />
-
             </div>
-             {/* <QuizContest /> */}
             <OurAchivement />
             <ChildrenEduHome />
             <AdditionalPart />

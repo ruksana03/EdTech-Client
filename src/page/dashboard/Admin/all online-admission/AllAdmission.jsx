@@ -46,8 +46,8 @@ const AllAdmission = () => {
                 try {
                     const res = axiosPublic.delete(`/online-admission/reject/${id}`);
                     if (res) {
-                          refetch();
                         toast.success("Application has been rejected successfully.")
+                        refetch();
                     }
                 } catch (error) {toast.error("Failed to delete application")}
             }
