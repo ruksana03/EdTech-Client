@@ -11,7 +11,6 @@ import NoticeTableForTeacher from "./NoticeTableForTeacher";
 
 const AllNotices = () => {
 
-
   const [isOpen, setIsOpen] = useState(false);
   const { AllTeacherNotice, refetch } = useTeacherNotice();
   const { AllAdminNotice } = useAdminNotice();

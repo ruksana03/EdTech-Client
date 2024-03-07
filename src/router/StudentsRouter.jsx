@@ -6,9 +6,7 @@ import Loader from "../components/shared/Loader";
 const StudentsRouter = ({ children }) => {
     const { AllUsers, loading } = useUsers();
     const students = AllUsers.filter(student => student.role === 'student');
-
     if (loading) return <Loader />;
-
     if (students.length > 0) {
         return children;
     } else {

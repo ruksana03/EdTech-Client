@@ -12,22 +12,14 @@ import { useSelector } from 'react-redux';
 const Man = () => {
     const [username, setUsername] = useState('');
     const user = useSelector((state) => state.data.user.user);
-    
-
     const inputRef = useRef(null);
-    // const dispatch = useDispatch();
-
 
     const  startQuiz = () => {
         if (inputRef.current?.value) {
             setUsername(inputRef.current?.value);
-            // dispatch(setUserId(inputRef.current?.value));
         }
     }
 
-
-   
-    
   return (
     <div className='w-8/12 mx-auto pt-28 p__cormorant'>
         <h1 className='title text-light font-bold text-white text-2xl headtext__cormorant'>Quiz Application</h1>
@@ -40,7 +32,6 @@ const Man = () => {
             <li>5. The result will be declared at the end of the quiz.</li>
             <li>6. The result will be 50% then the passed otherwise Failed.</li>
         </ol>
-
         <form id="form">
             <input ref={inputRef} className="userid" type="text" placeholder={user.name} />
         </form>

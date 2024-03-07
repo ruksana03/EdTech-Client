@@ -16,7 +16,6 @@ const MemberCard = ({ member, refetch, loading, setLoading,setProfilePicture}) =
         setIsOpen(true)
       }
     const handleMemberDelete = (id) => {
-        console.log("delete Button click on id", id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",

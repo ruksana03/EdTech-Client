@@ -43,7 +43,7 @@ const AdmissionForm = () => {
             message,
             profile_photo: userPhoto
         }
-        // console.log(admissionFormData);
+        toast.error('something went wrong!')
         try {
             await axiosPublic.post('/online-admission', admissionFormData)
                 .then(res => {

@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import Cards from "../../../components/Cards";
- 
 
 const Recommended = () => {
   const [discounts, setDiscounts] = useState([]);
-
 
   // handle side effects
   useEffect(() => {
@@ -14,11 +12,7 @@ const Recommended = () => {
         setDiscounts(data);
       });
   }, []);
-  console.log(discounts);
-
- 
-
-
+  
   return (
     <div className="mt-20 text-center">
     <div className="max-w-3xl mx-auto mb-8">

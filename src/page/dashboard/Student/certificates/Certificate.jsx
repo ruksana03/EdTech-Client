@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import './certificate.css'
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -15,15 +16,11 @@ const Certificate = () => {
     let [isOpen, setIsOpen] = useState(false);
     const [name,setName] = useState('')
 
-
     const handleSubmit = (e) => {
         e.preventDefault()
         setIsOpen(false)
         toast.success('your information has been saved')
     }
-
-
-
     function closeModal() {
         setIsOpen(true)
     }

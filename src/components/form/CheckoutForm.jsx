@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { useEffect, useState } from 'react'
@@ -48,13 +49,10 @@ const CheckoutForm = ({  itemInfo, closeModal }) => {
     })
 
     if (error) {
-      console.log('error', error)
       setCardError(error.message)
     } else {
       setCardError('')
-      console.log('payment method', paymentMethod)
     }
-
     setProcessing(true)
 
     const { paymentIntent, error: confirmError } =
@@ -73,8 +71,6 @@ const CheckoutForm = ({  itemInfo, closeModal }) => {
       setCardError(confirmError.message)
     }
 
-    // console.log('payment intent', paymentIntent)
-
     if (paymentIntent.status === 'succeeded') {
       // save payment information to the server
       // Update room status in db
@@ -90,12 +86,10 @@ const CheckoutForm = ({  itemInfo, closeModal }) => {
         toast.success(text);
         navigate('/')
       } catch (error) {
-        console.log(error);
         toast.error(error.message)
       } finally {
         setProcessing(false)
       }
-
       setProcessing(false)
     }
   }

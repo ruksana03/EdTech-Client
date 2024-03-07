@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { imageUpload } from "../../../api/getData";
 import toast from "react-hot-toast";
@@ -6,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { updateUserProfile } from "../../../Features/Utilities";
 import { useSelector } from "react-redux";
 
-// https://i.ibb.co/XkwNwjN/update.jpg
 const UpdateProfile = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -22,27 +22,23 @@ const UpdateProfile = () => {
         try {
             updateUserProfile(name, photo)
                 .then((res) => {
-                    console.log(res);
                     setLoading(false);
                     toast.success('Profile updated successfully')
                     return navigate('/dashboard/profile')
                 })
                 .catch((error) => {
-                    console.log(error.message)
                     toast.error(error.message)
                 });
         }
         catch (error) {
             setLoading(false);
-            console.log(error.message)
             toast.error(error.message)
         }
     };
-
     const handleCancel = () => {
         return navigate(-1)
     }
-
+    
     return (
         <div className="w-full h-screen bg-black text-white pt-10">
             <form onSubmit={handleUpdate} className="w-full md:w-2/3 lg:w-2/3 mx-auto shadow-lg px-5 py-8 border">

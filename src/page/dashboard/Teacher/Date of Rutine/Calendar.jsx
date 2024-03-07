@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Fragment, useRef, useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
@@ -25,7 +26,6 @@ export default function Calendar() {
     function openModal() {
         setIsOpen(true)
     }
-    // console.log(allEvents);
     function closeModal() {
         setIsOpen(false)
     }
@@ -44,7 +44,7 @@ export default function Calendar() {
         })
     }
     async function handleEventAdd(data) {
-        console.log('which data going on database===>', data.envent?._def);
+        // console.log('which data going on database===>', data.envent?._def);
 
     }
 
@@ -63,7 +63,7 @@ export default function Calendar() {
 
 
     function handleDrop(data) {
-        console.log(data.oldEvent._def);
+        // console.log(data.oldEvent._def);
     }
 
     const handleDelete = async () => {
@@ -80,12 +80,10 @@ export default function Calendar() {
             })
         setShowDeleteModal(false)
     }
-    // console.log(currentEvent);
 
     async function handleDateSet(data) {
         const response = await axiosPublic.get('/rutines?start=' + moment(data.start).toISOString() + '&end=' + moment(data.end).toISOString())
        const findRoutine = response?.data?.filter(event=> event?.teacherEmail === user?.email )
-    //    console.log(findRoutine);
         setEvents(findRoutine)
     }
     return (

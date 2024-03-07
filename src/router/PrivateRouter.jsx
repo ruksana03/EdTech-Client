@@ -9,7 +9,6 @@ const PrivateRouter = ({ children }) => {
     const user = useSelector(state => state.data.user.user);
     const loading = useSelector(state=>state.data.user.isLoading);
     const location = useLocation()
-
     if (loading) return <Loader />
     if (user) return children
 

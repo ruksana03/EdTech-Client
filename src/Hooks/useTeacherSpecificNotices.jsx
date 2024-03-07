@@ -6,7 +6,6 @@ const useTeacherSpecificNotices = () => {
   const axiosPublic = useAxiosPublic();
   const [role] = useUserRole();
   const currentRole = role[0]?.role;
-  // console.log(currentRole);
   const { data: teacherNotices = [], refetch:teacherRefetch, isLoading } = useQuery({
     queryKey: ['notices',],
     queryFn: async () => {

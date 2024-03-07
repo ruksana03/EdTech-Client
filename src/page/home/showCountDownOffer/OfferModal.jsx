@@ -6,7 +6,6 @@ export default function OfferModal({isOpen ,setIsOpen,offerDescription}) {
   function closeModal() {
     setIsOpen(false);
   }
-
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>

@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import toast from "react-hot-toast";
-// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useState } from "react";
 import { FaEdit, FaRegClock } from "react-icons/fa";
 import EditeModal from "../Modal/EditeModal";
@@ -25,11 +25,10 @@ const TaskCard = ({ item, refetch, provided }) => {
   const handleDelete = async () => {
     try {
       const res = await axiosPublic.delete(`/delete/${item._id}`);
-      console.log("Delete response:", res.data);
       toast.success("Deleted successfully");
       refetch();
     } catch (error) {
-      console.error("Error deleting item:", error);
+      // console.error("Error deleting item:", error);
     }
   };
   

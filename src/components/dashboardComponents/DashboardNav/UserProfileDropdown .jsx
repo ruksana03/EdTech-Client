@@ -2,7 +2,6 @@
 import UserProfileDropdownContent from "./UserProfileDropdownContent ";
 
 const UserProfileDropdown = ({ user, handleLogout }) => {
-    console.log(user)
     return (
         <details className="dropdown">
             <summary className="m-1">
