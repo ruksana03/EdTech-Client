@@ -59,7 +59,6 @@ const Register = () => {
       // Handle errors
       const errorMessage = error.message;
       toast.error(errorMessage.slice(10));
-      console.log(errorMessage);
     } finally {
       setLoading(false); // Ensure loading state is set to false regardless of success or failure
     }

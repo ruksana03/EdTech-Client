@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { Rating } from "@smastrom/react-rating";
 import Modal from "../../../../components/shared/Modal";
+import { useState } from "react";
 
 const RattingModal = ({handleModal}) => {
     const [rating, setRating] = useState();
@@ -13,9 +15,6 @@ const RattingModal = ({handleModal}) => {
                     <h3 className="font-bold text-lg">Hello!</h3>
                     <p className="py-4">Press ESC key or click the button below to close</p>
                     <div className="modal-action">
-                        {/* <form method="dialog">
-                            <button className="btn">Close</button>
-                        </form> */}
                     </div>
                 </div>
             </dialog>

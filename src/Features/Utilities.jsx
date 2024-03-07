@@ -5,8 +5,6 @@ import auth from "../firebase/firebase.config";
 const googleProvider = new GoogleAuthProvider();
 const gitHubProvider = new GithubAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
-// const user = auth.currentUser;
-// const newPassword = getASecureRandomPassword();
 export const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
 };

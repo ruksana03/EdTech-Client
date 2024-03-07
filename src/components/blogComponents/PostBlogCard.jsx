@@ -1,13 +1,10 @@
 /* eslint-disable react/prop-types */
 import "../../Styles/scrollbar.css"
-// import { useEffect, useState } from "react";
 import { CiSaveDown2 } from "react-icons/ci";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosMore } from "react-icons/io";
-
 import { CiEdit } from "react-icons/ci";
 import { Link } from "react-router-dom";
-
 import { TbListDetails } from "react-icons/tb";
 import Swal from "sweetalert2";
 import axiosSecure from "../../api/axiosSecure";

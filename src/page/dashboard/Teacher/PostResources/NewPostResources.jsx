@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-// user import by useselector
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { FaFileDownload, FaTrash } from 'react-icons/fa';
@@ -9,7 +9,6 @@ import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
-// import useGetAllPdf from '../../../../Hooks/useGetAllPdf';
 const cloudinary_cloud_name = "dffbo5cwe";
 const cloudinary_upload_preset = "testing_uplod";
 const cloudinary_upload_url = `https://api.cloudinary.com/v1_1/${cloudinary_cloud_name}/upload`;
@@ -38,7 +37,7 @@ const NewPostResources = () => {
 
         if (!file) {
             // Handle error: No file selected
-            return console.error('Please select a file to upload');
+            // return console.error('Please select a file to upload');
         }
 
         try {
@@ -57,10 +56,8 @@ const NewPostResources = () => {
 
             // Combine form data and uploaded file URL into a single object
             const finalData = { ...formData, pdfLink: uploadedFileUrl };
-            console.log(finalData);
             // Send the combined data to your backend endpoint
             const backendResponse = await axiosPublic.post('/pdf-upload', finalData);
-            console.log(backendResponse);
             if (backendResponse) {
                 Swal.fire({
                     position: "top-end",
@@ -69,13 +66,10 @@ const NewPostResources = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-
-                console.log('Data sent to backend successfully:', backendResponse.data);
-                
             }
 
         } catch (error) {
-            console.error('Upload error:', error);
+            // console.error('Upload error:', error);
         }
     };
     // this function work to open pdf file in the new tab 
@@ -85,7 +79,6 @@ const NewPostResources = () => {
     };
     // this function work for  deleted pdf file 
     const handleDeletePdf = (pdfId) => {
-        console.log(pdfId);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -99,7 +92,6 @@ const NewPostResources = () => {
                 // added deleted operation here 
                 try {
                     const response = axiosPublic.delete(`/delete-pdf/${pdfId}`);
-                    console.log('PDF deleted:', response.data);
                     refetch()
                 } catch (error) {
                     toast.error(error);
@@ -117,7 +109,7 @@ const NewPostResources = () => {
                 const data = await res.json();
                 setCourses(data);
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
         fetchData();

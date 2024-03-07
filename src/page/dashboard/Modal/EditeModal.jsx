@@ -1,16 +1,16 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment} from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-// import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 import { useSelector } from 'react-redux';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 
 const EditModal = ({ isOpen, closeModal, item, refetch }) => {
     const { register, handleSubmit } = useForm();
-    // const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
     const user = useSelector(state => state.data.user.user);
 
@@ -35,7 +35,6 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
             email: user.email,
             status: "todo",
         };
-        console.log(data);
         const res = await axiosPublic.put(`/update/${item._id}`, data);
         toast.success('Updated successfully');
         refetch();

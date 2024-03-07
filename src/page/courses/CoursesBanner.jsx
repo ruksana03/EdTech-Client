@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-// import { useTypewriter } from "react-simple-typewriter";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,17 +12,6 @@ const CoursesBanner = ({ searchInput, handleSearchChange }) => {
         { image: 'https://i.ibb.co/xMhz44r/pexels-oladimeji-ajegbile-2380263.jpg', category: 'Card 2' },
         { image: 'https://i.ibb.co/4tgrB2v/pexels-andrea-piacquadio-3808057.jpg', category: 'Card 3' },
     ];
-
-    // const settings = {
-    //     dots: true,
-    //     infinite: true,
-    //     speed: 500,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //     autoplay: true,
-    //     autoplaySpeed: 2000,
-    // };
-
     return (
         <div className="hero min-h-[80vh] mb-12 relative">
             <div className="hero-overlay bg-white bg-opacity-20"></div>

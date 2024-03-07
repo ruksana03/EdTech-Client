@@ -22,12 +22,11 @@ const RecordedCoursesLayout = () => {
           setIsLoading(true);
           const res = await axiosSecure.get("/courses");
           const data = res.data;
-          // console.log(data);
           setCourse(data);
           setFilteredItems(data);
           setIsLoading(false);
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       };
       fetchData();

@@ -91,7 +91,7 @@ const MakeAdvertisement = () => {
     };
     return (
         <>
-            <div className="mt-14">
+            <div className="mt-14 p__cormorant">
                 <div className="w-[800px] mx-auto p-6 border border-white rounded-xl flex justify-center">
                     <form
                         onSubmit={handleSubmit} >
@@ -134,7 +134,7 @@ const MakeAdvertisement = () => {
 
                         <div>
                             <button
-                                className="shadow btn-style w-full hover:bg-second transition-all focus:shadow-outline focus:outline-none text-black hover:text-white py-2 px-4 rounded text-[17px]"
+                                className="my-4 shadow btn-style w-full hover:bg-second transition-all focus:shadow-outline focus:outline-none text-black hover:text-white py-2 px-4 rounded text-[17px]"
                                 type="submit">
                                 {loading ?
                                     <span className='flex items-center justify-center gap-1'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span> : 'Submit'
@@ -172,10 +172,10 @@ const MakeAdvertisement = () => {
                                                 <td className='text-white'>
                                                     {ad.description}
                                                 </td>
-                                                <td>
+                                                <td className="my-4">
                                                     <button
                                                         onClick={() => handleDeleteOffer(ad._id)}
-                                                        className="bg-first text-white p-2 rounded-full text-2xl"><FaTrash></FaTrash></button>
+                                                        className="bg-first text-white p-2 rounded-full text-2xl my-4"><FaTrash></FaTrash></button>
                                                 </td>
                                             </tr>
                                         )

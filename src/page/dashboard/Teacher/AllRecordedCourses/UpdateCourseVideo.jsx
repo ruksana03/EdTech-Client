@@ -4,6 +4,7 @@ import { MdAddCircleOutline } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import axiosSecure from "../../../../api/axiosSecure";
 import toast from "react-hot-toast";
+import { FaArrowLeft } from "react-icons/fa";
 
 const UpdateCourseVideo = () => {
     const video = useLoaderData();
@@ -24,21 +25,25 @@ const UpdateCourseVideo = () => {
             const response = await axiosSecure.put(`video/update/${video?._id}`, {
                 videos: data.videos
             });
-            console.log(response.data);
             if (response) {
                 reset();
                 toast.success("Videos updated successfully");
                 navigate('/dashboard/all-class'); // Move navigation here
             }
         } catch (error) {
-            console.error("Error updating course videos:", error);
+            // console.error("Error updating course videos:", error);
             toast.error("Failed to update videos");
         }
     };
 
-
+    const handleBack = () => { return navigate(-1) }
     return (
         <div className="p__cormorant w-8/12 mx-auto">
+               <button onClick={handleBack}
+                className="my-4 border rounded-full p-2 hover:text-first hover:bg-black hover:text-xl">
+                <FaArrowLeft />
+            </button>
+
             <h2 className="my-2 text-2xl text-first">
                 Add Videos on
                 <span className="mx-2 text-white border-b border-first hover:border-2 hover:text-second ">

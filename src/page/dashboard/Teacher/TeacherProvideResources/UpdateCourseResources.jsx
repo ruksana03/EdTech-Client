@@ -3,11 +3,11 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import axiosSecure from "../../../../api/axiosSecure";
 import toast from "react-hot-toast";
 import { MdAddCircleOutline, MdDelete } from "react-icons/md";
+import { FaArrowLeft } from "react-icons/fa";
 
 
 const UpdateCourseResources = () => {
     const resource = useLoaderData();
-    console.log(resource);
     const navigate = useNavigate();
     const { register, control, handleSubmit, reset } = useForm({
         defaultValues: {
@@ -25,21 +25,26 @@ const UpdateCourseResources = () => {
             const response = await axiosSecure.put(`/resources/update/${resource?._id}`, {
                 resources: data.resources
             });
-            console.log(response.data);
             if (response) {
                 reset();
                 toast.success("resources updated successfully");
                 navigate('/dashboard/all-class'); // Move navigation here
             }
         } catch (error) {
-            console.error("Error updating course resources:", error);
+            // console.error("Error updating course resources:", error);
             toast.error("Failed to update resources");
         }
     };
 
-
+    const handleBack = () => { return navigate(-1) }
     return (
         <div className="p__cormorant w-8/12 mx-auto">
+
+            <button onClick={handleBack}
+                className="my-4 border rounded-full p-2 hover:text-first hover:bg-black hover:text-xl">
+                <FaArrowLeft />
+            </button>
+
             <h2 className="my-2 text-2xl text-first">
                 Add Resources on
                 <span className="mx-2 text-white border-b border-first hover:border-2 hover:text-second ">

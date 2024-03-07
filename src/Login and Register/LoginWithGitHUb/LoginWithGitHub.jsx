@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Swal from "sweetalert2";
 import { gitHubSignIn } from "../../Features/Utilities";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
@@ -12,7 +13,6 @@ const LoginWithGitHub = () => {
     const handleGitHubSignIn = () => {
         gitHubSignIn()
         .then(result => {
-            console.log(result.user);
             Swal.fire({
                 position: "top-start",
                 icon: "success",
@@ -29,7 +29,6 @@ const LoginWithGitHub = () => {
 
             axiosPublic.post('/users', userInfo)
                 .then(res => {
-                    console.log(res.data);
                     navigate('/');
                 })
         })

@@ -49,7 +49,6 @@ const Navbar = () => {
   const handleLogout = () => {
     logOut()
       .then(() => {
-        console.log("successfully logout ");
         dispatch(logoutUser());
       })
       .catch((error) => {

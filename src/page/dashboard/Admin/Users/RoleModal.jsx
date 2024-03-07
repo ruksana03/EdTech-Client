@@ -10,12 +10,8 @@ const RoleModal = ({ userToChangeRole, refetch }) => {
 
     const onSubmit = (data) => {
         const role = data.role;
-        console.log(role);
-        console.log(userToChangeRole);
-
         axiosPublic.patch(`/users/${userToChangeRole._id}`, {role})
         .then(res => {
-            console.log(res.data);
             if (res.data.modifiedCount > 0) {
                  const modal = document.getElementById('user_role_modal');
                 modal.close();

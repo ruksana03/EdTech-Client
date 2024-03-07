@@ -1,6 +1,5 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 
-
 const TeacherDetailsNotice = () => {
     const data = useLoaderData();
     const navigate = useNavigate();

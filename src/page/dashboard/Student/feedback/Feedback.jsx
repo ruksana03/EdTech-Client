@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import Modal from "../../../../components/shared/Modal";
 import { Rating } from "@smastrom/react-rating";
@@ -45,7 +46,7 @@ const Feedback = () => {
                 toast.success('your feedback has been submitted!')
             })
         return <form method="dialog"></form>
-    };
+    }
 
     const handleOpne = () => {
         setIsOpen(true)
@@ -54,20 +55,19 @@ const Feedback = () => {
         setIsOpen(false)
     }
     return (
-        <div>
+        <div className="p__cormorant">
             <h1 className="text-3xl font-bold text-white my-8 text-center">Get Your Feedback here...!</h1>
             <div className="flex items-center justify-center gap-5">
                 <button onClick={handleOpne} className="btn-style">Feedback Open</button>
                 <button className="btn-style">Feedback Close</button>
             </div>
             <div>
-                {/* <button className="btn" onClick={handleModal}>open modal</button> */}
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box bg-black text-white border border-white overflow-hidden">
                         <div className="modal-action justify-center">
                             <button onClick={handleClose} className="absolute -top-1 -right-1 btn btn-circle"><RxCross2 className="text-4xl" /></button>
                             <span className="flex items-center justify-center flex-col gap-2">
-                                <h1 className="text-3xl font-bold text-center font-serif text-white">Please Rating Us!</h1>
+                                <h1 className="text-3xl font-bold text-center text-white">Please Rating Us!</h1>
                                 <Rating
                                     style={{ maxWidth: 180, color: '#f59e0b', zIndex: ' 1' }}
                                     value={rating}
@@ -87,14 +87,6 @@ const Feedback = () => {
                     </div>
                     <button type="submit" className="btn-style">Submit</button>
                 </form>
-                {/* <span>
-                    <h1 className="text-3xl font-bold text-center font-serif text-white">Please Ratting Us!</h1>
-                    <Rating
-                        style={{ maxWidth: 180, color: '#f59e0b', zIndex: ' 1' }}
-                        value={rating}
-                        onChange={setRating}
-                    />
-                </span> */}
             </Modal>
         </div >
     );

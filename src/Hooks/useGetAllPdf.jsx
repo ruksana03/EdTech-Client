@@ -18,17 +18,3 @@ const useGetAllPdf = () => {
 };
 
 export default useGetAllPdf;
-
-
-
-// const { data: AllBlogs = [], isLoading: loading, refetch } = useQuery({
-//     queryKey: ['AllBlogs'],
-//     queryFn: async () => {
-//       const res = await axiosSecure('/blogs');
-//       return res.data;
-//     },
-//   });
-
-
-//   return { AllBlogs, loading, refetch };
-// };

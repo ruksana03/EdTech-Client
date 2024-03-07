@@ -2,7 +2,7 @@
 const GeneralProfile = () => {
     return (
         <div className="">
-           
+           GeneralProfile
         </div>
     );
 };

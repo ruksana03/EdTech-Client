@@ -13,7 +13,6 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { FaPlus } from "react-icons/fa";
 
 
-
 const ManageTask = () => {
     const [todo, setTodo] = useState([]);
     const [progress, setProgress] = useState([]);
@@ -29,9 +28,7 @@ const ManageTask = () => {
     });
 
     useEffect(() => {
-        console.log('User:', user);
         if (data) {
-            console.log('Fetched Data:', data);
             const filteredTodo = data.filter(item => item.status === 'todo');
             const currentUserTodo = filteredTodo.filter(item => item?.email === user?.email);
 

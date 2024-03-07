@@ -3,11 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import axiosSecure from "../api/axiosSecure";
 
 const useUsers = () => {
-  // const [loading,setLoading] = useState(true);
     const { data: AllUsers = [], refetch,isLoading} = useQuery({
         queryKey: ['AllUsers'],
         queryFn: async () => {
-          // setLoading(true);
           const res = await axiosSecure('/users');
           if(res.data.length > 0) {
           //  return setLoading(false);
@@ -15,8 +13,6 @@ const useUsers = () => {
           return res.data;
         },
       });
-    
-
       return { AllUsers, refetch,isLoading };
     };
 
