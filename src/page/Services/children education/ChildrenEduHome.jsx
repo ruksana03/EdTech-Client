@@ -1,9 +1,9 @@
 import { FaQuoteLeft } from "react-icons/fa";
 const ChildrenEduHome = () => {
     return (
-        <div className="text-white section-container mt-28">
-            <h1 className="text-3xl font-bold my-6 text-center w-8/12 mx-auto text-first">{`A solid foundation in your child's education will determine his future trajectory`}.</h1>
-            <p className="text-xl text-center w-6/12 mx-auto">We have arranged online batch to ensure all the education of every student from basic to advanced and prepare them for the future</p>
+        <div className="text-white section-container font-serif pt-14">
+            <h1 className="text-3xl font-bold my-6 text-center">{`A solid foundation in your child's education will determine his future trajectory`}.</h1>
+            <p>We have arranged online batch to ensure all the education of every student from basic to advanced and prepare them for the future</p>
             {/* online batch category  */}
             <div className="space-y-3 my-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 w-11/12 mx-auto ">

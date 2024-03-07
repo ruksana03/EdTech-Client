@@ -74,8 +74,6 @@ const UserProfile = () => {
         toast.error("You have already posted a cover photo.");
         return;
       }
-
-
       const formData = new FormData();
       formData.append("image", imageFile);
 

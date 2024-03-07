@@ -143,7 +143,7 @@ const AddOffer = () => {
                     </form>
                 </div>
             </div>
-            {/* show here teacher given pdf file  */}
+            {/* show here all offer data  */}
             <div className="w-[800px] mx-auto p-6 border border-black rounded-xl my-8">
                 <div className="overflow-x-auto">
                     <h1 className='text-center text-4xl text-first font-bold mb-4'>All Offer Here</h1>

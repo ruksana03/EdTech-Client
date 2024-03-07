@@ -22,6 +22,11 @@ body {
   @apply max-w-screen-xl mx-auto px-4 md:px-8 lg:px-16;
 }
 
+.fc-button-group{
+  @apply flex items-center flex-col justify-center gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row bg-black text-white;
+}
+
+
 .heartStar {
   border-radius: 0px 28px 0px 28px;
 }

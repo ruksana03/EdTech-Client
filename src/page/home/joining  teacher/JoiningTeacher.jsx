@@ -14,6 +14,7 @@ const JoiningTeacher = () => {
   const user = useSelector((state) => state.data.user.user);
   const userPhoto = user?.photo;
   const [role] = useUserRole();
+  const userCurrentRole = role[0]?.role
   const id = role[0]?._id;
 
   const handleSubmit = async (e) => {
@@ -48,6 +49,10 @@ const JoiningTeacher = () => {
       cvLink,
       profile_photo: userPhoto
     }
+    if(userCurrentRole === 'student'){
+      setLoading(false)
+      return toast.error('You are already a teacher. You cannot apply for this position.')
+    }
 
     try {
       await axiosPublic.post('/applications', applicationData)
@@ -55,7 +60,7 @@ const JoiningTeacher = () => {
           setLoading(false)
           if (res.data) {
             navigate('/')
-            return toast.success('created successfully')
+            return toast.success('your application has been successfully')
           }
         })
     }
@@ -64,10 +69,10 @@ const JoiningTeacher = () => {
       toast.error(error.message)
     }
   }
- 
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
 
   return (

@@ -82,9 +82,11 @@ import TeacherUpdateCourse from "../page/dashboard/Teacher/AllRecordedCourses/Te
 import AddCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/AddCourseVideo";
 import UpdateCourseVideo from "../page/dashboard/Teacher/AllRecordedCourses/UpdateCourseVideo";
 import RoutineHome from "../page/dashboard/Student/rutine/RoutineHome";
-import CommonDashboard from "../page/dashboard/Common/CommonDashboard";
+import AllAdmission from "../page/dashboard/Admin/all online-admission/AllAdmission";
 import AddCourseResources from "../page/dashboard/Teacher/TeacherProvideResources/AddCourseResources";
 import UpdateCourseResources from "../page/dashboard/Teacher/TeacherProvideResources/UpdateCourseResources";
+import CommonDashboard from './../page/dashboard/Common/CommonDashboard';
+
 
 
 const router = createBrowserRouter([
@@ -121,7 +123,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'get-addmission',
-                element: <AdmissionForm />
+                element: <PrivateRouter><AdmissionForm /></PrivateRouter>
             },
 
             {
@@ -246,6 +248,10 @@ const router = createBrowserRouter([
                 element: <Applications />,
             },
             {
+                path: "online-applications",
+                element: <AllAdmission />,
+            },
+            {
                 path: "quiz",
                 element: <AddQuiz />
             },
@@ -298,7 +304,7 @@ const router = createBrowserRouter([
                 element: <AddMember />
             },
             {
-                path: "add",
+                path: "add-advertisement",
                 element: <MakeAdvertisement />
             },
             {
@@ -334,6 +340,7 @@ const router = createBrowserRouter([
                 path: 'my-class/recordedclass/English%20Mastery',
                 element: <RecordVideo />
             },
+           
             {
                 path: "resources",
                 element: <Resources />,
@@ -505,6 +512,10 @@ const router = createBrowserRouter([
 
             // common route
 
+            {
+                path: "common-dashboard",
+                element: <CommonDashboard />,
+            },
             {
                 path: "common-dashboard",
                 element: <CommonDashboard />,

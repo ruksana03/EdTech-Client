@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const AdditionalPart = () => {
     return (
-        <div className="mt-20 section-container">
-            <h2 className="text-center mt-5 font-bold text-3xl text-first w-10/12 mx-auto">Along with academic studies, there are opportunities for all skill development for your child.</h2>
-            <p className="text-center text-white mb-10 w-6/12 mx-auto text-lg my-8">Along with classes and assessments throughout the year, there will be individual and team competitions to test all required skills.
+        <div className="mt-20 section-container font-serif">
+            <h2 className="text-center mt-5 font-bold text-3xl text-white">Along with academic studies, there are opportunities for all skill development for your child.</h2>
+            <p className="text-center text-white mb-10">Along with classes and assessments throughout the year, there will be individual and team competitions to test all required skills.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center justify-center w-full h-44 mb-64 md:mb-52 mt-3 lg:mb-24 xl:mb-8">
                 <div className=" border border-white bg-black text-white md:col-span-4 lg:col-span-3 order-1 md:order-1 lg:order-1 p-3 w-full h-auto md:h-full lg:h-full xl:h-full px-3 rounded">

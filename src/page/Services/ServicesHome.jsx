@@ -1,8 +1,10 @@
 import GetOfferData from "../home/showCountDownOffer/GetOfferData";
 import BeAPartner from "./BeAPartner";
 import BeATeacher from "./BeATeacher";
+import Cariculam from "./Cariculam/Cariculam";
 import QuizContest from "./QuizContest";
 import ServicesBanner from "./ServicesBanner";
+import OurAchivement from "./achivement/OurAchivement";
 import AdditionalPart from "./additional/AdditionalPart";
 import ChildrenEduHome from "./children education/ChildrenEduHome";
 
@@ -22,8 +24,11 @@ const ServicesHome = () => {
                 </div>
                 <ChildrenEduHome />
                 <AdditionalPart />
-
+                <Cariculam />
             </div>
+            <OurAchivement />
+
+
         </div>
     );
 };

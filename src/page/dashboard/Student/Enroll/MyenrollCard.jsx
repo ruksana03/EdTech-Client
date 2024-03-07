@@ -6,7 +6,7 @@ const MyenrollCard = ({ enroll }) => {
   const { image, name, title } = enroll || {}
 
   return (
-    <div className="relative flex mx-auto w-full max-w-[48rem] flex-row rounded-xl border-gray-200 border   bg-clip-border text-gray-700 shadow-md">
+    <div className="relative flex mx-auto w-full max-w-[48rem] flex-row rounded-xl my-5 border-gray-200 border   bg-clip-border text-gray-700 shadow-md">
       <div className="relative w-2/5 m-0 overflow-hidden text-gray-700  rounded-r-none shrink-0 rounded-xl bg-clip-border ">
         <img
           src={image}

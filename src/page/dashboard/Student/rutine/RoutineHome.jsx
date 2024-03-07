@@ -5,13 +5,14 @@ import SRoutine from "./SRoutine";
 const RoutineHome = () => {
     const [events, refetch] = useStudentRoutine();
     const [firstRoutine, setFirstRoutine] = useState('');
-    const [trueRoutine, setTrueRoutine] = useState(true)
+    const [trueRoutine, setTrueRoutine] = useState(true);
     refetch();
     const [currentRoutine, setCurrentRoutine] = useState([]);
     const handleClick = (data) => {
+        setFirstRoutine(data)
         const findData = events.filter(item => item?.forCourses === data);
         setCurrentRoutine(findData);
-        setTrueRoutine(false)
+        setTrueRoutine(false);
     }
     const currentFindData = events?.filter(item => item?.forCourses === firstRoutine);
     useEffect(() => {
@@ -30,6 +31,15 @@ const RoutineHome = () => {
                     </div>) : events?.length <= 0 ? <SRoutine events={events} /> : ''
                 }
             </div>
+            {
+                events?.length >= 2 && <>
+                    <div className="flex items-center justify-start flex-col space-y-2 mt-5 w-[300px] mx-auto shadow-2xl p-3 bg-zinc-700">
+                        <h1 className="text-xl text-first">Active Routine</h1>
+                        <button className="text-black bg-white text-2xl px-5 cursor-text font-serif">{firstRoutine}</button>
+                    </div>
+                </>
+            }
+
             <div>
                 {
                     (trueRoutine === true && currentFindData?.length > 0) ? <SRoutine events={currentFindData} /> : events?.length >= 2 && <SRoutine events={currentRoutine} />
