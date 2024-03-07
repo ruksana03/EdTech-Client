@@ -14,13 +14,12 @@ const Home = () => {
     <div>
       <ShowAdvise />
       <BannerA />
+      <GetOfferData/>
       <Popular />
       <About />
       <Intro />
       <Team />
       <Teacher />
-      {/* akhane dite hbo  */}
-      <GetOfferData></GetOfferData>
       <Reviews />
       <Faq />
     </div>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import MyenrollCard from "./MyenrollCard";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+ 
 
 const Myenroll = () => {
   const user = useSelector((state) => state.data.user.user);
   const [enrolls, setEnrolls] = useState([]);
+  console.log("its enroll",enrolls);
 
   useEffect(() => {
     // Check if user is defined before making the API call
@@ -32,15 +33,15 @@ const Myenroll = () => {
         </p>
       ) : (
         <div>
-                    <Link to={"/dashboard/my-class/recordedclass"}><button className="btn btn-primary">Go TO Enroll courses</button></Link>
+          
 
-          <div className="gird grid-cols-1 gap-10 mt-12">
-          {enrolls?.map((enroll) => (
-            <MyenrollCard key={enroll._id} enroll={enroll}></MyenrollCard>
-          ))}
+          <div className="gird grid-cols-1 mt-12 gap-5">
+            {enrolls?.map((enroll) => (
+              <MyenrollCard key={enroll._id} enroll={enroll}></MyenrollCard>
+            ))}
+          </div>
         </div>
-        </div>
-      
+
       )}
     </div>
   );

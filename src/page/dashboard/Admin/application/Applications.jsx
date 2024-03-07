@@ -77,8 +77,8 @@ const Applications = () => {
                         <thead className="bg-gradient-to-r from-second to-first text-white font-alt text-xl ">
                             <tr>
                                 <th className="py-2">#</th>
-                                <th className="py-2">Title</th>
                                 <th className="py-2">Name</th>
+                                <th className="py-2">Courses</th>
                                 <th className="py-2">Email</th>
                                 <th className="py-2">View</th>
                                 <th className="py-2">Action</th>
@@ -89,9 +89,9 @@ const Applications = () => {
                             {applicationData.map((courseItem, index) => (
                                 <tr key={index} className="p__opensans">
                                     <td className="py-3 font-medium">{index + 1}</td>
-                                    <td className="py-3 font-medium">{courseItem.position}</td>
-                                    <td className="py-3 font-medium">{courseItem.fullName}</td>
-                                    <td className="py-3 font-medium">{courseItem.email}</td>
+                                    <td className="py-3 font-medium">{courseItem?.fullName}</td>
+                                    <td className="py-3 font-medium">{courseItem?.position}</td>
+                                    <td className="py-3 font-medium">{courseItem?.email}</td>
                                     <td onClick={() => handleToggle(courseItem?._id)} className="py-3 font-medium"><FaEye className="text-2xl text-white cursor-pointer" /></td>
                                     <td className="py-3">
                                         {/* <button>Approve</button> */}

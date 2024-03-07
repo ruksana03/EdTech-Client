@@ -83,8 +83,6 @@ const UserProfile = () => {
         toast.error("You have already posted a cover photo.");
         return;
       }
-
-
       const formData = new FormData();
       formData.append("image", imageFile);
 
@@ -328,12 +326,22 @@ const UserProfile = () => {
           <img alt="profile" src={user?.photo} className="mx-auto object-cover rounded-full w-full h-full border-4 border-first" />
         </figure>
       </div>
-      <div className="hidden md:block text-sm absolute w-32 h-32 left-[36%]  md:left-[43%] lg:left-[33%]">
+
+      {/* lg  */}
+      <div className="hidden md:hidden lg:block text-sm absolute w-32 h-32 left-[33%]">
         <h1 className="">{currenUserRole}</h1>
         <h1 className="font-bold">{user?.name}</h1>
         <h1 className="font-bold">{user?.email}</h1>
         <hr />
       </div>
+      {/* md  */}
+      <div className="hidden md:block lg:hidden text-sm absolute w-32 h-32 left-[30%]">
+        <h1 className="">{currenUserRole}</h1>
+        <h1 className="font-bold">{user?.name}</h1>
+        <h1 className="font-bold">{user?.email}</h1>
+        <hr />
+      </div>
+      {/* sm  */}
       <div className="text-sm absolute w-32 h-32 left-[36%] -bottom-44 md:hidden">
         <h1 className="">{currenUserRole}</h1>
         <h1 className="font-bold">{user?.name}</h1>
@@ -361,7 +369,7 @@ const UserProfile = () => {
           </button>
         </div>
 
-        <div className="">
+        <div className=" mt-4">
           <h1 className="flex gap-2 justify-start items-center">List Your Personal Task <PiNotePencilLight /></h1>
           <Link to='/dashboard/notes' className="border-b hover:text-second hover:font-extrabold">Click Here to add note </Link>
         </div>

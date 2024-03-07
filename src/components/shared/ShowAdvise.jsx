@@ -2,13 +2,13 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useState } from 'react';
 import { RxCross1 } from "react-icons/rx";
-import image1 from '../../assets/image/loader/Animation - joint-teacher.json'
-import image2 from '../../assets/image/loader/partner.json'
-import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
+import useGetAllAdvertisement from '../../Hooks/useGetAllAdvertisement';
 
 
 const ShowAdvise = () => {
+    // eslint-disable-next-line no-unused-vars
+    const { allAd, refetch } = useGetAllAdvertisement()
     let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
@@ -53,26 +53,18 @@ const ShowAdvise = () => {
                                         </button>
                                     </div>
                                     <div className='w-full grid grid-cols-1 pb-4 text-black md:grid-cols-2 lg:grid-cols-2 gap-5 px-2'>
-                                        <div className='bg-white flex items-center justify-center flex-col rounded  text-base'>
-                                            <h1 className='headtext__cormorant'>Hey👋</h1>
-                                            <p className=''>Do You Want to Learn any Course?</p>
-                                            <p className=''>Please Buy Your Favorite Course Here</p>
-                                            <p className=''>Course Buy Last Date: <span className=''>25-02-2024</span></p>
-                                            <div className='h-40'>
-                                                <Lottie animationData={image1} className=' w-full h-full' ></Lottie>
-                                            </div>
-                                            <Link to='/all-courses'><button className='btn-style'>Confirm Me</button></Link>
-                                        </div>
-                                        <div className='bg-black text-white flex items-center text-base justify-center flex-col rounded'>
-                                            <h1 className='headtext__cormorant'>Owwo🤟</h1>
-                                            <p className=''>Do You Want to be A Partner?</p>
-                                            <p className=''>Please Contact Here</p>
-                                            <p className=''>Course Buy Last Date: <span className=''>03-03-2024</span></p>
-                                            <div className='h-40'>
-                                                <Lottie animationData={image2} className='w-full h-full' ></Lottie>
-                                            </div>
-                                            <Link to='/partner'><button className='btn-style'>Confirm Us</button></Link>
-                                        </div>
+                                        {
+                                            allAd.slice(0, 2).map((ad, index) => (
+                                                <div key={index} className={`bg-${index % 2 === 0 ? 'white' : 'black'} flex items-center justify-center flex-col rounded text-base`}>
+                                                    <h1 className='headtext__cormorant'>{ad.title}👋</h1>
+                                                    <p className={`text-center px-10 ${index % 2 === 1 ? 'text-white' : ''}`}>{ad.description}</p>
+                                                    <div className='h-40'>
+                                                        <img className='w-1/2 mx-auto' src={ad.imgLink} alt="" />
+                                                    </div>
+                                                    <Link to='/all-courses'><button className='btn-style'>Confirm Me</button></Link>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
 
                                 </Dialog.Panel>
