@@ -7,7 +7,6 @@ import CheckoutForm from "../form/CheckoutForm";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const DetailModal = ({ closeModal, isOpen, itemInfo }) => {
-  console.log(itemInfo);
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>

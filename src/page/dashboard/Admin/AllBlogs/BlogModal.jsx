@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
 
 const BlogModal = ({ blog }) => {
-    console.log(blog)
     
     return (
         <div>
-          
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                     <div className="flex justify-center items-end gap-6 mb-12">

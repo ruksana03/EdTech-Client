@@ -11,10 +11,7 @@ const TeacherCourseDetails = () => {
     // Function to filter CourseAllVideo by courseId
 
     const filterData = CourseAllVideo.filter((video) => video.courseId === course?._id);
-    console.log("Filter Data", filterData)
-
     const filterResourcesData = CourseAllResources.filter((resource) => resource.courseId === course?._id);
-    console.log("Filter Resources Data", filterResourcesData)
 
     return (
         <div className=" mx-auto p-8 p__cormorant mt-12">
@@ -31,11 +28,17 @@ const TeacherCourseDetails = () => {
                         Add Videos
                     </button>
                 </Link>
-                <Link to={`/dashboard/teacher-update-course-video/${filterData[0]?._id}`}>
-                    <button className="btn-style mx-2">
-                        Update Videos
-                    </button>
-                </Link>
+
+                {filterData.length > 0 ? (
+                    <Link to={`/dashboard/teacher-update-course-video/${filterData[0]?._id}`}>
+                        <button className="btn-style mx-2">
+                            Update Videos
+                        </button>
+                    </Link>
+                ) : (
+                    <p>No videos to update</p>
+                )}
+
 
                 <Link to={`/dashboard/teacher-add-course-resources/${course?._id}`}>
                     <button
@@ -44,11 +47,14 @@ const TeacherCourseDetails = () => {
                     </button>
                 </Link>
 
-                <Link to={`/dashboard/teacher-update-course-resources/${filterResourcesData[0]?._id}`}>
+
+                {filterResourcesData.length > 0 ? (<Link to={`/dashboard/teacher-update-course-resources/${filterResourcesData[0]?._id}`}>
                     <button className="btn-style mx-2">
                         Update Resources
                     </button>
-                </Link>
+                </Link>) : (
+                    <p>No resources to update</p>
+                )}
 
             </div>
 
@@ -56,10 +62,6 @@ const TeacherCourseDetails = () => {
             <hr />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* <div className="flex flex-col items-center justify-center">
-                    
-                    <img src={course.image} alt={course.title} className="w-full max-w-md rounded-lg shadow-md" />
-                </div> */}
                 <div className="mt-4">
                     <h2 className="text-lg font-semibold">Videos:</h2>
                     <div className="aspect-w-16 aspect-h-9">
@@ -73,7 +75,6 @@ const TeacherCourseDetails = () => {
                     </div>
                 </div>
             </div>
-
 
             <div className="my-4">
                 <div className="flex text-sm justify-start flex-col md:flex-row ">

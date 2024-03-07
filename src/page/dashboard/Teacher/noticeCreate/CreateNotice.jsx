@@ -9,7 +9,6 @@ import {  useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import useCourses from "../../../../Hooks/useCourses";
 
-
 // teacher form 
 const CreateNotice = () => {
     const navigate = useNavigate();

@@ -3,22 +3,12 @@ import AssignmentAnalytic from './StudeentAnalytic/AssignmentAnalytics';
 import QuizAnalytics from './StudeentAnalytic/QuizAnalytics';
 
 
-
 const StudentDashboard = () => {
-	
-
-
     const data02 = [
         { name: 'A1', value: 100 },
         { name: 'A2', value: 30 },]
 
-
-      
-  
-
 	const COLORS = ['#0088FE', '#00C49F'];
-
-
 	return (
 		<div>
 			<div className='flex flex-col lg:flex-row my-12 justify-evenly items-center w-full p-5 gap-6'>

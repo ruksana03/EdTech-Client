@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
@@ -18,5 +19,5 @@ export default {
     require("daisyui"),
     require('@tailwindcss/forms'),
   ],
-}
+};
 

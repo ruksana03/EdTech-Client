@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 
 import { useEffect, useState } from "react";
@@ -11,8 +12,6 @@ const Questions = () => {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [isReviewMode, setIsReviewMode] = useState(false);
     const axiosPublic = useAxiosPublic();
-
-
     const { data: quizData, isLoading, isError } = useQuery({
         queryKey: "quizData",
         queryFn: async () => {
@@ -20,8 +19,6 @@ const Questions = () => {
             return response.data;
         },
     });
-
-
     useEffect(() => {
         axiosPublic.get("http://localhost:5000/quiz")
         .then(response => {

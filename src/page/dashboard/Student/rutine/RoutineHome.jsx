@@ -20,7 +20,6 @@ const RoutineHome = () => {
         return newRoutine
     }, [events])
 
-
     return (
         <div>
             {
@@ -28,7 +27,7 @@ const RoutineHome = () => {
             }  <div className='flex items-center justify-center flex-col md:flex-wrap lg:flex-row gap-5 w-full'>
                 {
                     events?.length >= 2 ? events?.map(routine => <div key={routine?._id}>
-                        <button onClick={() => handleClick(routine?.forCourses)} className={`text-first text-2xl font-serif`}>{routine?.forCourses}</button>
+                        <button onClick={() => handleClick(routine?.forCourses)} className='text-first text-2xl active:border-b-2 active:border-b-white font-serif'>{routine?.forCourses}</button>
                     </div>) : events?.length <= 0 ? <SRoutine events={events} /> : ''
                 }
             </div>

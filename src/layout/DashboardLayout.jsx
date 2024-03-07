@@ -19,7 +19,6 @@ const DashboardLayout = () => {
     const [isActive, setIsActive] = useState(false);
     const navigate = useNavigate();
     const [left, setLeft] = useState(false);
-    // const [isScrolled, setIsScrolled] = useState(false);
     const user = useSelector((state) => state.data.user.user);
     const handleReverse = () => {
         setIsActive(!isActive);

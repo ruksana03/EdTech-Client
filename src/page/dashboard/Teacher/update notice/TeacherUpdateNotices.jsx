@@ -21,16 +21,14 @@ const TeacherUpdateNotices = () => {
           try {
             const res = await fetch("http://localhost:5000/courses");
             const data = await res.json();
-            //    console.log(data);
             setCourses(data);
           } catch (error) {
-            console.log(error);
+            // console.log(error);
           }
         };
         fetchData();
       }, []);
     
-    //   console.log(courses);
     const handleSubmit = async (e) => {
       e.preventDefault();
       setLoading(true);
@@ -51,7 +49,6 @@ const TeacherUpdateNotices = () => {
           hostEmail: user?.email
         };
   
-        // console.log(noticeData);
         axiosPublic.put(`/notice-updated/${_id}`, noticeData).then((res) => {
           if (res.data?.modifiedCount > 0) {
             refetch();

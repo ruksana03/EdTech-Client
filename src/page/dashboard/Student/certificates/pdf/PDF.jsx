@@ -2,8 +2,6 @@
 import { Page, Text, Image, Document, View } from '@react-pdf/renderer';
 import './pdf.css'
 function PDF({anotherName}) {
-  //console.log('another name is ------->', anotherName);
- 
     return (
         <Document>
             <Page size="A4">

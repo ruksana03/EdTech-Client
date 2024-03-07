@@ -23,7 +23,6 @@ const DSidebarMenu = ({ handleReverse, isActive }) => {
     const getMenuBasedOnRole = () => {
         if (user && AllUsers) {
             const loggedInUser = AllUsers.find(u => u.email === user.email);
-            // console.log(loggedInUser);
             if (loggedInUser) {
                 if (loggedInUser.role === 'student') {
                     return <StudentMenu handleReverse={handleReverse} isActive={isActive} />;

@@ -19,7 +19,6 @@ const AllCourses = () => {
   const approveClass = async (id) => {
     try {
       const { data } = await axiosPublic.put(`/courses/approve/${id}`);
-      console.log(data);
       if (data.status === "approved") {
         await refetch();
         toast.success("Class approved successfully");

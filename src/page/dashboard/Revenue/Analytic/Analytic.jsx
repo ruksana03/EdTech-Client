@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 const Analytic = () => {
@@ -50,7 +50,7 @@ const [data, setData]= useState([])
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
                 href="#"
               >
-                <span className="inline-block  flex rounded-lg  bg-gray-50 p-3">
+                <span className="inline-block rounded-lg  bg-gray-50 p-3">
                   <svg
                     className="h-6 w-6"
                     fill="none"

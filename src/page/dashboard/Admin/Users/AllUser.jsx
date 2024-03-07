@@ -10,7 +10,6 @@ import RoleModal from './RoleModal';
 import Skeleton from 'react-loading-skeleton';
 
 const AllUser = () => {
-  // const { AllUsers, loading, refetch } = useUsers();
   const { AllUsers, refetch, isLoading } = useUsers();
   const [userToChangeRole, setUserToChangeRole] = useState(null);
 
@@ -37,7 +36,6 @@ const AllUser = () => {
       );
       refetch();
       toast.success("User Deleted Successfully");
-      console.log('User deleted successfully.');
     } catch (error) {
       console.error('Error deleting User:', error);
 

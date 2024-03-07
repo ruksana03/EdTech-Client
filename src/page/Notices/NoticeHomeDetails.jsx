@@ -7,7 +7,6 @@ import { useLoaderData } from "react-router-dom";
 const NoticeHomeDetails = () => {
     const data = useLoaderData();
     const {image,date,title,description,hostEmail,hostName,sentForCourse,sentNotices,_id} = data || {};
-    console.log(data);
     return (
         <div className="section-container pt-24 pb-12 text-white p__cormorant">
             <div className="">

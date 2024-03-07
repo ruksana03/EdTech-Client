@@ -1,10 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-// import { Link } from "react-router-dom";
-// import { FaStar } from "react-icons/fa";
-// import { LiaDirectionsSolid } from "react-icons/lia";
-
 const Cards = ({ item }) => {
   const { _id, image, title, price, duration, name } = item || {};
   return (

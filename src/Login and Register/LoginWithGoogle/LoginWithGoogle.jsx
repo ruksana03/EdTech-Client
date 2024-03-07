@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { googleSignIn } from "../../Features/Utilities";
@@ -14,7 +15,6 @@ const LoginWithGoogle = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user);
                 Swal.fire({
                     position: "top-start",
                     icon: "success",
@@ -31,7 +31,6 @@ const LoginWithGoogle = () => {
 
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data);
                         navigate('/');
                     })
             })

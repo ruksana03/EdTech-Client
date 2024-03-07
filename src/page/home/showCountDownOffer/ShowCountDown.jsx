@@ -9,11 +9,9 @@ const ShowCountDown = ({ offerData }) => {
     function openModal() {
         setIsOpen(true);
     }
-    // console.log("this is h", offerData);
     const startDay = offerData[0]?.startDate
     const endDay = offerData[0]?.endDate
     const offerDescription = offerData[0]?.offerDescription
-    // console.log("this a for modal", startDay, endDay, offerDescription);
 
     // Random component
     const Completionist = () => <span>Offer has been closed</span>;

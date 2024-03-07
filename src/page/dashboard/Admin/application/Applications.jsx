@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import useApplication from "../../../../Hooks/useApplication";
 import { FaEye } from "react-icons/fa";
 import ApplicationModal from "./ApplicationModal";
@@ -18,11 +19,9 @@ const Applications = () => {
     const approveClass = async (courseItem) => {
         try {
             const { data } = await axiosPublic.put(`/application/approve/${courseItem._id}`);
-            // console.log(data);
             if (data.status === "selected") {
                 await refetch();
                 const res = await axiosPublic.put(`/users/${courseItem.id}`);
-                console.log(res.data);
                 toast.success("application has been approved successfully");
             }
         } catch (error) {
@@ -43,7 +42,6 @@ const Applications = () => {
             if (result.isConfirmed) {
                 try {
                     const res = axiosPublic.delete(`/application/reject/${id}`);
-                    console.log(res);
                     if (res) {
                         Swal.fire({
                             title: "Deleted!",

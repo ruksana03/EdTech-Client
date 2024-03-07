@@ -11,8 +11,6 @@ import './SRoutine.css'
 
 // eslint-disable-next-line react/prop-types
 const SRoutine = ({ events }) => {
-    // const [events, refetch] = useStudentRoutine();
-    // console.log('new apdate---->', events);
     const calendarRef = useRef(null);
     let [isOpen, setIsOpen] = useState(false);
     const [currentEvent, setCurrentEvent] = useState(null)
@@ -20,12 +18,10 @@ const SRoutine = ({ events }) => {
     function closeModal() {
         setIsOpen(false)
     }
-
     function handleDeleteClick(data) {
         setIsOpen(true)
         const currentData = data.event._def.extendedProps;
         const findData = events.find(event => event._id === currentData._id);
-        // console.log(findData);
         setCurrentEvent(findData)
     }
 

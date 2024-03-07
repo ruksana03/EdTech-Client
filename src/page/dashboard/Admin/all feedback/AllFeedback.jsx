@@ -11,7 +11,6 @@ const AllFeedback = () => {
     let [isOpen, setIsOpen] = useState(false);
     const [findFeedback, setFindFeedback] = useState([]);
 
-
     const handleDetails = (findId) => {
         setIsOpen(true)
         const findData = feedbacks.find(item => item?._id === findId);
@@ -27,22 +26,19 @@ const AllFeedback = () => {
             })
     }
 
-
     return (
-        <div className="mt-10 p-5">
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'Feedback'} >
-                <button onClick={() => setIsOpen(false)} className="absolute -top-1 -right-1 btn btn-circle"><RxCross2 className="text-4xl" /></button>
-                <div className=" text-white rounded-md bg-gradient-to-b from-first to-blue-second transition ease-in-out cursor-pointer w-full h-auto p-5">
+        <div className="mt-10 p-5 p__cormorant">
+            <Modal  isOpen={isOpen} setIsOpen={setIsOpen} title={'Feedback'} >
+                <button onClick={() => setIsOpen(false)} className="absolute -top-1 -right-1 btn btn-circle"><RxCross2 className="text-xl" /></button>
+                <div className=" text-white rounded-md bg-gradient-to-b from-first to-blue-second transition ease-in-out cursor-pointer w-full h-auto p-5 p__cormorant">
                     <div className="flex items-center justify-center flex-col gap-3">
-                        <figure>
                             <img src={findFeedback?.image} alt="feedback-image" className="w-24 h-24 rounded-full" />
-                        </figure>
-                        <article>
-                            <h1 className="text-2xl font-serif">{findFeedback?.name}</h1>
-                            <p className="text-xl font-serif">{findFeedback?.email}</p>
-                        </article>
+                        <div>
+                            <h1 className="text-base ">{findFeedback?.name}</h1>
+                            <p className="text-xl ">{findFeedback?.email}</p>
+                        </div>
                     </div>
-                    <p className="relative pl-5 mt-5 text-xl font-serif">
+                    <p className="relative pl-5 mt-5 text-xl ">
                         <FaQuoteLeft className="absolute -top-1 -left-3 text-3xl" />
                         {findFeedback?.feedbackMessage}
                     </p>
@@ -51,22 +47,24 @@ const AllFeedback = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center justify-center w-full gap-5">
                 {
                     feedbacks?.map((feedback) =>
-                        <div key={feedback?._id} className="bg-black text-white border border-white rounded-md hover:bg-gradient-to-b from-first to-blue-second transition ease-in-out cursor-pointer w-full h-auto p-5">
-                            <div className="flex items-center gap-3">
-                                <figure>
-                                    <img src={feedback?.image} alt="feedback-image" className="w-24 h-24 rounded-full" />
-                                </figure>
-                                <article>
-                                    <h1 className="text-2xl font-serif">{feedback?.name}</h1>
-                                    <p className="text-xl font-serif">{feedback?.email}</p>
-                                </article>
+                        <div key={feedback?._id} className="bg-black text-white border border-white rounded-md  transition ease-in-out cursor-pointer  h-80 px-2 py-5 w-full">
+                            <div className="flex flex-col items-left gap-3">
+
+                                <img src={feedback?.image} alt="feedback-image" className="w-24 h-24 rounded-full" />
+
+
+                                <div className="text-sm">
+                                    <h1 className="">{feedback?.name}</h1>
+                                    <p className="">{feedback?.email}</p>
+                                </div>
+
                             </div>
-                            <p className="relative pl-5 mt-5 font-serif">
-                                <FaQuoteLeft className="absolute -top-1 -left-3 text-3xl" />
+                            <p className="relative pl-5 mt-5  text-base">
+                                <FaQuoteLeft className="absolute -top-1 -left-0 " />
                                 {
-                                    feedback?.feedbackMessage?.length > 170 ? feedback?.feedbackMessage?.slice(0, 170) + "  ....." : feedback?.feedbackMessage
+                                    feedback?.feedbackMessage?.length > 10 ? feedback?.feedbackMessage?.slice(0, 10) + "  ....." : feedback?.feedbackMessage
                                 }
-                                <button onClick={() => handleDetails(feedback?._id)} className="link link-hover font-bold">show more</button>
+                                <button onClick={() => handleDetails(feedback?._id)} className="link link-hover font-bold text-first block">show more</button>
                             </p>
                             <button onClick={() => handleDelete(feedback?._id)} className="btn-style w-full mt-5">Delete</button>
                         </div>)

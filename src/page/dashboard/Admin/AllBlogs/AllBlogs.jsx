@@ -11,7 +11,6 @@ import Skeleton from "react-loading-skeleton";
 
 const AllBlogs = () => {
   const { AllBlogs, refetch } = useBlogs();
-  // console.log(AllBlogs);
   const [blog, setBlog] = useState(null);
   const axiosSecure = useAxiosSecure();
 
@@ -21,7 +20,6 @@ const AllBlogs = () => {
   };
 
   const handleDelete = (id) => {
-    console.log("delete Button click on id", id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",

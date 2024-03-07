@@ -21,8 +21,6 @@ const TeacherMenu = ({ isActive }) => {
             ];
 
     const location = useLocation();
-
-    // console.log(isActive);
     return (
         <div className="p__cormorant">
         {teacherLinks.map((link, index) => (
@@ -36,7 +34,6 @@ const TeacherMenu = ({ isActive }) => {
                    <Link to={`/dashboard${link}`} className={`flex gap-3 my-2  ${isActive ? 'flex-col justify-center items-center' : ''}`}>
                        {icons[index]}
                        <p className={`flex gap-3  ${isActive ? 'flex-col text-xs  items-start' : ''}`}>{teacherMenu[index]}</p>
-                       {/* <hr className="border-[1px] border-black w-full" style={{color:location.pathname.startsWith(`/dashboard${link}`)? 'green':'black'}}/> */}
                    </Link>
                </li>
            </ol>

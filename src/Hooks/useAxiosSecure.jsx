@@ -3,16 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { logOut } from "../Features/Utilities";
 import axiosSecure from "../api/axiosSecure";
 
-// const axiosSecure = axios.create({
-//     baseURL: 'http://localhost:5000'
-// })
 const useAxiosSecure = () => {
     const navigate = useNavigate();
 
     // request interceptors to add headers for every secure call to the api
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token');
-        // console.log('request stopped by interceptors', token);
         config.headers.authorization = `Bearer ${token}`;
         return config;
     }, function (error) {

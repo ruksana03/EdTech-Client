@@ -4,7 +4,6 @@ import useTeacherNotice from "../../Hooks/useTeacherNotice";
 // teacher Notice
 const NoticeHome = () => {
    const {AllTeacherNotice} = useTeacherNotice();
-   console.log(AllTeacherNotice)
     return (
         <div className="w-8/12 mx-auto">
         <table className="table border mb-8">

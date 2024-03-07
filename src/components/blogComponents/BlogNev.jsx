@@ -9,7 +9,6 @@ import { ImProfile } from "react-icons/im";
 import { useSelector } from "react-redux";
 
 
-
 const BlogNev = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const user = useSelector((state) => state.data.user.user);
@@ -24,7 +23,6 @@ const BlogNev = () => {
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };

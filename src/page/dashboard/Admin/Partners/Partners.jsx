@@ -2,8 +2,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import PartnerSkeleton from "./PartnerSkeleton";
-// import { MdDelete } from "react-icons/md";
-// import toast from "react-hot-toast";
 
 // Define the partner component
 const Partners = () => {
@@ -16,19 +14,6 @@ const Partners = () => {
       return res.data;
     },
   });
-  //   const deletePartner = async (id) => {
-  //     try {
-  //       const { data } = await axiosPublic.delete(`/partners/delete/${id}`);
-
-  //       if (data.deletedCount === 1) {
-  //         await refetch();
-  //         toast.success("partner deleted successfully");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error deleting partner:", error);
-  //       toast.error("Failed to delete partner");
-  //     }
-  //   };
 
   // Return JSX for the Subscriber component
   return (
@@ -80,5 +65,4 @@ const Partners = () => {
   );
 };
 
-// Export the Subscriber component
 export default Partners;

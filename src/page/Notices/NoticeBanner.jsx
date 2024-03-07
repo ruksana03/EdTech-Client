@@ -1,8 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../../Hooks/useUserRole";
-// import useTeacherNotice from "../../Hooks/useTeacherNotice";
-// import useAdminNotice from "../../Hooks/useAdminNotice";
-// import useStudentSpecificNotices from "../../Hooks/useStudentSpecificNotices";
 
 const NoticeBanner = () => {
   const [role, refetch] = useUserRole();

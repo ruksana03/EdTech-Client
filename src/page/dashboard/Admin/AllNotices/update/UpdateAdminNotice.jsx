@@ -33,8 +33,6 @@ const UpdateAdminNotice = () => {
         hostName: user?.name,
         hostEmail: user?.email
       };
-
-      console.log(noticeData);
       axiosPublic.put(`/admin-notice-updated/${_id}`, noticeData).then((res) => {
         if (res.data?.modifiedCount > 0) {
           refetch();
