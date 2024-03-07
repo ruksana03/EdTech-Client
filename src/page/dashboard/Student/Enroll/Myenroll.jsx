@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MyenrollCard from "./MyenrollCard";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+ 
 
 const Myenroll = () => {
   const user = useSelector((state) => state.data.user.user);
@@ -33,7 +33,7 @@ const Myenroll = () => {
         </p>
       ) : (
         <div>
-          <Link to={"/dashboard/my-class/recordedclass"}><button className="btn btn-primary">Go TO Enroll courses</button></Link>
+          
 
           <div className="gird grid-cols-1 mt-12 gap-5">
             {enrolls?.map((enroll) => (
