@@ -1,7 +1,6 @@
 import ManageTask from "../ManageTask/ManageTask";
 const NotesLayout = () => {
 
-  
     return (
         <div className="p__cormorant">
              <div className="ml-6 mt-8 mb-4 text-sm">

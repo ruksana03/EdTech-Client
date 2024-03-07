@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -36,7 +37,7 @@ const Modal = ({ isOpen, setIsOpen, title, children }) => {
                                 <Dialog.Panel className="w-full max-w-xl transform overflow-hidden border border-white rounded-2xl bg-[#0B0807] p-6  text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className=" leading-1 text-4xl font-serif text-first text-center font-bold"
+                                        className=" leading-1 headtext__cormorant text-center  "
                                     >
                                         {title}
                                     </Dialog.Title>

@@ -28,9 +28,7 @@ const UserProfileDropdownContent = ({ user, handleLogout }) => {
                     className={`menu-item ${location.pathname.startsWith('/profile') ? 'active' : ''}`}
                 >
                     <Link to="/dashboard/profile">
-
                         <ImProfile />
-
                         Profile
                     </Link>
                 </li>

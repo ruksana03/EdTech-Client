@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import { useSelector } from "react-redux";
@@ -88,7 +89,6 @@ const ChatRoom = () => {
         })
         .then((response) => {
           // Message sent successfully
-          console.log("Message sent successfully:", response.data);
         })
         .catch((error) => {
           console.error("Error sending message:", error);

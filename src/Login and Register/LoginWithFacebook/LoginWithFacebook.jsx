@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Swal from "sweetalert2";
 import { facebookSignIn } from "../../Features/Utilities";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
@@ -11,7 +12,6 @@ const LoginWithFacebook = () => {
     const handleFacebookSignIn = () => {
         facebookSignIn()
             .then(result => {
-                console.log(result.user);
                 Swal.fire({
                     position: "top-start",
                     icon: "success",
@@ -28,7 +28,6 @@ const LoginWithFacebook = () => {
 
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data);
                         navigate('/');
                     })
             })

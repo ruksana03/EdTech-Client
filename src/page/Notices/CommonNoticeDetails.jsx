@@ -8,7 +8,6 @@ const CommonNoticeDetails = () => {
 
     const data = useLoaderData();
     const {image,date,title,description,hostEmail,hostName,sentForCourse,sentNotices,_id} = data || {};
-    console.log(data);
 
     return (
         <div className="section-container my-12 p__cormorant">

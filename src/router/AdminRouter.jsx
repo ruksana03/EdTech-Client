@@ -7,8 +7,6 @@ import { useSelector } from 'react-redux';
 const AdminRouter = ({ children }) => {
     const [isAdmin] = useAdmin();
     const loading = useSelector(state=>state.data.user.isLoading);
-
-
     if (loading) return <Loader />
     if (isAdmin === 'true') return children
     return <Navigate to='/dashboard' />

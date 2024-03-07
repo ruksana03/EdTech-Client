@@ -16,7 +16,6 @@ import 'regenerator-runtime/runtime'
 const MainLayout = () => {
   const dispatch = useDispatch();
   const axiosPublic = useAxiosPublic();
-  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -46,15 +45,6 @@ const MainLayout = () => {
     };
   }, [dispatch, axiosPublic]);
 
-
-  // useEffect(() => {
-  //   const loadingData = () => {
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //     }, 1000)
-  //   }
-  //   loadingData();
-  // }, [])
 
   return (
     <>

@@ -6,13 +6,6 @@ import { useTranslation } from 'react-i18next';
 
 const Teacher = () => {
   const { t } = useTranslation('global');
-  // const handlePartApply = () => {
-  //   Swal.fire({
-  //     title: 'Partner Available Now!',
-  //     text: 'Please Try again from next week!',
-  //     icon: 'error',
-  //   });
-  // };
 
   return (
     <div className='w-full section-container mx-auto rounded-lg flex flex-col items-center justify-center my-12'>

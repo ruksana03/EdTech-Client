@@ -1,4 +1,4 @@
-import React from 'react';
+
 import '../../components/Footer/NewsLetter.css'
 
 const ResultTable = ({ quiz, selectedOptions }) => {

@@ -1,0 +1,11 @@
+.parallax-container {
+    background-image: url('https://i.ibb.co/X3cZYdv/aaron-burden-6j-Yoil2-Gh-Vk-unsplash.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+}

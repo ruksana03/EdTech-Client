@@ -3,7 +3,6 @@ import useAxiosPublic from "./useAxiosPublic";
 import { useSelector } from "react-redux";
 
 const useCart = () => {
-    //   tanstack query 
     const axiosPublic = useAxiosPublic()
     const user = useSelector((state) => state.data.user.user);
     const {refetch, data:cart=[] } = useQuery({

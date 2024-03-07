@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { Bar } from "recharts";
 import Revenue from "./Revenue/Revenue";
@@ -9,7 +10,6 @@ const Dashboard = () => {
   const[data1, setData]=useState([])
   const[data2, setData2]=useState([])
   const[data3, setData3]=useState([])
-	console.log(data2)
 		const axiosPublic=useAxiosPublic()
 		useEffect(() => {
       
@@ -17,12 +17,11 @@ const Dashboard = () => {
             .then(response => {
                // Handle successful response
                const jsonData = response.data;
-               console.log(jsonData);
                setData(jsonData)
              })
              .catch(error => {
                // Handle error
-               console.error('Error fetching data:', error);
+              //  console.error('Error fetching data:', error);
              });
            
 
@@ -33,7 +32,6 @@ const Dashboard = () => {
       .then(response => {
          // Handle successful response
          const jsonData = response.data;
-         console.log(jsonData);
          setData2(jsonData)
        })
        .catch(error => {
@@ -46,14 +44,12 @@ const Dashboard = () => {
     const orginalData1=data1.filter(data=> data.role==='student')
     const orginalData2=data1.filter(data=> data.role==='teacher')
     const orginalData3=data2.filter(d=> d.transactionId!=false)
-   // console.log(orginalData1)
    let sum=0
     const totalSale= orginalData3.map(d => sum+d.price)
     for(let i=0;i<totalSale.length;i++){
       sum=sum+totalSale[i]
       
     }
-    console.log(data3)
   const data = [
     { name: "Students", value: orginalData1.length },
     { name: "Teachers", value: orginalData2.length },

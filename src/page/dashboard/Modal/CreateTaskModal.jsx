@@ -3,7 +3,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import toast from "react-hot-toast";
-// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
@@ -11,7 +10,6 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { Link, useNavigate } from "react-router-dom";
 
 const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
-    // const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
@@ -26,7 +24,6 @@ const CreateTaskModal = ({ isOpen, closeModal, refetch }) => {
             email: user?.email,
             status: "todo",
         };
-        console.log(typeof (data.deadline));
 
         const { data: res } = await axiosPublic.post("/task", updatedData);
         toast.success("Task Added Successfully");

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
@@ -6,7 +7,6 @@ const Contact = () => {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log("button clicked");
 
     emailjs
       .sendForm(
@@ -17,7 +17,6 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           Swal.fire({
             title: "Congrates🎉",
             text: "Your Information has been Sent..",
@@ -25,7 +24,6 @@ const Contact = () => {
           });
         },
         (error) => {
-          console.log(error.text);
         }
       );
   };
